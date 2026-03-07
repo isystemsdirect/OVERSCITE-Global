@@ -1,0 +1,1395 @@
+UTCB_STAGE_2:
+  stage_id: "UTCB-STAGE-2-LEDGER-SOVEREIGNTY"
+  version: "3.2-FORNSIC-GRADE"
+  objective: "Harden baneLedger into a cryptographically verifiable, tamper-detectable, replay-resistant audit chain."
+
+  doctrine_alignment:
+    - "FBS_OVERSCITE_UNIVERSAL_PRECISION_ARCHITECTURE"
+    - "UTCB-STAGE-2-CRYPTO-AUDIT-HARDENING"
+    - "FBS_OVERSCITE_PRODUCTION_STABILITY_LOCK_V2"
+
+  ledger_engine:
+
+    storage_target: "Firestore.baneLedger"
+    append_only: true
+    mutation_allowed: false
+    deletion_allowed: false
+    client_write_access: false
+    server_write_authority: "orchestrator.ts only"
+
+  hash_chain_specification:
+
+    algorithm: "SHA-256"
+    encoding: "hex"
+    canonicalization_method: "deterministic_sorted_json"
+    floating_point_allowed: false
+    integer_only_fields: true
+
+    required_hash_fields:
+      - inspection_id
+      - inspector_id
+      - measurement_nm
+      - compliance_status
+      - risk_level
+      - timestamp_utc
+      - previous_hash
+
+    forbidden_fields:
+      - floating_point_values
+      - non-deterministic_objects
+      - unordered_maps
+
+  genesis_block:
+
+    required: true
+    previous_hash_value: "GENESIS"
+    timestamp_fixed: true
+    immutability_enforced: true
+
+  chain_integrity_verification:
+
+    verification_modes:
+      - on_startup
+      - on_commit
+      - manual_audit_scan
+
+    full_chain_recompute_supported: true
+    partial_chain_validation_supported: true
+
+    failure_actions:
+      hash_mismatch: "halt_pipeline_and_alert"
+      missing_previous_hash: "reject_commit"
+      reordered_entries: "critical_alert"
+      deleted_record_detected: "critical_alert"
+
+  replay_protection:
+
+    nonce_required: true
+    nonce_storage: "inspectionReports"
+    duplicate_nonce_action: "reject"
+    timestamp_drift_seconds: 60
+    expired_timestamp_action: "reject"
+
+  tamper_detection:
+
+    cross_collection_verification:
+      enabled: true
+      compare:
+        - baneLedger.hash
+        - inspectionReports.hash_reference
+
+    external_snapshot_export:
+      supported: true
+      export_format: "signed_hash_manifest"
+      purpose: "off-platform forensic validation"
+
+  cloud_function_constraints:
+
+    authorized_functions:
+      - orchestrateInspection
+      - ledgerIntegrityScan
+
+    prohibited_operations:
+      - client_direct_hash_write
+      - client_hash_override
+      - manual_hash_injection
+
+  deterministic_requirements:
+
+    json_stringify_rules:
+      keys_sorted: true
+      unicode_normalized: true
+      whitespace_removed: true
+
+    numeric_policy:
+      integer_only: true
+      base_unit: "nanometer"
+      rounding_allowed: false
+
+  resilience_protocol:
+
+    if_firestore_partial_outage:
+      action: "queue_commit_locally_then_verify"
+
+    if_chain_corruption_detected:
+      action: "freeze_new_inspections"
+
+  compliance_flag:
+
+    stage_2_complete_when:
+      - append_only_enforced_by_rules
+      - client_write_disabled
+      - deterministic_canonicalization_verified
+      - replay_protection_active
+      - full_chain_verification_passes
+
+UTCB_STAGE_4:
+  stage_id: "UTCB-STAGE-4-SENSOR-SOVEREIGNTY"
+  version: "4.0-SENSOR-TRUST"
+  objective: "Enforce sensor authenticity, calibration validity, and drift-aware uncertainty propagation."
+
+  sensor_identity:
+
+    unique_id_required: true
+    hardware_signature_required: true
+    manufacturer_id_required: true
+    firmware_version_required: true
+
+    identity_verification:
+      method: "cryptographic_device_signature"
+      public_key_registry: "sensor_registry_collection"
+      mismatch_action: "reject_ingestion"
+
+  calibration_enforcement:
+
+    calibration_timestamp_required: true
+    calibration_expiration_days: 90
+    calibration_authority_signature_required: true
+
+    expiration_action: "reject_measurement"
+    near_expiration_warning_days: 7
+
+  resolution_registry:
+
+    native_resolution_nm_required: true
+    declared_error_margin_nm_required: true
+    dynamic_range_required: true
+
+    registry_cross_check:
+      compare_against_known_device_profile: true
+      mismatch_action: "flag_for_review"
+
+  drift_detection:
+
+    rolling_measurement_window: 50
+    statistical_model: "z_score_analysis"
+    drift_threshold_sigma: 3
+
+    drift_action:
+      - "flag_sensor"
+      - "increase_uncertainty_weight"
+      - "escalate_risk_tier_if_persistent"
+
+  uncertainty_propagation:
+
+    error_margin_must_propagate: true
+    uncertainty_combination_method: "root_sum_square"
+    tolerance_adjustment:
+      apply_uncertainty_multiplier: true
+
+    downstream_effect:
+      risk_engine_receives_adjusted_value: true
+
+  spoofing_protection:
+
+    duplicate_sensor_id_detection: true
+    geo_location_consistency_check: true
+    impossible_measurement_detection: true
+
+    anomaly_action:
+      - "reject"
+      - "log_security_event"
+      - "freeze_sensor"
+
+  ingestion_requirements:
+
+    required_fields:
+      - sensor_id
+      - hardware_signature
+      - calibration_timestamp
+      - measurement_nm
+      - error_margin_nm
+      - timestamp_utc
+
+    forbidden_fields:
+      - floating_point_measurements
+      - unsigned_payloads
+
+  compliance_flag:
+
+    stage_4_complete_when:
+      - sensor_identity_verified
+      - calibration_enforced
+      - drift_detection_active
+      - uncertainty_propagation_operational
+      - spoofing_protection_enabled
+
+UTCB_STAGE_5:
+  stage_id: "UTCB-STAGE-5-DISTRIBUTED-CONSENSUS"
+  version: "5.0-DISTRIBUTED-LEDGER-SOVEREIGNTY"
+  objective: "Ensure ledger integrity across multiple nodes, regions, and offline synchronization states."
+
+  distributed_mode:
+    enabled: true
+    node_identity_required: true
+    region_tag_required: true
+    environment_tag_required: true
+
+  node_identity:
+
+    required_fields:
+      - node_id
+      - region_code
+      - deployment_version
+      - public_key
+
+    node_signature_required: true
+    unsigned_node_action: "reject_sync"
+
+  cross_node_hash_sync:
+
+    sync_interval_seconds: 300
+    sync_method: "hash_manifest_exchange"
+    verification_required: true
+
+    manifest_contents:
+      - latest_hash
+      - ledger_height
+      - node_id
+      - timestamp_utc
+
+  fork_detection:
+
+    fork_condition:
+      - ledger_height_equal
+      - latest_hash_mismatch
+
+    fork_action:
+      - freeze_new_writes
+      - initiate_consensus_protocol
+      - alert_admin
+
+  consensus_protocol:
+
+    strategy: "longest_valid_chain_wins"
+    validation_required:
+      - full_chain_recompute
+      - signature_verification
+      - canonicalization_validation
+
+    tie_breaker:
+      method: "lowest_node_id_hash"
+
+    malicious_node_detection:
+      threshold_invalid_blocks: 3
+      action:
+        - isolate_node
+        - revoke_sync_privileges
+
+  offline_mode:
+
+    offline_allowed: true
+    offline_queue_enabled: true
+    offline_commit_policy: "local_append_only"
+
+    reconnection_protocol:
+      - exchange_hash_manifest
+      - detect_fork
+      - reconcile_or_merge
+      - revalidate_chain
+
+  reconciliation_rules:
+
+    merge_allowed: false
+    rebase_allowed: true
+    forced_override_allowed_by: "Imprint_only"
+
+  cross_region_verification:
+
+    region_cross_check_enabled: true
+    minimum_confirmations_required: 2
+    disagreement_action:
+      - escalate_security_event
+      - freeze_affected_nodes
+
+  tamper_detection_propagation_prevention:
+
+    invalid_chain_broadcast: false
+    quarantine_node_on_invalid_broadcast: true
+
+  distributed_integrity_scan:
+
+    periodic_full_chain_validation: true
+    scan_interval_hours: 24
+
+  compliance_flag:
+
+    stage_5_complete_when:
+      - cross_node_hash_sync_operational
+      - fork_detection_active
+      - consensus_protocol_enforced
+      - offline_reconciliation_verified
+      - malicious_node_isolation_enabled
+
+utcb_enterprise_lock:
+  id: SCING-ENTERPRISE-INDUSTRIAL-LOCK
+  status: LOCKED
+  scope:
+    - OVERSCITE
+    - ScingGPT Enterprise Mode
+    - Vertex Integration
+  doctrine:
+    authority_model:
+      description: >
+        ScingGPT remains sovereign orchestrator and canon enforcement layer.
+        Vertex AI is execution substrate only.
+      rules:
+        - authority_never_resides_in_compute: true
+        - vertex_is_execution_engine_only: true
+        - all_outputs_must_pass_scign_validator: true
+
+  architecture:
+    flow:
+      - component: OVERSCITE_UI
+        role: interface_and_event_trigger
+      - component: SCING_ORCHESTRATOR_SERVICE
+        role: request_signing_context_injection_governance
+      - component: VERTEX_AI_ENDPOINT
+        role: probabilistic_cognitive_execution
+      - component: SCING_CANON_VALIDATOR
+        role: schema_validation_rule_enforcement_audit_logging
+      - component: DATA_STORE
+        role: firestore_bigquery_vector_storage
+
+    restrictions:
+      - direct_ui_to_vertex_calls: forbidden
+      - vertex_endpoint_public_access: forbidden
+      - bypass_scign_validation_layer: forbidden
+
+  enterprise_mode:
+    classification: industrial_grade
+    behavior:
+      temperature: low
+      output_format: structured_json_only
+      personality_expression: disabled
+      reproducibility_required: true
+      audit_logging_required: true
+      model_version_tracking: required
+      schema_validation: mandatory
+      confidence_scoring: mandatory
+      escalation_on_low_confidence: required
+
+  governance:
+    iam:
+      vertex_access: restricted_to_scing_service_account
+      vpc_restrictions: enabled
+    logging:
+      request_timestamp: required
+      response_checksum: required
+      model_version_id: required
+    traffic_management:
+      model_versioning: enabled
+      traffic_splitting: supported
+
+  canon_matrix:
+    vertex_support:
+      - doctrine_embedding
+      - semantic_similarity_analysis
+      - contradiction_flagging
+    authority_rule:
+      - model_output_is_advisory_only: true
+      - canon_rules_override_model_output: true
+
+  risk_controls:
+    deterministic_enforcement: true
+    probabilistic_override_of_rules: prohibited
+    duplicate_input_reproducibility: materially_identical_output_required
+
+  final_assertion:
+    - scing_invokes_vertex: true
+    - vertex_computes: true
+    - scing_decides: true
+    - enterprise_outputs_are_defensible: true
+
+fsb_utcb:
+  - id: OVERSCITE-SPATIAL-STEP-01
+    title: Universal Spatial Ingestion & Normalization Core
+    authority: OVERSCITE Spatial Intelligence Engine
+    objective: >
+      Establish a single canonical spatial object model capable of ingesting,
+      validating, normalizing, and versioning multi-device spatial datasets
+      (phone, LiDAR, drone, industrial scanner, thermal, photogrammetry)
+      into a unified internal schema.
+
+    canonical_object:
+      name: UniversalSpatialObject (USO)
+      description: >
+        A normalized, device-agnostic spatial container that represents
+        geometry, radiometry, metadata, calibration, and accuracy classification.
+
+      structure:
+        identity:
+          uso_id: uuid
+          version: semver
+          timestamp_utc: iso8601
+          source_device_id: string
+          source_device_type: enum [mobile, drone, industrial_lidar, thermal_module, hybrid]
+          capture_method: enum [photogrammetry, tof_depth, lidar, structured_light, thermal_ir, hybrid]
+
+        geometry:
+          coordinate_system: enum [local, georeferenced_wgs84, custom]
+          mesh:
+            vertices: float32_array
+            faces: int32_array
+          point_cloud:
+            enabled: boolean
+            points: float32_array
+          scale_unit: enum [mm, cm, m]
+          bounding_box: float32_array
+          level_of_detail: enum [raw, decimated, optimized, mobile_stream]
+
+        radiometry:
+          rgb_texture:
+            enabled: boolean
+            texture_map: binary
+          thermal_texture:
+            enabled: boolean
+            radiometric: boolean
+            temperature_unit: enum [celsius, fahrenheit, kelvin]
+            temperature_range: float_range
+            calibration_profile_id: string
+
+        sensor_metadata:
+          pose_graph:
+            frames: array
+          imu_data: optional_array
+          depth_map_present: boolean
+          gps_metadata: optional_object
+          environmental_flags:
+            lighting_quality: enum [low, moderate, high]
+            reflective_surface_detected: boolean
+            outdoor_capture: boolean
+
+        accuracy_profile:
+          classification: enum [C_consumer, P_prosumer, I_industrial]
+          estimated_error_margin: float
+          scale_confidence: float
+          alignment_confidence: float
+
+        integrity:
+          checksum: sha256
+          calibration_verified: boolean
+          thermal_calibrated: boolean
+          normalization_status: enum [raw_import, normalized, validated]
+
+    ingestion_pipeline:
+      description: >
+        Unified intake process converting vendor-native formats into USO.
+
+      stages:
+        - stage: raw_import
+          actions:
+            - parse_input_format
+            - extract_geometry
+            - extract_metadata
+            - validate_schema
+
+        - stage: normalization
+          actions:
+            - convert_coordinate_system
+            - unify_scale_units
+            - generate_pose_graph_if_missing
+            - classify_accuracy
+
+        - stage: calibration_validation
+          actions:
+            - verify_scale_reference
+            - verify_thermal_calibration_if_present
+            - compute_error_margin
+
+        - stage: canonicalization
+          actions:
+            - compress_mesh_if_required
+            - assign_uso_id
+            - compute_checksum
+            - mark_normalization_status_validated
+
+    adapter_layer:
+      purpose: >
+        Vendor-specific translators that convert native spatial data
+        into canonical USO format.
+
+      supported_inputs_initial:
+        - ARKit_depth_bundle
+        - ARCore_depth_bundle
+        - COLMAP_output
+        - E57
+        - LAS
+        - PLY
+        - OBJ
+        - Radiometric_IR_frame
+
+    fusion_capability:
+      enabled: true
+      rules:
+        - higher_accuracy_class_dominates_scale
+        - lower_accuracy_conforms_alignment
+        - thermal_layer_maps_to_mesh_uv_coordinates
+        - conflicting_coordinate_systems_resolve_to_global_reference
+
+    output:
+      canonical_storage_format:
+        geometry: glTF_binary
+        compression: Draco_enabled
+        metadata: JSON_schema_v1
+      versioning: immutable_revision_tracking
+
+    compliance:
+      truth_enforcement: >
+        No dataset may elevate its accuracy classification without
+        calibration validation.
+      audit_trail: >
+        All transformations logged with timestamp and processor_id.
+
+  - id: OVERSCITE-SPATIAL-STEP-02
+    title: USO Rendering & Interaction Engine
+    authority: OVERSCITE Spatial Intelligence Engine
+    dependency: OVERSCITE-SPATIAL-STEP-01
+    objective: >
+      Create a device-agnostic rendering and interaction layer that consumes
+      only UniversalSpatialObject (USO) instances and provides scalable,
+      mobile-optimized, and industrial-capable 3D visualization,
+      measurement, and sensor-layer toggling.
+
+    engine_core:
+      rendering_backend:
+        primary: WebGL2
+        secondary_future: WebGPU
+        framework_options:
+          - ThreeJS
+          - BabylonJS
+        shader_model: physically_based_rendering
+
+      scene_management:
+        coordinate_system: inherits_from_USO
+        unit_scale_enforced: true
+        world_origin_normalization: automatic
+        frustum_culling: enabled
+        occlusion_culling: enabled
+        lod_streaming: enabled
+
+      mesh_pipeline:
+        supported_formats:
+          - glTF_binary
+        compression:
+          draco_decode: enabled
+        lod_levels:
+          - raw
+          - decimated
+          - mobile_stream
+        dynamic_lod_switching: based_on_device_gpu_capability
+
+    interaction_controls:
+      camera_modes:
+        - orbit
+        - free_fly
+        - top_down
+        - first_person_inspection
+      gestures_mobile:
+        - pinch_zoom
+        - two_finger_pan
+        - rotate_drag
+      desktop_controls:
+        - mouse_orbit
+        - scroll_zoom
+        - right_click_pan
+
+    visualization_modes:
+      geometry_modes:
+        - textured_rgb
+        - wireframe
+        - shaded_normals
+        - point_cloud
+        - hybrid_mesh_point
+
+      radiometry_modes:
+        - thermal_overlay
+        - thermal_only
+        - thermal_opacity_blend
+        - temperature_gradient_scale
+
+      analysis_modes:
+        - measurement_tool
+        - distance_between_points
+        - surface_area_measure
+        - volume_estimation
+        - cross_section_plane
+        - deviation_heatmap
+        - alignment_compare_mode
+
+    thermal_mapping:
+      activation_condition: USO.radiometry.thermal_texture.enabled == true
+      mapping_method:
+        - uv_projection_from_USO
+        - radiometric_scaling_respected
+      temperature_probe_tool: enabled
+      anomaly_threshold_detection: configurable
+
+    performance_profiles:
+      device_class_detection:
+        - mobile_low
+        - mobile_high
+        - desktop_standard
+        - workstation_gpu
+      adaptive_quality_scaling:
+        texture_resolution: dynamic
+        mesh_decimation: adaptive
+        shader_complexity: scalable
+
+    multi_USO_comparison:
+      supported: true
+      alignment_method:
+        - ICP_alignment
+        - manual_anchor_points
+      visualization:
+        - side_by_side
+        - overlay_blend
+        - delta_color_map
+
+    annotation_layer:
+      annotation_types:
+        - pin_marker
+        - polygon_region
+        - freehand_trace
+        - defect_marker
+      metadata_binding: attached_to_USO_revision
+      version_tracking: immutable_log
+
+    integrity_controls:
+      accuracy_display:
+        show_classification: true
+        show_error_margin: true
+      watermark_if_low_confidence: true
+      prevent_false_precision_scaling: enforced
+
+    output_capabilities:
+      export_formats:
+        - glTF
+        - OBJ
+        - annotated_snapshot_png
+        - annotated_snapshot_pdf
+      share_link_generation: secure_tokenized
+      revision_snapshot: immutable
+
+    compliance:
+      strict_USO_dependency: true
+      no_raw_vendor_rendering: enforced
+      all_visualizations_reference_accuracy_profile: required
+
+  - id: OVERSCITE-SPATIAL-STEP-03
+    title: Multi-Sensor Fusion & Cross-Device Alignment Engine
+    authority: OVERSCITE Spatial Intelligence Engine
+    dependency:
+      - OVERSCITE-SPATIAL-STEP-01
+      - OVERSCITE-SPATIAL-STEP-02
+
+    objective: >
+      Enable alignment, fusion, and comparison of multiple UniversalSpatialObject (USO)
+      instances captured from different devices, resolutions, scales, and timeframes,
+      producing a unified, accuracy-governed spatial synthesis.
+
+    fusion_core:
+
+      input:
+        - multiple_USO_instances
+
+      preconditions:
+        - normalization_status == validated
+        - checksum_verified == true
+
+      coordinate_resolution:
+        method_priority:
+          - georeferenced_wgs84
+          - shared_local_origin
+          - manual_anchor_alignment
+        fallback: manual_anchor_required
+
+      alignment_engine:
+
+        algorithms:
+          - ICP_iterative_closest_point
+          - feature_descriptor_matching
+          - pose_graph_optimization
+          - RANSAC_outlier_rejection
+
+        control_points:
+          manual_anchor_points: supported
+          physical_marker_detection: optional
+          auto_feature_anchor: enabled
+
+        error_metrics:
+          rmse_alignment_error: computed
+          overlap_percentage: computed
+          confidence_score: normalized_0_to_1
+
+      scale_hierarchy_rules:
+
+        dominance_logic:
+          - I_industrial overrides P_prosumer
+          - P_prosumer overrides C_consumer
+          - equal_class resolves via lowest_error_margin
+
+        scaling_constraints:
+          lower_accuracy_scaled_to_higher
+          no_upscaling_of_precision_allowed
+
+      fusion_modes:
+
+        geometry_merge:
+          - point_cloud_union
+          - mesh_reprojection
+          - weighted_average_surface
+
+        radiometry_merge:
+          - thermal_overlay_transfer
+          - multi_spectral_blend
+          - time_weighted_temperature_stack
+
+        temporal_fusion:
+          - baseline_reference_model
+          - incremental_revision_merge
+          - change_detection_map
+
+      conflict_resolution:
+        overlapping_geometry:
+          resolution: higher_confidence_priority
+        inconsistent_temperature_data:
+          resolution: radiometric_calibration_priority
+        scale_discrepancy_threshold:
+          if_exceeds: require_manual_validation
+
+      output:
+
+        fused_USO:
+          inherits_metadata: true
+          parent_revisions: array
+          fusion_timestamp: iso8601
+          fusion_confidence_score: float
+          composite_accuracy_class: enum
+
+        delta_analysis:
+          geometry_deviation_map: float_array
+          temperature_delta_map: float_array
+          structural_shift_vectors: float_array
+
+    time_series_engine:
+
+      version_chain:
+        immutable_revision_tracking: true
+        baseline_locking: supported
+
+      change_detection:
+
+        geometry:
+          surface_displacement_mm: computed
+          volumetric_change: computed
+          crack_growth_estimate: optional_AI
+
+        thermal:
+          persistent_hotspot_detection: enabled
+          abnormal_cooling_pattern: enabled
+          heat_drift_over_time: tracked
+
+      visualization_binding:
+        integrates_with_step_02:
+          - delta_color_map
+          - overlay_blend_mode
+          - timeline_slider
+
+    integrity_enforcement:
+
+      fusion_requires_accuracy_visibility: true
+      block_false_precision_merging: enforced
+      audit_log:
+        store_alignment_parameters: true
+        store_error_metrics: true
+        store_user_override_actions: true
+
+    performance_controls:
+
+      background_processing: async_compute
+      heavy_alignment_tasks: cloud_preferred
+      preview_mode_alignment: low_resolution_fast_pass
+
+    compliance:
+
+      no_device_bias: enforced
+      accuracy_class_never_upgraded_without_calibration: true
+      all_fusion_outputs_traceable_to_source_USOs: required
+
+  - id: OVERSCITE-SPATIAL-STEP-04
+    title: Spatial Intelligence & Anomaly Detection Engine
+    authority: OVERSCITE Spatial Intelligence Engine
+    dependency:
+      - OVERSCITE-SPATIAL-STEP-01
+      - OVERSCITE-SPATIAL-STEP-02
+      - OVERSCITE-SPATIAL-STEP-03
+
+    objective: >
+      Introduce AI-driven analysis over fused UniversalSpatialObjects (USOs),
+      enabling automated defect detection, structural deviation analysis,
+      thermal anomaly recognition, and risk scoring.
+
+    intelligence_core:
+
+      input:
+        - validated_USO
+        - fused_USO
+        - historical_revision_chain
+
+      analysis_domains:
+
+        geometry_analysis:
+          crack_detection:
+            method: CNN_surface_pattern_model
+            minimum_detectable_width_mm: configurable
+          surface_deformation:
+            threshold_mm: configurable
+          volumetric_loss_detection:
+            enabled: true
+          misalignment_detection:
+            tolerance_mm: configurable
+
+        thermal_analysis:
+          hotspot_detection:
+            persistent_over_time: true
+            delta_threshold_celsius: configurable
+          abnormal_cooling_pattern:
+            gradient_analysis: enabled
+          moisture_signature_estimation:
+            correlation_model: enabled
+
+        structural_change_tracking:
+          displacement_vectors: computed
+          settlement_detection: enabled
+          stress_indicator_inference: optional_model
+
+      model_governance:
+
+        training_data_profile:
+          source_type: industrial_verified_datasets
+          augmentation: controlled
+          bias_evaluation: mandatory
+
+        inference_mode:
+          deterministic_threshold_first: true
+          ai_assisted_second: true
+
+        confidence_scoring:
+          output_range: 0_to_1
+          low_confidence_flag: visible_to_user
+
+      anomaly_registry:
+
+        anomaly_id: uuid
+        type: enum
+        severity_score: 0_to_100
+        confidence_score: 0_to_1
+        location_coordinates: float_array
+        linked_USO_revision: required
+        timestamp_detected: iso8601
+
+      visualization_binding:
+        integrates_with_step_02:
+          - highlight_overlay
+          - severity_color_scale
+          - anomaly_toggle_layer
+          - click_to_inspect_metadata
+
+      enforcement:
+        no_ai_override_of_accuracy_class: true
+        all_ai_outputs_traceable: required
+        manual_validation_override_logged: mandatory
+
+  - id: OVERSCITE-SPATIAL-STEP-05
+    title: Predictive Risk Modeling & Operational Intelligence Layer
+    authority: OVERSCITE Spatial Intelligence Engine
+    dependency:
+      - OVERSCITE-SPATIAL-STEP-01
+      - OVERSCITE-SPATIAL-STEP-02
+      - OVERSCITE-SPATIAL-STEP-03
+      - OVERSCITE-SPATIAL-STEP-04
+
+    objective: >
+      Transform anomaly detection outputs into predictive risk forecasts,
+      maintenance recommendations, and operational intelligence insights.
+
+    predictive_engine:
+
+      inputs:
+        - anomaly_registry
+        - historical_USO_time_series
+        - environmental_metadata
+        - usage_patterns_if_available
+
+      forecasting_models:
+
+        geometry_forecasting:
+          crack_growth_projection:
+            regression_model: enabled
+          settlement_rate_estimation:
+            time_weighted_analysis: true
+          deformation_acceleration_detection:
+            enabled: true
+
+        thermal_forecasting:
+          hotspot_persistence_prediction:
+            temporal_trend_model: enabled
+          insulation_failure_projection:
+            confidence_scored: true
+          equipment_overheat_risk:
+            probability_model: enabled
+
+      risk_scoring_framework:
+
+        risk_score:
+          range: 0_to_100
+          components:
+            - severity_weight
+            - confidence_weight
+            - time_acceleration_factor
+            - accuracy_class_modifier
+
+        classification:
+          - informational
+          - advisory
+          - critical
+          - immediate_action_required
+
+        auditability:
+          score_derivation_trace: stored
+          model_version_logged: mandatory
+
+      maintenance_recommendation_engine:
+
+        output_type:
+          - monitor_only
+          - schedule_inspection
+          - recommend_repair
+          - urgent_intervention
+
+        recommendation_confidence: 0_to_1
+        human_review_required_for_critical: true
+
+      operational_integration:
+
+        export_channels:
+          - inspection_report_pdf
+          - structured_JSON_API
+          - enterprise_dashboard_feed
+
+        event_triggering:
+          anomaly_threshold_crossed: notify
+          rapid_change_detected: notify
+          critical_risk_score: escalate
+
+      governance:
+
+        no_automatic_actuation_without_human_authorization: enforced
+        model_drift_monitoring: enabled
+        periodic_recalibration_required: configurable
+        transparency_log: immutable
+
+  - id: OVERSCITE-SPATIAL-STEP-06-THROUGH-FINAL
+    title: Distributed Federation, Governance & Infrastructure Core
+    authority: OVERSCITE Spatial Intelligence Engine
+    dependency:
+      - OVERSCITE-SPATIAL-STEP-01
+      - OVERSCITE-SPATIAL-STEP-02
+      - OVERSCITE-SPATIAL-STEP-03
+      - OVERSCITE-SPATIAL-STEP-04
+      - OVERSCITE-SPATIAL-STEP-05
+
+    objective: >
+      Scale OVERSCITE from single-object spatial intelligence into
+      distributed, enterprise-grade, multi-site, multi-organization
+      infrastructure with full governance, automation, compliance,
+      and federated intelligence capabilities.
+
+    distributed_spatial_federation:
+
+      multi_site_management:
+        site_id: uuid
+        asset_grouping: hierarchical
+        geospatial_indexing: enabled
+        cross_site_comparison: supported
+        portfolio_risk_scoring: aggregated
+
+      cross_asset_intelligence:
+        anomaly_pattern_recognition_across_assets: enabled
+        systemic_failure_detection: supported
+        correlated_thermal_anomaly_mapping: enabled
+        region_wide_structural_trend_analysis: supported
+
+      spatial_database_layer:
+        indexing_method:
+          - spatial_octree
+          - kd_tree
+          - geohash_index
+        query_capabilities:
+          - spatial_range_query
+          - anomaly_severity_query
+          - time_series_query
+          - risk_score_threshold_query
+
+    enterprise_governance:
+
+      role_based_access_control:
+        roles:
+          - field_inspector
+          - structural_engineer
+          - thermal_specialist
+          - risk_manager
+          - enterprise_admin
+        permission_matrix: enforced
+
+      audit_and_traceability:
+        full_revision_chain_visibility: required
+        fusion_parameters_logged: mandatory
+        ai_model_version_traceable: required
+        user_override_actions_logged: immutable
+
+      compliance_framework:
+        regulatory_alignment:
+          - ISO_structural_guidelines_support
+          - building_code_reference_attachment
+          - inspection_standard_mapping
+        exportable_audit_report: enabled
+
+    automation_engine:
+
+      rule_based_triggers:
+        - risk_score_above_threshold
+        - anomaly_growth_rate_exceeds_limit
+        - persistent_thermal_hotspot
+        - sudden_geometric_displacement
+
+      notification_channels:
+        - email
+        - secure_dashboard_alert
+        - webhook_API
+        - enterprise_event_bus
+
+      workflow_integration:
+        - maintenance_ticket_generation
+        - inspection_reschedule_trigger
+        - escalation_protocol
+
+    distributed_compute_architecture:
+
+      compute_modes:
+        - edge_processing_mobile
+        - hybrid_edge_cloud
+        - cloud_heavy_alignment
+        - enterprise_private_cluster
+
+      workload_distribution:
+        heavy_fusion_tasks: cloud_preferred
+        real_time_preview: edge
+        predictive_modeling: asynchronous_compute
+
+      horizontal_scaling:
+        containerized_services: required
+        auto_scaling_enabled: true
+        load_balancing: enforced
+
+    data_integrity_and_security:
+
+      encryption:
+        data_at_rest: AES256
+        data_in_transit: TLS1_3
+
+      identity_management:
+        SSO_support: true
+        MFA_enforcement: configurable
+
+      tamper_detection:
+        checksum_validation_on_load: mandatory
+        anomaly_in_revision_chain_flagged: true
+
+      zero_trust_architecture: supported
+
+    interoperability:
+
+      api_layer:
+        REST_API: enabled
+        GraphQL_optional: supported
+        secure_webhooks: supported
+
+      integration_targets:
+        - enterprise_asset_management_systems
+        - BIM_platforms
+        - GIS_systems
+        - inspection_reporting_tools
+
+      export_formats:
+        - glTF
+        - E57
+        - LAS
+        - structured_JSON
+        - compliance_ready_PDF
+
+    performance_governance:
+
+      adaptive_quality_scaling:
+        device_gpu_detection: automatic
+        mesh_lod_switching: dynamic
+        thermal_texture_resolution_scaling: adaptive
+
+      large_portfolio_optimization:
+        progressive_model_streaming: enabled
+        background_precomputation_of_risk_scores: enabled
+
+    federation_intelligence_layer:
+
+      aggregated_risk_index:
+        site_level_score: computed
+        regional_score: computed
+        enterprise_score: computed
+
+      anomaly_cluster_detection:
+        cross_asset_similarity_analysis: enabled
+        systemic_failure_warning: supported
+
+      long_term_trend_engine:
+        geometric_drift_over_years: tracked
+        thermal_efficiency_decay_curve: modeled
+        structural_health_index: computed
+
+    human_control_enforcement:
+
+      no_autonomous_physical_action: enforced
+      critical_decisions_require_human_validation: mandatory
+      ai_recommendations_cannot_override_certified_engineer: enforced
+
+    resilience_and_continuity:
+
+      backup_strategy:
+        multi_region_replication: supported
+        snapshot_frequency: configurable
+
+      disaster_recovery:
+        rapid_restore_capability: required
+        integrity_reverification_on_restore: mandatory
+
+    future_extension_hooks:
+
+      additional_sensor_domain_support:
+        - acoustic_analysis
+        - vibration_monitoring
+        - humidity_mapping
+        - strain_gauge_input
+
+      plugin_architecture:
+        adapter_registration_system: modular
+        third_party_algorithm_sandbox: isolated_execution
+
+FBS_UTCB:
+  id: OVERSCITE-NAV-COMMAND-ULTRAGRADE-001
+  classification: ULTRA_GRADE
+  system_scope: NAV-Command™ (Geospatial & Atmospheric Fusion Layer)
+  governance:
+    powered_by: "Powered by Scing®"
+    governed_by: "Governed by SCINGULAR™"
+    copyright: "Copyright © 2026 Inspection Systems Direct Inc."
+    doctrine_alignment:
+      - ABFI Integrity Enforcement
+      - Inspector Authority Supremacy
+      - Non-Dependency Sovereignty Rule
+      - Metadata Over Media Principle
+      - Deterministic Inspection Core Isolation
+
+  PURPOSE:
+    description: >
+      Replace legacy Weather Command with NAV-Command™ —
+      a unified Spatial-Environmental Intelligence Command Center
+      integrating geospatial mapping systems and atmospheric data streams
+      into a single Ultra-Grade dynamic inspection interface.
+    objectives:
+      - Fuse geospatial and weather intelligence
+      - Deliver force-based structural context modeling
+      - Enhance inspection preparation and risk awareness
+      - Maintain offline continuity
+      - Achieve high-performance dynamic UI ("Dynamacy")
+
+  CORE_ARCHITECTURE:
+    data_sources:
+      geospatial:
+        - Google_Maps_Geocoding
+        - Google_Elevation_API
+        - Google_Distance_Matrix
+        - Google_Street_View_Static
+      atmospheric:
+        - Weather_API_Current
+        - Weather_API_Forecast
+        - Historical_Storm_Data_Service
+        - UV_Index_Service
+
+    fusion_pipeline:
+      - GeoProfile_Object
+      - AtmosProfile_Object
+      - NAV_Fusion_Engine
+      - NavEnvironmentalProfile
+      - Ultra_Grade_UI_Renderer
+
+    sovereignty_rules:
+      - No third-party API dependency for report validity
+      - Cached environmental snapshot stored per inspection
+      - Inspector observation overrides all environmental inference
+      - All probabilistic modeling clearly labeled
+
+  GEO_PROFILE_OBJECT:
+    fields:
+      lat: float
+      lng: float
+      elevation_structure: float
+      elevation_street: float
+      slope_percent: float
+      slope_vector_bearing: degrees
+      structure_orientation_bearing: degrees
+      routing_distance_meters: integer
+      routing_duration_seconds: integer
+      retrieval_timestamp_utc: datetime
+
+  ATMOS_PROFILE_OBJECT:
+    fields:
+      current_conditions:
+        temperature: float
+        humidity: float
+        wind_speed: float
+        wind_direction: degrees
+        precipitation_rate: float
+        uv_index: float
+      forecast_snapshot:
+        24hr: object
+        72hr: object
+        7day: object
+      historical_summary:
+        30day_precip_total: float
+        12month_storm_index: integer
+      retrieval_timestamp_utc: datetime
+
+  NAV_ENVIRONMENTAL_PROFILE:
+    derived_fields:
+      wind_exposure_score: float
+      drainage_stress_score: float
+      uv_degradation_weight: float
+      storm_impact_probability: float
+      inspection_scheduling_risk_score: float
+      environmental_risk_index: composite_score
+
+    derivation_logic:
+      - wind_direction + orientation_bearing → windward_facade_weighting
+      - slope_vector + precipitation_forecast → drainage_risk_weight
+      - uv_index + roof_orientation → uv_exposure_bias
+      - storm_history + structure_age → impact_probability
+      - routing + weather_forecast → scheduling_risk
+
+    classification:
+      all_outputs: probabilistic_advisory
+      never_authoritative: true
+
+  UI_ARCHITECTURE:
+    design_principle: >
+      Ultra-Grade Dynamacy —
+      kinetic intelligence visualization without visual noise.
+
+    layout_zones:
+      header_band:
+        - coordinates_display
+        - elevation_delta
+        - orientation_compass_ring
+      center_visual_field:
+        - interactive_map
+        - wind_vector_overlay
+        - drainage_arrow_overlay
+        - uv_heat_gradient
+        - storm_track_overlay
+      right_command_panel:
+        - Environmental_Risk_Index
+        - Attention_Zones
+        - Scheduling_Risk_Score
+        - Inspector_Override_Toggle
+      bottom_timeline:
+        - forecast_scrubber
+        - storm_history_slider
+
+    performance_rules:
+      - GPU_accelerated_overlays
+      - Vector_based_animations_only
+      - Throttled_refresh_intervals
+      - No continuous API polling
+      - Graceful_degradation_offline
+
+  API_EXECUTION_POLICY:
+    address_entry:
+      geocode_once: true
+      cache_permanent: true
+
+    inspection_creation:
+      elevation_batch_query: true
+      weather_snapshot_pull: true
+      cache_snapshot: true
+
+    manual_refresh:
+      inspector_initiated_only: true
+      timestamp_update_required: true
+
+    cost_controls:
+      - API_call_logging
+      - Rate_limit_enforcement
+      - Usage_alert_thresholds
+      - Feature_flag_routing_module
+
+  OFFLINE_CONTINUITY:
+    rules:
+      - All inspection reporting functions independent of NAV-Command™
+      - Cached NavEnvironmentalProfile used offline
+      - UI overlays disabled gracefully
+      - Environmental data labeled with last_sync_timestamp
+      - No inspection data corruption permitted
+
+  DYNAMACY_ENGINE:
+    visual_behavior:
+      - wind_vectors animate according to live wind_direction
+      - drainage_arrows pulse under precipitation forecast
+      - UV gradient shifts based on sun angle modeling
+      - storm tracks render directional motion path
+      - risk index emits subtle pulse indicator
+
+    interaction_behavior:
+      - layer_toggle_system
+      - risk_weight_tooltips
+      - hover_based_explanations
+      - inspector_override_highlight
+
+    constraint:
+      motion_never_decorative: true
+      motion_always_informational: true
+
+  STRATEGIC_POSITIONING:
+    statement: >
+      NAV-Command™ introduces a Unified Spatial-Environmental
+      Intelligence Command Center, dynamically modeling the
+      forces acting on a structure in real time.
+    differentiation:
+      - Force-based inspection context
+      - Elevation-aware drainage modeling
+      - Wind-oriented facade emphasis
+      - UV degradation weighting
+      - Storm-path contextualization
+      - Scheduling risk intelligence
+
+  FUTURE_EXPANSION:
+    - FEMA_flood_overlay
+    - Climate_zone_mapping
+    - Solar_azimuth_precision_model
+    - Insurance_risk_export_layer
+    - Regional_defect_clustering
+    - Environmental_trend_prediction_AI
+
+  STATUS:
+    readiness: ARCHITECTURE_COMPLETE
+    integration_priority: CRITICAL
+    implementation_phase: ENGINEERING_REQUIRED
+    UI_classification: ULTRA_GRADE_DYNAMIC

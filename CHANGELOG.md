@@ -1,10 +1,31 @@
 # Changelog
 
+<<<<<<< HEAD
+All notable changes to the OVERSCITE / ScingOS project will be documented in this file.
+=======
 All notable changes to ScingOS will be documented in this file.
+>>>>>>> aa9ee9cd747f5f1604e558ef63723f53726e88e7
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<<<<<<< HEAD
+## [Unreleased]
+
+## [0.1.0-alpha.1] - 2025-02-14
+
+### Added
+- Initial consolidated release of OVERSCITE platform
+- ScingOS Client (v0.1.0-alpha.1)
+- ScingOS Cloud Functions (v0.1.0-alpha.1)
+- ScingOS AI Drone Control (v0.1.0-alpha.1)
+
+### Changed
+- Standardized all package versions to `0.1.0-alpha.1` to establish a baseline.
+
+### Fixed
+- Inconsistent versioning across different project modules.
+=======
 ---
 
 ## [Unreleased]
@@ -98,3 +119,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 *Powered by SCINGULAR AI | Built with Bona Fide Intelligence*
+>>>>>>> aa9ee9cd747f5f1604e558ef63723f53726e88e7

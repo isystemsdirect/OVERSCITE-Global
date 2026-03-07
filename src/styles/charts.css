@@ -1,0 +1,11 @@
+.--color-Final {
+    background-color: hsl(var(--chart-1));
+}
+
+.--color-In_Progress {
+    background-color: hsl(var(--chart-2));
+}
+
+.--color-Draft {
+    background-color: hsl(var(--chart-3));
+}

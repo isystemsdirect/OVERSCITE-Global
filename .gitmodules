@@ -1,0 +1,3 @@
+[submodule "OVERSCITE"]
+	path = OVERSCITE
+	url = https://github.com/isystemsdirect/ISDCProtocol2025.git

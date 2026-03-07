@@ -1,0 +1,274 @@
+
+{
+  "inspector_categories": [
+    {
+      "industry_sector": "Engineering",
+      "inspector_types": [
+        {
+          "official_title": "Civil Infrastructure Inspector",
+          "description": "Responsible for inspecting public infrastructure projects (e.g., roadways, bridges, utilities) during and after construction to ensure compliance with design plans, specifications, and engineering standards:contentReference[oaicite:0]{index=0}. Duties include observing construction activities, measuring materials and structures, performing tests (e.g., concrete strength, soil compaction), and documenting findings to verify that all work meets quality and safety requirements. Civil inspectors coordinate with engineers and contractors to resolve issues and recommend corrective actions, ensuring the integrity of infrastructure and adherence to technical specifications.",
+          "qualifications": [
+            "Bachelor's degree in Civil Engineering, Construction Management, or related field (or equivalent field experience):contentReference[oaicite:1]{index=1}",
+            "Professional Engineer (PE) license or equivalent certification often required for advanced roles",
+            "Certification in public works inspection (e.g., APWA CPII) or state Department of Transportation training is advantageous"
+          ],
+          "tools": [
+            "Surveying equipment (total station, theodolite, GPS) for precise measurements",
+            "Nondestructive testing tools (ultrasonic, ground-penetrating radar) for inspecting structures",
+            "Drones with high-resolution cameras for aerial site surveys",
+            "Construction management software (e.g., BIM, Procore) and mobile data collection apps"
+          ],
+          "frameworks": [
+            "APWA Public Works Standards and AASHTO guidelines for highway and bridge construction:contentReference[oaicite:2]{index=2}",
+            "OSHA construction safety regulations (US) or equivalent EU Directives for site safety",
+            "International Building Code (IBC), local civil codes, and ISO 9001 (quality management)"
+          ]
+        },
+        {
+          "official_title": "Electrical Inspector",
+          "description": "A specialist who inspects electrical systems in buildings and facilities to verify compliance with electrical codes and safety standards:contentReference[oaicite:3]{index=3}. Responsibilities include examining wiring, circuit installations, and electrical components; reviewing electrical plans and schematics; conducting tests (voltage, continuity, insulation, ground fault protection); and ensuring adherence to the National Electrical Code (NEC) and local ordinances. Electrical inspectors identify and document any code violations or hazards, issue reports, and mandate corrective actions to prevent electrical fires, shocks, or failures.",
+          "qualifications": [
+            "High school diploma plus completion of an electrical apprenticeship program (4-5 years):contentReference[oaicite:4]{index=4}",
+            "Journeyman or Master Electrician license (state-specific):contentReference[oaicite:5]{index=5}",
+            "Certification by the International Association of Electrical Inspectors (IAEI) or NFPA (e.g., NEC-related) is preferred:contentReference[oaicite:6]{index=6}"
+          ],
+          "tools": [
+            "Digital multimeter, voltage tester, and circuit tracer:contentReference[oaicite:7]{index=7}",
+            "Insulation resistance tester and clamp meter",
+            "Thermal imaging camera to detect overheating connections or components:contentReference[oaicite:8]{index=8}",
+            "Inspection software and mobile devices loaded with electrical code references"
+          ],
+          "frameworks": [
+            "NFPA 70 (National Electrical Code) and local electrical codes:contentReference[oaicite:9]{index=9}",
+            "OSHA electrical safety standards (e.g., 29 CFR 1910 Subpart S) and lockout/tagout rules:contentReference[oaicite:10]{index=10}",
+            "IEC 60364 (international electrical installations) and relevant national safety regulations"
+          ]
+        },
+        {
+          "official_title": "Quality Control Inspector (Manufacturing)",
+          "description": "Ensures manufactured products meet quality standards and specifications. Duties include examining and testing materials or finished goods for defects or deviations from design specifications:contentReference[oaicite:11]{index=11}. Quality inspectors read blueprints, perform measurements, and operate testing equipment to verify product dimensions, material properties, and performance. They document inspection results, recommend process adjustments, and help implement corrective actions to maintain production quality and prevent defective products from reaching customers.",
+          "qualifications": [
+            "High school diploma; technical or vocational training in quality control or engineering preferred",
+            "Experience with precision measurement tools and electronic inspection equipment",
+            "Certification from the American Society for Quality (ASQ) or similar credentials is a plus"
+          ],
+          "tools": [
+            "Handheld measuring devices (calipers, micrometers, gauges):contentReference[oaicite:12]{index=12}",
+            "Coordinate-measuring machine (CMM) and 3D scanners for complex geometries",
+            "Electronic testing equipment (e.g., voltmeters, oscilloscopes) for functional checks",
+            "Quality management software for data logging and reporting"
+          ],
+          "frameworks": [
+            "ISO 9001 (Quality Management Systems) and industry-specific standards (e.g., IATF 16949 for automotive)",
+            "OSHA regulations governing manufacturing safety",
+            "ASTM and ANSI standards relevant to materials and measurements"
+          ]
+        }
+      ]
+    },
+    {
+      "industry_sector": "Safety",
+      "inspector_types": [
+        {
+          "official_title": "Health and Safety Inspector",
+          "description": "Ensures workplace compliance with health and safety regulations to protect employees and the public:contentReference[oaicite:13]{index=13}. Responsibilities include conducting inspections of facilities and equipment to identify hazards (chemical, electrical, ergonomic, etc.), performing risk assessments, and auditing safety programs. They document violations, recommend corrective actions, and contribute to developing safety policies and training programs. Investigating accidents and promoting a culture of safety are also key duties of this role.",
+          "qualifications": [
+            "Bachelor's degree in Occupational Health and Safety, Environmental Science, or related field:contentReference[oaicite:14]{index=14}",
+            "3+ years of experience in safety or regulatory compliance roles:contentReference[oaicite:15]{index=15}",
+            "Certifications such as Certified Safety Professional (CSP) or NEBOSH Diploma are highly valued:contentReference[oaicite:16]{index=16}"
+          ],
+          "tools": [
+            "Safety assessment instruments (gas detectors, noise monitors, ventilation testers)",
+            "Personal protective equipment (PPE) for field evaluations",
+            "Inspection checklists and software for reporting findings",
+            "Data analysis tools (Excel, safety management platforms)"
+          ],
+          "frameworks": [
+            "OSHA regulations (e.g., 29 CFR 1910) or national occupational safety laws",
+            "ISO 45001 (Occupational Health and Safety Management) and ISO 14001 (Environmental Management)",
+            "Industry-specific standards (e.g., NFPA fire safety codes, ANSI Z244.1 for lockout/tagout)"
+          ]
+        },
+        {
+          "official_title": "Fire Safety Inspector",
+          "description": "Conducts inspections of buildings and facilities to ensure compliance with fire codes and standards. The inspector evaluates fire suppression systems (sprinklers, extinguishers), alarms, emergency lighting, and means of egress. They identify fire hazards, review evacuation plans, and may observe fire drills. Reports are issued for any violations, and inspectors enforce corrections to mitigate fire risks and protect occupants.",
+          "qualifications": [
+            "Background as a firefighter or fire officer; certification as a Fire Inspector (NFPA 1031 or equivalent)",
+            "In-depth knowledge of fire codes (e.g., NFPA 1, International Fire Code) and fire protection systems",
+            "Strong analytical and communication skills to enforce regulations"
+          ],
+          "tools": [
+            "Thermal imaging cameras and gas detectors to identify hidden fire risks",
+            "Testing equipment for fire alarms, sprinkler pressure gauges, and smoke control",
+            "Building plans and fire code manuals (digital or print) for reference",
+            "Personal protective gear for building entry as needed"
+          ],
+          "frameworks": [
+            "NFPA standards (e.g., NFPA 1, NFPA 101 Life Safety Code, NFPA 13 for sprinklers)",
+            "International Fire Code (IFC) and local fire safety ordinances",
+            "OSHA standards related to fire prevention (29 CFR 1910 Subpart L) and National Fire Codes"
+          ]
+        }
+      ]
+    },
+    {
+      "industry_sector": "Drone Operations",
+      "inspector_types": [
+        {
+          "official_title": "Drone (UAS) Inspector",
+          "description": "Uses unmanned aerial vehicles (drones) to inspect infrastructure and assets in hard-to-reach areas:contentReference[oaicite:17]{index=17}. Tasks include planning and conducting aerial inspection flights, capturing high-resolution images or video of structures (roofs, towers, pipelines, bridges), and analyzing this data to assess condition or detect defects. Findings are documented in detailed reports. Drone inspectors also perform routine equipment checks and ensure compliance with aviation and safety regulations during operations:contentReference[oaicite:18]{index=18}.",
+          "qualifications": [
+            "Remote Pilot Certificate (FAA Part 107 in the U.S.) or equivalent national UAV operator license:contentReference[oaicite:19]{index=19}",
+            "Experience with drone operation, aerial imaging, and photogrammetry software:contentReference[oaicite:20]{index=20}",
+            "Technical background in engineering, surveying, or a related field often preferred",
+            "Attention to detail, problem-solving skills, and strong communication abilities:contentReference[oaicite:21]{index=21}"
+          ],
+          "tools": [
+            "Unmanned Aerial Vehicles equipped with high-resolution cameras and LiDAR/thermal sensors",
+            "GPS/RTK units for precise navigation and geotagging of images",
+            "Photogrammetry and mapping software (e.g., Pix4D, DroneDeploy) to create 3D models",
+            "Tablets or laptops with inspection software and data analysis tools"
+          ],
+          "frameworks": [
+            "FAA Part 107 regulations (U.S.) or EASA/national UAS regulations",
+            "ICAO UAS standards and recommended practices",
+            "OSHA and industry safety guidelines for working at heights and with aerial equipment"
+          ]
+        }
+      ]
+    },
+    {
+      "industry_sector": "Agriculture",
+      "inspector_types": [
+        {
+          "official_title": "Agricultural Inspector",
+          "description": "Ensures compliance with agricultural laws and quality standards in farming and food production:contentReference[oaicite:22]{index=22}. Inspectors examine crops, livestock, facilities, and equipment to detect pests, diseases, or sanitation issues. They collect samples (produce, soil, water) for laboratory testing, evaluate animal health and handling, and verify that storage and transportation meet safety and grading regulations. Agricultural inspectors enforce pesticide usage rules and organic certification standards as applicable.",
+          "qualifications": [
+            "Bachelor's degree in Agriculture, Biology, Environmental Science, or related field (experience may substitute)",
+            "Knowledge of plant pathology, entomology, animal health, and food safety protocols",
+            "Training or certification from regulatory agencies (e.g., USDA APHIS, FDA) in inspection procedures"
+          ],
+          "tools": [
+            "Soil and plant test kits, moisture meters, refractometers for crop analysis",
+            "GPS devices and drones for monitoring large farmland areas",
+            "Sampling tools (scales, nets, syringes) for collecting specimens",
+            "Mobile devices or software for data entry and reporting"
+          ],
+          "frameworks": [
+            "USDA regulations (e.g., Plant Protection Act, Animal Health Protection Act) and EPA pesticide/fertilizer rules",
+            "FDA and USDA food safety standards (HACCP, FSIS regulations for meat/poultry)",
+            "International standards (Codex Alimentarius, WTO SPS Agreement) relevant to agricultural trade"
+          ]
+        }
+      ]
+    },
+    {
+      "industry_sector": "Commercial",
+      "inspector_types": [
+        {
+          "official_title": "Commercial Building Inspector",
+          "description": "Inspects commercial (and large residential) buildings during construction and renovation to ensure compliance with building codes, zoning laws, and safety standards:contentReference[oaicite:23]{index=23}. They examine structural and architectural elements, review construction plans and engineering calculations, and verify that all work adheres to applicable codes. Inspectors document results in written reports and coordinate with architects, engineers, and contractors to clarify code requirements and correct violations.",
+          "qualifications": [
+            "High school diploma or equivalent (Bachelor’s in Construction Management or Engineering preferred):contentReference[oaicite:24]{index=24}",
+            "Certified Building Inspector credentials (e.g., ICC Commercial Building Inspector) required or obtained within probationary period:contentReference[oaicite:25]{index=25}",
+            "Strong knowledge of local building and energy codes, and ability to interpret plans"
+          ],
+          "tools": [
+            "Tape measures, levels, and laser distance meters for on-site measurements",
+            "Digital camera or tablet for documenting construction progress",
+            "Blueprints and code manuals (paper or digital) for reference",
+            "Inspection and reporting software to record findings"
+          ],
+          "frameworks": [
+            "International Building Code (IBC) and local building codes:contentReference[oaicite:26]{index=26}",
+            "OSHA construction safety regulations (29 CFR 1926) for site safety",
+            "NFPA codes related to life safety (e.g., NFPA 5000) and local fire codes"
+          ]
+        }
+      ]
+    },
+    {
+      "industry_sector": "Construction",
+      "inspector_types": [
+        {
+          "official_title": "Construction Field Inspector",
+          "description": "Monitors construction sites to verify compliance with project plans, specifications, and safety regulations:contentReference[oaicite:27]{index=27}. This includes conducting on-site inspections at various stages (foundation, framing, finishing), examining construction materials and workmanship for quality, and comparing work to blueprints. Inspectors document any code violations or safety hazards and prepare detailed reports. They communicate findings to project managers and ensure corrective actions are implemented to meet all regulatory and quality standards.",
+          "qualifications": [
+            "High school diploma or equivalent; Bachelor’s degree in Construction Management or Civil Engineering preferred:contentReference[oaicite:28]{index=28}",
+            "3-5 years of experience in construction inspection or a related field",
+            "Certifications such as ICC Building Inspector/Plans Examiner or OSHA 30-Hour (construction) are preferred:contentReference[oaicite:29]{index=29}"
+          ],
+          "tools": [
+            "Measuring tools (laser distance meter, level) and testing equipment (e.g., concrete test kits)",
+            "Mobile devices with construction inspection software",
+            "Personal protective equipment (hard hat, safety vest, boots)",
+            "Drones or cameras for site progress and safety documentation"
+          ],
+          "frameworks": [
+            "International Building Code (IBC) and local building regulations",
+            "OSHA construction standards (29 CFR 1926) and ANSI safety guidelines",
+            "American Concrete Institute (ACI) standards and. ASTM material specifications"
+          ]
+        }
+      ]
+    },
+    {
+      "industry_sector": "Automotive",
+      "inspector_types": [
+        {
+          "official_title": "Automotive Quality Control Inspector",
+          "description": "Inspects vehicle components and assemblies during manufacturing to ensure they meet design specifications and quality standards. Tasks include testing parts, measuring dimensions with precision instruments, and identifying defects in materials or workmanship. Quality inspectors document nonconformities, recommend process adjustments, and work to prevent defects from progressing through assembly lines.",
+          "qualifications": [
+            "High school diploma; technical training or associate degree in automotive technology or manufacturing quality preferred",
+            "Experience in automotive assembly or manufacturing inspection",
+            "ASE (Automotive Service Excellence) certification or metrology certification is a plus"
+          ],
+          "tools": [
+            "Precision measurement tools (calipers, micrometers, gauges):contentReference[oaicite:30]{index=30}",
+            "Coordinate-measuring machine (CMM) and 3D scanning equipment",
+            "Diagnostic scanners and electrical test instruments",
+            "Quality control software for tracking inspection data"
+          ],
+          "frameworks": [
+            "IATF 16949 (ISO/TS 16949) automotive quality management standard",
+            "ISO 9001 (Quality) and ISO 14001 (Environmental) standards for manufacturing",
+            "OSHA regulations for automotive plant safety"
+          ]
+        },
+        {
+          "official_title": "Vehicle Safety and Emissions Inspector",
+          "description": "Conducts inspections of cars, trucks, and other vehicles to verify compliance with safety and emissions regulations:contentReference[oaicite:31]{index=31}. Duties include examining brakes, lights, tires, steering, and seat belts, as well as testing exhaust emissions and onboard diagnostics (OBD). Inspectors perform functional tests (e.g., brake test, headlight alignment), check vehicle documentation (VIN, registration), and ensure compliance with government standards. Inspection findings are recorded, and vehicles are certified as roadworthy or identified for required repairs.",
+          "qualifications": [
+            "ASE (Automotive Service Excellence) certification or state-issued vehicle inspector license",
+            "Knowledge of Federal Motor Vehicle Safety Standards (FMVSS) and EPA emissions regulations",
+            "Experience as an auto mechanic or in a state vehicle inspection program"
+          ],
+          "tools": [
+            "OBD-II code reader and diagnostic scanner",
+            "Brake dynamometer and alignment tools",
+            "Exhaust gas analyzer for emissions testing",
+            "Standard hand tools (wrenches, screwdrivers) for adjusting components"
+          ],
+          "frameworks": [
+            "Federal Motor Vehicle Safety Standards (FMVSS) and U.S. Environmental Protection Agency (EPA) emissions regulations",
+            "State vehicle inspection programs (e.g., California Smog Check) and Department of Transportation rules",
+            "UNECE vehicle regulations (for export/import) and ISO 26262 (functional safety standard for vehicles)"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": "Authoritative career and industry resources were used to detail each inspector role’s responsibilities, qualifications, tools, and applicable standards (e.g. OSHA, ISO, FAA, NFPA). Each entry reflects current practices and requirements in the U.S. and globally.",
+  "citations": [
+    "Certified Public Infrastructure Inspector (CPII) - American Public Works Association\nhttps://www.apwa.org/education-careers/certification/certified-public-infrastructure-inspector-cpii/",
+    "How to Become an Electrical Inspector: Career Path & Guide | Himalayas\nhttps://himalayas.app/career-guides/electrical-inspector",
+    "Quality Control Inspectors : Occupational Outlook Handbook: : U.S. Bureau of Labor Statistics\nhttps://www.bls.gov/ooh/production/quality-control-inspectors.htm",
+    "6 Health and Safety Inspector Job Description Templates and Examples | Himalayas\nhttps://himalayas.app/job-descriptions/health-and-safety-inspector",
+    "What are the typical daily responsibilities of a Drone Inspector\nhttps://www.ziprecruiter.com/e/What-are-the-typical-daily-responsibilities-of-a-Drone-Inspector",
+    "What are the key skills and qualifications needed to thrive in the Drone Inspector position and why are they important\nhttps://www.ziprecruiter.com/e/What-are-the-key-skills-and-qualifications-needed-to-thrive-in-the-Drone-Inspector-position-and-why-are-they-important",
+    "What does an Agricultural Inspector do and earn? TESTERLY\nhttps://www.testerly.com/en-us/careers/agricultural-inspector",
+    "https://www.pprbd.org/Job_Files//Job_Description_Commercial_Building_Inspector.pdf",
+    "Construction Field Inspectors @ Sheladia Associates, Inc\nhttps://www.tealhq.com/job/construction-field-inspectors_3eb8a4b1-dc06-45e3-a1f2-fd415eb7ce7a",
+    "Auto Inspector: Job Description & Responsibilities\nhttps://jobs.darcars.com/auto-inspectors.html"
+  ]
+}

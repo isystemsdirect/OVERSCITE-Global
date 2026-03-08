@@ -2,8 +2,6 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from '../../lib/firebase';
 import { Layout } from '../../components/layout/Layout';
 
 export default function SignIn() {
@@ -19,10 +17,10 @@ export default function SignIn() {
     setLoading(true);
 
     try {
-      if (!auth) {
-        throw new Error('Authentication is not configured (missing/invalid Firebase config).');
-      }
-      await signInWithEmailAndPassword(auth, email, password);
+      // FORCE OFFLINE MODE
+      console.warn("Offline test mode forced. Simulating login.");
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 800));
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Failed to sign in');
@@ -36,11 +34,10 @@ export default function SignIn() {
     setLoading(true);
 
     try {
-      if (!auth) {
-        throw new Error('Authentication is not configured (missing/invalid Firebase config).');
-      }
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      // FORCE OFFLINE MODE
+      console.warn("Offline test mode forced. Simulating login.");
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 800));
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Failed to sign in with Google');
@@ -62,12 +59,6 @@ export default function SignIn() {
               <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                 Sign in to ScingOS
               </h2>
-              <p className="mt-2 text-center text-sm text-gray-600">
-                Or{' '}
-                <Link href="/auth/signup" className="font-medium text-primary-600 hover:text-primary-500">
-                  create a new account
-                </Link>
-              </p>
             </div>
 
             <form className="mt-8 space-y-6" onSubmit={handleEmailSignIn}>
@@ -120,6 +111,15 @@ export default function SignIn() {
                 >
                   {loading ? 'Signing in...' : 'Sign in'}
                 </button>
+              </div>
+
+              <div className="mt-4 text-center">
+                <p className="text-sm text-gray-600">
+                  Don't have an account?{' '}
+                  <Link href="/auth/signup" className="font-medium text-primary-600 hover:text-primary-500 hover:underline">
+                    Sign Up Here
+                  </Link>
+                </p>
               </div>
             </form>
 

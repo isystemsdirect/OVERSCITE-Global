@@ -9,8 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Logo from "@/components/logo";
 import { Chrome, Mail, Apple, Loader2, ShieldCheck, LockKeyhole } from "lucide-react";
-import { getFirebaseAuth } from "@/lib/firebase";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 import { useAuthStore } from "@/lib/auth/auth-service";
 import PbScingularLogo from '../../public/Pb_SCINGULAR_Logo_White.svg';
@@ -26,76 +24,42 @@ export default function LoginPage() {
     e?.preventDefault();
     setIsLoading(true);
     
-    const auth = getFirebaseAuth();
+    // OFFLINE TEST MODE - ENFORCED
+    console.warn("Offline test mode forced. Simulating login.");
     
-    // FAIL-OPEN: If Firebase is not configured (Offline Mode), simulate login
-    if (!auth) {
-        console.warn("Firebase Auth not available. Simulating login.");
-        
-        // Simulate network delay
-        await new Promise(resolve => setTimeout(resolve, 800));
-        
-        // Create Mock User
-        const mockUser: any = {
-            uid: 'offline-user-' + Math.random().toString(36).substr(2, 9),
-            email: email || 'guest@scingular.com',
-            displayName: 'Offline Inspector',
-            emailVerified: true,
-            isAnonymous: false,
-        };
-        
-        // Manually set user state since Firebase listener isn't active
-        useAuthStore.getState().setUser(mockUser);
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    // Create Mock User
+    const mockUser: any = {
+        uid: 'offline-user-' + Math.random().toString(36).substr(2, 9),
+        email: email || 'guest@scingular.com',
+        displayName: 'Offline Inspector',
+        emailVerified: true,
+        isAnonymous: false,
+    };
+    
+    // Manually set user state since Firebase listener isn't active
+    useAuthStore.getState().setUser(mockUser);
 
-        toast({
-            title: "Offline Mode Active",
-            description: "Environment not configured. Logging in with simulated credentials.",
-        });
-        
-        router.push('/dashboard');
-        setIsLoading(false);
-        return;
-    }
-
-    try {
-        await signInWithEmailAndPassword(auth, email, password);
-        router.push('/dashboard');
-    } catch (error: any) {
-        toast({
-            variant: "destructive",
-            title: "Access Denied",
-            description: error.message || "Invalid credentials."
-        });
-    } finally {
-        setIsLoading(false);
-    }
+    toast({
+        title: "Offline Mode Active",
+        description: "Environment not configured. Logging in with simulated credentials.",
+    });
+    
+    router.push('/dashboard');
+    setIsLoading(false);
   };
 
   const handleGoogleLogin = async () => {
-      const auth = getFirebaseAuth();
-      
-      if (!auth) {
-          // Fail-open for Google too
-           useAuthStore.getState().setUser({
-              uid: 'google-mock-' + Math.random().toString(36).substr(2, 9),
-              email: 'google-user@example.com',
-              displayName: 'Google User (Mock)',
-          } as any);
-          router.push('/dashboard');
-          return;
-      }
-      
-      try {
-          const provider = new GoogleAuthProvider();
-          await signInWithPopup(auth, provider);
-          router.push('/dashboard');
-      } catch (error: any) {
-          toast({
-              variant: "destructive",
-              title: "Federated Login Failed",
-              description: error.message
-          });
-      }
+    // OFFLINE TEST MODE - ENFORCED
+    // Fail-open for Google too
+     useAuthStore.getState().setUser({
+        uid: 'google-mock-' + Math.random().toString(36).substr(2, 9),
+        email: 'google-user@example.com',
+        displayName: 'Google User (Mock)',
+    } as any);
+    router.push('/dashboard');
   };
 
   const handleBypass = () => {
@@ -165,6 +129,15 @@ export default function LoginPage() {
               >
                 {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "AUTHENTICATE"}
               </Button>
+
+              <div className="text-center mt-2">
+                <p className="text-xs text-white/60">
+                  Don't have an account?{' '}
+                  <Link href="/signup" className="text-[#F5C242] hover:underline font-semibold">
+                    Sign Up Here
+                  </Link>
+                </p>
+              </div>
               
               <div className="relative my-4">
                 <div className="absolute inset-0 flex items-center">

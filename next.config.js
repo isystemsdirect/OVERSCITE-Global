@@ -6,6 +6,15 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    serverComponentsExternalPackages: [
+      'genkit', 
+      '@genkit-ai/googleai', 
+      '@genkit-ai/dotprompt', 
+      '@opentelemetry/instrumentation',
+      'handlebars'
+    ],
+  },
   images: {
     remotePatterns: [
       {

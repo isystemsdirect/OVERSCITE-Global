@@ -1,4 +1,5 @@
-export type BaneVerdict = 'allow' | 'sanitize' | 'review' | 'deny';
+export type BaneVerdict = 'PERMIT' | 'PERMIT_WITH_CONSTRAINTS' | 'DOWNSCOPE' | 'PAUSE_FOR_VERIFICATION' | 'CONTAIN' | 'REFUSE' | 'REFUSE_AND_LOG' | 'REFUSE_CONTAIN_ESCALATE_TO_IU';
+
 export type BaneSeverity = 'low' | 'medium' | 'high' | 'critical';
 export type BaneEnforcementLevel = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -54,3 +55,20 @@ export type BaneOutput = {
     | { action: 'delay'; delayMs: number }
     | { action: 'block'; retryAfterMs: number };
 };
+
+export type BaneEngine = {
+  id: string;
+  role: string;
+  mandate: string;
+};
+
+export type BaneSDR = {
+    authority_basis: string;
+    policy_basis: string;
+    risk_posture: string;
+    constraint_triggers: string[];
+    decision_rationale: string;
+    outcome_disposition: BaneVerdict;
+    timestamped_record: number;
+    sd_record_reference: string;
+}

@@ -24,3 +24,7 @@ export * from './storage/inMemoryBaneStore';
 // CB-6 operator control plane
 export * from './operator/operatorTypes';
 export * from './operator/operatorApi';
+
+// Registry
+export * from './registry/core';
+export * from './registry/expansion';

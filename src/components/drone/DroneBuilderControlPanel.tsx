@@ -30,7 +30,7 @@ export function DroneBuilderControlPanel({ droneId, initialConfig }: DroneBuilde
     ecu: { voltage: 14.8, maxCurrent: 45, escProtocol: 'dshot600' },
     sensors: { hasGps: true, hasLidar: false, hasOpticalFlow: false },
     camera: { resolution: '4k', fps: 60, gimbal: true },
-    faa compliance: { registered: false, remoteId: false }
+    faaCompliance: { registered: false, remoteId: false }
   });
 
   const handleSave = async () => {
@@ -115,12 +115,12 @@ export function DroneBuilderControlPanel({ droneId, initialConfig }: DroneBuilde
                     <StatusIndicator label="IMU Calibration" value={true} />
                     <StatusIndicator label="Motor Sync" value={true} />
                     <StatusIndicator label="Video Feed (5.8GHz)" value={true} />
-                    <StatusIndicator label="Remote ID Broadcast" value={config['faa compliance']?.remoteId || false} />
+                    <StatusIndicator label="Remote ID Broadcast" value={config['faaCompliance']?.remoteId || false} />
                 </CardContent>
            </Card>
 
            {/* FAA Compliance Card */}
-           <FAACompliancePanel config={config['faa compliance']} />
+           <FAACompliancePanel config={config['faaCompliance']} />
 
            {/* Quick Actions */}
            <div className="grid grid-cols-2 gap-4">

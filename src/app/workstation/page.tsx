@@ -37,6 +37,7 @@ import {
   Mic,
   Volume2,
   Trash2,
+  Plus,
   Lock,
   Eye,
   Activity,

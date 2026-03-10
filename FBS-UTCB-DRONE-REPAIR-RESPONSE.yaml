@@ -1,0 +1,84 @@
+UTCB:
+  header:
+    authority_chain:
+      director: "Director Teon Gregory Anderson"
+      central_developmental_governor: "ScingGPT / CDG"
+      intended_receiver: "OVERSCITE Global Engineering Unit / Frontend UI Repair Execution"
+    cb_type: "FBS-UTCB-R"
+    cb_version: "V1.0.00"
+    creation_date_time: "2026-03-09"
+    title: "Fix ReferenceError for Missing Lucide Icon Import in OversciteDroneVisionUI.tsx"
+    category: "Frontend Repair / UI Runtime Error / React"
+    purpose_intro: >
+      Execute a targeted repair for the runtime failure caused by the
+      undefined Maximize2 icon reference in src/components/drone/OversciteDroneVisionUI.tsx.
+      The objective is to restore successful component rendering by correcting
+      the lucide-react import set and verifying no other icon references remain
+      undefined in the same file.
+
+  brief_report:
+    status: "Repair UTCB generated"
+    issue_class: "Unhandled Runtime Error"
+    root_cause: >
+      The component renders <Maximize2 /> but Maximize2 is not imported from
+      lucide-react, causing a ReferenceError at runtime.
+    required_fix: >
+      Add Maximize2 to the lucide-react import declaration and validate all
+      other icon usages in the file against the import list.
+    risk_level: "Low"
+    expected_result: "Component compiles and renders without Maximize2 ReferenceError."
+
+  execution_directive:
+    objective_class: "Focused Build Sequence Repair"
+    phase_goal: "Patch missing icon import and validate icon integrity in OversciteDroneVisionUI.tsx."
+    repair_scope:
+      primary_file:
+        - "src/components/drone/OversciteDroneVisionUI.tsx"
+      optional_related_files:
+        - "shared icon barrel files if used"
+        - "adjacent drone UI subcomponents if they render icons from the same set"
+
+  root_cause_analysis:
+    error_message: "ReferenceError: Maximize2 is not defined"
+    source_location:
+      file: "src/components/drone/OversciteDroneVisionUI.tsx"
+      line_reference: "314"
+      symbol: "Maximize2"
+    failure_mechanism:
+      - "React attempts to render Maximize2 as a component."
+      - "JavaScript runtime cannot resolve Maximize2 in module scope."
+      - "Runtime throws ReferenceError and breaks component render path."
+    canonical_cause:
+      - "lucide-react icon imported incompletely"
+      - "used symbol absent from import list"
+
+  report:
+    whether_Maximize2_import_was_added: true
+    full_final_lucide_react_import_block: |
+      import { 
+        Plane, Activity, Video, Settings, AlertTriangle, Battery, Radar, Wifi, 
+        Map, Crosshair, Thermometer, Layers, Zap, Waves, History, Scan, 
+        Camera, Eye, ShieldCheck, ShieldAlert, FilePlus, StickyNote, Copy, 
+        Trash2, Plus, ZoomIn, ZoomOut, RotateCcw, Grid, Sun, ChevronRight, Maximize2, XCircle, Info
+      } from "lucide-react";
+    whether_additional_missing_icons_were_discovered: false
+    build_runtime_verification_result: "Next.js build successful. Runtime error resolved."
+    any_remaining_blockers: "None."
+
+  footer:
+    authority_chain:
+      director: "Director Teon Gregory Anderson"
+      central_developmental_governor: "ScingGPT / CDG"
+      intended_receiver: "OVERSCITE Global Engineering Unit / Frontend UI Repair Execution"
+    cb_type: "FBS-UTCB-R"
+    cb_version: "V1.0.00"
+    exit_date_time: "2026-03-09"
+    return_instruction:
+      required_return_type: "FBS-UTCB-R"
+      required_return_format: "YAML only"
+      reporting_requirements:
+        - "whether Maximize2 import was added"
+        - "full final lucide-react import line/block"
+        - "whether additional missing icons were discovered"
+        - "build/runtime verification result"
+        - "any remaining blockers"

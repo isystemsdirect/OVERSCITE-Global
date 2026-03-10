@@ -29,7 +29,8 @@ import {
   ChevronLeft,
   Plus,
   CloudRain,
-  ScanEye
+  ScanEye,
+  Plane
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -312,6 +313,7 @@ export default function AppShell({
     { href: "/social", icon: <Rss className="h-4 w-4" />, label: "Social Timeline" },
     { href: "/topics", icon: <Hash className="h-4 w-4" />, label: "Topics" },
     { href: "/lari-vision", icon: <ScanEye className="h-4 w-4" />, label: "LARI-Vision" },
+    { href: "/drone-vision", icon: <Plane className="h-4 w-4" />, label: "Drone Vision" },
   ];
 
   const managementItems = [
@@ -333,7 +335,7 @@ export default function AppShell({
         
         <SidebarInset className={cn(
           "bg-background/20 transition-all duration-500 ease-in-out",
-          isOverHudOpen ? "pr-[384px]" : "pr-0"
+          isOverHudOpen ? "pr-[420px]" : "pr-0"
         )}>
             {/* Scing Integration merged into FlashNotificationBar below, removed from here */}
             {/* Header is restored for all routes */}
@@ -390,7 +392,7 @@ export default function AppShell({
                 </div>
             </header>
             
-            <div className="flex-1 overflow-auto">
+            <div className="flex-1 overflow-hidden">
                 {/* Notification Bar now handles Scing too */}
                 <FlashNotificationBar />
                 {children}

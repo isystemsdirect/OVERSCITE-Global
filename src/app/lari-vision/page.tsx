@@ -118,7 +118,7 @@ export default function LariVisionCommandPage() {
           </div>
 
           {/* Center Column: Primary Visual Canvas (60%) */}
-          <div className="col-span-12 lg:col-span-6 xl:col-span-7 flex flex-col min-h-0 relative">
+          <div className="col-span-12 lg:col-span-6 xl:col-span-7 flex flex-col min-h-0 h-full relative">
              <LariVisualCanvas activeMode={activeMode} />
           </div>
 

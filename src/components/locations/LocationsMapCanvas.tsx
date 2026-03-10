@@ -53,8 +53,8 @@ export default function LocationsMapCanvas({ mapId }: LocationsMapCanvasProps) {
 
   if (mapError) {
     return (
-      <Card className="w-full h-full flex items-center justify-center bg-zinc-950 border-zinc-800 p-8">
-        <div className="text-center text-zinc-400">
+      <Card className="w-full h-full flex items-center justify-center border-border/50 bg-background/40 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow p-8">
+        <div className="text-center text-muted-foreground">
           <p className="text-xl font-medium text-red-400 mb-2">Map Engine Error</p>
           <p>{mapError}</p>
         </div>
@@ -63,11 +63,11 @@ export default function LocationsMapCanvas({ mapId }: LocationsMapCanvasProps) {
   }
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-zinc-950 group rounded-xl border border-zinc-800">
+    <div className="w-full h-full relative overflow-hidden bg-background group rounded-xl border border-border/50">
        {/* Visual indicator for shell-phase mapping */}
-       <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 px-4 py-2 rounded-full text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none flex items-center gap-2">
-         <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-         <span className="text-zinc-200 text-sm font-medium tracking-wide uppercase">Operational Canvas [Phase 1B]</span>
+       <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur-sm border border-border/50 px-4 py-2 rounded-full text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none flex items-center gap-2">
+         <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+         <span className="text-foreground text-sm font-medium tracking-wide uppercase">Operational Canvas [Phase 1B]</span>
        </div>
       
        {/* Google Map Container */}

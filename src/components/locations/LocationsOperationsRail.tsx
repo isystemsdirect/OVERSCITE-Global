@@ -20,8 +20,8 @@ export default function LocationsOperationsRail({ onToolSelect, activeTool }: Lo
   ];
 
   return (
-    <Card className="w-24 h-full bg-zinc-950 border-zinc-800 flex-shrink-0 flex flex-col items-center py-4 gap-4">
-       <div className="text-zinc-500 font-bold uppercase text-[10px] tracking-widest mb-2">Tools</div>
+    <Card className="w-24 h-full border-border/50 bg-background/40 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow flex-shrink-0 flex flex-col items-center py-4 gap-4">
+       <div className="text-muted-foreground font-bold uppercase text-[10px] tracking-widest mb-2">Tools</div>
        
        {tools.map((tool) => (
          <Button
@@ -30,8 +30,8 @@ export default function LocationsOperationsRail({ onToolSelect, activeTool }: Lo
            onClick={() => onToolSelect(tool.id)}
            className={`w-14 h-14 flex flex-col items-center justify-center gap-1 rounded-xl transition-all ${
              activeTool === tool.id 
-               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.1)]' 
-               : 'text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 border border-transparent'
+               ? 'bg-primary/10 text-primary border border-primary/50 shadow-sm' 
+               : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-transparent'
            }`}
            title={tool.label}
          >

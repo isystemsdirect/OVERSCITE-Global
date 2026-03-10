@@ -36,10 +36,10 @@ export default function LocationsOverSCITE() {
 
   if (!apiKey) {
     return (
-      <Card className="w-full h-[800px] flex items-center justify-center bg-zinc-950 border-zinc-800">
+      <Card className="w-full h-[800px] flex items-center justify-center border-border/50 bg-background/40 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
         <CardContent>
-          <div className="text-center text-zinc-400">
-            <p className="text-xl font-medium text-zinc-200 mb-2">Google Maps API Key Missing</p>
+          <div className="text-center text-muted-foreground">
+            <p className="text-xl font-medium text-foreground mb-2">Google Maps API Key Missing</p>
             <p>Please configure NEXT_PUBLIC_GOOGLE_MAPS_API_KEY in your environment.</p>
           </div>
         </CardContent>

@@ -60,14 +60,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     return (
         <TooltipProvider>
             <AppShell 
+                key={refreshKey}
                 userId={user?.uid || 'guest'} 
                 isFullScreen={isFullScreen} 
                 toggleFullScreen={toggleFullScreen}
                 handleRefresh={handleRefresh}
             >
-                <main key={refreshKey} className="flex-1 overflow-y-auto p-4 sm:px-6 sm:py-0 md:gap-8">
-                    {children}
-                </main>
+                {children}
             </AppShell>
         </TooltipProvider>
     );

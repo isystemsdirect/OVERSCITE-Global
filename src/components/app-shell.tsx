@@ -277,13 +277,9 @@ export default function AppShell({
   const router = useRouter();
   const { user } = useAuthStore();
   const [isOverHudOpen, setIsOverHudOpen] = useState(false);
-  const pathname = usePathname();
   
   const currentPlan = mockSubscriptionPlans.find(plan => plan.isCurrent);
   const isProOrEnterprise = currentPlan && (currentPlan.name === 'Pro' || currentPlan.name === 'Enterprise');
-
-  // LARI Vision route check has been removed to restore the global header everywhere
-  // const isLariVision = pathname === '/lari-vision';
 
   const handleLogout = async () => {
       await logout();
@@ -337,9 +333,7 @@ export default function AppShell({
           "bg-background/20 transition-all duration-500 ease-in-out",
           isOverHudOpen ? "pr-[420px]" : "pr-0"
         )}>
-            {/* Scing Integration merged into FlashNotificationBar below, removed from here */}
-            {/* Header is restored for all routes */}
-            <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b border-border/30 bg-background/40 px-4 lg:h-[60px] lg:px-6 w-full shadow-sm">
+            <header className="sticky top-0 z-30 flex h-16 lg:h-20 items-center gap-4 border-b border-border/30 bg-background/40 px-4 lg:px-6 w-full shadow-sm">
                 <SidebarTrigger className="md:hidden" />
                 
                 <div className="flex-1 flex items-center gap-2">
@@ -392,10 +386,11 @@ export default function AppShell({
                 </div>
             </header>
             
-            <div className="flex-1 overflow-hidden">
-                {/* Notification Bar now handles Scing too */}
+            <div className="flex-1 overflow-y-auto">
                 <FlashNotificationBar />
-                {children}
+                <main className="flex-1 p-4 sm:px-6 lg:p-8">
+                    {children}
+                </main>
             </div>
             <OverHUD open={isOverHudOpen} onToggle={toggleOverHud} />
         </SidebarInset>

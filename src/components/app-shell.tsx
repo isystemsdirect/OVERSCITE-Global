@@ -330,7 +330,7 @@ export default function AppShell({
         />
         
         <SidebarInset className={cn(
-          "bg-background/20 transition-all duration-500 ease-in-out",
+          "bg-transparent transition-all duration-500 ease-in-out flex flex-col",
           isOverHudOpen ? "pr-[420px]" : "pr-0"
         )}>
             <header className="sticky top-0 z-30 flex h-16 lg:h-20 items-center gap-4 border-b border-border/30 bg-background/40 px-4 lg:px-6 w-full shadow-sm">
@@ -386,8 +386,9 @@ export default function AppShell({
                 </div>
             </header>
             
+            <FlashNotificationBar />
+
             <div className="flex-1 overflow-y-auto">
-                <FlashNotificationBar />
                 <main className="flex-1 p-4 sm:px-6 lg:p-8">
                     {children}
                 </main>

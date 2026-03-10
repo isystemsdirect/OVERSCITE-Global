@@ -91,7 +91,7 @@ export function FlashNotificationBar() {
 
   return (
     // Pinned intelligence header
-    <div className="sticky top-16 lg:top-20 z-20 w-full bg-background/80 backdrop-blur-lg border-b border-border shadow-sm">
+    <div className="sticky top-16 lg:top-20 z-20 w-full bg-background/50 backdrop-blur-lg border-b border-border shadow-sm">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 lg:px-6">
             
             {/* Scing Control Header Integration */}

@@ -34,7 +34,7 @@ export default function OverHUD({ open, onToggle }: { open: boolean, onToggle: (
       {/* Main HUD Panel */}
       <div
         className={cn(
-          "fixed top-0 right-0 h-screen transition-all duration-500 ease-in-out z-[1000] overflow-hidden overhud-panel bg-background/90 border-l border-border/30",
+          "h-full transition-all duration-500 ease-in-out overflow-hidden overhud-panel bg-background/90 border-l border-border/30",
           open ? "w-[420px]" : "w-0"
         )}
       >

@@ -27,10 +27,7 @@ import {
   Calendar,
   FileText,
   ChevronLeft,
-  Plus,
-  CloudRain,
-  ScanEye,
-  Plane
+  Plus
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -309,8 +306,6 @@ export default function AppShell({
     { href: "/community", icon: <MessageSquare className="h-4 w-4" />, label: "Community Hub" },
     { href: "/social", icon: <Rss className="h-4 w-4" />, label: "Social Timeline" },
     { href: "/topics", icon: <Hash className="h-4 w-4" />, label: "Topics" },
-    { href: "/lari-vision", icon: <ScanEye className="h-4 w-4" />, label: "LARI-Vision" },
-    { href: "/drone-vision", icon: <Plane className="h-4 w-4" />, label: "Drone Vision" },
   ];
 
   const managementItems = [
@@ -330,11 +325,8 @@ export default function AppShell({
             isProOrEnterprise={isProOrEnterprise}
         />
         
-        <SidebarInset className={cn(
-          "bg-transparent transition-all duration-500 ease-in-out flex flex-col",
-          isOverHudOpen ? "pr-[420px]" : "pr-0"
-        )}>
-            <header className="sticky top-0 z-30 flex h-16 lg:h-20 items-center gap-4 border-b border-border/30 bg-background/50 backdrop-blur-lg px-4 lg:px-6 w-full shadow-sm">
+        <SidebarInset className="bg-transparent flex flex-col">
+            <header className="sticky top-0 z-30 flex h-20 items-center gap-4 border-b border-border/30 bg-background/50 backdrop-blur-lg px-4 lg:px-6 w-full shadow-sm">
                 <SidebarTrigger className="md:hidden" />
                 
                 <div className="flex items-center gap-4 border-r border-border/50 pr-4 mr-4">
@@ -410,12 +402,14 @@ export default function AppShell({
             
             <FlashNotificationBar />
 
-            <div className="flex-1 overflow-y-auto">
-                <main className="flex-1 p-4 sm:px-6 lg:p-8">
-                    {children}
-                </main>
+            <div className="flex flex-1 min-h-0">
+                <div className="flex-1 overflow-y-auto">
+                    <main className="flex-1 p-4 sm:px-6 lg:p-8">
+                        {children}
+                    </main>
+                </div>
+                <OverHUD open={isOverHudOpen} onToggle={toggleOverHud} />
             </div>
-            <OverHUD open={isOverHudOpen} onToggle={toggleOverHud} />
         </SidebarInset>
     </SidebarProvider>
   );

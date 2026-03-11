@@ -69,6 +69,7 @@ import {
 } from "@/components/ui/sidebar"
 import OverHUD from "./overhud/OverHUD";
 import { PLATFORM_VERSION } from "@/lib/version";
+import { ScingGPT } from './ScingGPT';
 
 
 // Separate component for the sidebar content to access sidebar context
@@ -333,8 +334,29 @@ export default function AppShell({
           "bg-transparent transition-all duration-500 ease-in-out flex flex-col",
           isOverHudOpen ? "pr-[420px]" : "pr-0"
         )}>
-            <header className="sticky top-0 z-30 flex h-16 lg:h-20 items-center gap-4 border-b border-border/30 bg-background/40 px-4 lg:px-6 w-full shadow-sm">
+            <header className="sticky top-0 z-30 flex h-16 lg:h-20 items-center gap-4 border-b border-border/30 bg-background/50 backdrop-blur-lg px-4 lg:px-6 w-full shadow-sm">
                 <SidebarTrigger className="md:hidden" />
+                
+                <div className="flex items-center gap-4 border-r border-border/50 pr-4 mr-4">
+                     {user?.uid && process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY && (
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <div>
+                                        <ScingGPT 
+                                            userId={user.uid} 
+                                            accessKey={process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY} 
+                                        />
+                                    </div>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Toggle Scing™ BFI</p>
+                                    <p className="text-xs text-muted-foreground">Activate the Bona Fide Intelligence layer.</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    )}
+                </div>
                 
                 <div className="flex-1 flex items-center gap-2">
                     <AiSearchDialog />

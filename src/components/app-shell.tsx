@@ -27,7 +27,10 @@ import {
   Calendar,
   FileText,
   ChevronLeft,
-  Plus
+  Plus,
+  CloudRain,
+  Eye,
+  Camera
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -301,6 +304,8 @@ export default function AppShell({
 
   const toolsItems = [
     { href: "/weather", icon: <CloudRain className="h-4 w-4" />, label: "Environment & Safety" },
+    { href: "/lari-vision", icon: <Eye className="h-4 w-4" />, label: "LARI Vision" },
+    { href: "/drone-vision", icon: <Camera className="h-4 w-4" />, label: "Drone Vision" },
     { href: "/library", icon: <Library className="h-4 w-4" />, label: "Standards Library" },
     { href: "/marketplace", icon: <Store className="h-4 w-4" />, label: "Marketplace" },
     { href: "/community", icon: <MessageSquare className="h-4 w-4" />, label: "Community Hub" },
@@ -330,14 +335,14 @@ export default function AppShell({
                 <SidebarTrigger className="md:hidden" />
                 
                 <div className="flex items-center gap-4 border-r border-border/50 pr-4 mr-4">
-                     {user?.uid && process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY && (
+                     {user?.uid && (
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <div>
                                         <ScingGPT 
                                             userId={user.uid} 
-                                            accessKey={process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY} 
+                                            accessKey={process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY || "dummy_key_for_development"} 
                                         />
                                     </div>
                                 </TooltipTrigger>

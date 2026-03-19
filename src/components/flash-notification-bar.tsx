@@ -8,9 +8,6 @@ import { Badge } from './ui/badge';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
-import { ScingGPT } from './ScingGPT';
-import { useAuthStore } from '@/lib/auth/auth-service';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 type Notification = typeof staticNotifications[0];
 type TimeFormat = '12h' | '24h';
@@ -28,7 +25,6 @@ export function FlashNotificationBar() {
   const [now, setNow] = useState<Date | null>(null);
   const [showTime, setShowTime] = useState(true);
   const [timeFormat, setTimeFormat] = useState<TimeFormat>('12h');
-  const { user } = useAuthStore();
 
   // Filter out direct weather notifications that required fetching, keep others
   const notifications = staticNotifications.filter(n => n.type !== 'weather');
@@ -93,28 +89,6 @@ export function FlashNotificationBar() {
     // Pinned intelligence header
     <div className="sticky top-16 lg:top-20 z-20 w-full bg-background/50 backdrop-blur-lg border-b border-border shadow-sm">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 lg:px-6">
-            
-            {/* Scing Control Header Integration */}
-            <div className="flex items-center gap-4 border-r border-border/50 pr-4 mr-4">
-                 {user?.uid && process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY && (
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <div>
-                                    <ScingGPT 
-                                        userId={user.uid} 
-                                        accessKey={process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY} 
-                                    />
-                                </div>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Toggle Scing™ BFI</p>
-                                <p className="text-xs text-muted-foreground">Activate the Bona Fide Intelligence layer.</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                )}
-            </div>
 
             {/* Notification Stream */}
             <AnimatePresence mode="wait">

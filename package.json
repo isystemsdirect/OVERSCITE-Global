@@ -9,6 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "analyze": "ANALYZE=true next build",
+    "preversion": "node scripts/verify-registry-sync.js",
     "release": "npm version patch -m \"chore(release): %s\" && git push --follow-tags"
   },
   "overrides": {

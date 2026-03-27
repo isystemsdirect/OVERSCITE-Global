@@ -1,0 +1,23 @@
+platform:
+  name: "OVERSCITE-Global"
+  version: "0.1.0-alpha.1"
+engines:
+  bane_engine:
+    version: "0.1.0-alpha.1"
+    status: "active"
+  lari_engine:
+    version: "0.1.0-alpha.1"
+    status: "active"
+  c3_engine:
+    version: "0.1.0-alpha.1"
+    status: "active"
+  mobius_engine:
+    version: "0.1.0-alpha.1"
+    status: "active"
+compatibility:
+  platform_release: "0.1.0-alpha.1"
+  approved_engines:
+    bane_engine: "0.1.0-alpha.1"
+    lari_engine: "0.1.0-alpha.1"
+    c3_engine: "0.1.0-alpha.1"
+    mobius_engine: "0.1.0-alpha.1"

@@ -1,0 +1,41 @@
+name: Governed Runtime Audit
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Deploy Cloud Functions to Firebase"]
+    types:
+      - completed
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    # Execute on manual trigger, or only if the upstream deploy theoretically succeeded
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Collect Runtime Evidence
+        id: evidence
+        # Attempt an observability listing query, falling back to the deployment token if the isolated IAM token is not provisioned yet.
+        run: |
+          echo "## Run-Time Health Observations" >> $GITHUB_STEP_SUMMARY
+          echo "### Inventory of Validated Services" >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
+          firebase functions:list --project scingula-ai-drone-control >> $GITHUB_STEP_SUMMARY || echo "[WARN: IAM Blocked Request]" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          
+          echo "### Startup Stability Footprints" >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
+          firebase functions:log --project scingula-ai-drone-control --lines 50 >> $GITHUB_STEP_SUMMARY || echo "[WARN: IAM Blocked Request]" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        env:
+          FIREBASE_TOKEN: ${{ secrets.OBSERVER_TOKEN || secrets.FIREBASE_TOKEN }}

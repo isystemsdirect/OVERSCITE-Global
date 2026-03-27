@@ -7,6 +7,7 @@ on:
     paths:
       - 'cloud/functions/**'
       - 'firebase.json'
+  workflow_dispatch:
 
 jobs:
   deploy:

@@ -59,6 +59,10 @@ export const isdc = isdcRouter;
 // Export Scing Cloud Core (orchestration, sessions, tools)
 export const scing = scingRouter;
 
+// Observability Layer
+import { scingHealth } from './scing/health';
+export { scingHealth };
+
 // Health check endpoint
 export const healthCheck = functions.https.onRequest((req, res) => {
   const gate = enforceBaneHttp({ req, res, name: 'healthCheck' });

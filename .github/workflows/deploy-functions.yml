@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Dependencies
+        working-directory: cloud/functions
         run: npm ci
 
       - name: Deploy to Firebase Functions

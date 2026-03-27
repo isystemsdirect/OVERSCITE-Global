@@ -14,14 +14,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Install Dependencies
         working-directory: cloud/functions
         run: npm ci
 
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
       - name: Deploy to Firebase Functions
-        uses: wix/wix-firebase-deploy-action@v1.4.0
-        with:
-          PROJECT_ID: 'scingula-ai-drone-control'
+        run: firebase deploy --only functions --project scingula-ai-drone-control --non-interactive
+        env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          APP_ID: 'cloud/functions'
-          ONLY: functions

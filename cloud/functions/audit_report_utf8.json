@@ -1,0 +1,341 @@
+﻿{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@google-cloud/firestore": {
+      "name": "@google-cloud/firestore",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "google-gax"
+      ],
+      "effects": [
+        "firebase-admin"
+      ],
+      "range": "7.5.0-pre.0 || >=7.6.0",
+      "nodes": [
+        "node_modules/@google-cloud/firestore"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@google-cloud/storage": {
+      "name": "@google-cloud/storage",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "retry-request",
+        "teeny-request"
+      ],
+      "effects": [
+        "firebase-admin"
+      ],
+      "range": ">=5.19.0",
+      "nodes": [
+        "node_modules/@google-cloud/storage"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@tootallnate/once": {
+      "name": "@tootallnate/once",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1113977,
+          "name": "@tootallnate/once",
+          "dependency": "@tootallnate/once",
+          "title": "@tootallnate/once vulnerable to Incorrect Control Flow Scoping",
+          "url": "https://github.com/advisories/GHSA-vpq2-c234-7xj6",
+          "severity": "low",
+          "cwe": [
+            "CWE-705"
+          ],
+          "cvss": {
+            "score": 3.3,
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<3.0.1"
+        }
+      ],
+      "effects": [
+        "http-proxy-agent"
+      ],
+      "range": "<3.0.1",
+      "nodes": [
+        "node_modules/@tootallnate/once"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/eslint-plugin": {
+      "name": "@typescript-eslint/eslint-plugin",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils"
+      ],
+      "effects": [],
+      "range": "6.16.0 - 7.5.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/eslint-plugin"
+      ],
+      "fixAvailable": true
+    },
+    "@typescript-eslint/parser": {
+      "name": "@typescript-eslint/parser",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@typescript-eslint/typescript-estree"
+      ],
+      "effects": [],
+      "range": "6.16.0 - 7.5.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/parser"
+      ],
+      "fixAvailable": true
+    },
+    "@typescript-eslint/type-utils": {
+      "name": "@typescript-eslint/type-utils",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/typescript-estree",
+        "@typescript-eslint/utils"
+      ],
+      "effects": [
+        "@typescript-eslint/eslint-plugin"
+      ],
+      "range": "6.16.0 - 7.5.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/type-utils"
+      ],
+      "fixAvailable": true
+    },
+    "@typescript-eslint/typescript-estree": {
+      "name": "@typescript-eslint/typescript-estree",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "@typescript-eslint/parser",
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils"
+      ],
+      "range": "6.16.0 - 7.5.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/typescript-estree"
+      ],
+      "fixAvailable": true
+    },
+    "@typescript-eslint/utils": {
+      "name": "@typescript-eslint/utils",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/typescript-estree"
+      ],
+      "effects": [],
+      "range": "6.16.0 - 7.5.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/utils"
+      ],
+      "fixAvailable": true
+    },
+    "firebase-admin": {
+      "name": "firebase-admin",
+      "severity": "low",
+      "isDirect": true,
+      "via": [
+        "@google-cloud/firestore",
+        "@google-cloud/storage"
+      ],
+      "effects": [],
+      "range": ">=11.0.0",
+      "nodes": [
+        "node_modules/firebase-admin"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    "google-gax": {
+      "name": "google-gax",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "retry-request"
+      ],
+      "effects": [
+        "@google-cloud/firestore"
+      ],
+      "range": ">=4.0.5-experimental",
+      "nodes": [
+        "node_modules/google-gax"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    "http-proxy-agent": {
+      "name": "http-proxy-agent",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "@tootallnate/once"
+      ],
+      "effects": [
+        "teeny-request"
+      ],
+      "range": "4.0.1 - 5.0.0",
+      "nodes": [
+        "node_modules/http-proxy-agent"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    "minimatch": {
+      "name": "minimatch",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1113465,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern",
+          "url": "https://github.com/advisories/GHSA-3ppc-4f35-3m26",
+          "severity": "high",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=9.0.0 <9.0.6"
+        },
+        {
+          "source": 1113544,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments",
+          "url": "https://github.com/advisories/GHSA-7r86-cg39-jmmj",
+          "severity": "high",
+          "cwe": [
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=9.0.0 <9.0.7"
+        },
+        {
+          "source": 1113552,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions",
+          "url": "https://github.com/advisories/GHSA-23c5-xmqv-rm74",
+          "severity": "high",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=9.0.0 <9.0.7"
+        }
+      ],
+      "effects": [
+        "@typescript-eslint/typescript-estree"
+      ],
+      "range": "9.0.0 - 9.0.6",
+      "nodes": [
+        "node_modules/minimatch"
+      ],
+      "fixAvailable": true
+    },
+    "retry-request": {
+      "name": "retry-request",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "teeny-request"
+      ],
+      "effects": [
+        "@google-cloud/storage",
+        "google-gax"
+      ],
+      "range": ">=7.0.0",
+      "nodes": [
+        "node_modules/retry-request"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    },
+    "teeny-request": {
+      "name": "teeny-request",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "http-proxy-agent"
+      ],
+      "effects": [
+        "@google-cloud/storage",
+        "retry-request"
+      ],
+      "range": ">=7.1.3",
+      "nodes": [
+        "node_modules/teeny-request"
+      ],
+      "fixAvailable": {
+        "name": "firebase-admin",
+        "version": "10.3.0",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 8,
+      "moderate": 0,
+      "high": 6,
+      "critical": 0,
+      "total": 14
+    },
+    "dependencies": {
+      "prod": 315,
+      "dev": 429,
+      "optional": 46,
+      "peer": 10,
+      "peerOptional": 0,
+      "total": 793
+    }
+  }
+}

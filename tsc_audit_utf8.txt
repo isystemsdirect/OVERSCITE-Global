@@ -1,0 +1,505 @@
+﻿client/__tests__/components/VoiceButton.test.tsx(1,43): error TS2307: Cannot find module '@testing-library/react' or its corresponding type declarations.
+client/__tests__/components/VoiceButton.test.tsx(7,40): error TS2339: Property 'toBeInTheDocument' does not exist on type 'JestMatchers<any>'.
+client/components/layout/Layout.tsx(4,35): error TS2307: Cannot find module '@rtsf/avatar/AvatarInteractive' or its corresponding type declarations.
+client/components/layout/Layout.tsx(5,28): error TS2307: Cannot find module '@rtsf/ui/ScingPanel' or its corresponding type declarations.
+client/components/layout/Layout.tsx(6,59): error TS2307: Cannot find module '@rtsf/srt/feedback/srtFeedbackStore' or its corresponding type declarations.
+client/components/layout/Layout.tsx(7,29): error TS2307: Cannot find module '@rtsf/srt/feedback/SrtDebugHud' or its corresponding type declarations.
+client/components/layout/Navbar.tsx(11,8): error TS2307: Cannot find module '@rtsf/voice/runtime/voiceRuntime' or its corresponding type declarations.
+client/components/layout/Navbar.tsx(16,8): error TS2307: Cannot find module '@rtsf/ui/scingConversationStore' or its corresponding type declarations.
+client/components/layout/Navbar.tsx(118,23): error TS2802: Type 'Set<(s: VoiceRuntimeState) => void>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/bane/cache.ts(1,37): error TS2307: Cannot find module '@scing/bane' or its corresponding type declarations.
+client/lib/bane/evaluate.ts(1,74): error TS2307: Cannot find module '@scing/bane' or its corresponding type declarations.
+client/lib/bane/evaluate.ts(2,34): error TS2307: Cannot find module '@scing/bane' or its corresponding type declarations.
+client/lib/bane/fetchSnapshot.ts(4,37): error TS2307: Cannot find module '@scing/bane' or its corresponding type declarations.
+client/lib/evidence/capture.ts(1,30): error TS2307: Cannot find module '@scing/evidence/evidenceStore' or its corresponding type declarations.
+client/lib/evidence/capture.ts(2,37): error TS2307: Cannot find module '@scing/evidence' or its corresponding type declarations.
+client/lib/evidence/capture.ts(7,19): error TS2802: Type 'Uint8Array<ArrayBuffer>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/evidence/localQueue.ts(1,37): error TS2307: Cannot find module '@scing/evidence' or its corresponding type declarations.
+client/lib/server/bfi/intentLedger.ts(4,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/lib/server/bfi/memory/cognitiveMemory.ts(3,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/lib/server/bfi/memory/patterns.ts(1,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/lib/server/bfi/memory/patterns.ts(33,29): error TS2802: Type 'Set<string>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/memory/patterns.ts(33,35): error TS2802: Type 'Set<string>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/memory/patterns.ts(114,28): error TS2802: Type 'MapIterator<[string, { totalNodes: number; total: number; }]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/memory/patterns.ts(127,28): error TS2802: Type 'MapIterator<[string, { ok: number; total: number; }]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/policyLedger.ts(4,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/lib/server/bfi/policyLedger.ts(5,37): error TS2307: Cannot find module '@scingular/bfi-policy' or its corresponding type declarations.
+client/lib/server/bfi/registry/registryAnalyzer.ts(9,29): error TS2802: Type 'Set<string>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/registry/registryAnalyzer.ts(9,35): error TS2802: Type 'Set<string>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/registry/registryAnalyzer.ts(77,20): error TS2802: Type 'Set<string>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/registry/registryAnalyzer.ts(94,20): error TS2802: Type 'Set<string>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/lib/server/bfi/simulationLedger.ts(4,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/lib/server/bfi/simulator.ts(1,44): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/lib/server/bfi/simulator/confidence.ts(1,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/lib/server/bfi/simulator/impactMapper.ts(1,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/pages/_app.tsx(11,40): error TS2307: Cannot find module '@rtsf/avatar/wireAvatarIntents' or its corresponding type declarations.
+client/pages/_app.tsx(12,38): error TS2307: Cannot find module '@rtsf/srt/feedback/truthAdapter' or its corresponding type declarations.
+client/pages/_app.tsx(13,38): error TS2307: Cannot find module '@rtsf/sensors/runtime/rtsfLiveAdapter' or its corresponding type declarations.
+client/pages/api/bfi/_lib/pipelineTypes.ts(2,54): error TS2307: Cannot find module '@scingular/sdk' or its corresponding type declarations.
+client/pages/api/bfi/_lib/reflect.ts(1,33): error TS2307: Cannot find module '@scingular/sdk' or its corresponding type declarations.
+client/pages/api/bfi/_lib/simulator.ts(2,47): error TS2307: Cannot find module '@scingular/sdk' or its corresponding type declarations.
+client/pages/api/bfi/intent/declare.ts(3,57): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+client/pages/api/bfi/plan.ts(3,30): error TS2307: Cannot find module '@scingular/policy' or its corresponding type declarations.
+client/pages/api/bfi/plan.ts(20,39): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '{ kind: "tasks.run"; task: "build" | "typecheck" | "lint" | "test"; } | { kind: "registry.upsert"; engine: { id: string; displayName: string; version: string; family: string; provider?: string | undefined; ... 6 more ...; policySurface?: string[] | undefined; }; }'.
+client/pages/api/bfi/plan.ts(23,15): error TS18046: 'action' is of type 'unknown'.
+client/pages/api/bfi/plan.ts(24,68): error TS18046: 'intent' is of type 'unknown'.
+client/pages/api/bfi/plan.ts(37,23): error TS18046: 'intent' is of type 'unknown'.
+client/pages/api/bfi/plan.ts(37,74): error TS18046: 'action' is of type 'unknown'.
+client/pages/api/bfi/policy/evaluate.ts(6,32): error TS2307: Cannot find module '@scingular/bfi-policy' or its corresponding type declarations.
+client/pages/api/dev/_lib/requireDevKernel.ts(2,51): error TS2307: Cannot find module '@scingular/policy' or its corresponding type declarations.
+client/pages/api/dev/registry/upsert.ts(8,30): error TS2307: Cannot find module '@scingular/policy' or its corresponding type declarations.
+client/pages/api/dev/tasks/run.ts(6,30): error TS2307: Cannot find module '@scingular/policy' or its corresponding type declarations.
+client/pages/api/neural/poll.ts(2,31): error TS2307: Cannot find module '@scing/bane/server/baneGuards' or its corresponding type declarations.
+client/pages/api/neural/stream.ts(2,31): error TS2307: Cannot find module '@scing/bane/server/baneGuards' or its corresponding type declarations.
+client/pages/api/neural/stream.ts(146,21): error TS2802: Type 'Set<Timeout>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+client/pages/api/scing/chat.ts(2,31): error TS2307: Cannot find module '@scing/bane/server/baneGuards' or its corresponding type declarations.
+client/pages/devconsole.tsx(3,46): error TS2307: Cannot find module '@scingular/sdk' or its corresponding type declarations.
+client/src/devices/deviceClient.ts(1,36): error TS2307: Cannot find module '@scing/devices/deviceRouter' or its corresponding type declarations.
+client/src/devices/deviceClient.ts(2,50): error TS2307: Cannot find module '@scing/devices/captureStore' or its corresponding type declarations.
+client/src/devices/deviceClient.ts(3,35): error TS2307: Cannot find module '@scing/devices/deviceRouter' or its corresponding type declarations.
+client/src/devices/deviceClient.ts(46,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+client/src/devices/useDeviceRouter.ts(2,35): error TS2307: Cannot find module '@scing/devices/deviceRouter' or its corresponding type declarations.
+client/src/lariBus/LariBusProvider.tsx(2,37): error TS2307: Cannot find module '@scing/lariBus/busRuntime' or its corresponding type declarations.
+client/src/lariBus/startBus.ts(1,32): error TS2307: Cannot find module '@scing/lariBus/busRuntime' or its corresponding type declarations.
+client/src/lariBus/startBus.ts(2,34): error TS2307: Cannot find module '@scing/lariBus/busStoreBridge' or its corresponding type declarations.
+client/src/lariBus/startBus.ts(3,35): error TS2307: Cannot find module '@scing/devices/deviceRouter' or its corresponding type declarations.
+client/src/lariBus/startBus.ts(4,40): error TS2307: Cannot find module '@scing/lariBus/registerDefaultEngines' or its corresponding type declarations.
+client/src/obs/ObsProvider.tsx(2,31): error TS2307: Cannot find module '@scing/obs/obsTypes' or its corresponding type declarations.
+client/src/obs/ObsProvider.tsx(3,30): error TS2307: Cannot find module '@scing/obs/obsLogger' or its corresponding type declarations.
+client/src/obs/ObsProvider.tsx(4,28): error TS2307: Cannot find module '@scing/obs/obsClientQueue' or its corresponding type declarations.
+client/src/obs/ObsProvider.tsx(5,26): error TS2307: Cannot find module '@scing/obs/obsClientFlush' or its corresponding type declarations.
+client/src/scing/EnginePanel.tsx(9,19): error TS18046: 'e' is of type 'unknown'.
+client/src/scing/EnginePanel.tsx(10,12): error TS18046: 'e' is of type 'unknown'.
+client/src/scing/EnginePanel.tsx(10,27): error TS18046: 'e' is of type 'unknown'.
+client/src/scing/HUDOverlay.tsx(9,19): error TS18046: 'c' is of type 'unknown'.
+client/src/scing/HUDOverlay.tsx(10,12): error TS18046: 'c' is of type 'unknown'.
+client/src/scing/HUDOverlay.tsx(10,36): error TS7006: Parameter 'o' implicitly has an 'any' type.
+client/src/scing/HUDOverlay.tsx(10,39): error TS7006: Parameter 'i' implicitly has an 'any' type.
+client/src/scing/ScingProvider.tsx(2,35): error TS2307: Cannot find module '@scing/ui/scingState' or its corresponding type declarations.
+client/src/scing/ScingProvider.tsx(3,33): error TS2307: Cannot find module '@scing/ui/scingState' or its corresponding type declarations.
+cloud/functions/src/lari/engineRegistry.ts(76,26): error TS2802: Type 'MapIterator<LariEngineContract>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+cloud/functions/src/scing/types.ts(19,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+cloud/functions/src/scing/types.ts(20,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+cloud/functions/src/scing/types.ts(21,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+OVERSCITE/cloud/functions/src/aip/index.ts(10,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/aip/index.ts(10,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(14,11): error TS2339: Property 'type' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(14,17): error TS2339: Property 'payload' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(18,47): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/aip/index.ts(18,55): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(21,49): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/aip/index.ts(21,57): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(13,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(13,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(20,11): error TS2339: Property 'action' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(20,19): error TS2339: Property 'metadata' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(21,18): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(21,26): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(33,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(33,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(38,13): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(38,21): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(39,18): error TS2339: Property 'action' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(40,18): error TS2339: Property 'result' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(41,20): error TS2339: Property 'metadata' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(49,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(49,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(53,11): error TS2339: Property 'action' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(53,19): error TS2339: Property 'resource' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(54,18): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(54,26): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bootstrap.ts(10,19): error TS18046: 'error' is of type 'unknown'.
+OVERSCITE/cloud/functions/src/canon/validateHomeCanon.ts(18,9): error TS2322: Type '{ readonly governance: { readonly scope: "HOME_INSPECTION_ONLY"; readonly immutable: true; }; readonly inspection_structure: { readonly metadata_required: readonly ["inspector_id", "client_name", "property_address", "inspection_date", "weather_conditions", "occupancy_status", "utilities_status"]; }; readonly domains...' is not assignable to type 'Canon'.
+  The types of 'inspection_structure.metadata_required' are incompatible between these types.
+    The type 'readonly ["inspector_id", "client_name", "property_address", "inspection_date", "weather_conditions", "occupancy_status", "utilities_status"]' is 'readonly' and cannot be assigned to the mutable type 'string[]'.
+OVERSCITE/cloud/functions/src/index.ts(30,39): error TS2339: Property 'auth' does not exist on type 'typeof import("G:/OVERSCITE-Global/node_modules/firebase-functions/lib/v2/index")'.
+OVERSCITE/cloud/functions/src/index.ts(30,67): error TS7006: Parameter 'user' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/index.ts(47,4): error TS2339: Property 'document' does not exist on type 'typeof import("G:/OVERSCITE-Global/node_modules/firebase-functions/lib/v2/providers/firestore")'.
+OVERSCITE/cloud/functions/src/index.ts(48,20): error TS7006: Parameter 'change' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/index.ts(48,28): error TS7006: Parameter 'context' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/lari/index.ts(13,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/lari/index.ts(13,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(17,11): error TS2339: Property 'text' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(24,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/lari/index.ts(24,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(28,11): error TS2339: Property 'imageUrl' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(35,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/lari/index.ts(35,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(39,11): error TS2339: Property 'inspectionId' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/triggers/lariVision.ts(10,6): error TS2339: Property 'document' does not exist on type 'typeof import("G:/OVERSCITE-Global/node_modules/firebase-functions/lib/v2/providers/firestore")'.
+OVERSCITE/cloud/functions/src/triggers/lariVision.ts(11,22): error TS7006: Parameter 'snap' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/triggers/lariVision.ts(11,28): error TS7006: Parameter 'context' implicitly has an 'any' type.
+OVERSCITE/src/components/overhud/FileTree.tsx(73,87): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(74,83): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(75,88): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(76,85): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(77,94): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/lib/overhud/mock-data.ts(35,9): error TS2353: Object literal may only specify known properties, and 'children' does not exist in type 'ExplorerNode'.
+OVERSCITE/src/lib/overhud/mock-data.ts(58,17): error TS2339: Property 'children' does not exist on type 'ExplorerNode'.
+OVERSCITE/src/lib/overhud/mock-data.ts(65,49): error TS7006: Parameter 'c' implicitly has an 'any' type.
+OVERSCITE/src/lib/overhud/mock-data.ts(66,30): error TS7006: Parameter 'child' implicitly has an 'any' type.
+packages/bfi-policy/src/policyEngine.ts(1,32): error TS2307: Cannot find module '@scingular/bfi-intent' or its corresponding type declarations.
+scing/bane/core/redactionFromFindings.ts(11,21): error TS2802: Type 'RegExpStringIterator<RegExpExecArray>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/bane/core/redactionFromFindings.ts(17,21): error TS2802: Type 'RegExpStringIterator<RegExpExecArray>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/debug/subBabies.ts(1,10): error TS2614: Module '"../engineRegistry"' has no exported member 'LARI_SUB_ENGINES'. Did you mean to use 'import LARI_SUB_ENGINES from "../engineRegistry"' instead?
+scing/engine/engineGraph.ts(33,26): error TS2802: Type 'Map<EngineId, EngineId[]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/engine/engineGraph.ts(33,47): error TS7006: Parameter 'a' implicitly has an 'any' type.
+scing/engine/engineGraph.ts(33,50): error TS7006: Parameter 'b' implicitly has an 'any' type.
+scing/engineRegistry.ts(12,15): error TS2459: Module '"./engine/engineRegistry"' declares 'EngineId' locally, but it is not exported.
+scing/engines/lariEdl.ts(4,33): error TS2551: Property 'lari-edl' does not exist on type 'Record<EngineId, EngineRecord>'. Did you mean 'LARI-EDDY'?
+scing/inspection/inspectionPolicy.ts(26,21): error TS2802: Type 'Set<"video" | "document" | "photo" | "thermal_image" | "spectral_scan" | "sonar_scan" | "gpr_scan" | "other">' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(31,26): error TS2802: Type 'ArrayIterator<[number, LariInputArtifact]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(40,26): error TS2802: Type 'ArrayIterator<[number, LariInputMeasurement]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(100,26): error TS2802: Type 'ArrayIterator<[number, LariFieldInput]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(111,26): error TS2802: Type 'ArrayIterator<[number, any]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing_avatar_env/src/App.tsx(1,34): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/App.tsx(9,29): error TS2307: Cannot find module '../../../src/ui/pillInputWiring' or its corresponding type declarations.
+scing_avatar_env/src/App.tsx(22,34): error TS2307: Cannot find module '../../../mobius/types' or its corresponding type declarations.
+scing_avatar_env/src/App.tsx(23,35): error TS2307: Cannot find module '../../../mobius/signal' or its corresponding type declarations.
+scing_avatar_env/src/App.tsx(24,28): error TS2307: Cannot find module '../../../mobius/runtime' or its corresponding type declarations.
+scing_avatar_env/src/App.tsx(25,48): error TS2307: Cannot find module '../../../mobius/palettes' or its corresponding type declarations.
+scing_avatar_env/src/App.tsx(120,9): error TS2339: Property 'primitive' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/App.tsx(124,9): error TS2339: Property 'spotLight' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/App.tsx(137,22): error TS7006: Parameter 'o' implicitly has an 'any' type.
+scing_avatar_env/src/App.tsx(568,20): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+scing_avatar_env/src/App.tsx(635,25): error TS7031: Binding element 'camera' implicitly has an 'any' type.
+scing_avatar_env/src/App.tsx(635,33): error TS7031: Binding element 'gl' implicitly has an 'any' type.
+scing_avatar_env/src/App.tsx(649,11): error TS2339: Property 'color' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/App.tsx(652,11): error TS2339: Property 'ambientLight' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/App.tsx(655,11): error TS2339: Property 'primitive' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/dev/DevOptionsPanel.tsx(638,91): error TS2339: Property 'similarity' does not exist on type '{ enabled: boolean; adapter: string; device: string; updateHz: number; intensity: number; phaseBias: number; map: { arousal: string; focus: string; valence: string; }; previewRGB: boolean; }'.
+scing_avatar_env/src/dev/DevOptionsPanel.tsx(639,91): error TS2339: Property 'smoothness' does not exist on type '{ enabled: boolean; adapter: string; device: string; updateHz: number; intensity: number; phaseBias: number; map: { arousal: string; focus: string; valence: string; }; previewRGB: boolean; }'.
+scing_avatar_env/src/dev/DevOptionsPanel.tsx(640,81): error TS2339: Property 'spill' does not exist on type '{ enabled: boolean; adapter: string; device: string; updateHz: number; intensity: number; phaseBias: number; map: { arousal: string; focus: string; valence: string; }; previewRGB: boolean; }'.
+scing_avatar_env/src/influence/InfluenceBridge.ts(4,38): error TS2307: Cannot find module '../../../../mobius/runtime' or its corresponding type declarations.
+scing_avatar_env/src/influence/mediaSensors.ts(3,31): error TS2307: Cannot find module 'pitchy' or its corresponding type declarations.
+scing_avatar_env/src/media/mediaSensors.ts(183,26): error TS2307: Cannot find module 'pitchy' or its corresponding type declarations.
+scing_avatar_env/src/media/mediaSensors.ts(189,31): error TS2307: Cannot find module 'pitchy' or its corresponding type declarations.
+scing_avatar_env/src/neural/mapToMobius.ts(2,35): error TS2307: Cannot find module '../../../../mobius/signal' or its corresponding type declarations.
+scing_avatar_env/src/visual/AuraShell.tsx(17,10): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares.tsx(2,36): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/AvatarFlares.tsx(70,15): error TS7031: Binding element 'clock' implicitly has an 'any' type.
+scing_avatar_env/src/visual/AvatarFlares.tsx(102,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares.tsx(104,7): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares.tsx(107,7): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares.tsx(116,7): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares.tsx(123,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares3D.tsx(2,27): error TS2307: Cannot find module '@react-three/drei' or its corresponding type declarations.
+scing_avatar_env/src/visual/AvatarFlares3D.tsx(3,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/AvatarFlares3D.tsx(144,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares3D.tsx(147,11): error TS2339: Property 'sprite' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarFlares3D.tsx(148,19): error TS7006: Parameter 'el' implicitly has an 'any' type.
+scing_avatar_env/src/visual/AvatarFlares3D.tsx(157,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/AvatarReflectionCapture.ts(3,36): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/Backdrop.tsx(27,5): error TS2339: Property 'points' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Backdrop.tsx(28,7): error TS2339: Property 'pointsMaterial' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Backdrop.tsx(29,5): error TS2339: Property 'points' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/DeterministicStarfield.tsx(63,5): error TS2339: Property 'points' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/DeterministicStarfield.tsx(64,7): error TS2339: Property 'bufferGeometry' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/DeterministicStarfield.tsx(65,9): error TS2339: Property 'bufferAttribute' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/DeterministicStarfield.tsx(66,9): error TS2339: Property 'bufferAttribute' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/DeterministicStarfield.tsx(67,7): error TS2339: Property 'bufferGeometry' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/DeterministicStarfield.tsx(68,7): error TS2339: Property 'pointsMaterial' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/DeterministicStarfield.tsx(77,5): error TS2339: Property 'points' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/FlameMaterial.ts(1,32): error TS2307: Cannot find module '@react-three/drei' or its corresponding type declarations.
+scing_avatar_env/src/visual/FlameMaterialRegistration.ts(1,38): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/FlameMaterialRegistration.ts(2,24): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/FlameMaterialRegistration.ts(8,16): error TS2664: Invalid module name in augmentation, module '@react-three/fiber' cannot be found.
+scing_avatar_env/src/visual/floor/ReflectionPlane.tsx(3,36): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/floor/ReflectionPlane.tsx(151,15): error TS7031: Binding element 'clock' implicitly has an 'any' type.
+scing_avatar_env/src/visual/floor/ReflectionPlane.tsx(197,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/floor/ReflectionPlane.tsx(204,7): error TS2339: Property 'planeGeometry' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/floor/ReflectionPlane.tsx(205,7): error TS2339: Property 'primitive' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/floor/ReflectionPlane.tsx(206,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/floor/VisibleFloor.tsx(19,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/floor/VisibleFloor.tsx(26,7): error TS2339: Property 'planeGeometry' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/floor/VisibleFloor.tsx(27,7): error TS2339: Property 'meshStandardMaterial' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/floor/VisibleFloor.tsx(28,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/FloorReflection.tsx(3,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/FloorReflection.tsx(99,15): error TS7031: Binding element 'clock' implicitly has an 'any' type.
+scing_avatar_env/src/visual/FloorReflection.tsx(110,10): error TS2339: Property 'primitive' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/FloorShine.tsx(3,36): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/FloorShine.tsx(88,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/FloorShine.tsx(89,7): error TS2339: Property 'planeGeometry' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/FloorShine.tsx(90,7): error TS2339: Property 'primitive' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/FloorShine.tsx(91,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/halo/HaloShell.tsx(3,24): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/halo/HaloShell.tsx(18,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/halo/HaloShell.tsx(20,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/HaloFX.tsx(3,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/HaloFX.tsx(4,27): error TS2307: Cannot find module '@react-three/drei' or its corresponding type declarations.
+scing_avatar_env/src/visual/HaloFX.tsx(135,13): error TS7006: Parameter '_' implicitly has an 'any' type.
+scing_avatar_env/src/visual/HaloFX.tsx(135,16): error TS7006: Parameter 'dt' implicitly has an 'any' type.
+scing_avatar_env/src/visual/HaloFX.tsx(184,7): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/HaloFX.tsx(185,9): error TS2339: Property 'planeGeometry' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/HaloFX.tsx(186,9): error TS2339: Property 'primitive' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/HaloFX.tsx(187,7): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/HaloShellMaterial.ts(1,32): error TS2307: Cannot find module '@react-three/drei' or its corresponding type declarations.
+scing_avatar_env/src/visual/HaloSmokeShell.tsx(2,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/HaloSmokeShell.tsx(168,15): error TS7031: Binding element 'clock' implicitly has an 'any' type.
+scing_avatar_env/src/visual/HaloSmokeShell.tsx(200,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/InfiniteFloor.tsx(11,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/InfiniteFloor.tsx(15,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/LightRig.tsx(1,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/LightRig.tsx(10,15): error TS7031: Binding element 'clock' implicitly has an 'any' type.
+scing_avatar_env/src/visual/LightRig.tsx(33,7): error TS2339: Property 'ambientLight' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/LightRig.tsx(34,7): error TS2339: Property 'directionalLight' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/LightRig.tsx(35,7): error TS2339: Property 'directionalLight' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/LightRig.tsx(36,7): error TS2339: Property 'pointLight' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/lightRig/useLightRig.ts(3,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/lightRig/useLightRig.ts(27,15): error TS7031: Binding element 'clock' implicitly has an 'any' type.
+scing_avatar_env/src/visual/reflection/AvatarReflectionTarget.ts(3,36): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/reflection/AvatarReflectionTarget.ts(4,24): error TS2307: Cannot find module '@react-three/drei' or its corresponding type declarations.
+scing_avatar_env/src/visual/reflection/FloorReflectionPlane.tsx(3,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/reflection/FloorReflectionPlane.tsx(123,15): error TS7031: Binding element 'clock' implicitly has an 'any' type.
+scing_avatar_env/src/visual/reflection/FloorReflectionPlane.tsx(143,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/reflection/FloorReflectionPlane.tsx(146,18): error TS7006: Parameter 'o' implicitly has an 'any' type.
+scing_avatar_env/src/visual/reflection/FloorReflectionPlane.tsx(148,7): error TS2339: Property 'planeGeometry' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/reflection/FloorReflectionPlane.tsx(149,7): error TS2339: Property 'primitive' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/reflection/FloorReflectionPlane.tsx(150,5): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(3,44): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/Scene3D.tsx(4,31): error TS2307: Cannot find module '@react-three/drei' or its corresponding type declarations.
+scing_avatar_env/src/visual/Scene3D.tsx(126,22): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+scing_avatar_env/src/visual/Scene3D.tsx(176,13): error TS7006: Parameter '_' implicitly has an 'any' type.
+scing_avatar_env/src/visual/Scene3D.tsx(176,16): error TS7006: Parameter 'dt' implicitly has an 'any' type.
+scing_avatar_env/src/visual/Scene3D.tsx(332,40): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+scing_avatar_env/src/visual/Scene3D.tsx(359,9): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(370,13): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(380,13): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(386,13): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(388,13): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(392,13): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(394,13): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(398,11): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(400,13): error TS2339: Property 'meshBasicMaterial' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(401,11): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(405,13): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(406,15): error TS2339: Property 'meshBasicMaterial' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(407,13): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Scene3D.tsx(414,9): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Starfield.tsx(3,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/Starfield.tsx(10,13): error TS7006: Parameter '_' implicitly has an 'any' type.
+scing_avatar_env/src/visual/Starfield.tsx(10,16): error TS7006: Parameter 'dt' implicitly has an 'any' type.
+scing_avatar_env/src/visual/Starfield.tsx(18,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/Starfield.tsx(20,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+scing_avatar_env/src/visual/TrailPass.ts(1,24): error TS2307: Cannot find module 'postprocessing' or its corresponding type declarations.
+scing_avatar_env/src/visual/TrailPass.ts(30,10): error TS2339: Property 'uniforms' does not exist on type 'TrailPass'.
+scing_avatar_env/src/visual/TrailPass.ts(34,10): error TS2339: Property 'uniforms' does not exist on type 'TrailPass'.
+scing_avatar_env/src/visual/useAvatarVisual.ts(2,26): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+scing_avatar_env/src/visual/useAvatarVisual.ts(18,13): error TS7006: Parameter '_' implicitly has an 'any' type.
+scing_avatar_env/src/visual/useAvatarVisual.ts(18,16): error TS7006: Parameter 'delta' implicitly has an 'any' type.
+scing_avatar_env/vite.config.ts(1,30): error TS2307: Cannot find module 'vite' or its corresponding type declarations.
+scing_avatar_env/vite.config.ts(2,19): error TS2307: Cannot find module '@vitejs/plugin-react-swc' or its corresponding type declarations.
+src/ai/flows/lari-narrator.ts(11,24): error TS2307: Cannot find module '@genkit-ai/google-genai' or its corresponding type declarations.
+src/ai/genkit.ts(3,10): error TS2724: '"@genkit-ai/dotprompt"' has no exported member named 'dotprompt'. Did you mean 'Dotprompt'?
+src/app/(authenticated)/admin/page.tsx(303,30): error TS2304: Cannot find name 'Separator'.
+src/app/(authenticated)/clients/[id]/page.tsx(137,55): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"Final"' have no overlap.
+src/app/(authenticated)/clients/[id]/page.tsx(141,79): error TS2322: Type 'Date' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/community/page.tsx(255,30): error TS2552: Cannot find name 'Users'. Did you mean 'user'?
+src/app/(authenticated)/conference-rooms/[id]/page.tsx(64,52): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/conference-rooms/[id]/page.tsx(150,52): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/app/(authenticated)/conference-rooms/page.tsx(76,60): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/governance-setup/page.tsx(17,8): error TS2739: Type '{}' is missing the following properties from type 'GovernanceSetupProps': governance, onUpdateField, onInvokeWizard
+src/app/(authenticated)/contractor/page.tsx(12,41): error TS2307: Cannot find module '../../components/contractor/VerificationStateBanner' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(13,33): error TS2307: Cannot find module '../../components/contractor/GovernanceSetup' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(14,25): error TS2307: Cannot find module '../../components/contractor/PartyIntake' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(15,34): error TS2307: Cannot find module '../../components/contractor/ProposalDrafting' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(16,32): error TS2307: Cannot find module '../../components/contractor/OversightChain' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(17,71): error TS2307: Cannot find module '../../lib/contractor/types' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(119,31): error TS7006: Parameter 'id' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(119,35): error TS7006: Parameter 'content' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(120,61): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(123,32): error TS7006: Parameter 'id' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(124,61): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/app/(authenticated)/finances/page.tsx(254,58): error TS2769: No overload matches this call.
+  Overload 1 of 4, '(value: string | number | Date): Date', gave the following error.
+    Argument of type 'string | FieldValue' is not assignable to parameter of type 'string | number | Date'.
+      Type 'FieldValue' is not assignable to type 'string | number | Date'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'string | FieldValue' is not assignable to parameter of type 'string | number'.
+      Type 'FieldValue' is not assignable to type 'string | number'.
+src/app/(authenticated)/finances/page.tsx(393,22): error TS2304: Cannot find name 'Separator'.
+src/app/(authenticated)/inspections/new/review/page.tsx(65,9): error TS2322: Type '"pending"' is not assignable to type 'TruthState | undefined'.
+src/app/(authenticated)/inspections/new/review/page.tsx(66,9): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/app/(authenticated)/inspections/page.tsx(175,48): error TS2322: Type '{ state: string; }' is not assignable to type 'IntrinsicAttributes & TruthStateBadgeProps'.
+  Property 'state' does not exist on type 'IntrinsicAttributes & TruthStateBadgeProps'.
+src/app/(authenticated)/inspections/page.tsx(175,55): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"completed"' have no overlap.
+src/app/(authenticated)/inspections/page.tsx(178,43): error TS2551: Property 'inspectorName' does not exist on type 'Inspection'. Did you mean 'inspector'?
+src/app/(authenticated)/inspections/page.tsx(181,31): error TS2322: Type 'Date' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/marketplace/page.tsx(55,61): error TS2459: Module '"@/lib/services/marketplace-service"' declares 'Capability' locally, but it is not exported.
+src/app/(authenticated)/teams/[id]/page.tsx(109,48): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(109,56): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(163,48): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(211,64): error TS7006: Parameter 'log' implicitly has an 'any' type.
+src/app/(authenticated)/workstation/devices/[id]/page.tsx(277,66): error TS2345: Argument of type 'string' is not assignable to parameter of type '"Error" | "Connected" | "Disconnected"'.
+src/app/(authenticated)/workstation/keys/[id]/periodic-table/page.tsx(93,62): error TS2339: Property 'column' does not exist on type '{ number: number; symbol: string; name: string; atomic_mass: number; category: string; xpos: number; ypos: number; }'.
+src/app/(authenticated)/workstation/keys/[id]/periodic-table/page.tsx(93,87): error TS2339: Property 'row' does not exist on type '{ number: number; symbol: string; name: string; atomic_mass: number; category: string; xpos: number; ypos: number; }'.
+src/app/(authenticated)/workstation/page.tsx(207,92): error TS2339: Property 'LARI' does not exist on type '{ PLATFORM_NAME: string; PLATFORM_SUFFIX: string; INTELLIGENCE_TYPE: string; BFI: string; TRINITY_NAME: string; SCING_ROLE: string; LARI_ROLE: string; BANE_ROLE: string; }'.
+src/app/(authenticated)/workstation/page.tsx(571,29): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"active"' have no overlap.
+src/app/(authenticated)/workstation/page.tsx(594,43): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"active"' have no overlap.
+src/app/(authenticated)/workstation/page.tsx(596,29): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"active"' have no overlap.
+src/app/(authenticated)/workstation/page.tsx(600,28): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"active"' have no overlap.
+src/app/settings/devices/[id]/page.tsx(271,66): error TS2345: Argument of type 'string' is not assignable to parameter of type '"Error" | "Connected" | "Disconnected"'.
+src/components/ai-search-dialog.tsx(61,33): error TS2304: Cannot find name 'SpeechRecognition'.
+src/components/ai-search-dialog.tsx(101,31): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/ai-search-dialog.tsx(108,30): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/ClientProviders.tsx(4,10): error TS2305: Module '"@/context/LayoutContext"' has no exported member 'LayoutProvider'.
+src/components/contractor/OversightChain.tsx(85,11): error TS2322: Type '{ party: { party_id: string; company_or_person_name: string; role_type: "prime_contractor"; prime_or_sub: "prime"; direct_to_owner: true; trade_class: string[]; self_perform_allowed: true; }; verificationStatus: "verified_active"; licenseRequired: true; readiness: string; registrationRequired: true; }' is not assignable to type 'IntrinsicAttributes & OversightNodeProps'.
+  Property 'readiness' does not exist on type 'IntrinsicAttributes & OversightNodeProps'.
+src/components/dashboard/InspectionFlowPanel.tsx(16,43): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"Draft"' have no overlap.
+src/components/dashboard/InspectionFlowPanel.tsx(17,45): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"In Progress"' have no overlap.
+src/components/dashboard/InspectionFlowPanel.tsx(18,42): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"Final"' have no overlap.
+src/components/dispatch-wizard.tsx(61,27): error TS2339: Property 'type' does not exist on type 'Job'.
+src/components/dispatch-wizard.tsx(85,43): error TS2339: Property 'type' does not exist on type 'Job'.
+src/components/dispatch-wizard.tsx(180,53): error TS2339: Property 'type' does not exist on type 'Job'.
+src/components/dispatch-wizard.tsx(187,53): error TS2339: Property 'address' does not exist on type 'Job'.
+src/components/drone/DroneBuilderControlPanel.tsx(14,10): error TS2305: Module '"@/lib/drone-types"' has no exported member 'DroneType'.
+src/components/drone/DroneBuilderControlPanel.tsx(14,21): error TS2305: Module '"@/lib/drone-types"' has no exported member 'DroneConfiguration'.
+src/components/drone/DroneBuilderControlPanel.tsx(14,41): error TS2305: Module '"@/lib/drone-types"' has no exported member 'FlightController'.
+src/components/drone/DroneBuilderControlPanel.tsx(14,59): error TS2305: Module '"@/lib/drone-types"' has no exported member 'SensorArray'.
+src/components/drone/DroneBuilderControlPanel.tsx(83,45): error TS2322: Type '{ config: any; onChange: (fc: any) => void; }' is not assignable to type 'IntrinsicAttributes & FlightControllerConfigProps'.
+  Property 'config' does not exist on type 'IntrinsicAttributes & FlightControllerConfigProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(83,89): error TS7006: Parameter 'fc' implicitly has an 'any' type.
+src/components/drone/DroneBuilderControlPanel.tsx(86,36): error TS2322: Type '{ config: any; onChange: (ecu: any) => void; }' is not assignable to type 'IntrinsicAttributes & ECUManagementProps'.
+  Property 'config' does not exist on type 'IntrinsicAttributes & ECUManagementProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(86,67): error TS7006: Parameter 'ecu' implicitly has an 'any' type.
+src/components/drone/DroneBuilderControlPanel.tsx(89,37): error TS2322: Type '{ sensors: any; }' is not assignable to type 'IntrinsicAttributes & SensorDataPaneProps'.
+  Property 'sensors' does not exist on type 'IntrinsicAttributes & SensorDataPaneProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(123,32): error TS2322: Type '{ config: DroneConfiguration; }' is not assignable to type 'IntrinsicAttributes & FAACompliancePanelProps'.
+  Property 'config' does not exist on type 'IntrinsicAttributes & FAACompliancePanelProps'.
+src/components/LiveFusionViewer.tsx(51,5): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(52,5): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(55,7): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(63,24): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(82,7): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(86,7): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/marketplace-map.tsx(231,42): error TS2339: Property 'status' does not exist on type 'Inspector'.
+src/components/marketplace-map.tsx(232,111): error TS2339: Property 'status' does not exist on type 'Inspector'.
+src/components/messaging-dialog.tsx(42,20): error TS2339: Property 'disconnectUser' does not exist on type 'never'.
+src/components/messaging-dialog.tsx(51,36): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(channelType: string, channelID?: string | null | undefined, custom?: ChannelData | undefined): Channel', gave the following error.
+    Argument of type '{ members: string[]; name: string; }' is not assignable to parameter of type 'string'.
+  Overload 2 of 2, '(channelType: string, custom?: ChannelData | undefined): Channel', gave the following error.
+    Object literal may only specify known properties, and 'name' does not exist in type 'ChannelData'.
+src/components/NewCaptureWizard.tsx(325,20): error TS2304: Cannot find name 'Plus'.
+src/components/overhud/FileTree.tsx(74,87): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(75,83): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(76,88): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(77,85): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(78,94): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/lari-repo/LearningQueuePanel.tsx(44,126): error TS2345: Argument of type '"supervisor"' is not assignable to parameter of type 'UserRole'.
+src/components/overhud/lari-repo/LearningQueuePanel.tsx(50,122): error TS2345: Argument of type '"supervisor"' is not assignable to parameter of type 'UserRole'.
+src/components/overhud/lari-repo/NotesPanel.tsx(75,89): error TS2345: Argument of type '{ findingId: string; type: "note_bundle"; payload: { noteId: string; text: string; }; }' is not assignable to parameter of type 'Omit<LearningPacket, "id" | "status" | "timestamp">'.
+  Property 'enteredBy' is missing in type '{ findingId: string; type: "note_bundle"; payload: { noteId: string; text: string; }; }' but required in type 'Omit<LearningPacket, "id" | "status" | "timestamp">'.
+src/components/wizard-steps/CaptureSettingsStep.tsx(164,22): error TS2304: Cannot find name 'CheckCircle'.
+src/components/wizard-steps/CaptureSettingsStep.tsx(234,20): error TS2304: Cannot find name 'Play'.
+src/components/wizard-steps/DeviceSelectionStep.tsx(110,29): error TS2304: Cannot find name 'AlertCircle'.
+src/components/wizard-steps/DeviceSelectionStep.tsx(250,18): error TS2304: Cannot find name 'AlertCircle'.
+src/components/wizard-steps/DeviceSelectionStep.tsx(343,14): error TS2304: Cannot find name 'Brain'.
+src/components/wizard-steps/SessionMetadataStep.tsx(148,14): error TS2304: Cannot find name 'Brain'.
+src/data/normalized-metric-store.ts(57,41): error TS2345: Argument of type 'NormalizedGeospatialAsset[]' is not assignable to parameter of type '{ id: string; timestamp: number; sourceSignature: string; }[]'.
+  Property 'timestamp' is missing in type 'NormalizedGeospatialAsset' but required in type '{ id: string; timestamp: number; sourceSignature: string; }'.
+src/data/normalized-metric-store.ts(67,5): error TS2322: Type 'DataStreamState<{ id: string; timestamp: number; sourceSignature: string; }>' is not assignable to type 'DataStreamState<NormalizedGeospatialAsset>'.
+  Type '{ id: string; timestamp: number; sourceSignature: string; }' is missing the following properties from type 'NormalizedGeospatialAsset': coordinates, status, lastUpdated
+src/hooks/useWakeWordDetection.ts(33,58): error TS2554: Expected 4-5 arguments, but got 3.
+src/hooks/useWakeWordDetection.ts(46,62): error TS2339: Property 'init' does not exist on type 'typeof WebVoiceProcessor'.
+src/hooks/useWakeWordDetection.ts(64,43): error TS2341: Property 'start' is private and only accessible within class 'WebVoiceProcessor'.
+src/hooks/useWakeWordDetection.ts(74,43): error TS2341: Property 'stop' is private and only accessible within class 'WebVoiceProcessor'.
+src/hooks/useWakeWordDetection.ts(91,42): error TS2339: Property 'release' does not exist on type 'WebVoiceProcessor'.
+src/lib/autonomous-dom-controller.ts(2,10): error TS2459: Module '"./firebase"' declares 'db' locally, but it is not exported.
+src/lib/bane/policies/correction-escalation-policy.ts(9,51): error TS2367: This comparison appears to be unintentional because the types 'UserRole' and '"supervisor"' have no overlap.
+src/lib/bane/policies/finding-ingestion-policy.ts(2,10): error TS2305: Module '"../policy"' has no exported member 'Policy'.
+src/lib/bane/policies/finding-ingestion-policy.ts(27,5): error TS2741: Property 'reasonCode' is missing in type '{ type: "ALLOW"; mode: "NORMAL"; }' but required in type 'Decision'.
+src/lib/bane/policies/finding-review-policy.ts(2,10): error TS2305: Module '"../policy"' has no exported member 'Policy'.
+src/lib/bane/policies/finding-review-policy.ts(35,5): error TS2741: Property 'reasonCode' is missing in type '{ type: "ALLOW"; mode: "NORMAL"; }' but required in type 'Decision'.
+src/lib/bane/policies/report-finalization-policy.ts(2,10): error TS2305: Module '"../policy"' has no exported member 'Policy'.
+src/lib/bane/policies/report-finalization-policy.ts(26,5): error TS2741: Property 'reasonCode' is missing in type '{ type: "ALLOW"; mode: "NORMAL"; }' but required in type 'Decision'.
+src/lib/lari-repo/correction-escalation-service.ts(4,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/lari-repo/correction-lineage-service.ts(4,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/lari-repo/finding-review-service.ts(92,5): error TS2322: Type '{ success: boolean; }' is not assignable to type 'void'.
+src/lib/lari-repo/mock-data.ts(9,11): error TS2741: Property 'currentVersionNumber' is missing in type '{ id: string; name: string; type: "image"; jobId: string; clientId: string; createdAt: string; createdBy: string; reviewStatus: "pending"; ingestionEligibility: "not_eligible"; version: string; metadata: { ...; }; }' but required in type 'RepoFile'.
+src/lib/lari-repo/truth-seal-service.ts(9,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/lari-repo/versioning-service.ts(4,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/legacy/mock-data-legacy.ts(1,72): error TS2305: Module '"../types"' has no exported member 'MarketplaceService'.
+src/lib/legacy/mock-data-legacy.ts(1,143): error TS2305: Module '"../types"' has no exported member 'Notification'.
+src/lib/legacy/mock-data-legacy.ts(13,5): error TS2322: Type '"completed"' is not assignable to type 'TruthState'.
+src/lib/legacy/mock-data-legacy.ts(14,5): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/lib/locations/googleMapsLoader.ts(25,16): error TS2339: Property 'importLibrary' does not exist on type 'Loader'.
+src/lib/locations/googleMapsLoader.ts(26,16): error TS2339: Property 'importLibrary' does not exist on type 'Loader'.
+src/lib/marketplace-data.ts(4,26): error TS2305: Module '"./types"' has no exported member 'MarketplaceService'.
+src/lib/marketplace-data.ts(8,36): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/marketplace-data.ts(16,34): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/marketplace-data.ts(24,38): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/marketplace-data.ts(32,33): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/pipeline/persistence.ts(22,5): error TS2305: Module '"../types"' has no exported member 'FieldCaptureObject'.
+src/lib/pipeline/persistence.ts(23,5): error TS2305: Module '"../types"' has no exported member 'AnalyticalResultObject'.
+src/lib/pipeline/persistence.ts(24,5): error TS2305: Module '"../types"' has no exported member 'MeasurementResultObject'.
+src/lib/pipeline/persistence.ts(25,5): error TS2305: Module '"../types"' has no exported member 'ComplianceEvaluationObject'.
+src/lib/pipeline/persistence.ts(26,5): error TS2305: Module '"../types"' has no exported member 'AdvisoryBlock'.
+src/lib/pipeline/persistence.ts(27,5): error TS2305: Module '"../types"' has no exported member 'PipelineStatus'.
+src/lib/services/calendar-service.ts(11,5): error TS2322: Type '"confirmed"' is not assignable to type 'TruthState | "cancelled" | "tentative"'.
+src/lib/services/calendar-service.ts(22,5): error TS2322: Type '"confirmed"' is not assignable to type 'TruthState | "cancelled" | "tentative"'.
+src/lib/services/calendar-service.ts(33,5): error TS2322: Type '"pending"' is not assignable to type 'TruthState | "cancelled" | "tentative"'.
+src/lib/services/finance-service.ts(18,5): error TS2322: Type '"issued"' is not assignable to type 'TruthState | "paid" | "overdue" | "void"'.
+src/lib/services/finance-service.ts(28,5): error TS2322: Type '"draft"' is not assignable to type 'TruthState | "paid" | "overdue" | "void"'.
+src/lib/subscription.ts(22,26): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): DocumentReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path?: string | undefined, ...pathSegments: string[]): DocumentReference<unknown, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): DocumentReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/task-driven-ai-system.ts(149,10): error TS2551: Property 'updateKnowledgeBase' does not exist on type 'TaskDrivenAISystem'. Did you mean 'knowledgeBase'?
+tests/contractor/recalibration.test.ts(3,64): error TS2307: Cannot find module '../../lib/contractor/types' or its corresponding type declarations.

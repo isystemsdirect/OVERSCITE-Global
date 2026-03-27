@@ -1,0 +1,70 @@
+{
+  "findings": [
+    {
+      "id": "f_vibration_001",
+      "title": "Vibration/Oscillation Drift Detected",
+      "description": "Blackbox telemetry indicates a 15% increase in Z-axis oscillation during hover transition. Potential motor bearing wear or unbalanced prop.",
+      "severity": "R2-medium",
+      "confidence": 0.88,
+      "sourceEngineId": "LARI-ANALYST",
+      "evidenceRefs": [
+        { "type": "sensor", "ref": "telemetry/vibration_z_axis", "label": "Vibration Z-Axis Trace" }
+      ],
+      "requiresHumanReview": false
+    },
+    {
+      "id": "f_power_002",
+      "title": "Power Draw Outlier",
+      "description": "Instantaneous current spike of 45A detected during standard climb. Outlier compared to fleet baseline for similar SRT Mission Profiles.",
+      "severity": "R1-low",
+      "confidence": 0.92,
+      "sourceEngineId": "LARI-ANALYST",
+      "evidenceRefs": [
+        { "type": "measurement", "ref": "telemetry/current_draw", "label": "Current Draw Log" }
+      ],
+      "requiresHumanReview": false
+    },
+    {
+      "id": "f_gps_003",
+      "title": "GPS/Signal Instability",
+      "description": "Satellite count dropped below 8 in 'Facade Sweep' profile area. Spatial trace indicates high multipath potential near structure.",
+      "severity": "R3-high",
+      "confidence": 0.95,
+      "sourceEngineId": "LARI-RETRIEVER",
+      "evidenceRefs": [
+        { "type": "sensor", "ref": "gps/sat_count", "label": "GPS Sat Count" }
+      ],
+      "requiresHumanReview": true
+    },
+    {
+      "id": "f_lucide_004",
+      "title": "Frontend UI Runtime Error / Lucide Icon",
+      "description": "ReferenceError: Maximize2 is not defined in OversciteDroneVisionUI.tsx. Caused by missing import in the lucide-react block.",
+      "severity": "R3-high",
+      "confidence": 1.0,
+      "sourceEngineId": "LARI-ANALYST",
+      "evidenceRefs": [
+        { "type": "document", "ref": "src/components/drone/OversciteDroneVisionUI.tsx", "label": "Source Code Analysis" }
+      ],
+      "requiresHumanReview": false
+    }
+  ],
+  "traces": [
+    {
+      "engineId": "LARI-ANALYST",
+      "executionClass": "reasoning",
+      "stage": "telemetry-interrogation",
+      "durationMs": 145,
+      "inputSummary": "Ingested 500ms telemetry slice for vibration analysis.",
+      "outputSummary": "Detected vibration outlier on Z-axis."
+    },
+    {
+      "engineId": "LARI-RETRIEVER",
+      "executionClass": "reasoning",
+      "stage": "context-grounding",
+      "durationMs": 89,
+      "inputSummary": "Searching historical mission profiles for GPS stability benchmarks.",
+      "outputSummary": "ConfirmedMultipath risk in current sector."
+    }
+  ]
+}

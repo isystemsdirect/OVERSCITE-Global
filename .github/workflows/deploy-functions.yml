@@ -1,0 +1,26 @@
+name: Deploy Cloud Functions to Firebase
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'cloud/functions/**'
+      - 'firebase.json'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Deploy to Firebase Functions
+        uses: wix/wix-firebase-deploy-action@v1.4.0
+        with:
+          PROJECT_ID: 'scingula-ai-drone-control'
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          APP_ID: 'cloud/functions'
+          ONLY: functions

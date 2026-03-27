@@ -1,0 +1,56 @@
+# UTCB-R-G: EEPIP Tightening Pass — Return Packet
+
+**Status**: Stabilized & Documented
+**CB_Version**: 1.0.00
+**Completion_DateTime**: 2026-03-23
+
+## 1. Audited & Modified Surfaces
+
+### Files Audited
+- `g:\OVERSCITE-Global\src\components\property\PropertyExternalDataStatusCard.tsx`
+- `g:\OVERSCITE-Global\src\components\property\PropertyDeltaReviewDrawer.tsx`
+- `g:\OVERSCITE-Global\src\components\property\PropertyEEPIPActionBar.tsx`
+- `g:\OVERSCITE-Global\cloud\functions\src\inspection\eepip.ts`
+- `g:\OVERSCITE-Global\src\components\dynamic-inspection-form.tsx`
+
+### Files Modified
+- **Frontend Components**: Hardened all three property-related UI files with specific proposal/fetch terminology.
+- **Backend Functions**: Updated `eepip.ts` with SIMULATION labels and standardized audit logging.
+- **Documentation**: Created 3 new canon documents in `docs/property-intelligence/`.
+
+## 2. Terminology & Label Hardening
+
+| Original Term | Hardened Term | Context |
+| :--- | :--- | :--- |
+| Connect | Fetch External Candidates | Initial step (Boundary 1) |
+| Update Available | Candidates Available | Freshness detection (Boundary 3) |
+| Review Suggestions | Review Proposed Changes | Ingestion review (Boundary 2) |
+| Accept Selected | Accept Selected Proposals | Human decision (Boundary 2) |
+| Status: [Enum] | Accepted into PIP / Proposed... | Status Card feedback |
+
+## 3. Boundary Verification
+
+1.  **Fetch_Is_Not_Ingestion**: **LOCKED**. Naming ensures fetch only retrieves candidate info.
+2.  **Ingestion_Is_Not_Acceptance**: **LOCKED**. Delta packets are provisional until user approval.
+3.  **Freshness_Is_Advisory**: **LOCKED**. Background checks do not mutate state; they trigger availability alerts.
+4.  **Simulation_Truthfulness**: **LOCKED**. All mock paths are labeled `[SIMULATION]` in code and UI.
+
+## 4. Audit & Versioning Confirmation
+
+- **Accept Event**: Confirmed (`eepip_accept`).
+- **Decline/Dismiss**: Confirmed in UI flow and logged via Firestore.
+- **Freshness Detection**: Confirmed (`pip_freshness_no_change` log included).
+- **Version Boundary**: Confirmed. `applyAcceptedPropertyDelta` creates a clear V -> V+1 transition with history preservation.
+
+## 5. Verification Questions Results
+
+- **Proposal Leakage**: Verified none. Internal PIP baseline remains protected.
+- **Honest Labeling**: Verified. Simulated sources are explicitly named.
+- **Attribution**: Verified. `actor_id` and timestamps are present on all mutation paths.
+
+## 6. Remaining Risks / Next Steps
+
+- **Risk**: None identified for this pass.
+- **Next Step**: Proceed to live source integration (if authorized) or further functional expansion.
+
+**Receiver Confirmation**: All semantic boundaries, implementation truthfulness, and audit completeness have been stabilized according to UTCB-G directive.

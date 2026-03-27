@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/lib/*": [
+        "./src/lib/*"
+      ],
+      "@/drone/*": [
+        "./src/lib/drone/*"
+      ],
+      "@/firebase/*": [
+        "./src/lib/firebase/*"
+      ],
+      "@scingular/bfi-intent": ["packages/bfi-intent/src/index.ts"],
+      "@scingular/bfi-intent/*": ["packages/bfi-intent/src/*"],
+      "@scingular/bfi-policy": ["packages/bfi-policy/src/index.ts"],
+      "@scingular/bfi-policy/*": ["packages/bfi-policy/src/*"],
+      "@scingular/scingular-policy": ["packages/scingular-policy/src/index.ts"],
+      "@scingular/scingular-policy/*": ["packages/scingular-policy/src/*"],
+      "@scingular/scingular-sdk": ["packages/scingular-sdk/src/index.ts"],
+      "@scingular/scingular-sdk/*": ["packages/scingular-sdk/src/*"],
+      "@scingular/sdk": ["packages/scingular-sdk/src/index.ts"],
+      "@scingular/sdk/*": ["packages/scingular-sdk/src/*"],
+      "@scing/bane/*": ["scing/bane/*"],
+      "@scing/lari/*": ["scing/lari/*"],
+      "@scing/srt/*": ["scing/srt/*"],
+      "@scing/ui/*": ["scing/ui/*"],
+      "@scing/obs/*": ["scing/obs/*"],
+      "@scing/devices/*": ["scing/devices/*"],
+      "@scing/evidence/*": ["scing/evidence/*"],
+      "@scing/lariBus/*": ["scing/lariBus/*"],
+      "@rtsf/*": ["scing/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "ScingOS",
+    "app",
+    "client",
+    "scing_avatar_env",
+    "archive",
+    "tmp"
+  ]
+}

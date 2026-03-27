@@ -1,0 +1,10 @@
+.no-mask::before {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Ensure the mask matches the larger size */
+.traveling-glow-container > svg {
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}

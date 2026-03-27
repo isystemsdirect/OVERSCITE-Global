@@ -1,0 +1,118 @@
+{
+  "placeholderImages": [
+    {
+      "id": "bg-user-1",
+      "description": "User provided background image 1",
+      "imageUrl": "/background_photos/bckgrnd001.jpeg",
+      "imageHint": "modern architecture"
+    },
+    {
+      "id": "bg-user-2",
+      "description": "User provided background image 2",
+      "imageUrl": "/background_photos/bckgrnd002.jpeg",
+      "imageHint": "inspector construction"
+    },
+    {
+      "id": "bg-user-3",
+      "description": "User provided background image 3",
+      "imageUrl": "/background_photos/bckgrnd003.jpeg",
+      "imageHint": "engineer city"
+    },
+    {
+      "id": "bg-user-4",
+      "description": "User provided background image 4",
+      "imageUrl": "/background_photos/bckgrnd004.jpeg",
+      "imageHint": "drone inspection"
+    },
+    {
+      "id": "bg-user-5",
+      "description": "User provided background image 5",
+      "imageUrl": "/background_photos/bckgrnd005.jpeg",
+      "imageHint": "industrial facility"
+    },
+    {
+      "id": "bg-user-6",
+      "description": "User provided background image 6",
+      "imageUrl": "/background_photos/bckgrnd006.jpeg",
+      "imageHint": "bridge structure"
+    },
+    {
+      "id": "bg-user-7",
+      "description": "User provided background image 7",
+      "imageUrl": "/background_photos/bckgrnd007.jpeg",
+      "imageHint": "abstract building"
+    },
+    {
+      "id": "bg-user-8",
+      "description": "User provided background image 8",
+      "imageUrl": "/background_photos/bckgrnd008.jpeg",
+      "imageHint": "night city"
+    },
+    {
+      "id": "bg-user-9",
+      "description": "User provided background image 9",
+      "imageUrl": "/background_photos/bckgrnd009.jpeg",
+      "imageHint": "interior construction"
+    },
+    {
+      "id": "avatar1",
+      "description": "A headshot of an inspector, John Doe.",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFsZSUyMHBvcnRyYWl0fGVufDB8fHx8MTc2Mjc5OTQwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "avatar2",
+      "description": "A headshot of an inspector, Jane Smith.",
+      "imageUrl": "https://images.unsplash.com/photo-1524255684952-d7185b509571?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmZW1hbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjI4NjQ0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female portrait"
+    },
+    {
+      "id": "avatar3",
+      "description": "A headshot of an inspector, Mike Johnson.",
+      "imageUrl": "https://images.unsplash.com/photo-1618491831842-f34143a9b08f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYWxlJTIwcHJvZmVzc2lvbmFsfGVufDB8fHx8MTc2MjgyNTQ5NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male professional"
+    },
+    {
+      "id": "avatar4",
+      "description": "A headshot of an inspector, Emily White.",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmZW1hbGUlMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzYyOTAxMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female professional"
+    },
+    {
+      "id": "inspection-roof",
+      "description": "A detailed shot of a damaged roof with missing shingles.",
+      "imageUrl": "https://images.unsplash.com/photo-1712159221477-550e26fd5919?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkYW1hZ2VkJTIwcm9vZnxlbnwwfHx8fDE3NjI5MDEyMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "damaged roof"
+    },
+    {
+      "id": "inspection-foundation",
+      "description": "A picture of a hairline crack in a concrete foundation.",
+      "imageUrl": "https://images.unsplash.com/photo-1694533483509-f743b0f18619?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmb3VuZGF0aW9uJTIwY3JhY2t8ZW58MHx8fHwxNzYyOTAxMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "foundation crack"
+    },
+    {
+      "id": "inspection-electrical",
+      "description": "An open electrical panel with wires visible.",
+      "imageUrl": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbGVjdHJpY2FsJTIwcGFuZWx8ZW58MHx8fHwxNzYyODYwNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical panel"
+    },
+    {
+      "id": "inspection-plumbing",
+      "description": "Pipes under a sink showing a small leak.",
+      "imageUrl": "https://images.unsplash.com/photo-1662374162155-2552f45b9f37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwaXBlJTIwbGVha3xlbnwwfHx8fDE3NjI5MDEyMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pipe leak"
+    },
+    {
+      "id": "inspection-thermal",
+      "description": "A thermal image of a wall showing a cold spot, indicating an insulation issue.",
+      "imageUrl": "https://images.unsplash.com/photo-1725118345728-8bd80405866b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0aGVybWFsJTIwaW1hZ2V8ZW58MHx8fHwxNzYyOTAxMjA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thermal image"
+    },
+    {
+      "id": "inspection-lidar",
+      "description": "A 3D LiDAR point cloud of a room.",
+      "imageUrl": "https://picsum.photos/seed/lidar1/600/400",
+      "imageHint": "LiDAR scan"
+    }
+  ]
+}

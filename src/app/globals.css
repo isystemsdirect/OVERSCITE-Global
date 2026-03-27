@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@property --glow-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #FFD84D;
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 45 91% 61%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 45 91% 61%;
+    --radius: 0.75rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    min-height: 100vh;
+  }
+}
+
+/* OVERSCITE UI Accents */
+.glass-panel {
+  @apply bg-black/40 backdrop-blur-md border border-white/10;
+}
+
+.text-shadow-drop {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { 
+    filter: 
+      drop-shadow(0 0 1px #FFD84D) 
+      drop-shadow(0 0 4px rgba(255, 216, 77, 0.1));
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  33% {
+    filter: 
+      drop-shadow(0 0 2px #4ADE80) 
+      drop-shadow(0 0 8px rgba(74, 222, 128, 0.15));
+    opacity: 1;
+    transform: scale(1.005);
+  }
+  66% {
+    filter: 
+      drop-shadow(0 0 3px #0EA5E9) 
+      drop-shadow(0 0 10px rgba(14, 165, 233, 0.2));
+    opacity: 0.95;
+    transform: scale(1.01);
+  }
+}
+
+.traveling-glow-container {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+}
+
+.traveling-glow-container > svg {
+  display: block;
+  position: relative;
+  z-index: 5;
+  animation: pulseGlow 8s ease-in-out infinite;
+  will-change: filter, transform, opacity;
+}
+
+/* Removed scanning line effects */
+.traveling-glow-container::before,
+.traveling-glow-container::after {
+  display: none;
+}
+
+/* Sidebar Customization */
+[data-sidebar="sidebar"] {
+  @apply border-r border-white/5 bg-black/20 backdrop-blur-xl;
+}
+
+[data-sidebar="header"] {
+  @apply border-b border-white/5;
+}
+
+/* OverHUD Specifics */
+.overhud-panel {
+  @apply bg-black/80 backdrop-blur-2xl border-l border-white/10 shadow-2xl;
+}
+
+/* Scing Aesthetic Standardization */
+.scing-card {
+  @apply bg-black/40 backdrop-blur-md border border-white/10 rounded-[var(--radius)] shadow-xl transition-all duration-300;
+}
+
+.scing-border-glow {
+  @apply border-primary/20 shadow-[0_0_15px_rgba(245,194,66,0.05)];
+  animation: borderFlicker 10s ease-in-out infinite;
+}
+
+@keyframes borderFlicker {
+  0%, 100% { border-color: rgba(245, 194, 66, 0.2); }
+  50% { border-color: rgba(245, 194, 66, 0.4); }
+}
+
+.scing-interactive-panel {
+  @apply hover:border-primary/40 hover:bg-black/50 transition-all duration-500 cursor-pointer;
+}
+
+.scing-blur-header {
+  @apply sticky top-0 z-30 bg-background/60 backdrop-blur-xl border-b border-white/5;
+}
+
+/* Ultra-Grade Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 216, 77, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 216, 77, 0.2);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 216, 77, 0.05) transparent;
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 216, 77, 0.4); }
+  50% { box-shadow: 0 0 15px rgba(255, 216, 77, 0.8); }
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 2s infinite;
+}

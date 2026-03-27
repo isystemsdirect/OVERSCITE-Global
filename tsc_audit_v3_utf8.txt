@@ -1,0 +1,272 @@
+﻿cloud/functions/src/lari/engineRegistry.ts(76,26): error TS2802: Type 'MapIterator<LariEngineContract>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+cloud/functions/src/scing/types.ts(19,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+cloud/functions/src/scing/types.ts(20,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+cloud/functions/src/scing/types.ts(21,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+OVERSCITE/cloud/functions/src/aip/index.ts(10,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/aip/index.ts(10,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(14,11): error TS2339: Property 'type' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(14,17): error TS2339: Property 'payload' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(18,47): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/aip/index.ts(18,55): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/aip/index.ts(21,49): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/aip/index.ts(21,57): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(13,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(13,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(20,11): error TS2339: Property 'action' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(20,19): error TS2339: Property 'metadata' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(21,18): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(21,26): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(33,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(33,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(38,13): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(38,21): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(39,18): error TS2339: Property 'action' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(40,18): error TS2339: Property 'result' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(41,20): error TS2339: Property 'metadata' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(49,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(49,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(53,11): error TS2339: Property 'action' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(53,19): error TS2339: Property 'resource' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/bane/index.ts(54,18): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/bane/index.ts(54,26): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/bootstrap.ts(10,19): error TS18046: 'error' is of type 'unknown'.
+OVERSCITE/cloud/functions/src/canon/validateHomeCanon.ts(18,9): error TS2322: Type '{ readonly governance: { readonly scope: "HOME_INSPECTION_ONLY"; readonly immutable: true; }; readonly inspection_structure: { readonly metadata_required: readonly ["inspector_id", "client_name", "property_address", "inspection_date", "weather_conditions", "occupancy_status", "utilities_status"]; }; readonly domains...' is not assignable to type 'Canon'.
+  The types of 'inspection_structure.metadata_required' are incompatible between these types.
+    The type 'readonly ["inspector_id", "client_name", "property_address", "inspection_date", "weather_conditions", "occupancy_status", "utilities_status"]' is 'readonly' and cannot be assigned to the mutable type 'string[]'.
+OVERSCITE/cloud/functions/src/index.ts(30,39): error TS2339: Property 'auth' does not exist on type 'typeof import("G:/OVERSCITE-Global/node_modules/firebase-functions/lib/v2/index")'.
+OVERSCITE/cloud/functions/src/index.ts(30,67): error TS7006: Parameter 'user' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/index.ts(47,4): error TS2339: Property 'document' does not exist on type 'typeof import("G:/OVERSCITE-Global/node_modules/firebase-functions/lib/v2/providers/firestore")'.
+OVERSCITE/cloud/functions/src/index.ts(48,20): error TS7006: Parameter 'change' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/index.ts(48,28): error TS7006: Parameter 'context' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/lari/index.ts(13,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/lari/index.ts(13,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(17,11): error TS2339: Property 'text' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(24,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/lari/index.ts(24,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(28,11): error TS2339: Property 'imageUrl' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(35,8): error TS18048: 'context' is possibly 'undefined'.
+OVERSCITE/cloud/functions/src/lari/index.ts(35,16): error TS2339: Property 'auth' does not exist on type 'CallableResponse<unknown>'.
+OVERSCITE/cloud/functions/src/lari/index.ts(39,11): error TS2339: Property 'inspectionId' does not exist on type 'CallableRequest<any>'.
+OVERSCITE/cloud/functions/src/triggers/lariVision.ts(10,6): error TS2339: Property 'document' does not exist on type 'typeof import("G:/OVERSCITE-Global/node_modules/firebase-functions/lib/v2/providers/firestore")'.
+OVERSCITE/cloud/functions/src/triggers/lariVision.ts(11,22): error TS7006: Parameter 'snap' implicitly has an 'any' type.
+OVERSCITE/cloud/functions/src/triggers/lariVision.ts(11,28): error TS7006: Parameter 'context' implicitly has an 'any' type.
+OVERSCITE/src/components/overhud/FileTree.tsx(73,87): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(74,83): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(75,88): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(76,85): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(77,94): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/lib/overhud/mock-data.ts(35,9): error TS2353: Object literal may only specify known properties, and 'children' does not exist in type 'ExplorerNode'.
+OVERSCITE/src/lib/overhud/mock-data.ts(58,17): error TS2339: Property 'children' does not exist on type 'ExplorerNode'.
+OVERSCITE/src/lib/overhud/mock-data.ts(65,49): error TS7006: Parameter 'c' implicitly has an 'any' type.
+OVERSCITE/src/lib/overhud/mock-data.ts(66,30): error TS7006: Parameter 'child' implicitly has an 'any' type.
+scing/bane/core/redactionFromFindings.ts(11,21): error TS2802: Type 'RegExpStringIterator<RegExpExecArray>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/bane/core/redactionFromFindings.ts(17,21): error TS2802: Type 'RegExpStringIterator<RegExpExecArray>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/debug/subBabies.ts(1,10): error TS2614: Module '"../engineRegistry"' has no exported member 'LARI_SUB_ENGINES'. Did you mean to use 'import LARI_SUB_ENGINES from "../engineRegistry"' instead?
+scing/engine/engineGraph.ts(33,26): error TS2802: Type 'Map<EngineId, EngineId[]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/engine/engineGraph.ts(33,47): error TS7006: Parameter 'a' implicitly has an 'any' type.
+scing/engine/engineGraph.ts(33,50): error TS7006: Parameter 'b' implicitly has an 'any' type.
+scing/engineRegistry.ts(12,15): error TS2459: Module '"./engine/engineRegistry"' declares 'EngineId' locally, but it is not exported.
+scing/engines/lariEdl.ts(4,33): error TS2551: Property 'lari-edl' does not exist on type 'Record<EngineId, EngineRecord>'. Did you mean 'LARI-EDDY'?
+scing/inspection/inspectionPolicy.ts(26,21): error TS2802: Type 'Set<"photo" | "video" | "document" | "thermal_image" | "spectral_scan" | "sonar_scan" | "gpr_scan" | "other">' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(31,26): error TS2802: Type 'ArrayIterator<[number, LariInputArtifact]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(40,26): error TS2802: Type 'ArrayIterator<[number, LariInputMeasurement]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(100,26): error TS2802: Type 'ArrayIterator<[number, LariFieldInput]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(111,26): error TS2802: Type 'ArrayIterator<[number, any]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+src/ai/flows/lari-narrator.ts(11,24): error TS2307: Cannot find module '@genkit-ai/google-genai' or its corresponding type declarations.
+src/ai/genkit.ts(3,10): error TS2724: '"@genkit-ai/dotprompt"' has no exported member named 'dotprompt'. Did you mean 'Dotprompt'?
+src/app/(authenticated)/admin/page.tsx(303,30): error TS2304: Cannot find name 'Separator'.
+src/app/(authenticated)/clients/[id]/page.tsx(133,40): error TS18048: 'inspection.propertyAddress' is possibly 'undefined'.
+src/app/(authenticated)/clients/[id]/page.tsx(133,67): error TS2339: Property 'street' does not exist on type 'string'.
+src/app/(authenticated)/clients/[id]/page.tsx(141,79): error TS2322: Type 'Date' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/community/page.tsx(255,30): error TS2552: Cannot find name 'Users'. Did you mean 'user'?
+src/app/(authenticated)/conference-rooms/[id]/page.tsx(64,52): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/conference-rooms/[id]/page.tsx(150,52): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/app/(authenticated)/conference-rooms/page.tsx(76,60): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/governance-setup/page.tsx(17,8): error TS2739: Type '{}' is missing the following properties from type 'GovernanceSetupProps': governance, onUpdateField, onInvokeWizard
+src/app/(authenticated)/contractor/page.tsx(12,41): error TS2307: Cannot find module '../../components/contractor/VerificationStateBanner' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(13,33): error TS2307: Cannot find module '../../components/contractor/GovernanceSetup' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(14,25): error TS2307: Cannot find module '../../components/contractor/PartyIntake' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(15,34): error TS2307: Cannot find module '../../components/contractor/ProposalDrafting' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(16,32): error TS2307: Cannot find module '../../components/contractor/OversightChain' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(17,71): error TS2307: Cannot find module '../../lib/contractor/types' or its corresponding type declarations.
+src/app/(authenticated)/contractor/page.tsx(119,31): error TS7006: Parameter 'id' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(119,35): error TS7006: Parameter 'content' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(120,61): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(123,32): error TS7006: Parameter 'id' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/page.tsx(124,61): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/app/(authenticated)/finances/page.tsx(254,58): error TS2769: No overload matches this call.
+  Overload 1 of 4, '(value: string | number | Date): Date', gave the following error.
+    Argument of type 'string | FieldValue' is not assignable to parameter of type 'string | number | Date'.
+      Type 'FieldValue' is not assignable to type 'string | number | Date'.
+  Overload 2 of 4, '(value: string | number): Date', gave the following error.
+    Argument of type 'string | FieldValue' is not assignable to parameter of type 'string | number'.
+      Type 'FieldValue' is not assignable to type 'string | number'.
+src/app/(authenticated)/finances/page.tsx(393,22): error TS2304: Cannot find name 'Separator'.
+src/app/(authenticated)/inspections/new/review/page.tsx(66,9): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/app/(authenticated)/inspections/page.tsx(172,79): error TS18048: 'inspection.propertyAddress' is possibly 'undefined'.
+src/app/(authenticated)/inspections/page.tsx(172,106): error TS2339: Property 'street' does not exist on type 'string'.
+src/app/(authenticated)/inspections/page.tsx(175,48): error TS2322: Type '{ state: string; }' is not assignable to type 'IntrinsicAttributes & TruthStateBadgeProps'.
+  Property 'state' does not exist on type 'IntrinsicAttributes & TruthStateBadgeProps'.
+src/app/(authenticated)/inspections/page.tsx(181,31): error TS2322: Type 'Date' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/marketplace/page.tsx(55,61): error TS2459: Module '"@/lib/services/marketplace-service"' declares 'Capability' locally, but it is not exported.
+src/app/(authenticated)/teams/[id]/page.tsx(109,48): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(109,56): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(163,48): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(211,64): error TS7006: Parameter 'log' implicitly has an 'any' type.
+src/app/(authenticated)/workstation/devices/[id]/page.tsx(277,66): error TS2345: Argument of type 'string' is not assignable to parameter of type '"Error" | "Connected" | "Disconnected"'.
+src/app/(authenticated)/workstation/keys/[id]/periodic-table/page.tsx(93,62): error TS2339: Property 'column' does not exist on type '{ number: number; symbol: string; name: string; atomic_mass: number; category: string; xpos: number; ypos: number; }'.
+src/app/(authenticated)/workstation/keys/[id]/periodic-table/page.tsx(93,87): error TS2339: Property 'row' does not exist on type '{ number: number; symbol: string; name: string; atomic_mass: number; category: string; xpos: number; ypos: number; }'.
+src/app/(authenticated)/workstation/page.tsx(207,92): error TS2339: Property 'LARI' does not exist on type '{ PLATFORM_NAME: string; PLATFORM_SUFFIX: string; INTELLIGENCE_TYPE: string; BFI: string; TRINITY_NAME: string; SCING_ROLE: string; LARI_ROLE: string; BANE_ROLE: string; }'.
+src/app/settings/devices/[id]/page.tsx(271,66): error TS2345: Argument of type 'string' is not assignable to parameter of type '"Error" | "Connected" | "Disconnected"'.
+src/components/ai-search-dialog.tsx(61,33): error TS2304: Cannot find name 'SpeechRecognition'.
+src/components/ai-search-dialog.tsx(101,31): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/ai-search-dialog.tsx(108,30): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/ClientProviders.tsx(4,10): error TS2305: Module '"@/context/LayoutContext"' has no exported member 'LayoutProvider'.
+src/components/contractor/OversightChain.tsx(85,11): error TS2322: Type '{ party: { party_id: string; company_or_person_name: string; role_type: "prime_contractor"; prime_or_sub: "prime"; direct_to_owner: true; trade_class: string[]; self_perform_allowed: true; }; verificationStatus: "verified_active"; licenseRequired: true; readiness: string; registrationRequired: true; }' is not assignable to type 'IntrinsicAttributes & OversightNodeProps'.
+  Property 'readiness' does not exist on type 'IntrinsicAttributes & OversightNodeProps'.
+src/components/dashboard/InspectionFlowPanel.tsx(16,43): error TS2367: This comparison appears to be unintentional because the types 'TruthState' and '"Draft"' have no overlap.
+src/components/drone/DroneBuilderControlPanel.tsx(14,10): error TS2305: Module '"@/lib/drone-types"' has no exported member 'DroneType'.
+src/components/drone/DroneBuilderControlPanel.tsx(14,21): error TS2305: Module '"@/lib/drone-types"' has no exported member 'DroneConfiguration'.
+src/components/drone/DroneBuilderControlPanel.tsx(14,41): error TS2305: Module '"@/lib/drone-types"' has no exported member 'FlightController'.
+src/components/drone/DroneBuilderControlPanel.tsx(14,59): error TS2305: Module '"@/lib/drone-types"' has no exported member 'SensorArray'.
+src/components/drone/DroneBuilderControlPanel.tsx(83,45): error TS2322: Type '{ config: any; onChange: (fc: any) => void; }' is not assignable to type 'IntrinsicAttributes & FlightControllerConfigProps'.
+  Property 'config' does not exist on type 'IntrinsicAttributes & FlightControllerConfigProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(83,89): error TS7006: Parameter 'fc' implicitly has an 'any' type.
+src/components/drone/DroneBuilderControlPanel.tsx(86,36): error TS2322: Type '{ config: any; onChange: (ecu: any) => void; }' is not assignable to type 'IntrinsicAttributes & ECUManagementProps'.
+  Property 'config' does not exist on type 'IntrinsicAttributes & ECUManagementProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(86,67): error TS7006: Parameter 'ecu' implicitly has an 'any' type.
+src/components/drone/DroneBuilderControlPanel.tsx(89,37): error TS2322: Type '{ sensors: any; }' is not assignable to type 'IntrinsicAttributes & SensorDataPaneProps'.
+  Property 'sensors' does not exist on type 'IntrinsicAttributes & SensorDataPaneProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(123,32): error TS2322: Type '{ config: DroneConfiguration; }' is not assignable to type 'IntrinsicAttributes & FAACompliancePanelProps'.
+  Property 'config' does not exist on type 'IntrinsicAttributes & FAACompliancePanelProps'.
+src/components/LiveFusionViewer.tsx(51,5): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(52,5): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(55,7): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(63,24): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(82,7): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/LiveFusionViewer.tsx(86,7): error TS18047: 'lariCameraLiDARFusion' is possibly 'null'.
+src/components/messaging-dialog.tsx(42,20): error TS2339: Property 'disconnectUser' does not exist on type 'never'.
+src/components/messaging-dialog.tsx(51,36): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(channelType: string, channelID?: string | null | undefined, custom?: ChannelData | undefined): Channel', gave the following error.
+    Argument of type '{ members: string[]; name: string; }' is not assignable to parameter of type 'string'.
+  Overload 2 of 2, '(channelType: string, custom?: ChannelData | undefined): Channel', gave the following error.
+    Object literal may only specify known properties, and 'name' does not exist in type 'ChannelData'.
+src/components/NewCaptureWizard.tsx(325,20): error TS2304: Cannot find name 'Plus'.
+src/components/overhud/FileTree.tsx(74,87): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(75,83): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(76,88): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(77,85): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/FileTree.tsx(78,94): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+  Property 'title' does not exist on type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+src/components/overhud/lari-repo/LearningQueuePanel.tsx(44,126): error TS2345: Argument of type '"supervisor"' is not assignable to parameter of type 'UserRole'.
+src/components/overhud/lari-repo/LearningQueuePanel.tsx(50,122): error TS2345: Argument of type '"supervisor"' is not assignable to parameter of type 'UserRole'.
+src/components/overhud/lari-repo/NotesPanel.tsx(75,89): error TS2345: Argument of type '{ findingId: string; type: "note_bundle"; payload: { noteId: string; text: string; }; }' is not assignable to parameter of type 'Omit<LearningPacket, "status" | "id" | "timestamp">'.
+  Property 'enteredBy' is missing in type '{ findingId: string; type: "note_bundle"; payload: { noteId: string; text: string; }; }' but required in type 'Omit<LearningPacket, "status" | "id" | "timestamp">'.
+src/components/wizard-steps/CaptureSettingsStep.tsx(164,22): error TS2304: Cannot find name 'CheckCircle'.
+src/components/wizard-steps/CaptureSettingsStep.tsx(234,20): error TS2304: Cannot find name 'Play'.
+src/components/wizard-steps/DeviceSelectionStep.tsx(110,29): error TS2304: Cannot find name 'AlertCircle'.
+src/components/wizard-steps/DeviceSelectionStep.tsx(250,18): error TS2304: Cannot find name 'AlertCircle'.
+src/components/wizard-steps/DeviceSelectionStep.tsx(343,14): error TS2304: Cannot find name 'Brain'.
+src/components/wizard-steps/SessionMetadataStep.tsx(148,14): error TS2304: Cannot find name 'Brain'.
+src/data/normalized-metric-store.ts(57,41): error TS2345: Argument of type 'NormalizedGeospatialAsset[]' is not assignable to parameter of type '{ id: string; timestamp: number; sourceSignature: string; }[]'.
+  Property 'timestamp' is missing in type 'NormalizedGeospatialAsset' but required in type '{ id: string; timestamp: number; sourceSignature: string; }'.
+src/data/normalized-metric-store.ts(67,5): error TS2322: Type 'DataStreamState<{ id: string; timestamp: number; sourceSignature: string; }>' is not assignable to type 'DataStreamState<NormalizedGeospatialAsset>'.
+  Type '{ id: string; timestamp: number; sourceSignature: string; }' is missing the following properties from type 'NormalizedGeospatialAsset': coordinates, status, lastUpdated
+src/hooks/useWakeWordDetection.ts(33,58): error TS2554: Expected 4-5 arguments, but got 3.
+src/hooks/useWakeWordDetection.ts(46,62): error TS2339: Property 'init' does not exist on type 'typeof WebVoiceProcessor'.
+src/hooks/useWakeWordDetection.ts(64,43): error TS2341: Property 'start' is private and only accessible within class 'WebVoiceProcessor'.
+src/hooks/useWakeWordDetection.ts(74,43): error TS2341: Property 'stop' is private and only accessible within class 'WebVoiceProcessor'.
+src/hooks/useWakeWordDetection.ts(91,42): error TS2339: Property 'release' does not exist on type 'WebVoiceProcessor'.
+src/lib/autonomous-dom-controller.ts(2,10): error TS2459: Module '"./firebase"' declares 'db' locally, but it is not exported.
+src/lib/bane/policies/correction-escalation-policy.ts(9,51): error TS2367: This comparison appears to be unintentional because the types 'UserRole' and '"supervisor"' have no overlap.
+src/lib/bane/policies/finding-ingestion-policy.ts(2,10): error TS2305: Module '"../policy"' has no exported member 'Policy'.
+src/lib/bane/policies/finding-ingestion-policy.ts(27,5): error TS2741: Property 'reasonCode' is missing in type '{ type: "ALLOW"; mode: "NORMAL"; }' but required in type 'Decision'.
+src/lib/bane/policies/finding-review-policy.ts(2,10): error TS2305: Module '"../policy"' has no exported member 'Policy'.
+src/lib/bane/policies/finding-review-policy.ts(35,5): error TS2741: Property 'reasonCode' is missing in type '{ type: "ALLOW"; mode: "NORMAL"; }' but required in type 'Decision'.
+src/lib/bane/policies/report-finalization-policy.ts(2,10): error TS2305: Module '"../policy"' has no exported member 'Policy'.
+src/lib/bane/policies/report-finalization-policy.ts(26,5): error TS2741: Property 'reasonCode' is missing in type '{ type: "ALLOW"; mode: "NORMAL"; }' but required in type 'Decision'.
+src/lib/lari-repo/correction-escalation-service.ts(4,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/lari-repo/correction-lineage-service.ts(4,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/lari-repo/finding-review-service.ts(92,5): error TS2322: Type '{ success: boolean; }' is not assignable to type 'void'.
+src/lib/lari-repo/mock-data.ts(9,11): error TS2741: Property 'currentVersionNumber' is missing in type '{ id: string; name: string; type: "image"; jobId: string; clientId: string; createdAt: string; createdBy: string; reviewStatus: "pending"; ingestionEligibility: "not_eligible"; version: string; metadata: { ...; }; }' but required in type 'RepoFile'.
+src/lib/lari-repo/truth-seal-service.ts(9,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/lari-repo/versioning-service.ts(4,30): error TS7016: Could not find a declaration file for module 'uuid'. 'G:/OVERSCITE-Global/node_modules/uuid/dist/esm-browser/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/uuid` if it exists or add a new declaration (.d.ts) file containing `declare module 'uuid';`
+src/lib/legacy/mock-data-legacy.ts(1,72): error TS2305: Module '"../types"' has no exported member 'MarketplaceService'.
+src/lib/legacy/mock-data-legacy.ts(1,143): error TS2305: Module '"../types"' has no exported member 'Notification'.
+src/lib/legacy/mock-data-legacy.ts(11,5): error TS2322: Type '{ street: string; city: string; state: string; zip: string; }' is not assignable to type 'string'.
+src/lib/legacy/mock-data-legacy.ts(14,5): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/lib/locations/googleMapsLoader.ts(25,16): error TS2339: Property 'importLibrary' does not exist on type 'Loader'.
+src/lib/locations/googleMapsLoader.ts(26,16): error TS2339: Property 'importLibrary' does not exist on type 'Loader'.
+src/lib/marketplace-data.ts(4,26): error TS2305: Module '"./types"' has no exported member 'MarketplaceService'.
+src/lib/marketplace-data.ts(8,36): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/marketplace-data.ts(16,34): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/marketplace-data.ts(24,38): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/marketplace-data.ts(32,33): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): CollectionReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/pipeline/persistence.ts(22,5): error TS2305: Module '"../types"' has no exported member 'FieldCaptureObject'.
+src/lib/pipeline/persistence.ts(23,5): error TS2305: Module '"../types"' has no exported member 'AnalyticalResultObject'.
+src/lib/pipeline/persistence.ts(24,5): error TS2305: Module '"../types"' has no exported member 'MeasurementResultObject'.
+src/lib/pipeline/persistence.ts(25,5): error TS2305: Module '"../types"' has no exported member 'ComplianceEvaluationObject'.
+src/lib/pipeline/persistence.ts(26,5): error TS2305: Module '"../types"' has no exported member 'AdvisoryBlock'.
+src/lib/pipeline/persistence.ts(27,5): error TS2305: Module '"../types"' has no exported member 'PipelineStatus'.
+src/lib/subscription.ts(22,26): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(firestore: Firestore, path: string, ...pathSegments: string[]): DocumentReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'Firestore'.
+      Type 'null' is not assignable to type 'Firestore'.
+  Overload 2 of 3, '(reference: CollectionReference<unknown, DocumentData>, path?: string | undefined, ...pathSegments: string[]): DocumentReference<unknown, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'CollectionReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'CollectionReference<unknown, DocumentData>'.
+  Overload 3 of 3, '(reference: DocumentReference<unknown, DocumentData>, path: string, ...pathSegments: string[]): DocumentReference<DocumentData, DocumentData>', gave the following error.
+    Argument of type 'Firestore | null' is not assignable to parameter of type 'DocumentReference<unknown, DocumentData>'.
+      Type 'null' is not assignable to type 'DocumentReference<unknown, DocumentData>'.
+src/lib/task-driven-ai-system.ts(149,10): error TS2551: Property 'updateKnowledgeBase' does not exist on type 'TaskDrivenAISystem'. Did you mean 'knowledgeBase'?
+src/lib/utils/status-helpers.ts(9,14): error TS2740: Type '{ live: { label: string; color: string; }; partial: { label: string; color: string; }; mock: { label: string; color: string; }; placeholder: { label: string; color: string; }; candidate: { label: string; color: string; }; ... 5 more ...; experimental: { ...; }; }' is missing the following properties from type 'Record<TruthState, StatusConfig>': active, pending, Final, completed, and 2 more.
+tests/contractor/recalibration.test.ts(3,64): error TS2307: Cannot find module '../../lib/contractor/types' or its corresponding type declarations.

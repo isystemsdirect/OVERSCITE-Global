@@ -1,70 +1,157 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { baneRouter } from './bane';
-import { baneIssueEntitlement, baneIssuePolicySnapshot, baneRevokeEntitlement } from './bane';
-import { evidenceAppendEvent, evidenceFinalizeArtifact } from './evidence';
-import { exportInspectionReport, buildInspectionReport, exportInspectionBundle } from './report';
-import { writeObsEvent } from './obs';
-import { createInspection } from './inspection/create';
-import { finalizeInspection } from './inspection/finalize';
-import * as eepip from './inspection/eepip';
-import { lariRouter } from './lari';
-import { monitorRouter } from './monitor';
-import { notificationsRouter } from './notifications';
 
-import { aipRouter } from './aip';
-import { isdcRouter } from './isdc';
-import { scingRouter } from './scing';
-import { enforceBaneHttp } from './bane/enforce';
+// Initialize Firebase Admin immediately
+if (admin.apps.length === 0) {
+  admin.initializeApp();
+}
 
-// Initialize Firebase Admin
-admin.initializeApp();
+/**
+ * GROUPED EXPORTS for 1st Gen Cloud Functions
+ * Preserving the group-function naming (e.g., scing-chat) while maintaining lazy-loading.
+ */
 
-// Export BANE functions (security)
-export const bane = baneRouter;
+// --- BANE (Security) ---
+export const bane = {
+  requestCapability: functions.https.onCall(async (data, context) => {
+    return require('./bane').requestCapabilityFunc(data, context);
+  }),
+  createSDR: functions.https.onCall(async (data, context) => {
+    return require('./bane').createSDRFunc(data, context);
+  }),
+  checkPolicy: functions.https.onCall(async (data, context) => {
+    return require('./bane').checkPolicyFunc(data, context);
+  }),
+  issueEntitlement: functions.https.onCall(async (data, context) => {
+    return require('./bane').baneIssueEntitlement(data, context);
+  }),
+  revokeEntitlement: functions.https.onCall(async (data, context) => {
+    return require('./bane').baneRevokeEntitlement(data, context);
+  }),
+  issuePolicySnapshot: functions.https.onCall(async (data, context) => {
+    return require('./bane').baneIssuePolicySnapshot(data, context);
+  }),
+};
 
-// Export entitlement endpoints as first-class callables (stable names)
-export { baneIssueEntitlement, baneRevokeEntitlement, baneIssuePolicySnapshot };
+// --- Evidence (Audit) ---
+export const evidenceFinalizeArtifact = functions.https.onCall(async (data, context) => {
+  return require('./evidence').evidenceFinalizeArtifact(data, context);
+});
+export const evidenceAppendEvent = functions.https.onCall(async (data, context) => {
+  return require('./evidence').evidenceAppendEvent(data, context);
+});
 
-// Export Evidence functions (chain-of-custody)
-export { evidenceFinalizeArtifact, evidenceAppendEvent };
+// --- Reports ---
+export const exportInspectionReport = functions.https.onCall(async (data, context) => {
+  return require('./report').exportInspectionReport(data, context);
+});
+export const buildInspectionReport = functions.https.onCall(async (data, context) => {
+  return require('./report').buildInspectionReport(data, context);
+});
+export const exportInspectionBundle = functions.https.onCall(async (data, context) => {
+  return require('./report').exportInspectionBundle(data, context);
+});
 
-// Export SCING report export
-export { exportInspectionReport };
+// --- Inspection Workflow ---
+export const createInspection = functions.https.onCall(async (data, context) => {
+  return require('./inspection/create').createInspection(data, context);
+});
+export const finalizeInspection = functions.https.onCall(async (data, context) => {
+  return require('./inspection/finalize').finalizeInspection(data, context);
+});
 
-// Export Inspection workflow endpoints
-export { createInspection, finalizeInspection, buildInspectionReport, exportInspectionBundle };
-export { eepip };
+// --- Monitor (Observability) ---
+export const monitor = {
+  classifyEvent: functions.https.onCall(async (data, context) => {
+    return require('./monitor').monitorRouter.classifyEvent(data, context);
+  }),
+  buildAlertPacket: functions.https.onCall(async (data, context) => {
+    return require('./monitor').monitorRouter.buildAlertPacket(data, context);
+  }),
+  routeToReviewQueue: functions.https.onCall(async (data, context) => {
+    return require('./monitor').monitorRouter.routeToReviewQueue(data, context);
+  }),
+  aggregateTrendRollups: functions.https.onCall(async (data, context) => {
+    return require('./monitor').monitorRouter.aggregateTrendRollups(data, context);
+  }),
+  financialEventClassifier: functions.https.onCall(async (data, context) => {
+    return require('./monitor').monitorRouter.financialEventClassifier(data, context);
+  }),
 
-// Export Observability callable
-export { writeObsEvent };
+  // Phase 1 : BANE-Watcher Security Signals
+  recordSecuritySignal: functions.https.onCall(async (data, context) => {
+    return require('./monitor/securityMonitor').recordSecuritySignal(data, context);
+  }),
+  querySecuritySignals: functions.https.onCall(async (data, context) => {
+    return require('./monitor/securityMonitor').querySecuritySignals(data, context);
+  }),
+};
 
-// Export LARI functions (AI engines)
-export const lari = lariRouter;
+// --- Notifications ---
+export const notifications = {
+  recordNotificationEvent: functions.https.onCall(async (data, context) => {
+    return require('./notifications').notificationsRouter.recordNotificationEvent(data, context);
+  }),
+  dispatchNotification: functions.https.onCall(async (data, context) => {
+    return require('./notifications').notificationsRouter.dispatchNotification(data, context);
+  }),
+  financialNotificationRouter: functions.https.onCall(async (data, context) => {
+    return require('./notifications').notificationsRouter.financialNotificationRouter(data, context);
+  }),
+  recordDeliveryAttempt: functions.https.onCall(async (data, context) => {
+    return require('./notifications').notificationsRouter.recordDeliveryAttempt(data, context);
+  }),
+};
 
-// Export LARI-Monitor functions (event classification, alert packets, review queue, trend rollups)
-// UTCB-S V1.0.00 — Implementation Status: PARTIAL (live classification); pipeline wiring: SCAFFOLD
-export const monitor = monitorRouter;
+// --- LARI ---
+export const lari = {
+  vision: functions.https.onCall(async (data, context) => {
+    return require('./lari').lariRouter.vision(data, context);
+  }),
+};
 
-// Export Notifications Fabric functions (record, dispatch, delivery evidence)
-// UTCB-S V1.0.00 — Implementation Status: PARTIAL (in_app/admin_board); email/SMS: SCAFFOLD
-export const notifications = notificationsRouter;
+// --- AIP & ISDC ---
+export const aip = {
+  protocol: functions.https.onCall(async (data, context) => {
+    return require('./aip').aipRouter.protocol(data, context);
+  }),
+};
+export const isdc = {
+  protocol: functions.https.onCall(async (data, context) => {
+    return require('./isdc').isdcRouter.protocol(data, context);
+  }),
+};
 
-// Export AIP functions (protocol)
-export const aip = aipRouter;
+// --- Scing OS ---
+export const scing = {
+  boot: functions.https.onCall(async (data, context) => {
+    return require('./scing').scingRouter.boot(data, context);
+  }),
+  chat: functions.https.onCall(async (data, context) => {
+    return require('./scing').scingRouter.chat(data, context);
+  }),
+  tools: functions.https.onCall(async (data, context) => {
+    return require('./scing').scingRouter.tools(data, context);
+  }),
+  health: functions.https.onCall(async (data, context) => {
+    return require('./scing/health').scingHealth(data, context);
+  }),
+};
 
-// Export ISDC functions (ISDCProtocol2025)
-export const isdc = isdcRouter;
+// Direct aliases for specific legacy names
+export const scingHealth = scing.health;
+export const baneIssueEntitlement = bane.issueEntitlement;
+export const baneRevokeEntitlement = bane.revokeEntitlement;
+export const baneIssuePolicySnapshot = bane.issuePolicySnapshot;
 
-// Export Scing Cloud Core (orchestration, sessions, tools)
-export const scing = scingRouter;
+// --- Observability ---
+export const writeObsEvent = functions.https.onCall(async (data, context) => {
+  return require('./obs').writeObsEvent(data, context);
+});
 
-// Observability Layer
-import { scingHealth } from './scing/health';
-export { scingHealth };
-
-// Health check endpoint
+// Health check endpoint (Direct request handler)
 export const healthCheck = functions.https.onRequest((req, res) => {
+  const { enforceBaneHttp } = require('./bane/enforce');
   const gate = enforceBaneHttp({ req, res, name: 'healthCheck' });
   if (!gate.ok) return;
 
@@ -76,12 +163,9 @@ export const healthCheck = functions.https.onRequest((req, res) => {
   });
 });
 
-
-// Example: User creation trigger
+// Background Triggers
 export const onUserCreate = functions.auth.user().onCreate(async (user) => {
   const { uid, email, displayName } = user;
-
-  // Create user document in Firestore
   await admin.firestore().collection('users').doc(uid).set({
     email,
     displayName: displayName || null,
@@ -89,22 +173,14 @@ export const onUserCreate = functions.auth.user().onCreate(async (user) => {
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
   });
-
-  console.log(`User created: ${uid}`);
 });
 
-// Example: Inspection completion trigger
 export const onInspectionComplete = functions.firestore
   .document('inspections/{inspectionId}')
   .onUpdate(async (change, context) => {
     const before = change.before.data();
     const after = change.after.data();
-
     if (before.status !== 'completed' && after.status === 'completed') {
-      const inspectionId = context.params.inspectionId;
-      console.log(`Inspection completed: ${inspectionId}`);
-
-      // TODO: Generate report
-      // TODO: Send notification
+      console.log(`Inspection completed: ${context.params.inspectionId}`);
     }
   });

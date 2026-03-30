@@ -74,6 +74,18 @@ Thumbs.db
 # TypeScript build output (Cloud Functions)
 cloud/functions/lib/
 
+# TypeScript build output (Cloud Functions — scing engine compiled copies)
+cloud/functions/src/scing_engine/**/*.js
+cloud/functions/src/scing_engine/**/*.js.map
+
+# TypeScript build output (scing engine — source is .ts, compiled .js/.map must not be tracked)
+scing/**/*.js
+scing/**/*.js.map
+
+# TypeScript build output (src/lib/types — source is .ts)
+src/lib/types/**/*.js
+src/lib/types/**/*.js.map
+
 # Optional npm cache directory
 .npm
 

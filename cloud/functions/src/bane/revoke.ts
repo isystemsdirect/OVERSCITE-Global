@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin';
 import { assertOrgAdmin, isoNow } from './middleware';
-import type { BaneKey } from '../../../../scing/bane/baneTypes';
+import type { BaneKey } from '../scing_engine/bane/baneTypes';
 
 export type RevokeRequest = { orgId: string; targetUid: string; key: BaneKey; reason?: string };
 

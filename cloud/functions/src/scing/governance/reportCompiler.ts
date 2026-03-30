@@ -13,7 +13,7 @@
  * Authority: UTCB Track H — Director Anderson, 2026-03-23
  */
 
-import { EngineFinding, EngineVerdict, EngineTrace } from '../../../../../scing/engine/logicContracts';
+import { EngineFinding, EngineVerdict, EngineTrace } from '../../scing_engine/engine/logicContracts';
 
 // ---------------------------------------------------------------------------
 // Report Block Data Contracts

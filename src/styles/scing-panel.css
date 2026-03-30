@@ -1,0 +1,53 @@
+/**
+ * Scing Panel Unification & Trim Signalization
+ * UTCB-G V1.2.00
+ * 
+ * Defines the premium, low-amplitude active state trim.
+ * Transitions across: Golden Yellow -> Neon Lime Green -> Sky Blue
+ */
+
+.scing-panel-root {
+  /* Unified dark surface applied to the entire transformed object */
+  background: rgba(10, 10, 12, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.5s ease-out, box-shadow 0.5s ease-out;
+}
+
+/* Base trim pulse animation */
+@keyframes scing-active-trim {
+  0% {
+    border-color: rgba(245, 194, 66, 0.6);   /* Golden Yellow */
+    box-shadow: 0 0 15px rgba(245, 194, 66, 0.1), 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
+  33% {
+    border-color: rgba(57, 255, 20, 0.5);   /* Neon Lime Green */
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.1), 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
+  66% {
+    border-color: rgba(135, 206, 235, 0.6); /* Sky Blue */
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.1), 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
+  100% {
+    border-color: rgba(245, 194, 66, 0.6);   /* Golden Yellow */
+    box-shadow: 0 0 15px rgba(245, 194, 66, 0.1), 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.scing-panel-active {
+  animation: scing-active-trim 6s infinite ease-in-out;
+}
+
+/* Interior structural seams */
+.scing-panel-divide {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scing-panel-divide-top {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}

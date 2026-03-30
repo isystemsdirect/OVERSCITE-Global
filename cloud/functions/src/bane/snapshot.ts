@@ -5,9 +5,9 @@ import type {
   OrgRole,
   PolicyConstraints,
   PolicySnapshot,
-} from '../../../../scing/bane/baneTypes';
-import { computeSnapshotHash } from '../../../../scing/bane/banePolicySnapshot';
-import { signSnapshotHmac } from '../../../../scing/bane/baneSignature';
+} from '../scing_engine/bane/baneTypes';
+import { computeSnapshotHash } from '../scing_engine/bane/banePolicySnapshot';
+import { signSnapshotHmac } from '../scing_engine/bane/baneSignature';
 
 export async function issuePolicySnapshot(orgId: string, uid: string): Promise<PolicySnapshot> {
   const db = admin.firestore();

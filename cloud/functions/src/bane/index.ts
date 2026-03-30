@@ -4,7 +4,7 @@ import { createSDR } from './sdr';
 import { checkPolicy } from './policy';
 import { baneIssueEntitlement, baneIssuePolicySnapshot, baneRevokeEntitlement } from './admin';
 import { enforceBaneCallable } from './enforce';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../scing_engine/bane/server/toolBoundary';
 
 /**
  * BANE (Backend Augmented Neural Engine)

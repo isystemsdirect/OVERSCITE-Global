@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin';
 import { assertOrgAdmin, isoNow } from './middleware';
-import type { BaneKey, Stage } from '../../../../scing/bane/baneTypes';
-import { KEY_CAPS, KEY_STAGE_DEFAULT } from '../../../../scing/bane/baneKeys';
+import type { BaneKey, Stage } from '../scing_engine/bane/baneTypes';
+import { KEY_CAPS, KEY_STAGE_DEFAULT } from '../scing_engine/bane/baneKeys';
 
 export type IssueRequest = {
   orgId: string;

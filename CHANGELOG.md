@@ -1,16 +1,34 @@
 # Changelog
 
-<<<<<<< HEAD
 All notable changes to the OVERSCITE / ScingOS project will be documented in this file.
-=======
-All notable changes to ScingOS will be documented in this file.
->>>>>>> aa9ee9cd747f5f1604e558ef63723f53726e88e7
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<<<<<<< HEAD
 ## [Unreleased]
+
+### Added — 0.1.0-alpha.2 (2026-03-29)
+- Scing conversational presence restoration — live assistant with natural language dialogue
+- Scing dual-mode routing: conversational (default) + operational (BANE-gated)
+- Scing conversation engine with session-scoped context and LLM-ready interface
+- OverHUD two-zone partition: Security & Governance (top) / Operational Intelligence (bottom)
+- BANE-Watcher Phase 1: security event contracts, signal normalization, live panel
+- M-UCB protocol family for security monitoring
+- Scing panel state V2: conversation history, mode switching, thinking indicators
+- Shell discipline enforcement: Scing = conversation, OverHUD = monitoring, Workspace = primary
+- Cloud Functions: marketplace, monitor, notification, BANE engine, ISDC protocol surfaces
+- Scing command intent router and BANE execution gate
+- Security event types, audit log types, truth-state types, workspace types
+
+### Changed
+- Shell architecture refactored: Scing Panel Singularity (unified bar + drop panel)
+- OverHUD moved to flex-sibling push layout (full viewport height)
+- TopCommandBar V2 with Scing center slot
+- Active trim signalization (gold → green → blue cycle) on Scing panel
+
+### Fixed
+- OverHUD vertical fill restored to full viewport height
+- Scing panel drop positioning fixed (absolute below command bar)
 
 ## [0.1.0-alpha.1] - 2025-02-14
 
@@ -25,98 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Inconsistent versioning across different project modules.
-=======
----
-
-## [Unreleased]
-
-### Planned
-- Mobile applications (iOS and Android)
-- LiDAR mapping and 3D visualization
-- Enterprise SSO integration
-- Multi-language support
-- Offline mode with local caching
-- Advanced analytics dashboard
-
----
-
-## [0.1.0] - 2025-12-04
-
-### Added
-- Initial ScingOS architecture and design
-- Comprehensive README with project overview
-- Architecture documentation (ARCHITECTURE.md)
-- Voice-first interface concept (Scing)
-- Bona Fide Intelligence (BFI) philosophy
-- AIP protocol specification (draft)
-- BANE security framework (design phase)
-- Firebase backend integration plan
-- Core component designs:
-  - SCING (Voice Orchestrator)
-  - LARI (AI Engines)
-  - BANE (Security Governor)
-  - AIP (Communication Protocol)
-- Repository structure and organization
-- Contributing guidelines
-- Code of conduct
-- Proprietary software license
-
-### Changed
-- Rebranded from "SCINGULAR OS" to "ScingOS"
-- Updated naming to reflect Scing-centric approach
-- Refined voice-first, touchless interface philosophy
-
-### Documentation
-- Created comprehensive architecture overview
-- Documented system components and data flow
-- Added security model documentation
-- Defined deployment models (cloud-native, hybrid, owned infrastructure)
-- Outlined technology stack and dependencies
-
----
-
-## Project Timeline
-
-### Q4 2025 - Foundation Phase ✅
-- [x] Core architecture design
-- [x] Repository setup
-- [x] Documentation framework
-- [x] Component specifications
-- [ ] Firebase project initialization
-- [ ] Development environment setup
-
-### Q1 2026 - Alpha Development
-- [ ] Voice interface (Scing) prototype
-- [ ] Firebase authentication integration
-- [ ] Basic AIP protocol implementation
-- [ ] BANE security framework (initial)
-- [ ] Simple inspection workflow
-- [ ] Internal testing
-
-### Q2 2026 - Beta Launch
-- [ ] Closed beta with select partners
-- [ ] Multi-jurisdictional code intelligence
-- [ ] Device integration (cameras, basic sensors)
-- [ ] Report generation with SDR signatures
-- [ ] Mobile-responsive web interface
-- [ ] Beta feedback collection
-
-### Q3 2026 - Public Release
-- [ ] Public launch with subscription tiers
-- [ ] Enhanced voice interactions
-- [ ] Advanced device integrations (thermal, LiDAR)
-- [ ] Team collaboration features
-- [ ] Analytics and insights dashboard
-- [ ] Customer support infrastructure
-
-### Q4 2026 - Enterprise Scale
-- [ ] Enterprise features (SSO, custom branding)
-- [ ] Advanced security (hardware attestation)
-- [ ] Server depot migration preparations
-- [ ] International expansion
-- [ ] Partner ecosystem development
 
 ---
 
 *Powered by SCINGULAR AI | Built with Bona Fide Intelligence*
->>>>>>> aa9ee9cd747f5f1604e558ef63723f53726e88e7

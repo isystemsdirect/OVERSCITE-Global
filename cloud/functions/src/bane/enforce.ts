@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { baneHttpGuard } from '../../../../scing/bane/server/baneGuards';
+import { baneHttpGuard } from '../bane_engine/server/baneGuards';
 
 function safeJson(value: unknown): string {
   try {

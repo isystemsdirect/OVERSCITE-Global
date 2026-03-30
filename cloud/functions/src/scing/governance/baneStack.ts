@@ -18,7 +18,7 @@
 import {
   EngineVerdict,
   EngineTrace,
-} from '../../../../../scing/engine/logicContracts';
+} from '../../scing_engine/engine/logicContracts';
 import {
   ActionClassification,
   ActorContext,

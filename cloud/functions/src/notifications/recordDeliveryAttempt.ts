@@ -15,7 +15,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { enforceBaneCallable } from '../bane/enforce';
-import { NOTIFICATION_COLLECTIONS } from '../../../../src/lib/types/notifications';
+import { NOTIFICATION_COLLECTIONS } from '../types/notifications';
 
 const POLICY_VERSION = '1.0.0';
 const ENGINE_VERSION = 'lari-monitor-v1';

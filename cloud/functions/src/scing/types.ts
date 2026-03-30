@@ -13,7 +13,7 @@ import {
   EngineFinding,
   EngineTrace,
   EngineVerdict,
-} from '../../../../scing/engine/logicContracts';
+} from '../scing_engine/engine/logicContracts';
 
 export {
   EngineFinding,

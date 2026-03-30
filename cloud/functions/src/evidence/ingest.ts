@@ -1,10 +1,10 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { verifyEd25519Base64Url } from '../../../../scing/evidence/evidenceSign';
-import { makeArtifactEvent } from '../../../../scing/evidence/evidenceStore';
-import type { ArtifactRecord, WormChainRef } from '../../../../scing/evidence/evidenceTypes';
+import { verifyEd25519Base64Url } from '../scing_engine/evidence/evidenceSign';
+import { makeArtifactEvent } from '../scing_engine/evidence/evidenceStore';
+import type { ArtifactRecord, WormChainRef } from '../scing_engine/evidence/evidenceTypes';
 import { enforceBaneCallable } from '../bane/enforce';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../scing_engine/bane/server/toolBoundary';
 
 function isoNow() {
   return new Date().toISOString();
@@ -106,6 +106,7 @@ export const evidenceFinalizeArtifact = functions.https.onCall(async (data, ctx)
     throw e;
   }
 
+  // Append custody event
   const { prev, headRef } = await getPrevWorm(db, 'artifact', artifactId);
   const eventId = db.collection('_').doc().id;
   const ev = makeArtifactEvent({

@@ -1,15 +1,15 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { composeDeterministicReport, EvidenceLinkError } from '../../../../scing/report/reportComposer';
+import { composeDeterministicReport, EvidenceLinkError } from '../scing_engine/report/reportComposer';
 import { enforceBaneCallable } from '../bane/enforce';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../scing_engine/bane/server/toolBoundary';
 import type {
   ArtifactRecord,
   FindingRecord,
   ClassificationRecord,
   MapLayerRecord,
-} from '../../../../scing/evidence/evidenceTypes';
-import type { InspectionRecord } from '../../../../scing/inspection/inspectionTypes';
+} from '../scing_engine/evidence/evidenceTypes';
+import type { InspectionRecord } from '../scing_engine/inspection/inspectionTypes';
 
 export const buildInspectionReport = functions.https.onCall(async (data, ctx) => {
   const gate = await enforceBaneCallable({ name: 'buildInspectionReport', data, ctx });
@@ -53,7 +53,7 @@ export const buildInspectionReport = functions.https.onCall(async (data, ctx) =>
             classifications,
             mapLayers,
           });
-        } catch (err) {
+        } catch (err: any) {
           if (err instanceof EvidenceLinkError) {
             throw new functions.https.HttpsError('failed-precondition', 'EVIDENCE_LINK_MISSING', {
               missing: err.missing,

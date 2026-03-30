@@ -47,7 +47,6 @@ import {
 import Logo from "@/components/logo";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { mockSubscriptionPlans } from "@/lib/data";
-import { AiSearchDialog } from "@/components/ai-search-dialog";
 import { FlashNotificationBar } from "@/components/flash-notification-bar";
 import { NewsWidget } from "@/components/news-widget";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -70,8 +69,9 @@ import {
 } from "@/components/ui/sidebar"
 import OverHUD from "./overhud/OverHUD";
 import { PLATFORM_VERSION } from "@/lib/version";
-import { ScingGPT } from './ScingGPT';
 import { TopCommandBar } from './layout/TopCommandBar';
+import { ShellLayoutProvider } from '@/lib/layout/shell-layout-state';
+import { ScingPanelProvider } from '@/lib/scing/scing-panel-state';
 
 
 // Separate component for the sidebar content to access sidebar context
@@ -279,7 +279,6 @@ export default function AppShell({
 }) {
   const router = useRouter();
   const { user } = useAuthStore();
-  const [isOverHudOpen, setIsOverHudOpen] = useState(false);
   
   const currentPlan = mockSubscriptionPlans.find(plan => plan.isCurrent);
   const isProOrEnterprise = currentPlan && (currentPlan.name === 'Pro' || currentPlan.name === 'Enterprise');
@@ -287,10 +286,6 @@ export default function AppShell({
   const handleLogout = async () => {
       await logout();
       router.push('/');
-  };
-
-  const toggleOverHud = () => {
-    setIsOverHudOpen(!isOverHudOpen);
   };
   
   const navItems = [
@@ -325,33 +320,34 @@ export default function AppShell({
   ];
 
   return (
-    <SidebarProvider defaultOpen={true} style={{ "--sidebar-width": "16rem", "--sidebar-width-mobile": "20rem" } as React.CSSProperties}>
-        <AppSidebarContent 
-            navItems={navItems}
-            toolsItems={toolsItems}
-            managementItems={managementItems}
-            user={user}
-            handleLogout={handleLogout}
-            isProOrEnterprise={isProOrEnterprise}
-        />
-        
-        {/* SidebarInset: fixed height viewport, no overflow at this level */}
-        <SidebarInset className="bg-transparent flex-1 min-w-0 overflow-hidden relative flex flex-col h-screen">
-
-          {/* ─── Fixed Chrome (never scrolls) ─── */}
-          <TopCommandBar 
-            userId={user?.uid || null} 
-            isFullScreen={isFullScreen}
-            toggleFullScreen={toggleFullScreen}
-            handleRefresh={handleRefresh}
+    <ShellLayoutProvider>
+      <ScingPanelProvider>
+        <SidebarProvider defaultOpen={true} style={{ "--sidebar-width": "16rem", "--sidebar-width-mobile": "20rem" } as React.CSSProperties}>
+          <AppSidebarContent 
+              navItems={navItems}
+              toolsItems={toolsItems}
+              managementItems={managementItems}
+              user={user}
+              handleLogout={handleLogout}
+              isProOrEnterprise={isProOrEnterprise}
           />
-          <FlashNotificationBar />
+          
+          {/* ─── Shell Composition: SidebarInset + OverHUD as flex siblings ─── */}
+          {/* OverHUD is a sibling of SidebarInset so it spans full viewport height
+              and pushes the entire inset (header + notification + body) left. */}
+          <SidebarInset className="bg-transparent flex-1 min-w-0 relative flex flex-col h-screen">
 
-          {/* ─── Scrollable body + OverHUD side panel ─── */}
-          <div className="flex flex-1 min-h-0 overflow-hidden">
+            {/* ─── Fixed Chrome (never scrolls) ─── */}
+            <TopCommandBar 
+              userId={user?.uid || null} 
+              isFullScreen={isFullScreen}
+              toggleFullScreen={toggleFullScreen}
+              handleRefresh={handleRefresh}
+            />
+            <FlashNotificationBar />
 
-            {/* Only this scrolls */}
-            <div className="flex-1 overflow-y-auto">
+            {/* ─── Scrollable body ─── */}
+            <div className="flex-1 overflow-y-auto min-h-0">
               <main className={cn(
                 "p-4 lg:p-6 transition-all duration-300 mx-auto max-w-full",
                 isFullScreen && "p-0 max-w-none"
@@ -360,14 +356,12 @@ export default function AppShell({
               </main>
             </div>
 
-            {/* OverHUD: docked to the right, full height of this flex row, never scrolls */}
-            <OverHUD 
-              open={isOverHudOpen} 
-              onToggle={toggleOverHud} 
-            />
-          </div>
+          </SidebarInset>
 
-        </SidebarInset>
-    </SidebarProvider>
+          {/* ─── OverHUD: Full-height push-layout panel ─── */}
+          <OverHUD />
+        </SidebarProvider>
+      </ScingPanelProvider>
+    </ShellLayoutProvider>
   );
 }

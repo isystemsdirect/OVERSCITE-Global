@@ -3,7 +3,7 @@ import * as admin from 'firebase-admin';
 import { requestCapability } from '../bane/capability';
 import { createSDR } from '../bane/sdr';
 import { enforceBaneCallable } from '../bane/enforce';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../scing_engine/bane/server/toolBoundary';
 import {
   ISDCMessage,
   ISDCMessageType,

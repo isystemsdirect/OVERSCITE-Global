@@ -1,7 +1,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { enforceBaneCallable } from '../bane/enforce';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../scing_engine/bane/server/toolBoundary';
 
 function isoNow() {
   return new Date().toISOString();

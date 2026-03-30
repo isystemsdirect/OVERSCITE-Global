@@ -18,11 +18,11 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { enforceBaneCallable } from '../bane/enforce';
-import type { CanonicalMonitorEvent, MonitorDomain } from '../../../../src/lib/types/monitor';
+import type { CanonicalMonitorEvent, MonitorDomain } from '../types/monitor';
 import {
   MONITOR_COLLECTION_MAP,
   MONITOR_SHARED_COLLECTIONS,
-} from '../../../../src/lib/types/monitor';
+} from '../types/monitor';
 
 // ---------------------------------------------------------------------------
 // ENGINE CONSTANTS

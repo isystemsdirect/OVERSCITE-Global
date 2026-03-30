@@ -4,6 +4,8 @@ import React from 'react';
 import AppShell from '@/components/app-shell';
 import { useAuthStore } from '@/lib/auth/auth-service';
 
+import { ScingPanelProvider } from '@/lib/scing/scing-panel-state';
+
 export default function AuthenticatedLayout({
   children,
 }: {
@@ -12,8 +14,8 @@ export default function AuthenticatedLayout({
   const { user } = useAuthStore();
   
   return (
-    <>
+    <ScingPanelProvider>
       {children}
-    </>
+    </ScingPanelProvider>
   );
 }

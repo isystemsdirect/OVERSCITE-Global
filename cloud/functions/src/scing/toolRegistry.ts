@@ -10,7 +10,7 @@
  */
 
 import { ScingToolDefinition, ScingToolInvocation } from './types';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../scing_engine/bane/server/toolBoundary';
 import {
   evaluateActionGate,
   emitPostGateReceipt,

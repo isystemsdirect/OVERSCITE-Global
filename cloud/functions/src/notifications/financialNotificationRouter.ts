@@ -19,7 +19,7 @@
 
 import * as functions from 'firebase-functions';
 import { enforceBaneCallable } from '../bane/enforce';
-import type { FinancialEventType } from '../../../../src/lib/types/notifications';
+import type { FinancialEventType } from '../types/notifications';
 
 const POLICY_VERSION = '1.0.0';
 const ENGINE_VERSION = 'lari-monitor-v1';
@@ -36,49 +36,27 @@ interface FinancialRoute {
 }
 
 const FINANCIAL_ROUTING_TABLE: Record<FinancialEventType, FinancialRoute> = {
-  // eslint-disable-next-line max-len
   order_created:                    { notification_class: 'transactional_receipt', sender_profile_id: 'sp_orders_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   payment_pending:                  { notification_class: 'transactional_receipt', sender_profile_id: 'sp_receipts_primary',       customer_facing: true  },
-  // eslint-disable-next-line max-len
   payment_succeeded:                { notification_class: 'transactional_receipt', sender_profile_id: 'sp_receipts_primary',       customer_facing: true  },
-  // eslint-disable-next-line max-len
   payment_failed:                   { notification_class: 'payment_warning',       sender_profile_id: 'sp_payment_alerts_primary', customer_facing: true  },
-  // eslint-disable-next-line max-len
   invoice_generated:                { notification_class: 'transactional_receipt', sender_profile_id: 'sp_receipts_primary',       customer_facing: true  },
-  // eslint-disable-next-line max-len
   invoice_paid:                     { notification_class: 'transactional_receipt', sender_profile_id: 'sp_receipts_primary',       customer_facing: true  },
-  // eslint-disable-next-line max-len
   subscription_renewal_upcoming:    { notification_class: 'payment_warning',       sender_profile_id: 'sp_payment_alerts_primary', customer_facing: true  },
-  // eslint-disable-next-line max-len
   subscription_renewed:             { notification_class: 'transactional_receipt', sender_profile_id: 'sp_receipts_primary',       customer_facing: true  },
-  // eslint-disable-next-line max-len
   subscription_past_due:            { notification_class: 'payment_warning',       sender_profile_id: 'sp_payment_alerts_primary', customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_requested:                 { notification_class: 'refund_return_case',    sender_profile_id: 'sp_returns_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_approved:                  { notification_class: 'refund_return_case',    sender_profile_id: 'sp_returns_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_denied:                    { notification_class: 'refund_return_case',    sender_profile_id: 'sp_returns_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_completed:                 { notification_class: 'refund_return_case',    sender_profile_id: 'sp_returns_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   return_request_created:           { notification_class: 'refund_return_case',    sender_profile_id: 'sp_returns_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   dispute_opened:                   { notification_class: 'dispute_case_notice',   sender_profile_id: 'sp_disputes_primary',       customer_facing: true  },
-  // eslint-disable-next-line max-len
   dispute_resolved:                 { notification_class: 'dispute_case_notice',   sender_profile_id: 'sp_disputes_primary',       customer_facing: true  },
-  // eslint-disable-next-line max-len
   payout_pending:                   { notification_class: 'payout_notice',         sender_profile_id: 'sp_payouts_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   payout_on_hold:                   { notification_class: 'finance_admin_alert',   sender_profile_id: 'sp_finance_admin_primary',  customer_facing: false }, // admin only
-  // eslint-disable-next-line max-len
   payout_released:                  { notification_class: 'payout_notice',         sender_profile_id: 'sp_payouts_primary',        customer_facing: true  },
-  // eslint-disable-next-line max-len
   manual_financial_review_required: { notification_class: 'finance_admin_alert',   sender_profile_id: 'sp_finance_admin_primary',  customer_facing: false }, // admin only
-  // eslint-disable-next-line max-len
   tax_fee_computation_failed:       { notification_class: 'system_exception_alert', sender_profile_id: 'sp_finance_admin_primary', customer_facing: false }, // admin only
-  // eslint-disable-next-line max-len
   entitlement_activation_blocked:   { notification_class: 'finance_admin_alert',   sender_profile_id: 'sp_finance_admin_primary',  customer_facing: false }, // admin only
 };
 

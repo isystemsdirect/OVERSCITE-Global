@@ -1,10 +1,10 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { evaluateFinalize } from '../../../../scing/inspection/inspectionPolicy';
-import { makeArtifactEvent } from '../../../../scing/evidence/evidenceStore';
-import type { ArtifactRecord, WormChainRef } from '../../../../scing/evidence/evidenceTypes';
+import { evaluateFinalize } from '../scing_engine/inspection/inspectionPolicy';
+import { makeArtifactEvent } from '../scing_engine/evidence/evidenceStore';
+import type { ArtifactRecord, WormChainRef } from '../scing_engine/evidence/evidenceTypes';
 import { enforceBaneCallable } from '../bane/enforce';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../scing_engine/bane/server/toolBoundary';
 
 function isoNow() {
   return new Date().toISOString();
@@ -130,4 +130,3 @@ export const finalizeInspection = functions.https.onCall(async (data, ctx) => {
 
   return { ok: true, status: 'final' };
 });
-

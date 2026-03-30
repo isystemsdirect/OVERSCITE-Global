@@ -13,10 +13,10 @@ import * as sessionManager from './sessionManager';
 import { evaluateActionGate, emitPostGateReceipt, buildActorContext } from './governance';
 import { emitScingEvent } from './auditEmitter';
 import { orchestrateScingInterface } from './orchestrator';
-import { executeLariPipeline } from '../../../../scing/lari/lariOrch';
+import { executeLariPipeline } from '../scing_engine/lari/lariOrch';
 import { compileScingReport } from './governance/reportCompiler';
-import { EngineFinding, EngineTrace, EngineVerdict } from '../../../../scing/engine/logicContracts';
-import { EngineId } from '../../../../scing/engine/engineTypes';
+import { EngineFinding, EngineTrace, EngineVerdict } from '../scing_engine/engine/logicContracts';
+import { EngineId } from '../scing_engine/engine/engineTypes';
 
 export async function globalOrchestrate(params: {
   request: ScingOrchestratorRequest;

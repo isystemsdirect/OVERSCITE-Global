@@ -19,7 +19,7 @@ export const scingHealth = functions.https.onRequest((req, res) => {
 
   // Retrieve platform and engine manifests dynamically to prove deployment state
   const platformPkg = readSafeManifest(path.join(__dirname, '../../package.json'));
-  const scingRegistry = readSafeManifest(path.join(__dirname, '../../../../scing/bane/engine.json'));
+  const scingRegistry = readSafeManifest(path.join(__dirname, '../scing_engine/bane/engine.json'));
 
   res.status(200).json({
     status: 'active',

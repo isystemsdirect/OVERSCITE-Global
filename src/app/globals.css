@@ -105,9 +105,22 @@
   @apply border-b border-white/5;
 }
 
-/* OverHUD Specifics */
+/* ─── Shared Shell Material ─── */
+/* Canonical shell surface: every panel that is part of the shell chrome
+   (header, OverHUD, notification bar) must use this exact treatment
+   to ensure material parity and zero visual drift. */
+.shell-surface {
+  @apply bg-background/50 backdrop-blur-lg;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.45)
+  );
+}
+
+/* OverHUD Specifics — inherits shell-surface, adds border-left */
 .overhud-panel {
-  @apply bg-black/80 backdrop-blur-2xl border-l border-white/10 shadow-2xl;
+  @apply shell-surface border-l border-white/10 shadow-2xl;
 }
 
 /* Scing Aesthetic Standardization */

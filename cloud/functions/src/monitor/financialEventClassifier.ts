@@ -14,14 +14,14 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { enforceBaneCallable } from '../bane/enforce';
-import type { FinancialEventType } from '../../../../src/lib/types/notifications';
+import type { FinancialEventType } from '../types/notifications';
 import {
   NOTIFICATION_COLLECTIONS,
-} from '../../../../src/lib/types/notifications';
+} from '../types/notifications';
 import {
   MONITOR_SHARED_COLLECTIONS,
   MONITOR_COLLECTION_MAP,
-} from '../../../../src/lib/types/monitor';
+} from '../types/monitor';
 
 const ENGINE_VERSION = 'lari-monitor-v1';
 const POLICY_VERSION = '1.0.0';
@@ -34,49 +34,27 @@ const FINANCIAL_EVENT_POLICY: Record<
   FinancialEventType,
   { severity: string; actionability: string; customer_facing: boolean }
 > = {
-  // eslint-disable-next-line max-len
   order_created:                     { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   payment_pending:                   { severity: 'info',     actionability: 'none',                 customer_facing: true  },
-  // eslint-disable-next-line max-len
   payment_succeeded:                 { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   payment_failed:                    { severity: 'elevated', actionability: 'review',               customer_facing: true  },
-  // eslint-disable-next-line max-len
   invoice_generated:                 { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   invoice_paid:                      { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   subscription_renewal_upcoming:     { severity: 'warning',  actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   subscription_renewed:              { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   subscription_past_due:             { severity: 'elevated', actionability: 'review',               customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_requested:                  { severity: 'warning',  actionability: 'approval_required',    customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_approved:                   { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_denied:                     { severity: 'warning',  actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   refund_completed:                  { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   return_request_created:            { severity: 'warning',  actionability: 'review',               customer_facing: true  },
-  // eslint-disable-next-line max-len
   dispute_opened:                    { severity: 'critical', actionability: 'escalate',             customer_facing: true  },
-  // eslint-disable-next-line max-len
   dispute_resolved:                  { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   payout_pending:                    { severity: 'info',     actionability: 'none',                 customer_facing: true  },
-  // eslint-disable-next-line max-len
   payout_on_hold:                    { severity: 'elevated', actionability: 'review',               customer_facing: false }, // admin only
-  // eslint-disable-next-line max-len
   payout_released:                   { severity: 'info',     actionability: 'dispatch_notice_only', customer_facing: true  },
-  // eslint-disable-next-line max-len
   manual_financial_review_required:  { severity: 'critical', actionability: 'approval_required',    customer_facing: false }, // admin only
-  // eslint-disable-next-line max-len
   tax_fee_computation_failed:        { severity: 'critical', actionability: 'review',               customer_facing: false }, // admin only
-  // eslint-disable-next-line max-len
   entitlement_activation_blocked:    { severity: 'elevated', actionability: 'review',               customer_facing: false }, // admin only
 };
 

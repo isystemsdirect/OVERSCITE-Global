@@ -1,11 +1,26 @@
+/**
+ * @classification UI_COMPONENT
+ * @authority Director
+ * @status IMPLEMENTED
+ * @version 2.0.0
+ *
+ * @purpose
+ * Top shell command bar — hosts the Scing command bar (anchored, not modal),
+ * BFI toggle, and utility actions. The Scing bar + drop panel are shell-native.
+ *
+ * @refactor_note
+ * V2.1.0: Finalized 'Scing Singularity' refactor. Replaced 
+ * ScingBar + ScingDropPanel with a single, layout-stable ScingPanel.
+ * The center slot now renders the unified transforming surface.
+ */
+
 import React from 'react';
-import Image from 'next/image';
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { AiSearchDialog } from "@/components/ai-search-dialog";
+import { ScingPanel } from '@/components/scing/ScingPanel';
 import { ScingGPT } from '@/components/ScingGPT';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, Expand, Shrink, Bell, Mic } from "lucide-react";
+import { RefreshCw, Expand, Shrink, Bell } from "lucide-react";
 
 interface TopCommandBarProps {
   userId?: string | null;
@@ -21,35 +36,10 @@ export function TopCommandBar({
   handleRefresh
 }: TopCommandBarProps) {
   return (
-    <header className="sticky top-0 z-30 flex h-20 items-center gap-4 border-b border-border/30 bg-background/50 backdrop-blur-lg px-4 lg:px-6 w-full shadow-sm">
-      <SidebarTrigger className="md:hidden" />
-      
-      <div className="flex items-center gap-4 border-r border-border/50 pr-4 mr-4">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="rounded-xl text-primary hover:bg-primary/10 scing-border-glow p-0 overflow-hidden"
-              >
-                <Image 
-                  src="/Scing_ButtonIcon_White.svg" 
-                  alt="Scing Hands-Free" 
-                  width={24} 
-                  height={24}
-                  className="w-6 h-6 object-contain"
-                />
-                <span className="sr-only">Toggle Hands-Free Mode</span>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Hands-Free Mode</p>
-              <p className="text-xs text-muted-foreground">Activate SCINGULAR voice command layer.</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-
+    <header className="shell-surface sticky top-0 z-30 flex h-20 items-center border-b border-border/30 px-4 lg:px-6 w-full shadow-sm overflow-visible">
+      {/* ─── Left Group: Sidebar Trigger + Scing BFI Toggle ─── */}
+      <div className="flex items-center gap-2 shrink-0">
+        <SidebarTrigger className="md:hidden" />
         {userId && (
           <TooltipProvider>
             <Tooltip>
@@ -69,12 +59,14 @@ export function TopCommandBar({
           </TooltipProvider>
         )}
       </div>
-      
-      <div className="flex-1 flex items-center gap-2">
-        <AiSearchDialog />
+
+      {/* ─── Center: Scing Command Bar (shell-anchored, not modal) ─── */}
+      <div className="flex-1 flex items-center justify-center px-4 relative">
+        <ScingPanel />
       </div>
       
-      <div className="flex items-center gap-2 ml-auto">
+      {/* ─── Right Group: Utility Actions ─── */}
+      <div className="flex items-center gap-2 shrink-0">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>

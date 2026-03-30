@@ -10,6 +10,7 @@ import ClientProviders from '@/components/ClientProviders';
 import './globals.css';
 import '@/styles/background-slideshow.css';
 import '@/styles/charts.css';
+import '@/styles/scing-panel.css';
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 

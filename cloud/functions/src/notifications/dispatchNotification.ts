@@ -20,7 +20,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { enforceBaneCallable } from '../bane/enforce';
-import { NOTIFICATION_COLLECTIONS } from '../../../../src/lib/types/notifications';
+import { NOTIFICATION_COLLECTIONS } from '../types/notifications';
 
 const ENGINE_VERSION = 'lari-monitor-v1';
 const POLICY_VERSION = '1.0.0';
@@ -31,6 +31,8 @@ export const dispatchNotification = functions.https.onCall(async (data, context)
     data,
     ctx: context,
   });
+
+  functions.logger.info(`[dispatchNotification] Gate Decision Locked`, { traceId: gate.traceId });
 
   const db = admin.firestore();
   const now = admin.firestore.FieldValue.serverTimestamp();

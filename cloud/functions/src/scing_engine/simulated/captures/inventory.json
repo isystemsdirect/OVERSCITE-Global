@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cap_vibration_20260323_001",
+    "type": "telemetry",
+    "timestamp": "2026-03-23T10:15:00Z",
+    "tags": ["drone", "vibration", "blackbox"],
+    "data": {
+      "z_axis_oscillation": 18.5,
+      "baseline_z": 12.0,
+      "motor_temps": [45, 48, 52, 46],
+      "rpm_fluctuation": "high"
+    }
+  },
+  {
+    "id": "cap_gps_20260323_002",
+    "type": "sensor",
+    "timestamp": "2026-03-23T11:05:00Z",
+    "tags": ["gps", "facade-sweep", "signal"],
+    "data": {
+      "sat_count": 6,
+      "hdop": 2.4,
+      "multipath_detected": true,
+      "location": "Sector 7-G (Near Cooling Tower)"
+    }
+  },
+  {
+    "id": "cap_repair_20260323_003",
+    "type": "document",
+    "timestamp": "2026-03-23T09:30:00Z",
+    "tags": ["ui", "error", "lucide"],
+    "data": {
+      "file": "src/components/drone/OversciteDroneVisionUI.tsx",
+      "line": 314,
+      "symbol": "Maximize2",
+      "error": "ReferenceError: Maximize2 is not defined"
+    }
+  }
+]

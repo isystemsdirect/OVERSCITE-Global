@@ -30,12 +30,12 @@ jobs:
           echo "## Run-Time Health Observations" >> $GITHUB_STEP_SUMMARY
           echo "### Inventory of Validated Services" >> $GITHUB_STEP_SUMMARY
           echo '```bash' >> $GITHUB_STEP_SUMMARY
-          firebase functions:list --project scingula-ai-drone-control >> $GITHUB_STEP_SUMMARY || echo "[WARN: IAM Blocked Request]" >> $GITHUB_STEP_SUMMARY
+          firebase functions:list --project heroic-icon-474517-t2 >> $GITHUB_STEP_SUMMARY || echo "[WARN: IAM Blocked Request]" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           
           echo "### Startup Stability Footprints" >> $GITHUB_STEP_SUMMARY
           echo '```bash' >> $GITHUB_STEP_SUMMARY
-          firebase functions:log --project scingula-ai-drone-control --lines 50 >> $GITHUB_STEP_SUMMARY || echo "[WARN: IAM Blocked Request]" >> $GITHUB_STEP_SUMMARY
+          firebase functions:log --project heroic-icon-474517-t2 --lines 50 >> $GITHUB_STEP_SUMMARY || echo "[WARN: IAM Blocked Request]" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
         env:
           FIREBASE_TOKEN: ${{ secrets.OBSERVER_TOKEN || secrets.FIREBASE_TOKEN }}

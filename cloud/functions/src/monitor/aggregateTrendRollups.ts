@@ -10,18 +10,16 @@
  * Rollups summarize without distorting. They must not hide critical signal.
  *
  * Implementation Status: PARTIAL — aggregation logic operational.
- * Scheduling: SCAFFOLD — Cloud Scheduler wiring requires project config.
- * Live event data: SCAFFOLD — depends on classifyEvent pipeline being active.
  */
 
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { enforceBaneCallable } from '../bane/enforce';
-import type { MonitorLaneId, MonitorTrendRollup } from '../../../../src/lib/types/monitor';
+import type { MonitorLaneId, MonitorTrendRollup } from '../types/monitor';
 import {
   MONITOR_COLLECTION_MAP,
   MONITOR_SHARED_COLLECTIONS,
-} from '../../../../src/lib/types/monitor';
+} from '../types/monitor';
 
 const ENGINE_VERSION = 'lari-monitor-v1';
 const POLICY_VERSION = '1.0.0';
@@ -122,6 +120,8 @@ export const aggregateTrendRollups = functions.https.onCall(async (data, context
   functions.logger.info(`[aggregateTrendRollups] Generated ${rollups.length} lane rollups for period`, {
     period_start: periodStartIso,
     period_end: periodEndIso,
+    engine: ENGINE_VERSION,
+    policy: POLICY_VERSION,
   });
 
   return {

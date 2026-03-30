@@ -20,10 +20,10 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { enforceBaneCallable } from '../bane/enforce';
-import type { MonitorReviewQueue, ReviewQueueType } from '../../../../src/lib/types/monitor';
+import type { MonitorReviewQueue, ReviewQueueType } from '../types/monitor';
 import {
   MONITOR_SHARED_COLLECTIONS,
-} from '../../../../src/lib/types/monitor';
+} from '../types/monitor';
 
 const ENGINE_VERSION = 'lari-monitor-v1';
 const POLICY_VERSION = '1.0.0';

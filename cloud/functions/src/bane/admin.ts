@@ -3,7 +3,7 @@ import { issueEntitlement } from './issue';
 import { revokeEntitlement } from './revoke';
 import { issuePolicySnapshot } from './snapshot';
 import { enforceBaneCallable } from './enforce';
-import { runGuardedTool } from '../../../../scing/bane/server/toolBoundary';
+import { runGuardedTool } from '../bane_engine/server/toolBoundary';
 
 export const baneIssueEntitlement = functions.https.onCall(async (data, ctx) => {
   const gate = await enforceBaneCallable({ name: 'baneIssueEntitlement', data, ctx });

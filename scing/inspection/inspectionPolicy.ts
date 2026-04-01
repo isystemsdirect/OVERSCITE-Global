@@ -23,10 +23,10 @@ export function evaluateFinalize(params: {
   // type policy
   const requiredTypes = new Set(inspection.requiredArtifactTypes ?? []);
   if (requiredTypes.size > 0) {
-    for (const t of requiredTypes) {
+    requiredTypes.forEach((t) => {
       const has = artifacts.some((a) => a.type === t);
       if (!has) reasons.push(`MISSING_REQUIRED_TYPE:${t}`);
-    }
+    });
   }
 
   // offline rule: can be ready_to_finalize, cannot be final

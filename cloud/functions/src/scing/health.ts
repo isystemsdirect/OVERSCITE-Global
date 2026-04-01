@@ -3,7 +3,7 @@ import { enforceBaneHttp } from '../bane/enforce';
 import * as path from 'path';
 import * as fs from 'fs';
 
-function readSafeManifest(manifestPath: string): any {
+function readSafeManifest(manifestPath: string): Record<string, unknown> {
   try {
     const raw = fs.readFileSync(manifestPath, 'utf8');
     return JSON.parse(raw);
@@ -12,9 +12,9 @@ function readSafeManifest(manifestPath: string): any {
   }
 }
 
-export const scingHealth = functions.https.onRequest((req, res) => {
+export const scingHealth = functions.https.onRequest(async (req, res) => {
   // Enforce zero-trust bounds even on read-only endpoints identifying lineage.
-  const gate = enforceBaneHttp({ req, res, name: 'scingHealth' });
+  const gate = await enforceBaneHttp({ req, res, name: 'scingHealth' });
   if (!gate.ok) return;
 
   // Retrieve platform and engine manifests dynamically to prove deployment state

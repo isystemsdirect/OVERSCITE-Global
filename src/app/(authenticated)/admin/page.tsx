@@ -101,7 +101,7 @@ export default function AdminPage() {
     <div className="flex flex-col gap-6">
       <PageHeader 
         title="Admin Control Center" 
-        status="experimental"
+        status="candidate"
         description="The Admin Control Center is the high-level orchestration surface for managing system health, personnel registries, and global security protocols. It provides administrators with real-time observability into component latency, BANE™ enforcement status, and the forensic audit trail. Through this interface, users can be provisioned, credentials managed, and system-wide diagnostic runs executed to ensure peak operational readiness. This command deck is the ultimate authority for maintaining the technical and social stability of the OVERSCITE Global platform."
       >
         <div className="flex items-center gap-2">

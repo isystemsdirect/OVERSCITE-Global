@@ -30,7 +30,7 @@ const SEED_BOOKINGS: CalendarBooking[] = [
     start_at: new Date('2023-11-03T08:00:00').toISOString(),
     end_at: new Date('2023-11-03T12:00:00').toISOString(),
     location: 'Tech Hub B',
-    status: 'pending',
+    status: 'tentative',
     linked_entity_type: 'operational_block',
     linked_entity_id: 'maint-003',
     created_by: 'Tech Lead',

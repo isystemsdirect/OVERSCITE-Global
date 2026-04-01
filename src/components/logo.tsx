@@ -25,12 +25,22 @@ export default function Logo({
         className={cn("relative traveling-glow-container flex items-center justify-center")}
         style={{ width, height }}
       >
-        <LogoSvg 
-          width={width}
-          height={height} 
-          className="relative z-10 w-full h-full object-contain text-[#FFC107] fill-current"
-          style={{ color: '#FFC107' }}
-        />
+        {typeof LogoSvg === 'function' ? (
+          <LogoSvg 
+            width={width}
+            height={height} 
+            className="relative z-10 w-full h-full object-contain text-[#FFC107] fill-current"
+            style={{ color: '#FFC107' }}
+          />
+        ) : (
+          <img 
+            src={(LogoSvg as any)?.src || LogoSvg} 
+            width={width}
+            height={height}
+            alt="Logo"
+            className="relative z-10 w-full h-full object-contain"
+          />
+        )}
       </div>
       {!isCollapsed && (
         <span className={cn(

@@ -30,7 +30,7 @@ const SEED_DOCUMENTS: LibraryDocument[] = [
     category: 'Internal Governance',
     document_type: 'PDF',
     storage_path_or_url: '/docs/internal/safety-v2.pdf',
-    status: 'review_required',
+    status: 'candidate',
     created_at: new Date('2024-03-20').toISOString(),
     updated_at: new Date('2024-03-20').toISOString(),
     created_by: 'Director Anderson',

@@ -15,7 +15,7 @@ const SEED_CAPABILITIES: Capability[] = [
     name: 'Scing-V™ Environmental Synthesis',
     description: 'Advanced environmental sound-stage synthesis for HummingBird integration.',
     category: 'SCING_VOICE',
-    status: 'experimental',
+    status: 'candidate',
     lari_key_required: false,
     provider: 'SCINGULAR Media Lab',
   },

@@ -86,4 +86,52 @@ export class FirestoreBaneStore implements BaneStore {
     if (!docs.length) return null;
     return docs[0].data() as BaneIncidentRecord;
   }
+
+  async getAnchor(): Promise<{ lastHash: string; sequence: number }> {
+    const docRef = this.db.collection(BANE_COLLECTIONS.governance).doc('audit_anchor');
+    const q = this.db.collection(BANE_COLLECTIONS.governance)
+      .where?.('id', '==', 'audit_anchor')
+      .limit?.(1);
+    
+    try {
+      const snap = await (q || (docRef as any)).get();
+      const docs = snap?.docs;
+      if (docs && docs.length > 0) {
+        const data = docs[0].data() as { lastHash?: string; sequence?: number };
+        return { 
+          lastHash: data.lastHash || '0'.repeat(64), 
+          sequence: data.sequence || 0 
+        };
+      }
+    } catch (e) {
+      // Fallback for first run or missing doc
+    }
+    return { lastHash: '0'.repeat(64), sequence: 0 };
+  }
+
+  async updateAnchor(lastHash: string, sequence: number): Promise<void> {
+    const ref = this.db.collection(BANE_COLLECTIONS.governance).doc('audit_anchor');
+    await ref.set(
+      { id: 'audit_anchor', lastHash, sequence, updated_at: Date.now() }, 
+      { merge: true }
+    );
+  }
+
+  async getLastSequenceForIdentity(identityId: string): Promise<number> {
+    const q = this.db.collection(BANE_COLLECTIONS.audits)
+      .where?.('identityId', '==', identityId)
+      .orderBy?.('sequenceRef', 'desc')
+      .limit?.(1);
+
+    try {
+      const snap = await (q as any).get();
+      const docs = snap?.docs;
+      if (docs && docs.length > 0) {
+        return docs[0].data().sequenceRef || 0;
+      }
+    } catch (e) {
+      // Possible index missing or first run
+    }
+    return 0;
+  }
 }

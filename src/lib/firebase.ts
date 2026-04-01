@@ -22,9 +22,10 @@ const firebaseConfig = {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-function getFirebaseApp(): FirebaseApp {
+
+function getFirebaseApp(): FirebaseApp | null {
     if (typeof window === 'undefined') {
-        throw new Error('FirebaseApp can only be accessed on the client-side.');
+        return null;
     }
     if (app) return app;
 
@@ -35,7 +36,8 @@ function getFirebaseApp(): FirebaseApp {
     }
     
     if (!firebaseConfig.apiKey || firebaseConfig.apiKey.includes("Your_Key_Here")) {
-        throw new Error('Firebase API key is not configured. Please check your .env.local file.');
+        console.warn('Firebase API key is not configured. Falling back to null.');
+        return null;
     }
     
     try {
@@ -43,34 +45,38 @@ function getFirebaseApp(): FirebaseApp {
         return app;
     } catch (error) {
         console.error("Firebase initialization error:", error);
-        throw error;
+        return null;
     }
 }
 
 
-function getFirebaseAuth(): Auth {
+function getFirebaseAuth(): Auth | null {
     const firebaseApp = getFirebaseApp();
+    if (!firebaseApp) return null;
     if (auth) return auth;
     auth = getAuth(firebaseApp);
     return auth;
 }
 
-function getDb(): Firestore {
+function getDb(): Firestore | null {
     const firebaseApp = getFirebaseApp();
+    if (!firebaseApp) return null;
     if (db) return db;
     db = getFirestore(firebaseApp);
     return db;
 }
 
-function getFirebaseFunctions(): Functions {
+function getFirebaseFunctions(): Functions | null {
     const firebaseApp = getFirebaseApp();
+    if (!firebaseApp) return null;
     if (functions) return functions;
     functions = getFunctions(firebaseApp);
     return functions;
 }
 
-function getFirebaseStorage(): FirebaseStorage {
+function getFirebaseStorage(): FirebaseStorage | null {
     const firebaseApp = getFirebaseApp();
+    if (!firebaseApp) return null;
     if (storage) return storage;
     storage = getStorage(firebaseApp);
     return storage;

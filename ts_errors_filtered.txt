@@ -1,0 +1,98 @@
+﻿cloud/functions/src/scing/types.ts(19,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+cloud/functions/src/scing/types.ts(20,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+cloud/functions/src/scing/types.ts(21,3): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+OVERSCITE/src/components/overhud/FileTree.tsx(73,87): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(74,83): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(75,88): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(76,85): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/components/overhud/FileTree.tsx(77,94): error TS2322: Type '{ size: number; className: string; title: string; }' is not assignable to type 'IntrinsicAttributes & Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>'.
+OVERSCITE/src/lib/overhud/mock-data.ts(35,9): error TS2353: Object literal may only specify known properties, and 'children' does not exist in type 'ExplorerNode'.
+OVERSCITE/src/lib/overhud/mock-data.ts(58,17): error TS2339: Property 'children' does not exist on type 'ExplorerNode'.
+OVERSCITE/src/lib/overhud/mock-data.ts(65,49): error TS7006: Parameter 'c' implicitly has an 'any' type.
+OVERSCITE/src/lib/overhud/mock-data.ts(66,30): error TS7006: Parameter 'child' implicitly has an 'any' type.
+scing/bane/core/redactionFromFindings.ts(11,21): error TS2802: Type 'RegExpStringIterator<RegExpExecArray>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/bane/core/redactionFromFindings.ts(17,21): error TS2802: Type 'RegExpStringIterator<RegExpExecArray>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/debug/subBabies.ts(1,10): error TS2614: Module '"../engineRegistry"' has no exported member 'LARI_SUB_ENGINES'. Did you mean to use 'import LARI_SUB_ENGINES from "../engineRegistry"' instead?
+scing/engine/engineGraph.ts(33,26): error TS2802: Type 'Map<EngineId, EngineId[]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/engine/engineGraph.ts(33,47): error TS7006: Parameter 'a' implicitly has an 'any' type.
+scing/engine/engineGraph.ts(33,50): error TS7006: Parameter 'b' implicitly has an 'any' type.
+scing/engineRegistry.ts(12,15): error TS2459: Module '"./engine/engineRegistry"' declares 'EngineId' locally, but it is not exported.
+scing/engines/lariEdl.ts(4,33): error TS2551: Property 'lari-edl' does not exist on type 'Record<EngineId, EngineRecord>'. Did you mean 'LARI-EDDY'?
+scing/inspection/inspectionPolicy.ts(26,21): error TS2802: Type 'Set<"photo" | "video" | "document" | "thermal_image" | "spectral_scan" | "sonar_scan" | "gpr_scan" | "other">' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(31,26): error TS2802: Type 'ArrayIterator<[number, LariInputArtifact]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(40,26): error TS2802: Type 'ArrayIterator<[number, LariInputMeasurement]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(100,26): error TS2802: Type 'ArrayIterator<[number, LariFieldInput]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+scing/lari/contracts/validateLariInput.ts(111,26): error TS2802: Type 'ArrayIterator<[number, any]>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
+src/ai/flows/lari-narrator.ts(11,24): error TS2307: Cannot find module '@genkit-ai/google-genai' or its corresponding type declarations.
+src/ai/genkit.ts(3,10): error TS2724: '"@genkit-ai/dotprompt"' has no exported member named 'dotprompt'. Did you mean 'Dotprompt'?
+src/app/(authenticated)/admin/notifications/page.tsx(243,17): error TS2339: Property 'package' does not exist on type 'JSX.IntrinsicElements'.
+src/app/(authenticated)/admin/page.tsx(104,9): error TS2322: Type '"experimental"' is not assignable to type '"live" | "partial" | "mock" | "candidate" | "accepted" | "blocked" | "archived" | undefined'.
+src/app/(authenticated)/clients/[id]/page.tsx(133,40): error TS18048: 'inspection.propertyAddress' is possibly 'undefined'.
+src/app/(authenticated)/clients/[id]/page.tsx(133,67): error TS2339: Property 'street' does not exist on type 'string'.
+src/app/(authenticated)/clients/[id]/page.tsx(141,79): error TS2322: Type 'Date' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/community/page.tsx(123,9): error TS2322: Type '"experimental"' is not assignable to type '"live" | "partial" | "mock" | "candidate" | "accepted" | "blocked" | "archived" | undefined'.
+src/app/(authenticated)/conference-rooms/[id]/page.tsx(64,52): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/conference-rooms/[id]/page.tsx(150,52): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/app/(authenticated)/conference-rooms/page.tsx(76,60): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/contractor/governance-setup/page.tsx(17,8): error TS2739: Type '{}' is missing the following properties from type 'GovernanceSetupProps': governance, onUpdateField, onInvokeWizard
+src/app/(authenticated)/dynamic-dash/page.tsx(22,9): error TS2322: Type '"experimental"' is not assignable to type '"live" | "partial" | "mock" | "candidate" | "accepted" | "blocked" | "archived" | undefined'.
+src/app/(authenticated)/finances/page.tsx(254,58): error TS2769: No overload matches this call.
+src/app/(authenticated)/finances/page.tsx(393,22): error TS2304: Cannot find name 'Separator'.
+src/app/(authenticated)/inspections/new/review/page.tsx(66,9): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/app/(authenticated)/inspections/page.tsx(173,79): error TS18048: 'inspection.propertyAddress' is possibly 'undefined'.
+src/app/(authenticated)/inspections/page.tsx(173,106): error TS2339: Property 'street' does not exist on type 'string'.
+src/app/(authenticated)/inspections/page.tsx(182,31): error TS2322: Type 'Date' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/overview/page.tsx(219,18): error TS2304: Cannot find name 'PageHeader'.
+src/app/(authenticated)/social/page.tsx(134,9): error TS2322: Type '"experimental"' is not assignable to type '"live" | "partial" | "mock" | "candidate" | "accepted" | "blocked" | "archived" | undefined'.
+src/app/(authenticated)/teams/[id]/page.tsx(109,48): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(109,56): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(163,48): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/app/(authenticated)/teams/[id]/page.tsx(211,64): error TS7006: Parameter 'log' implicitly has an 'any' type.
+src/app/(authenticated)/teams/page.tsx(45,10): error TS2304: Cannot find name 'PageHeader'.
+src/app/(authenticated)/workstation/devices/[id]/page.tsx(277,66): error TS2345: Argument of type 'string' is not assignable to parameter of type '"Error" | "Connected" | "Disconnected"'.
+src/app/(authenticated)/workstation/keys/[id]/periodic-table/page.tsx(93,62): error TS2339: Property 'column' does not exist on type '{ number: number; symbol: string; name: string; atomic_mass: number; category: string; xpos: number; ypos: number; }'.
+src/app/(authenticated)/workstation/keys/[id]/periodic-table/page.tsx(93,87): error TS2339: Property 'row' does not exist on type '{ number: number; symbol: string; name: string; atomic_mass: number; category: string; xpos: number; ypos: number; }'.
+src/app/(authenticated)/workstation/page.tsx(207,92): error TS2339: Property 'LARI' does not exist on type '{ PLATFORM_NAME: string; PLATFORM_SUFFIX: string; INTELLIGENCE_TYPE: string; BFI: string; TRINITY_NAME: string; SCING_ROLE: string; LARI_ROLE: string; BANE_ROLE: string; PROTOCOL_FAMILY_MUCB: string; PACKET_CLASS_MUDTCB_S: string; }'.
+src/app/settings/devices/[id]/page.tsx(271,66): error TS2345: Argument of type 'string' is not assignable to parameter of type '"Error" | "Connected" | "Disconnected"'.
+src/components/ai-search-dialog.tsx(61,33): error TS2304: Cannot find name 'SpeechRecognition'.
+src/components/ai-search-dialog.tsx(101,31): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/ai-search-dialog.tsx(108,30): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/ClientProviders.tsx(4,10): error TS2305: Module '"@/context/LayoutContext"' has no exported member 'LayoutProvider'.
+src/components/contractor/OversightChain.tsx(85,11): error TS2322: Type '{ party: { party_id: string; company_or_person_name: string; role_type: "prime_contractor"; prime_or_sub: "prime"; direct_to_owner: true; trade_class: string[]; self_perform_allowed: true; }; verificationStatus: "verified_active"; licenseRequired: true; readiness: string; registrationRequired: true; }' is not assignable to type 'IntrinsicAttributes & OversightNodeProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(135,13): error TS2322: Type '{ config: DroneConfiguration; onValidationComplete: (results: any) => void; }' is not assignable to type 'IntrinsicAttributes & FAACompliancePanelProps'.
+src/components/drone/DroneBuilderControlPanel.tsx(136,36): error TS7006: Parameter 'results' implicitly has an 'any' type.
+src/components/layout/TopCommandBar.tsx(19,28): error TS2307: Cannot find module '@/components/ui/mode-toggle' or its corresponding type declarations.
+src/components/layout/TopCommandBar.tsx(20,33): error TS2307: Cannot find module '@/components/account-switcher' or its corresponding type declarations.
+src/components/layout/TopCommandBar.tsx(21,32): error TS2307: Cannot find module '@/components/overhud/OverHUDTrigger' or its corresponding type declarations.
+src/components/messaging-dialog.tsx(42,20): error TS2339: Property 'disconnectUser' does not exist on type 'never'.
+src/components/messaging-dialog.tsx(51,36): error TS2769: No overload matches this call.
+src/components/overhud/lari-repo/ApprovalsPanel.tsx(20,19): error TS2339: Property 'getFile' does not exist on type 'RepoService'.
+src/components/overhud/lari-repo/ApprovalsPanel.tsx(20,51): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/components/overhud/lari-repo/FileViewer.tsx(16,25): error TS2339: Property 'getFile' does not exist on type 'RepoService'.
+src/components/overhud/lari-repo/FileViewer.tsx(16,57): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/components/overhud/lari-repo/FindingReviewCard.tsx(21,21): error TS2339: Property 'getFile' does not exist on type 'RepoService'.
+src/components/overhud/lari-repo/FindingReviewCard.tsx(21,56): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/components/overhud/lari-repo/LearningQueuePanel.tsx(44,126): error TS2345: Argument of type '"supervisor"' is not assignable to parameter of type 'UserRole'.
+src/components/overhud/lari-repo/LearningQueuePanel.tsx(50,122): error TS2345: Argument of type '"supervisor"' is not assignable to parameter of type 'UserRole'.
+src/components/overhud/lari-repo/NotesPanel.tsx(75,89): error TS2345: Argument of type '{ findingId: string; type: "note_bundle"; payload: { noteId: string; text: string; }; }' is not assignable to parameter of type 'Omit<LearningPacket, "id" | "status" | "timestamp">'.
+src/data/normalized-metric-store.ts(57,41): error TS2345: Argument of type 'NormalizedGeospatialAsset[]' is not assignable to parameter of type '{ id: string; timestamp: number; sourceSignature: string; }[]'.
+src/data/normalized-metric-store.ts(67,5): error TS2322: Type 'DataStreamState<{ id: string; timestamp: number; sourceSignature: string; }>' is not assignable to type 'DataStreamState<NormalizedGeospatialAsset>'.
+src/lib/bane/policies/correction-escalation-policy.ts(9,51): error TS2367: This comparison appears to be unintentional because the types 'UserRole' and '"supervisor"' have no overlap.
+src/lib/lari-repo/finding-review-service.ts(28,40): error TS2339: Property 'getFile' does not exist on type 'RepoService'.
+src/lib/lari-repo/finding-review-service.ts(77,40): error TS2339: Property 'getFile' does not exist on type 'RepoService'.
+src/lib/lari-repo/finding-review-service.ts(92,5): error TS2322: Type '{ success: boolean; }' is not assignable to type 'void'.
+src/lib/lari-repo/mock-data.ts(9,11): error TS2741: Property 'currentVersionNumber' is missing in type '{ id: string; name: string; type: "image"; jobId: string; clientId: string; createdAt: string; createdBy: string; reviewStatus: "pending"; ingestionEligibility: "not_eligible"; version: string; metadata: { ...; }; }' but required in type 'RepoFile'.
+src/lib/lari-repo/mock-data.ts(27,23): error TS2339: Property 'fileArtifact' does not exist on type 'RepoService'.
+src/lib/legacy/mock-data-legacy.ts(19,5): error TS2353: Object literal may only specify known properties, and '__canonical' does not exist in type 'Inspection'.
+src/lib/locations/googleMapsLoader.ts(25,16): error TS2339: Property 'importLibrary' does not exist on type 'Loader'.
+src/lib/locations/googleMapsLoader.ts(26,16): error TS2339: Property 'importLibrary' does not exist on type 'Loader'.
+src/lib/types.ts(17,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(78,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(90,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(100,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(147,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(220,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(236,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(252,11): error TS2304: Cannot find name 'TruthState'.
+src/lib/types.ts(260,11): error TS2304: Cannot find name 'TruthState'.
+tests/contractor/recalibration.test.ts(3,64): error TS2307: Cannot find module '../../lib/contractor/types' or its corresponding type declarations.

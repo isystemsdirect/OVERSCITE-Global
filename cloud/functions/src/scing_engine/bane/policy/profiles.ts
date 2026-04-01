@@ -10,6 +10,8 @@ export type BanePolicyProfile = {
     quarantineOnDeny: boolean;
     lockoutOnRepeat: boolean;
     incidentOnCritical: boolean;
+    enforceStrictTime: boolean;
+    maxDriftMs: number;
   };
 };
 
@@ -26,6 +28,8 @@ export const BANE_POLICY_PROFILES: Record<string, BanePolicyProfile> = {
       quarantineOnDeny: true,
       lockoutOnRepeat: true,
       incidentOnCritical: true,
+      enforceStrictTime: true,
+      maxDriftMs: 1,
     },
   },
   arc_level_1: {
@@ -40,6 +44,8 @@ export const BANE_POLICY_PROFILES: Record<string, BanePolicyProfile> = {
       quarantineOnDeny: true,
       lockoutOnRepeat: true,
       incidentOnCritical: true,
+      enforceStrictTime: true,
+      maxDriftMs: 1000,
     },
   },
   overscite_admin: {
@@ -54,6 +60,8 @@ export const BANE_POLICY_PROFILES: Record<string, BanePolicyProfile> = {
       quarantineOnDeny: false,
       lockoutOnRepeat: true,
       incidentOnCritical: true,
+      enforceStrictTime: false,
+      maxDriftMs: 5000,
     },
   },
 };

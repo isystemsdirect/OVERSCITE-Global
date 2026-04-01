@@ -46,6 +46,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { TruthStateBadge } from '@/components/layout/TruthStateBadge';
+import { TRUTH_STATES } from '@/lib/constants/truth-states';
 import { cn } from '@/lib/utils';
 import type { FieldMarketStatus, FieldJobType, JobListing } from '@/lib/types/marketplace';
 
@@ -329,7 +330,7 @@ export default function FieldMarketPage() {
       <div className="flex flex-col gap-6">
         <PageHeader
           title="Field Market"
-          status="partial"
+          status={TRUTH_STATES[1]}
           description="The Field Market is the OVERSCITE Global labor and dispatch exchange for certified field agents, operators, and specialized contractors. Opportunities range from thermal inspections and LiDAR mapping to forensic capture and environmental surveys. All dispatch actions are BANE-gated and require credentialed agent eligibility. Offer acceptance and payout release are server-authoritative and governed at every state transition."
           actions={
             <div className="flex items-center gap-2">

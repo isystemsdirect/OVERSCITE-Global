@@ -78,6 +78,7 @@ export default function InspectionsPage() {
       <PageHeader 
         title="Inspections Dashboard" 
         status="live"
+        guidanceId="inspections"
         description="The Inspections module is a mission-critical interface for managing and executing structural and safety audits across global jurisdictional territories. It provides a structured workflow for field personnel to capture telemetry, document findings, and verify compliance with BANE-enforced safety standards. Each inspection record maintains a transparent chain of evidence, ensuring that all site assessments are auditable and reflect the ground-truth state of assets. This module is the tactical engine of OVERSCITE, driving the objective resolution of safety risks and maintaining the integrity of global infrastructure."
       />
       <div className="flex flex-col space-y-4 w-full">
@@ -172,7 +173,7 @@ export default function InspectionsPage() {
                               <div className="text-sm text-muted-foreground">{inspection.propertyAddress.street}</div>
                             </TableCell>
                             <TableCell>
-                              <TruthStateBadge state={inspection.status === 'completed' ? 'live' : 'partial'} />
+                              <TruthStateBadge state={inspection.status} />
                             </TableCell>
                             <TableCell className="hidden md:table-cell">
                               {inspection.inspectorName}

@@ -376,6 +376,49 @@ service cloud.firestore {
       allow write: if false; // Admin SDK only — immutable audit chain (recordMarketAuditEvent)
     }
 
+    // =========================
+    // UTCB-S (STRICT) Enforcement Rule Set
+    // No direct client writes allowed to core systems
+    // =========================
+    
+    match /assets/{assetId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // scing.recordAsset gateway only
+    }
+
+    match /conversations/{msgId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // scing.recordConversationMessage gateway only
+    }
+
+    match /conversationSessions/{sessionId} {
+      allow read: if isAuthenticated() && resource.data.userId == uid();
+      allow write: if false; // scing.createConversationSession gateway only
+    }
+
+    match /security_events/{eventId} {
+      allow read: if isAdmin();
+      allow write: if false; // scing.logSecurityEvent gateway only
+    }
+
+    // BANE Protocol Internals (Immutable Audit Chain)
+    match /bane_audits/{auditId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+    match /bane_events/{eventId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+    match /bane_incidents/{incidentId} {
+      allow read: if isInspector();
+      allow write: if false;
+    }
+    match /bane_governance/{docId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
     // Default: deny all access
     match /{document=**} {
       allow read, write: if false;

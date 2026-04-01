@@ -14,6 +14,7 @@ export default function WeatherPage() {
       <PageHeader 
         title="Environment & Safety" 
         status="live"
+        guidanceId="environment-safety"
         description="The Environment & Safety module provides real-time atmospheric intelligence and risk assessment for all active field operations. By integrating live radar, storm vector tracking, and the proprietary Inspection Risk Index (IRI), it ensures personnel safety in volatile weather conditions. The system continuously monitors roof surface temperatures and biometric safety feeds through the LARI-GUANGEL™ stack. This layer of operational intelligence is essential for maintaining jurisdictional safety standards and minimizing environmental liability."
       />
       <div className="flex flex-col space-y-4 w-full">

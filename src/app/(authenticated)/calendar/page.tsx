@@ -127,6 +127,7 @@ export default function CalendarPage() {
       <PageHeader 
         title="Calendar & Scheduling" 
         status="live"
+        guidanceId="smart-scheduler"
         description="The Operations Calendar provides a unified temporal view of all scheduled inspections, team rotations, and jurisdictional deadlines across the OVERSCITE network. It allows mission controllers to optimize personnel allocation and track the multi-phase lifecycle of complex field assessments. By synchronizing with regional time zones and weather intelligence, the calendar helps prevent operational delays and safety violations. This scheduling engine is critical for maintaining the high-density workflow required to meet global inspection demands."
       />
       <div className="grid max-w-full gap-8 px-0 md:grid-cols-[280px_1fr]">

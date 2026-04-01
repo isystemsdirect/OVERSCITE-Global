@@ -1,19 +1,31 @@
 import { 
   collection, 
-  addDoc, 
   query, 
   where,
   orderBy, 
   limit, 
   onSnapshot,
-  serverTimestamp,
+  Timestamp,
+  Firestore,
   doc,
   updateDoc,
-  Timestamp,
-  getCountFromServer,
-  Firestore
+  serverTimestamp
 } from 'firebase/firestore';
-import { getDb } from './firebase';
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import { getDb, getApp } from './firebase';
+
+let clientSequence = Date.now(); // Simple monotonic sequence for Beta
+
+function getNextSequence() {
+  return ++clientSequence;
+}
+
+function getBaneMetadata() {
+  return {
+    _bane_nonce: Math.random().toString(36).substring(2),
+    _bane_seq: getNextSequence()
+  };
+}
 
 export interface ConversationMessage {
   id: string;
@@ -70,17 +82,23 @@ class ConversationStore {
   }
 
 
+  private get functions() {
+    const app = getApp();
+    if (!app) throw new Error("Firebase app not initialized");
+    return getFunctions(app);
+  }
+
   async createSession(userId: string, context: any = {}): Promise<string> {
-    if (!this.sessionsCollection) throw new Error("Firestore not available");
-    const session = await addDoc(this.sessionsCollection, {
+    const fn = httpsCallable(this.functions, 'scing-createConversationSession');
+    const result = await fn({
       userId,
-      startTime: serverTimestamp(),
-      messageCount: 0,
       context,
-      createdAt: serverTimestamp()
+      ...getBaneMetadata()
     });
     
-    return session.id;
+    const data = result.data as { ok: boolean; id: string };
+    if (!data.ok) throw new Error("Failed to create conversation session");
+    return data.id;
   }
 
   async addMessage(
@@ -90,34 +108,19 @@ class ConversationStore {
     content: string,
     metadata: any = {}
   ): Promise<string> {
-    if (!this.conversationsCollection || !this.sessionsCollection) throw new Error("Firestore not available");
-
-    const message = await addDoc(this.conversationsCollection, {
+    const fn = httpsCallable(this.functions, 'scing-recordConversationMessage');
+    const result = await fn({
       sessionId,
       userId,
       type,
       content,
-      timestamp: serverTimestamp(),
       metadata,
-      createdAt: serverTimestamp()
+      ...getBaneMetadata()
     });
 
-    // Update session message count
-    const sessionRef = doc(this.sessionsCollection, sessionId);
-    // Note: getCountFromServer counts the whole collection if query is not specific. 
-    // Optimization: Just increment the count or use a transaction. 
-    // For now, assuming accurate count is needed but query needs to be scoped to session if we want session message count.
-    // However, the original code counted *all* conversations, which seems like a bug or global counter.
-    // Assuming we want count of messages IN THIS SESSION.
-    const q = query(this.conversationsCollection, where("sessionId", "==", sessionId));
-    const snapshot = await getCountFromServer(q);
-    
-    await updateDoc(sessionRef, {
-      messageCount: snapshot.data().count,
-      lastActivity: serverTimestamp()
-    });
-
-    return message.id;
+    const data = result.data as { ok: boolean; id: string };
+    if (!data.ok) throw new Error("Failed to record conversation message");
+    return data.id;
   }
 
   subscribeToSession(
@@ -151,10 +154,10 @@ class ConversationStore {
   }
 
   async endSession(sessionId: string): Promise<void> {
-    if (!this.sessionsCollection) return;
-    const sessionRef = doc(this.sessionsCollection, sessionId);
-    await updateDoc(sessionRef, {
-      endTime: serverTimestamp(),
+    const fn = httpsCallable(this.functions, 'scing-endConversationSession');
+    await fn({
+      sessionId,
+      ...getBaneMetadata()
     });
   }
 }

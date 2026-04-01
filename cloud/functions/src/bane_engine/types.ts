@@ -12,6 +12,7 @@ export type BaneAuthContext = {
   nonce?: string;
   signature?: string;
   issuedAtEpochMs?: number;
+  clientSequence?: number; // Implementation of replay detection
   sessionIntegrity?: {
     nonceOk?: boolean;
     signatureOk?: boolean;

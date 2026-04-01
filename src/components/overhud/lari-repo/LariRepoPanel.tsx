@@ -1,76 +1,88 @@
-// src/components/overhud/lari-repo/LariRepoPanel.tsx
 'use client';
 
 import React, { useEffect, useState } from 'react';
 import { useOverHUD } from '../context/OverHUDContextProvider';
 import { repoService } from '@/lib/lari-repo/repo-service';
-import { RepoFile } from '@/lib/lari-repo/types';
-import { Search, Filter, FileText, Image as ImageIcon, FileJson } from 'lucide-react';
+import { RepoNode } from '@/lib/types/repository';
+import { Search, Filter, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { RepoTree } from '../repo-tab/RepoTree';
+import { RepoDetailPane } from '../repo-tab/RepoDetailPane';
 
 export default function LariRepoPanel() {
-  const { setArtifactId, currentArtifactId } = useOverHUD();
-  const [files, setFiles] = useState<RepoFile[]>([]);
+  const { setArtifactId } = useOverHUD();
+  const [nodes, setNodes] = useState<RepoNode[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedNode, setSelectedNode] = useState<RepoNode | null>(null);
 
   useEffect(() => {
-    repoService.listFiles({}).then(data => {
-      setFiles(data);
+    repoService.getTree().then(tree => {
+      setNodes(tree);
       setLoading(false);
     });
   }, []);
 
-  const getIcon = (type: string) => {
-    switch (type) {
-      case 'image': return <ImageIcon size={14} />;
-      case 'pdf': return <FileText size={14} />;
-      case 'structured_json': return <FileJson size={14} />;
-      default: return <FileText size={14} />;
+  const handleNodeSelect = (node: RepoNode) => {
+    setSelectedNode(node);
+    // If it's a file, we could sync it with the Lari viewer by mapping the artifact ID.
+    // We treat id as artifactId for the legacy Lari Viewer hooks.
+    if (node.node_kind === 'file') {
+      setArtifactId(node.id, 'image'); // Defaulting type to image for legacy viewer support
     }
   };
 
   return (
-    <div className="flex flex-col h-full p-4 gap-4">
-      <div className="flex-shrink-0 flex items-center bg-black/40 border border-white/10 rounded-md px-3 py-2">
-        <Search size={14} className="text-muted-foreground mr-2" />
-        <input 
-          placeholder="SEARCH REPO..." 
-          className="bg-transparent border-none outline-none text-[10px] font-mono w-full text-foreground placeholder:text-muted-foreground/50"
-        />
-        <Filter size={14} className="text-muted-foreground ml-2" />
+    <div className="flex flex-col h-full bg-black/40 overflow-hidden">
+      
+      {/* Search and Control Strip */}
+      <div className="flex-shrink-0 flex items-center bg-black/60 border-b border-white/5 px-4 h-12">
+        <div className="flex items-center flex-1 bg-white/5 rounded pl-3 pr-2 py-1.5 border border-white/5 focus-within:border-primary/50 transition-colors">
+          <Search size={14} className="text-muted-foreground mr-2 shrink-0" />
+          <input 
+            placeholder="SEARCH REBEL REPOSITORY..." 
+            className="bg-transparent border-none outline-none text-[11px] font-mono tracking-tight w-full text-foreground placeholder:text-muted-foreground/50"
+          />
+        </div>
+        
+        {/* Governance Indicator */}
+        <div className="ml-4 flex items-center gap-2 border-l border-white/10 pl-4">
+           <Shield size={14} className="text-primary/70" />
+           <span className="text-[9px] font-mono font-bold tracking-widest text-primary/70 uppercase">OCIT Mock Active</span>
+        </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto space-y-2">
-        {loading ? (
-          <div className="text-[10px] font-mono text-muted-foreground animate-pulse">LOADING LARI-REPO...</div>
-        ) : files.length === 0 ? (
-          <div className="text-[10px] font-mono text-muted-foreground italic">NO ARTIFACTS FILED</div>
-        ) : (
-          files.map(file => (
-            <button
-              key={file.id}
-              onClick={() => setArtifactId(file.id, file.type)}
-              className={cn(
-                "w-full text-left p-2 rounded-sm border border-transparent transition-all hover:bg-white/5 group",
-                currentArtifactId === file.id ? "bg-primary/10 border-primary/30" : "bg-black/20"
-              )}
-            >
-              <div className="flex items-center gap-3">
-                <div className={cn("text-muted-foreground group-hover:text-primary", currentArtifactId === file.id && "text-primary")}>
-                    {getIcon(file.type)}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-[11px] font-mono truncate text-foreground">{file.name}</div>
-                  <div className="text-[9px] font-mono text-muted-foreground flex gap-2">
-                    <span>{file.jobId}</span>
-                    <span className="opacity-30">|</span>
-                    <span className="uppercase">{file.reviewStatus}</span>
-                  </div>
-                </div>
+      {/* Explorer Split */}
+      <div className="flex flex-1 min-h-0">
+        
+        {/* Left: Hierarchical Tree Region */}
+        <div className="flex-1 flex flex-col h-full bg-black/10">
+          <div className="h-8 border-b border-white/5 flex items-center px-4 bg-white/[0.02]">
+            <span className="text-[9px] font-mono font-bold tracking-widest text-muted-foreground uppercase opacity-80">
+              OVERSCITE Operational Domain Tree
+            </span>
+          </div>
+          
+          <div className="flex-1 overflow-hidden relative p-2">
+            {loading ? (
+              <div className="flex h-full items-center justify-center text-[11px] font-mono text-muted-foreground animate-pulse">
+                INITIALIZING CANONICAL REBEL BOUNDARIES...
               </div>
-            </button>
-          ))
-        )}
+            ) : nodes.length === 0 ? (
+              <div className="flex h-full items-center justify-center text-[10px] font-mono text-muted-foreground italic">
+                NO REPOSITORY ROOTS DETECTED
+              </div>
+            ) : (
+              <RepoTree 
+                nodes={nodes} 
+                onNodeSelect={handleNodeSelect} 
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Right: Selected Node Detail Region */}
+        <RepoDetailPane node={selectedNode} />
+        
       </div>
     </div>
   );

@@ -10,13 +10,12 @@ export const mockInspections: Inspection[] = [
     title: '123 Main St - Structural',
     address: '123 Main St, Anytown, CA 12345',
     inspector: 'John Doe',
-    status: 'completed',
+    status: 'accepted',
     date: new Date('2023-10-26'),
     deviceKeysUsed: ['Key-Drone', 'Key-LiDAR'],
     findingsCount: 3,
     executiveSummary: 'The property at 123 Main St was inspected on October 26, 2023. The overall structure appears sound...',
-    findings: [],
-    __canonical: false
+    findings: []
   }
 ];
 
@@ -52,8 +51,7 @@ export const mockClients: Client[] = [
         phone: "212-555-0100",
         address: { street: "10880 Malibu Point", city: "Malibu", state: "CA", zip: "90265" },
         location: { lat: 34.0022, lng: -118.8078 },
-        createdAt: "2023-01-15T00:00:00Z",
-        __canonical: false
+        createdAt: "2023-01-15T00:00:00Z"
     }
 ];
 // ... [Mocks truncated for brevity, providing minimal set for compile]

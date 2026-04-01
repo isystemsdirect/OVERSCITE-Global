@@ -15,7 +15,7 @@ import {
   EngineVerdict,
 } from '../scing_engine/engine/logicContracts';
 
-export {
+export type {
   EngineFinding,
   EngineTrace,
   EngineVerdict,

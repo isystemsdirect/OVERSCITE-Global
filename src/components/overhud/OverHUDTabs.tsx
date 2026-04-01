@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * @classification UI_COMPONENT
  * @authority Director
@@ -16,11 +18,11 @@
  * ALL monitoring content in the shell MUST exist here and nowhere else.
  */
 // src/components/overhud/OverHUDTabs.tsx
-'use client';
-
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Shield, Database } from 'lucide-react';
+import { GuidanceHint } from '@/components/guidance/GuidanceHint';
+import { LiveSystemStatus } from './LiveSystemStatus';
 import LariRepoPanel from './lari-repo/LariRepoPanel';
 import FileViewer from './lari-repo/FileViewer';
 import ImageFindingOverlay from './lari-repo/ImageFindingOverlay';
@@ -69,7 +71,13 @@ export default function OverHUDTabs() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-background/95 backdrop-blur-md border-l border-border/40">
+    <div className="flex flex-col h-full bg-background/95 backdrop-blur-md border-l border-border/40 relative">
+      <LiveSystemStatus />
+      
+      <div className="absolute right-3 top-14 z-50">
+        <GuidanceHint guidanceId="overhud" />
+      </div>
+
       {/* Tab Navigation — Partitioned Zones */}
       <div className="flex flex-col border-b border-border/30 bg-black/20">
 

@@ -7,6 +7,8 @@ import { X, Sparkles, Zap, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
+import { GuidanceHint } from '@/components/guidance/GuidanceHint';
+
 /**
  * @classification UI_COMPONENT
  * @authority Director
@@ -67,7 +69,9 @@ export function ScingHeader() {
         </div>
       </div>
 
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-2">
+        <GuidanceHint guidanceId="scing-panel" />
+        
         {/* Clear conversation */}
         <Button
           variant="ghost"

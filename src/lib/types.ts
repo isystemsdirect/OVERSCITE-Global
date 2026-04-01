@@ -1,24 +1,8 @@
 import { FieldValue } from 'firebase/firestore';
 import { PIP_Metadata } from './types/property-intelligence';
 
-export type TruthState = 
-  | 'live' 
-  | 'partial' 
-  | 'mock' 
-  | 'placeholder' 
-  | 'candidate' 
-  | 'accepted' 
-  | 'review_required' 
-  | 'deprecated' 
-  | 'archived' 
-  | 'blocked' 
-  | 'experimental'
-  | 'pending'
-  | 'active'
-  | 'completed'
-  | 'draft'
-  | 'Final'
-  | 'In Progress';
+import { TruthState } from './constants/truth-states';
+export type { TruthState };
 
 export interface UserProfile {
   uid: string;

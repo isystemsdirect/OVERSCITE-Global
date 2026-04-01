@@ -48,6 +48,7 @@ import { useToast } from '@/hooks/use-toast';
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { TruthStateBadge } from "@/components/layout/TruthStateBadge";
+import { TRUTH_STATES } from "@/lib/constants/truth-states";
 
 export default function LibraryPage() {
   const [documents, setDocuments] = useState<LibraryDocument[]>([]);
@@ -104,7 +105,7 @@ export default function LibraryPage() {
     <div className="flex flex-col gap-6">
       <PageHeader 
         title="Standards and Code Vault" 
-        status="live"
+        status={TRUTH_STATES[0]}
         description="The Standards & Code Vault is the authoritative repository for all regulatory artifacts, building codes, and OVERSCITE governing standards. It provides inspectors with instant access to the documentation required to ensure every finding adheres to jurisdictional compliance. By maintaining an immutable record of standard versions, the vault ensures that inspections are always grounded in current law. This module is the foundation of technical accuracy and forensic truth in our global operations."
         actions={
           <div className="flex items-center gap-2">

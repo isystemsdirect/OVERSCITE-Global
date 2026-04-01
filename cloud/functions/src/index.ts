@@ -136,6 +136,26 @@ export const scing = {
   health: functions.https.onCall(async (data, context) => {
     return require('./scing/health').scingHealth(data, context);
   }),
+  
+  // UTCB-S (STRICT) Gateways
+  recordAsset: functions.https.onCall(async (data, context) => {
+    return require('./scing/gateways').scing_record_asset(data, context);
+  }),
+  logSecurityEvent: functions.https.onCall(async (data, context) => {
+    return require('./scing/gateways').scing_log_security_event(data, context);
+  }),
+  createConversationSession: functions.https.onCall(async (data, context) => {
+    return require('./scing/gateways').scing_create_conversation_session(data, context);
+  }),
+  recordConversationMessage: functions.https.onCall(async (data, context) => {
+    return require('./scing/gateways').scing_record_conversation_message(data, context);
+  }),
+  endConversationSession: functions.https.onCall(async (data, context) => {
+    return require('./scing/gateways').scing_end_conversation_session(data, context);
+  }),
+  updateIntegrityStatus: functions.https.onCall(async (data, context) => {
+    return require('./scing/gateways').scing_update_integrity_status(data, context);
+  }),
 };
 
 // Direct aliases for specific legacy names
@@ -150,9 +170,9 @@ export const writeObsEvent = functions.https.onCall(async (data, context) => {
 });
 
 // Health check endpoint (Direct request handler)
-export const healthCheck = functions.https.onRequest((req, res) => {
+export const healthCheck = functions.https.onRequest(async (req, res) => {
   const { enforceBaneHttp } = require('./bane/enforce');
-  const gate = enforceBaneHttp({ req, res, name: 'healthCheck' });
+  const gate = await enforceBaneHttp({ req, res, name: 'healthCheck' });
   if (!gate.ok) return;
 
   res.status(200).json({

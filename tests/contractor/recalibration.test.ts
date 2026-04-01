@@ -1,6 +1,6 @@
 import { runContractorEngine } from '../../scing/lari/engines/contractor';
 import type { LariPipelineRequest } from '../../scing/lari/contracts';
-import type { GovernanceProfile, GovernanceFieldSection } from '../../lib/contractor/types';
+import type { GovernanceProfile, GovernanceFieldSection } from '../../src/lib/contractor/types';
 
 const mockGovernance: GovernanceProfile = {
   company_bylaw_ref: undefined,

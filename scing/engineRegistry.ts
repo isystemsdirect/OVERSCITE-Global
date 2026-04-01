@@ -9,13 +9,11 @@
  */
 
 import { ENGINE_REGISTRY } from './engine/engineRegistry';
-import type { EngineId as EngineIdCanon, EngineRecord } from './engine/engineRegistry';
-import type { EngineFamily as EngineFamilyCanon } from './engine/engineTypes';
+import type { EngineRecord } from './engine/engineRegistry';
+import type { EngineId, EngineFamily } from './engine/engineTypes';
 
 // Re-export canonical types
-export type EngineId = EngineIdCanon;
-export type EngineConfig = EngineRecord;
-export type EngineFamily = EngineFamilyCanon;
+export type { EngineId, EngineFamily, EngineRecord as EngineConfig };
 
 /**
  * Legacy Compatibility Map

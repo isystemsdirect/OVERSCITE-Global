@@ -1,0 +1,31 @@
+digraph FLOW_ENGINE_INTERACTION_001 {
+  rankdir=LR;
+  node [fontname="Arial", fontsize=10, style="filled"];
+  edge [fontname="Arial", fontsize=8];
+  labelloc="t";
+  label="FLOW_ENGINE_INTERACTION_001 - 2026-03-31";
+
+  subgraph cluster_LARI {
+    label="LARI";
+    style="dotted";
+    color="#CCCCCC";
+    "NODE_LARI_CORE_001" [label="LARI Core (Reasoning)\n(NODE_LARI_CORE_001)", fillcolor="#FF8C00", shape=rect, style="filled,rounded"];
+  }
+  subgraph cluster_BANE {
+    label="BANE";
+    style="dotted";
+    color="#CCCCCC";
+    "NODE_BANE_MOTIVE_001" [label="BANE Motive Validation (Governance)\n(NODE_BANE_MOTIVE_001)", fillcolor="#FF2E2E", shape=rect, style="filled,rounded"];
+    "NODE_BANE_CORE_001" [label="BANE Core Enforcement (Governance)\n(NODE_BANE_CORE_001)", fillcolor="#FF2E2E", shape=rect, style="filled,rounded"];
+    "NODE_BANE_AUDIT_001" [label="BANE Audit System (Governance)\n(NODE_BANE_AUDIT_001)", fillcolor="#FF2E2E", shape=rect, style="filled,rounded"];
+  }
+  subgraph cluster_OVERSCITE {
+    label="OVERSCITE";
+    style="dotted";
+    color="#CCCCCC";
+    "NODE_OVERSCITE_RUNTIME_001" [label="OVERSCITE Runtime Environment\n(NODE_OVERSCITE_RUNTIME_001)", fillcolor="#00FF9C", shape=rect, style="filled,rounded"];
+  }
+  "NODE_LARI_CORE_001" -> "NODE_BANE_MOTIVE_001" [label="PORT_LARI_TO_BANE_001"];
+  "NODE_BANE_CORE_001" -> "NODE_BANE_AUDIT_001" [label="PORT_BANE_TO_AUDIT_001"];
+  "NODE_BANE_AUDIT_001" -> "NODE_OVERSCITE_RUNTIME_001" [label="PORT_BANE_TO_OVERSCITE_001"];
+}

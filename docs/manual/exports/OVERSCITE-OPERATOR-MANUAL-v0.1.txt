@@ -1,0 +1,635 @@
+OVERSCITE™ GLOBAL OPERATOR MANUAL
+
+Version 0.1
+Built with Bona Fide Intelligence
+© 2026 Inspection Systems Direct LLC. All rights reserved.
+
+
+================================================================================
+TITLE PAGE
+================================================================================
+
+OVERSCITE™ Global Operator Manual
+
+Textbook-Grade Reference for Licensed Operators,
+Inspection Professionals, and Compliance Officers
+
+Version: 0.1
+Classification: Operator Reference — Unrestricted
+Publisher: Inspection Systems Direct LLC
+Framework: SCINGULAR™ Ecosystem — Bona Fide Intelligence
+
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+VOLUME 1: FOUNDATIONS
+    Chapter 1 — What Is OVERSCITE?
+    Chapter 2 — System Philosophy
+
+VOLUME 2: SYSTEM ARCHITECTURE
+    Chapter 3 — System Layers
+    Chapter 4 — The Scing–LARI–BANE Model
+
+VOLUME 3: INTERFACE OPERATIONS
+    Chapter 5 — The Panel System
+    Chapter 6 — Navigation and Routes
+
+VOLUME 4: ENVIRONMENT AND SAFETY
+    Chapter 7 — Weather Command
+    Chapter 8 — Locations OverSCITE
+
+VOLUME 5: DATA AND SENSORS
+    Chapter 9 — The SRT System
+    Chapter 10 — Data Truth States
+
+VOLUME 6: OPERATIONAL WORKFLOWS
+    Chapter 11 — Inspection Workflows
+    Chapter 12 — The Contractor Division
+
+VOLUME 7: SCHEDULING
+    Chapter 13 — SmartSCHEDULER
+
+VOLUME 8: GOVERNANCE AND AUDIT
+    Chapter 14 — BANE Enforcement
+    Chapter 15 — Audit and Traceability
+
+VOLUME 9: USER RESPONSIBILITY
+    Chapter 16 — What The System Does Not Do
+    Chapter 17 — Known Limitations
+
+VOLUME 10: QUICK START AND REFERENCE
+    Chapter 18 — Quick Start Guide
+    Chapter 19 — Reference Glossary
+
+
+Truth-State Legend
+
+    [LIVE]          Fully operational with real data sources
+    [PARTIAL]       Architecture complete, partially connected
+    [MOCK]          Synthetic data for structural simulation
+    [CANDIDATE]     System-generated, awaiting human approval
+    [ACCEPTED]      Human-approved and locked
+
+
+================================================================================
+VOLUME 1: FOUNDATIONS
+================================================================================
+
+
+CHAPTER 1 — WHAT IS OVERSCITE?
+________________________________________________________________________________
+
+The Purpose of This Manual
+
+This is the definitive reference for the OVERSCITE Global platform. Every chapter describes the actual behavior of the system — not aspirational goals, but what the system does right now, how it does it, and why it was designed that way. Where features are under development, the manual says so explicitly using truth-state markers. This document serves inspectors, compliance officers, team managers, and any operator who needs deep operational clarity.
+
+
+What OVERSCITE Is
+
+OVERSCITE is a governed operational environment designed to assist human decision-making in the inspection, compliance, and field operations industries. It combines structured intelligence, environmental awareness, geospatial analytics, and audit-grade traceability into a single operational surface. The word "environment" is deliberate — OVERSCITE is not a single tool that performs a single function, but a persistent, instrumented workspace where multiple capabilities converge under a unified governance framework.
+
+The platform integrates three foundational technology layers. Scing is the conversational interface presence that accepts your requests, interprets your intent, and coordinates responses from the intelligence layer — it does not decide for you. LARI (Logistics, Analytics, Routing, Ingestion) is the bounded reasoning fabric — the collection of specialized engines that compute sensor telemetry, analyze spatial geometry, process building code compliance, generate reports, and produce risk assessments. BANE (Boundary, Audit, Notification, Enforcement) is the integrity gatekeeper that validates all transitions between system states, logs compliance metadata, and enforces truth-state verification before any operator-authorizable action can execute. These three layers are deliberately separated so that no single component can both reason and execute without external validation.
+
+
+Why OVERSCITE Exists
+
+The inspection and compliance industries operate under conditions that demand precision, accountability, and defensible documentation. Traditional software in this space tends to fall into two extremes: simple digital forms that are electronic replacements for paper checklists (they capture data but do not analyze it), and over-automated black boxes that promise to automate everything with AI but obscure their reasoning and create liability exposure.
+
+OVERSCITE rejects both approaches. It occupies a third position: governed augmented intelligence. It gives you powerful analytical tools, rich environmental awareness, and deep data integration — but it draws a bright line between what the system computes and what you, the human operator, authorize. The system will never make a decision for you, never execute a consequential action without your explicit approval, and will always show you the truth-state of the data you are looking at.
+
+
+What Problems OVERSCITE Solves
+
+OVERSCITE eliminates five categories of operational friction. First, scattered operational data — inspectors typically juggle weather apps, building code references, scheduling calendars, communication tools, and report generators as separate products; OVERSCITE consolidates them into one governed workspace. Second, absence of environmental awareness at the point of decision — the Weather Command Center delivers inspection-specific environmental intelligence including the Inspection Risk Index and Guangel Safety Strip. Third, audit gaps — BANE produces Security Decision Records and governance receipts that create an immutable chain of custody. Fourth, intelligence without accountability — every LARI output carries confidence markers and is logged through BANE. Fifth, the "Coming Soon" trap — the mandatory truth-state system labels every surface as LIVE, PARTIAL, MOCK, CANDIDATE, or ACCEPTED, eliminating ambiguity about what is real and what is structural scaffolding.
+
+
+Governed Systems vs. Automated Systems
+
+An automated system is designed to reduce human involvement. Its success is measured by how much human effort it eliminates. A governed system is designed to augment human involvement. Its success is measured by how much better-informed the operator becomes while ensuring that every action remains traceable, reviewable, and attributable to a specific human authority. OVERSCITE is a governed system. It optimizes for correctness, accountability, and trust — not for speed or convenience alone. This means that OVERSCITE will sometimes ask for your approval before executing certain actions, present analysis as analysis rather than as conclusions, and show truth-state markers that force you to confront the maturity of the data you are working with.
+
+
+Who OVERSCITE Is For
+
+OVERSCITE is designed for licensed, certified, or otherwise accountable human professionals: property inspectors, building code compliance officers, safety auditors, construction project managers, drone operators, contractor oversight professionals, and field team coordinators. The common thread is that the operator carries professional responsibility for their conclusions and actions.
+
+
+________________________________________________________________________________
+
+CHAPTER 2 — SYSTEM PHILOSOPHY
+________________________________________________________________________________
+
+The Human Authority Doctrine
+
+Everything in OVERSCITE begins and ends with the human operator. This is not a design preference or a marketing position — it is the foundational architectural constraint that governs how every component of the system is built, connected, and permitted to behave. No component of the OVERSCITE system may self-authorize a meaningful action. All consequential execution requires explicit human approval. The system augments the operator — it does not replace, override, or circumvent the operator.
+
+This doctrine has direct, observable consequences. Scing will never execute an action without telling you what it intends to do and waiting for your approval. LARI will never present an analysis as a final determination — every LARI output carries metadata indicating that it is an analysis, a suggestion, a computation, or a risk score, never a decision. BANE will never approve an action on your behalf — BANE can deny an action if policy requires it, but it cannot approve one; approval is exclusively a human function.
+
+
+Non-Autonomous System Design
+
+OVERSCITE deliberately takes the opposite approach from systems that compete to maximize autonomy. Autonomous systems work well when consequences of errors are low, the domain is well-bounded, and accountability is not critical. OVERSCITE operates in domains where none of those conditions apply — error consequences are high, building codes vary by jurisdiction, and the inspector's name goes on the report.
+
+Non-autonomous design means the system is built to be maximally helpful without being independently consequential. The system will prepare a report but will not send it. It will score a risk but will not alter a schedule based on the score alone. It will detect a potential code violation but will not record it as a confirmed finding. It will suggest a dispatch route but will not dispatch a team. Every transition from analysis to action requires the human operator to cross the threshold.
+
+
+Why Approvals Exist
+
+Approval gates serve three interconnected concerns: safety, accountability, and evidence. Safety — a system that autonomously publishes a report containing an AI-generated finding that turns out to be wrong creates a cascading problem. In OVERSCITE, the answer to "who approved this?" is always clear. Accountability — professional licensing regimes exist precisely because some decisions require human accountability; OVERSCITE's approval gates ensure the connection between human judgment and system output is never severed. Evidence — approval gates create discrete, timestamped, attributable events in the audit trail, establishing the state of the system and the operator's informed consent at each checkpoint.
+
+
+Why Audit Trails Matter
+
+OVERSCITE maintains audit trails as a structural invariant. Every consequential action generates an immutable record. These records serve four purposes: professional protection (demonstrating what the inspector observed and decided), regulatory compliance (satisfying chain-of-custody requirements), system integrity (detecting anomalous access patterns), and continuous improvement (identifying patterns without compromising privacy).
+
+
+Bona Fide Intelligence
+
+The SCINGULAR ecosystem operates under Bona Fide Intelligence (BFI) — a commitment that all intelligence is genuine, transparent, bounded, and accountable. BFI enforces four principles. Transparency: you always know when AI is involved and how outputs were produced. Trustworthiness: every AI action is logged, auditable, and bounded within declared capability boundaries. Human centrality: AI assists and augments, humans decide and authorize, enforced at the architecture level. Honesty about limitations: confidence scores are visible, partial features are labeled, and the system never overstates its capabilities.
+
+
+The Authority Flow
+
+Every request follows a concrete execution path. The flow begins with human intent — you speak, type, or click. Scing interprets your intent and coordinates the request. BANE validates your capability and checks policy (pre-gate). LARI computes analysis and produces output. BANE validates the output and creates an audit record (post-gate). Scing presents the result to you. You review, approve, or reject. BANE appears twice — before LARI processes and after — ensuring both the request and the result are governed. The flow begins and ends with the human.
+
+
+================================================================================
+VOLUME 2: SYSTEM ARCHITECTURE
+================================================================================
+
+
+CHAPTER 3 — SYSTEM LAYERS
+________________________________________________________________________________
+
+The Three-Layer Model
+
+OVERSCITE is built on a three-layer architecture that separates concerns between what the operator sees, what the system reasons about, and how data is stored and transmitted. These layers correspond to real directories in the codebase, real deployment boundaries, and real security partitions.
+
+Layer 1 is the UI Layer — what the operator sees and touches. It is implemented as a Next.js 14+ application using React 18, TypeScript, and Tailwind CSS. It runs in the operator's browser and communicates with the governed intelligence layer through API calls. The UI can request actions, display results, and capture input, but it cannot directly write to governance-sensitive collections, bypass BANE enforcement, or invoke LARI engines without going through the governed intelligence layer.
+
+Layer 2 is the Governed Intelligence Layer — where reasoning, enforcement, and orchestration live. Every tool invocation, every report generation, and every state transition passes through Cloud Functions that enforce BANE policy, emit governance receipts, and create audit records. This is the layer where the Human Authority Doctrine is mechanically enforced.
+
+Layer 3 is the Infrastructure Layer — where data lives and how it moves. Firebase Auth, Firestore, Cloud Functions, Firebase Storage, and Security Rules. Firestore rules provide defense-in-depth security independent of application logic.
+
+
+The Shell Architecture
+
+Every authenticated page renders inside the App Shell, which provides the persistent interface structure: Sidebar (left navigation), Top Command Bar (Scing Panel center, utility actions right, sidebar trigger left), Flash Notification Bar (transient notifications), Main Content Area (scrollable, route-specific), and OverHUD (full-height right-side intelligence panel). This shell composition follows the 5-Zone Model: Zone 1 (Top Command Bar), Zone 2 (Page Identity Band), Zone 3 (Primary Content Region), Zone 4 (Contextual Intelligence Panel), and Zone 5 (Action Surface).
+
+
+The LARI Engine Suite
+
+LARI consists of specialized engines, each following a standardized contract. Each engine receives a request containing the operator's intent and pre-fetched context, and returns a response with the result, a confidence score, processing duration, and a trace ID for audit correlation. Current engines: LARI-Reasoning (LIVE — workflows and reports), LARI-Vision (PARTIAL — image analysis), LARI-Mapper (PARTIAL — spatial reasoning), LARI-Guardian (PARTIAL — monitoring), LARI-Narrator (PARTIAL — narrative synthesis), LARI-Fi (PARTIAL — financial classification).
+
+
+BANE Classification System
+
+BANE classifies every action into four levels. Read: non-mutating data access, basic authentication only. Write: state-changing operations, requiring pre-gate and post-gate receipts plus provenance tracking. Sensitive: data involving PII or compliance, requiring elevated capability tokens. Irreversible: actions that cannot be undone, requiring secondary capability requirements and triple governance.
+
+
+Data Flow Principle
+
+Data flows are classified by consequence, not by complexity. A complex weather computation runs client-side because viewing data does not change system state. A simple reschedule request runs server-side because changing scheduled inspections requires audit.
+
+
+________________________________________________________________________________
+
+CHAPTER 4 — THE SCING–LARI–BANE MODEL
+________________________________________________________________________________
+
+Three Components, Three Roles
+
+Scing is the interface and orchestration coordinator — it takes your request, knows who to call, and brings you the response. LARI is the bounded reasoning specialist — it analyzes data, runs computations, and produces findings. BANE is the enforcement gatekeeper — it checks authorization before and after every action. Scing never reasons. LARI never enforces. BANE never orchestrates. This separation is an architectural invariant.
+
+
+Scing in Detail
+
+Scing performs four functions: intent interpretation (parsing natural language to structured requests), orchestration (routing to appropriate LARI engines), context management (maintaining multi-turn conversational state), and response delivery (formatting and presenting results). Scing does not reason about data, enforce policy, store persistent data, or make decisions. The Scing Panel's role lock prohibits BANE alert feeds, security dashboards, and passive monitoring — those belong in the OverHUD.
+
+
+LARI in Detail
+
+Every engine follows the LariEngineContract: receives a LariRequest (intent, context, trace ID), returns a LariResponse (result, confidence score, duration, trace ID). The confidence score communicates the engine's honest self-assessment: 0.90–1.00 indicates high confidence, 0.70–0.89 moderate, 0.50–0.69 low, and below 0.50 means independent verification is essential. An engine cannot reach out to access arbitrary data — it operates within the data box authorized by Scing and BANE.
+
+
+BANE in Detail
+
+BANE uses configurable security profiles with settings for strict mode, default verdict, escalation, quarantine, lockout, and incident creation. The default profile (bane_fog_v1) is the strictest available — fail-closed behavior ensures that unresolvable situations default to denial. Security Decision Records (SDRs) capture every BANE evaluation with timestamp, user identity, action, decision, and metadata. SDRs are append-only and immutable. Demon Mode activates when threat scores exceed 90, honeytokens are accessed, or repeated violations occur — it isolates the session, revokes tokens, creates an incident SDR, and alerts administrators.
+
+
+================================================================================
+VOLUME 3: INTERFACE OPERATIONS
+================================================================================
+
+
+CHAPTER 5 — THE PANEL SYSTEM
+________________________________________________________________________________
+
+Two Panels, Two Purposes
+
+The Scing Panel is where you talk — the active, interactive conversational surface for making requests and receiving responses. The OverHUD is where you observe — the passive intelligence surface that displays system status and security alerts without requiring your interaction. Interactive intelligence and passive observation must never share the same surface. Mixing them would create cognitive overload, blur audit boundaries, and make conversation reconstruction impossible.
+
+
+The Scing Panel
+
+Located in the center of the Top Command Bar. Two states: collapsed (compact bar, 44 pixels tall, showing Scing icon, workspace name, and status) and expanded (drop-down panel, 450 pixels wide, up to 640 pixels tall, with header bar, scrollable messages area, and prompt input). Expansion animates with a smooth slide-down transition. The panel accepts text input for requests, displays attributed conversation history, and supports multi-turn dialogue with context continuity. Security alerts, monitoring data, and event streams are prohibited in this surface.
+
+
+The OverHUD
+
+Operational Verification Heads-Up Display. Full-height right-side panel, 320 pixels wide when open. Contains tabbed sections for Security and Integrity (BANE SDRs, threat level, policy enforcement summary) and Operational Intelligence (repository health, environment indicators, LARI engine status). Updates passively. Does not accept user input, initiate conversations, or execute actions. Both panels can operate simultaneously — the Scing Panel floats above the main content while the OverHUD occupies the right column.
+
+
+________________________________________________________________________________
+
+CHAPTER 6 — NAVIGATION AND ROUTES
+________________________________________________________________________________
+
+The Route System
+
+OVERSCITE provides 28 authenticated routes organized in the sidebar across three groups: Main Navigation (primary work surfaces), Tools (specialized operational tools), and Management (administrative and organizational surfaces). Each route renders inside the App Shell's main content area, inheriting the persistent command bar, sidebar, and OverHUD.
+
+
+Route Catalog
+
+Core Operations: Dashboard (LIVE), Workstation (LIVE), Overview (LIVE). Inspection and Field Work: Inspections (FUNCTIONAL MVP), Contractor (FUNCTIONAL MVP), Drone Vision (BOUNDED SHELL), LARI Vision (BOUNDED SHELL). Environmental Intelligence: Weather (LIVE), Monitor (BOUNDED SHELL). Data and Knowledge: Library (FUNCTIONAL MVP), Topics (BOUNDED SHELL). Scheduling and Communication: Calendar (FUNCTIONAL MVP), Messaging (BOUNDED SHELL), Conference Rooms (BOUNDED SHELL). Client and Team Management: Clients (FUNCTIONAL MVP), Teams (FUNCTIONAL MVP), Keys (BOUNDED SHELL), Profile (LIVE). Financial Operations: Finances (FUNCTIONAL MVP), Payouts (BOUNDED SHELL), Orders (BOUNDED SHELL). Marketplace: Marketplace (BOUNDED SHELL), Field Market (BOUNDED SHELL). Community: Community (DEFERRED SHELL), Social (DEFERRED SHELL). Administration: Dynamic Dash (BOUNDED SHELL), Admin (DEFERRED SHELL), Settings (LIVE).
+
+No route hides its state. LIVE routes are fully operational. FUNCTIONAL MVP routes have real logic with some simulated data sources. BOUNDED SHELL routes have complete interfaces but backend operations are confined. DEFERRED SHELL routes have visual existence only with interactions truthfully disabled.
+
+
+================================================================================
+VOLUME 4: ENVIRONMENT AND SAFETY
+================================================================================
+
+
+CHAPTER 7 — WEATHER COMMAND
+________________________________________________________________________________
+
+The Four-Tab Interface
+
+Overview (LIVE): Current conditions panel with real-time atmospheric data, Inspection Risk Index panel with composite safety scoring, Roof Surface Temperature Model for common roofing materials, and hourly trend chart for the next 24 hours. Live Radar (PARTIAL): Interface structure complete with animated radar visualization; requires external Doppler API keys for real radar data. Safety and Risk (LIVE): Consolidated safety assessment view combining IRI, Roof Temperature, and Guangel Safety Strip. 10-Day Forecast (PARTIAL): Scaffolded for long-range weather modeling data.
+
+
+Inspection Risk Index
+
+The IRI is a composite metric unique to OVERSCITE. It weights wind speed (elevated work risk), precipitation (traction and electrical safety), temperature (extreme condition risk), humidity (measurement accuracy), and UV index (prolonged exposure risk) according to their impact on field work safety and measurement accuracy. The IRI does not make decisions — it presents a risk assessment that the operator evaluates.
+
+
+Guangel Safety Strip
+
+A binary go/no-go classification. Green (CLEAR): conditions within acceptable ranges for field work. Red (DANGER): one or more variables exceeding hazard thresholds. The Guangel Safety Strip is advisory. It does not lock you out, prevent scheduling, or override professional judgment.
+
+
+Weather and Scheduling Integration
+
+The Weather Command Center is architecturally connected to SmartSCHEDULER through Scing orchestration. Weather data and IRI scores inform scheduling proposals. The system does not auto-cancel, auto-reschedule, or auto-modify bookings based on weather data. It advises and awaits your decision.
+
+
+________________________________________________________________________________
+
+CHAPTER 8 — LOCATIONS OVERSCITE
+________________________________________________________________________________
+
+The Geospatial Intelligence Surface
+
+Locations OverSCITE is a map-based operational environment that overlays inspection data, team positions, client properties, device locations, and environmental hazards onto a unified geographic canvas. Truth-state: PARTIAL — full interface architecture complete, full operation requires configured Google Maps API key.
+
+
+Five-Component Architecture
+
+The Locations Command Bar provides search and filter controls. The Operations Rail provides four tools: navigate, pin-drop, measure, and search. The Layer Toggle Panel offers seven independently controllable map layers: Users, Clients, Inspections, Devices, Teams, Weather, and Hazards. The Map Canvas renders a Google Maps instance with custom markers and cluster grouping. The Intelligence Drawer displays contextual data and available actions for the selected map entity — clicking a marker populates it with entity name, address, status, activity history, related records, and action options.
+
+
+================================================================================
+VOLUME 5: DATA AND SENSORS
+================================================================================
+
+
+CHAPTER 9 — THE SRT SYSTEM
+________________________________________________________________________________
+
+Secure Remote Telemetry
+
+SRT is OVERSCITE's data ingestion and normalization system — the pipeline through which raw sensor data enters the platform, is validated, standardized, analyzed for compliance, and committed to an immutable audit record. SRT is not a sensor product; it is the protocol and pipeline that ensures sensor data enters the system in a validated, calibrated, and standardized form with a complete chain of custody.
+
+
+The Six-Stage Pipeline
+
+Stage 1, Sensor Data Capture: Validates input against the Sensor Resolution Registry Schema (sensor ID, hardware signature, manufacturer, firmware, native resolution, dynamic range, calibration timestamp, error margin). Enforces a 90-day calibration window — expired calibration triggers a hard stop with SENSOR_TRUST_FAIL.
+
+Stage 2, Unit Standardization: Converts all measurements to the universal base unit — nanometers. IEEE-754 double precision. The highest-precision source dominates propagation.
+
+Stage 3, Tolerance Schema Application: Applies domain-specific tolerance thresholds — structural (500,000 nm / 0.5 mm), electrical (10,000 nm / 10 microns), thermal (5,000 nm / 5 microns), automotive (25,000 nm / 25 microns). Tolerances are configurable through the UTCB configuration.
+
+Stage 4, Threshold Comparison: Evaluates compliance — PASS (measurement at or below 2mm), FLAGGED (between 2mm and 3mm), FAIL (above 3mm). Compliance status does not trigger automatic actions.
+
+Stage 5, Smart Template Orchestration: Identifies which report templates should be triggered based on measurement domain and compliance status.
+
+Stage 6, Immutable Audit Log: Produces a cryptographically signed audit record with SHA-256 hash, deterministic JSON serialization (sorted keys), distributed node identity (node ID, region code, deployment version), and chain linking via previous_hash. Tampering with any record invalidates all subsequent hashes.
+
+
+________________________________________________________________________________
+
+CHAPTER 10 — DATA TRUTH STATES
+________________________________________________________________________________
+
+The Five Truth States
+
+LIVE: The data is sourced from a real, active data provider. The interface is fully operational. Interactions produce real, consequential results. Use it for professional decisions.
+
+PARTIAL: The interface logic and data source are partially connected. Some aspects work with real data while others remain scaffolded. Use the feature understanding that some aspects may not behave fully.
+
+MOCK: The data is synthetic — generated for structural simulation. Do not use for professional decisions. The logic that processes the data may be real, but the data itself is not.
+
+CANDIDATE: The data or output has been generated by the system but not yet reviewed and approved by a human operator. It is a proposal, not a record. Treat as a draft.
+
+ACCEPTED: The data was reviewed and approved by a human operator. It has been locked, signed, or committed as an authoritative record. The approval event is recorded in the audit trail.
+
+
+Truth-State Transition Lifecycle
+
+Development transitions: MOCK to PARTIAL to LIVE. Operational transitions: CANDIDATE to ACCEPTED. A feature's truth state only advances in response to real implementation progress. It is never inflated.
+
+
+================================================================================
+VOLUME 6: OPERATIONAL WORKFLOWS
+================================================================================
+
+
+CHAPTER 11 — INSPECTION WORKFLOWS
+________________________________________________________________________________
+
+The Seven-Stage Lifecycle
+
+Create, Configure, Capture, Analyze, Report, Authorize, Deliver. All stages are audited by BANE. You cannot skip stages, finalize without findings, or deliver without authorization.
+
+
+Stage Details
+
+Create: New inspection record with system-generated ID, property address, inspection type, client, inspector identity, and timestamp. Initial truth state: CANDIDATE.
+
+Configure: Jurisdiction selection, code edition, inspection scope, special conditions. Configuration determines which code references LARI uses during analysis.
+
+Capture: Manual finding entry, photo evidence (tagged with metadata), SRT sensor data (through the six-stage pipeline), and voice notes. Every capture event is timestamped and attributed.
+
+Analyze: LARI-Reasoning assists with code compliance analysis, risk assessment, and pattern detection. All outputs carry confidence scores and CANDIDATE truth state.
+
+Report: LARI-Reasoning assembles findings, evidence, and analysis into a structured report. AI advisory blocks are clearly marked.
+
+Authorize — Inspector Authority Gate: The most important interface in the lifecycle. Each AI advisory block is listed with approve/reject controls for per-item review. Professional notes field for the inspector's own assessment. Two mandatory attestation checkboxes ("I have reviewed all media attachments" and "I confirm SRT compliance visibility is correct"). Digital signature button triggers BANE-governed finalization — report transitions from CANDIDATE to ACCEPTED, finalization SDR is created, content is locked, and the record moves to the OVERSCITE Ledger. Once signed, the report is immutable.
+
+Deliver: PDF export, client portal, email delivery, or print. Each delivery event is recorded in the audit trail with recipient, time, and channel.
+
+
+________________________________________________________________________________
+
+CHAPTER 12 — THE CONTRACTOR DIVISION
+________________________________________________________________________________
+
+Seven Components
+
+Party Intake captures foundational data: legal entity name, role type, prime/sub designation, trade class, and self-perform status. Governance Setup defines compliance requirements: licenses, insurance, registrations, bonds, and certifications. The Verification State Banner displays compliance position: verified_active, verified_registered_only, unverified, expired, or suspended. Documentation Upload Control manages timestamped, attributed credential files with expiration tracking. Proposal Drafting provides Scing-assisted scope and proposal generation (all outputs marked CANDIDATE). The Oversight Chain visualizes prime-sub hierarchical relationships as a tree diagram with independent verification at each node. The Scing Draft Wizard enables context-aware document generation through the Scing Panel.
+
+
+Non-Inherited Compliance
+
+Each node in the Oversight Chain is an independent verification locus. A subcontractor is not compliant because the prime contractor is compliant. All participants must maintain their own governed verification evidence. No aggregate compliance scoring is permitted.
+
+
+================================================================================
+VOLUME 7: SCHEDULING
+================================================================================
+
+
+CHAPTER 13 — SMARTSCHEDULER
+________________________________________________________________________________
+
+Calendar Interface
+
+Truth state: FUNCTIONAL MVP. Time-based grid view with team filtering. Each booking record contains: title, start/end times, location, status (confirmed, pending, cancelled, completed), linked entity type (inspection, meeting, or operational_block), linked entity ID, and creator identity. Bookings link bidirectionally to operational entities — from the Calendar you can see the linked inspection, and from the inspection you can see the scheduled appointment.
+
+
+Scheduling Intelligence
+
+When Scing assists with scheduling, it evaluates available time slots, weather conditions via IRI, travel time, and inspector availability. It proposes optimal options with explanations (IRI score, conflicts, travel time). Proposals are CANDIDATE — the system never books without human confirmation.
+
+
+Governance Constraints
+
+No auto-cancellation based on weather. No auto-rescheduling. No auto-dispatch. Dependency conflicts are flagged but overridable. Overrides are logged in the audit trail.
+
+
+================================================================================
+VOLUME 8: GOVERNANCE AND AUDIT
+================================================================================
+
+
+CHAPTER 14 — BANE ENFORCEMENT
+________________________________________________________________________________
+
+The Four Classification Levels
+
+Read: Non-mutating data access requiring basic authentication only. Write: State-changing operations requiring pre-gate receipt, post-gate receipt, and provenance tracking. Sensitive: Data involving PII or compliance requiring all write-level governance plus elevated capability tokens. Irreversible: Actions that cannot be undone requiring all sensitive-level governance plus secondary capability requirement and triple governance.
+
+
+Capability-Based Authorization
+
+OVERSCITE uses capability tokens rather than role-based access control. Having inspection.view does not automatically grant inspection.finalize. Each capability is explicitly granted and can be explicitly revoked. Common tokens: bane:invoke (basic access), inspection.view, inspection.capture, inspection.finalize, tool:db_write, tool:external_call, contractor.manage, calendar.schedule.
+
+
+Fail-Closed Principle
+
+Unrecognized capability, unclassified action, or unresolvable profile results in denial. The default profile (bane_fog_v1) applies maximum enforcement. When in doubt, deny.
+
+
+Hardening Map
+
+Fully Wrapped: scing.chat and all tool invocations — complete governance with gate evaluation, capability checking, and pre/post receipts. Endpoint-Protected: scing.boot, scing.tools, aip.handleMessage — BANE authentication at entry point. Not Yet Implemented: admin.updatePolicy, admin.revokeSession — planned for maximum governance when built.
+
+
+Anti-Drift Controls
+
+Default classification for unclassified actions is sensitive. Feature flags (SCING_GOVERNANCE_ENFORCE and SCING_GOVERNANCE_RECEIPTS) allow phased rollout. Audit-only mode logs would-be denials without blocking, supporting testing.
+
+
+________________________________________________________________________________
+
+CHAPTER 15 — AUDIT AND TRACEABILITY
+________________________________________________________________________________
+
+Security Decision Records
+
+SDRs are the atomic unit of the audit trail. Every BANE evaluation creates one. Contents: timestamp (UTC, millisecond precision), user identity, action requested, classification, decision (approved/denied/gated), capability token, context metadata, engine ID, trace ID, and governance receipt IDs. SDRs are append-only and immutable.
+
+
+Governance Receipts
+
+Pre-gate receipts record the request arriving at a governance gate. Post-gate receipts record the outcome. Together they bracket every processing event, capturing what went in, what came out, and what happened in between.
+
+
+Chain of Custody
+
+Request SDR leads to Pre-Receipt, which leads to processing, which leads to Post-Receipt, which leads to Result SDR. Each SDR links to governance receipts via governanceRef. For any action, an auditor can reconstruct when the request was made, who made it, what it contained, what processing occurred, what output was produced, and what the operator decided.
+
+
+Immutability Guarantees
+
+SDRs, governance receipts, finalized inspection reports, SRT audit records, BANE-Watcher events, and authentication events cannot be deleted through normal system operations. Firestore security rules prevent deletion of audit-critical collections.
+
+
+================================================================================
+VOLUME 9: USER RESPONSIBILITY
+================================================================================
+
+
+CHAPTER 16 — WHAT THE SYSTEM DOES NOT DO
+________________________________________________________________________________
+
+The System Does Not Make Decisions
+
+OVERSCITE computes, you commit. When LARI produces a report, the report is a draft. When the Guangel Safety Strip shows red, it is communicating measured conditions — it is not ordering you to cancel. When SmartSCHEDULER proposes a time slot, it is presenting a recommendation. Computing an answer is not the same as committing to an answer.
+
+
+The System Does Not Replace Professional Judgment
+
+OVERSCITE assumes the operator brings professional expertise and regulatory knowledge. The system does not substitute for building code expertise, replace visual inspection, override professional opinion, or provide legal advice. If you determine that a LARI analysis is incorrect based on your field observations, your professional judgment takes precedence.
+
+
+The System Does Not Execute Autonomously
+
+No auto-sending reports. No auto-rescheduling inspections. No auto-dispatching teams. No auto-verifying contractor credentials. No auto-escalating security events (Demon Mode is containment, not decision). No auto-generating findings without inspector review and approval.
+
+
+The System Does Not Guarantee Completeness
+
+Sensor coverage has natural boundaries. Image analysis operates on received images only. Code intelligence covers indexed frameworks. Hyper-local weather variations may not be captured. You are responsible for the completeness of your inspection.
+
+
+The System Does Not Operate Offline
+
+LARI engines operate server-side. BANE enforcement operates server-side. Data persistence depends on Firestore connectivity. Ensure adequate connectivity before relying on OVERSCITE for active field work.
+
+
+________________________________________________________________________________
+
+CHAPTER 17 — KNOWN LIMITATIONS
+________________________________________________________________________________
+
+Partially Implemented Features
+
+LARI-Vision, LARI-Mapper, LARI-Guardian, LARI-Narrator, and LARI-Fi are all in PARTIAL state — interface scaffolding complete, full engine integration pending. Live Radar requires Doppler API keys. Locations OverSCITE requires Google Maps API key.
+
+
+Mock Data Surfaces
+
+Inspections table, Calendar bookings, Library documents, and Financial records operate with seed data through real processing logic. The logic is real; the data source is simulated.
+
+
+Deferred Features
+
+Admin dashboard (static placeholders), Community (read-only visibility), and Social (interface shell only) are labeled DEFERRED SHELL in the interface. Interactions are truthfully disabled.
+
+
+Infrastructure Limitations
+
+Authentication: email/password only; additional providers planned. No offline capability. Responsive web application — native mobile applications planned. Single-tenant deployment model — multi-tenant planned.
+
+
+================================================================================
+VOLUME 10: QUICK START AND REFERENCE
+================================================================================
+
+
+CHAPTER 18 — QUICK START GUIDE
+________________________________________________________________________________
+
+Your First Five Minutes
+
+Step 1 — Authenticate and Orient: Sign in with your credentials. The OVERSCITE shell appears with the Sidebar (left navigation), Scing Bar (gold-accented bar in top center), and OverHUD toggle (top right).
+
+Step 2 — Meet the Scing Panel: Click the Scing Bar. It expands into a conversational panel. Type a question and press Enter. Scing maintains context across multiple messages.
+
+Step 3 — Explore the OverHUD: Click the OverHUD toggle. A full-height panel opens on the right showing security status and system health. This is for observation — it does not accept input.
+
+Step 4 — Navigate to Your Primary Tool: Inspectors go to Weather then Inspections. Managers go to Dashboard then Teams. For scheduling, go to Calendar. For contractors, go to Contractor.
+
+Step 5 — Understand Truth States: Every badge tells you how real the data is. LIVE means confidence. FUNCTIONAL MVP means real logic with some simulated data. MOCK means demonstration only.
+
+
+Quick Reference
+
+Open Scing Panel: Click the Scing Bar in the top center. Close the Scing Panel: Click the X button or click outside. Open the OverHUD: Click the HUD toggle in the top right. Navigate: Click a sidebar link. Ask Scing a question: Open the panel, type, press Enter. Check weather risk: Navigate to Weather and read the IRI panel. See system security: Open the OverHUD and read the Security tab.
+
+
+________________________________________________________________________________
+
+CHAPTER 19 — REFERENCE GLOSSARY
+________________________________________________________________________________
+
+AIP — Augmented Intelligence Protocol. Communication protocol connecting OVERSCITE clients to the SCINGULAR backend.
+
+App Shell — Persistent layout wrapper containing Sidebar, Top Command Bar, Main Content Area, and OverHUD. Every authenticated page renders inside it.
+
+ARC — Accountable Responsible Contact. Identity authority for human users in the SCINGULAR ecosystem. Distinct from OVERSCITE organizational workspace identity.
+
+BANE — Boundary, Audit, Notification, Enforcement. The integrity gatekeeper of OVERSCITE.
+
+BANE-Watcher — Security observation protocol operating in isolated data collections separate from operational data.
+
+BFI — Bona Fide Intelligence. Commitment that all intelligence is genuine, transparent, bounded, and accountable.
+
+Capability Token — Specific permission authorizing a particular action. More granular than role-based access control.
+
+CANDIDATE — Truth state for system-generated data awaiting human review and approval.
+
+Classification — Action severity level assigned by BANE: read, write, sensitive, or irreversible.
+
+Demon Mode — BANE critical threat response: session isolation, token revocation, incident SDR creation.
+
+Fail-Closed — BANE default behavior: when uncertain, deny the request.
+
+Guangel Safety Strip — Binary go/no-go safety classification. Green (CLEAR) or Red (DANGER). Advisory only.
+
+IRI — Inspection Risk Index. Composite weather-to-safety metric weighting wind, precipitation, temperature, humidity, UV.
+
+Inspector Authority Gate — Final human approval interface for inspection report finalization.
+
+LARI — Logistics, Analytics, Routing, Ingestion. Collection of bounded reasoning engines.
+
+LIVE — Truth state for fully operational features with real data sources.
+
+M-UCB — Monitoring Universal Control Block. BANE-Watcher event protocol.
+
+MOCK — Truth state for synthetic demonstration data. Do not use for professional decisions.
+
+Non-Autonomous Design — Principle that the system is maximally helpful without being independently consequential.
+
+OverHUD — Operational Verification Heads-Up Display. Passive observation panel showing security and operational status.
+
+OVERSCITE — Governed operational environment for inspection, compliance, and field operations.
+
+Oversight Chain — Visual tree of contractor hierarchical relationships with independent verification at each node.
+
+SDR — Security Decision Record. Immutable audit record created for every BANE evaluation.
+
+Scing — Conversational interface presence and orchestration coordinator. Pronounced "sing."
+
+SmartSCHEDULER — Weather-aware scheduling intelligence system. Proposes but never auto-books.
+
+SRT — Secure Remote Telemetry. Six-stage sensor data pipeline: capture, normalize, tolerance, threshold, template, audit.
+
+Truth State — Maturity label for data surfaces: LIVE, PARTIAL, MOCK, CANDIDATE, or ACCEPTED.
+
+UTCB — Universal Telemetry Control Block. Declarative configuration for SRT pipeline parameters.
+
+5-Zone Model — Structural template for every route: Top Command Bar, Page Identity Band, Primary Content Region, Contextual Intelligence Panel, Action Surface.
+
+
+================================================================================
+END OF MANUAL
+================================================================================
+
+OVERSCITE™ Global Operator Manual — Version 0.1
+© 2026 Inspection Systems Direct LLC. All rights reserved.
+Built with Bona Fide Intelligence | OVERSCITE Global

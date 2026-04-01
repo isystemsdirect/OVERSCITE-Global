@@ -30,7 +30,7 @@ export function topoSort(): EngineId[] {
     list.push(e.to);
     outgoing.set(e.from, list);
   }
-  for (const [, list] of outgoing) list.sort((a, b) => a.localeCompare(b));
+  outgoing.forEach((list) => list.sort((a, b) => a.localeCompare(b)));
 
   const q: EngineId[] = nodes.filter((n) => (indeg.get(n) ?? 0) === 0);
   q.sort((a, b) => a.localeCompare(b));

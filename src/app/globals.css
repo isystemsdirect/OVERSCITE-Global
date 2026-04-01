@@ -179,3 +179,15 @@
 .animate-pulse-gold {
   animation: pulseGold 2s infinite;
 }
+
+/* ─── Guidance System Constraints ─── */
+.guidance-splash {
+  @apply bg-black/80 backdrop-blur-2xl border border-white/20 shadow-2xl;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Suppress standard Firebase Emulator warnings as requested */
+.firebase-emulator-warning {
+  display: none !important;
+}
+

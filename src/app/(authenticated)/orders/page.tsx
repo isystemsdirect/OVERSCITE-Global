@@ -202,6 +202,7 @@ export default function OrdersPage() {
         <PageHeader
           title="Orders"
           status="partial"
+          guidanceId="action-approval"
           description="Orders records span both marketplace planes, capturing Field Market labor transactions and Marketplace capability purchases within a single governed ledger. Each order carries its originating plane, financial lineage, audit event reference, and entitlement or job reference where applicable. Payment processing and entitlement activation are server-authoritative — no client-side financial state is final without backend confirmation."
           actions={
             <div className="flex items-center gap-1.5 text-[10px] font-mono text-amber-400/80 border border-amber-500/20 bg-amber-500/5 rounded px-2 py-1">

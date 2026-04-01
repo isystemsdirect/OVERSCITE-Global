@@ -8,7 +8,7 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {googleAI} from '@genkit-ai/google-genai';
+import {googleAI} from '@genkit-ai/googleai';
 // @ts-ignore
 import wav from 'wav';
 import { 

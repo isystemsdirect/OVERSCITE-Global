@@ -28,7 +28,9 @@ export function validateLariInput(
   }
 
   const artifactIds = new Set<string>();
-  for (const [idx, a] of (i.artifacts ?? []).entries()) {
+  const artifactsArr = i.artifacts ?? [];
+  for (let idx = 0; idx < artifactsArr.length; idx++) {
+    const a = artifactsArr[idx];
     if (!isNonEmptyString(a.artifactId)) errors.push(`ARTIFACT_${idx}_MISSING_ID`);
     else {
       if (artifactIds.has(a.artifactId)) errors.push(`ARTIFACT_${idx}_DUPLICATE_ID`);
@@ -37,7 +39,9 @@ export function validateLariInput(
     if (!isNonEmptyString(a.type)) errors.push(`ARTIFACT_${idx}_MISSING_TYPE`);
   }
 
-  for (const [idx, m] of (i.measurements ?? []).entries()) {
+  const measArr = i.measurements ?? [];
+  for (let idx = 0; idx < measArr.length; idx++) {
+    const m = measArr[idx];
     if (!isNonEmptyString(m.measurementId)) errors.push(`MEAS_${idx}_MISSING_ID`);
     if (!isNonEmptyString(m.name)) errors.push(`MEAS_${idx}_MISSING_NAME`);
     if (!isIsoLike(m.observedAt)) errors.push(`MEAS_${idx}_INVALID_OBSERVED_AT`);
@@ -90,14 +94,18 @@ export function validateLariInput(
     if (!Array.isArray(m.evidence) || m.evidence.length === 0) {
       errors.push(`MEAS_${idx}_NO_EVIDENCE`);
     } else {
-      for (const [ei, e] of m.evidence.entries()) {
+      const evArr = m.evidence;
+      for (let ei = 0; ei < evArr.length; ei++) {
+        const e = evArr[ei];
         if (!isNonEmptyString(e.refId)) errors.push(`MEAS_${idx}_EVID_${ei}_MISSING_REFID`);
         if (!isNonEmptyString(e.kind)) errors.push(`MEAS_${idx}_EVID_${ei}_MISSING_KIND`);
       }
     }
   }
 
-  for (const [idx, f] of (i.fieldInputs ?? []).entries()) {
+  const fieldArr = i.fieldInputs ?? [];
+  for (let idx = 0; idx < fieldArr.length; idx++) {
+    const f = fieldArr[idx];
     if (!isNonEmptyString(f.fieldId)) errors.push(`FIELD_${idx}_MISSING_ID`);
     if (!isNonEmptyString(f.label)) errors.push(`FIELD_${idx}_MISSING_LABEL`);
     if (!isNonEmptyString(f.valueText)) errors.push(`FIELD_${idx}_MISSING_VALUE`);
@@ -108,7 +116,9 @@ export function validateLariInput(
     }
   }
 
-  for (const [idx, s] of ((i.sensorCaptures ?? []) as any[]).entries()) {
+  const sensorsArr = (i.sensorCaptures ?? []) as any[];
+  for (let idx = 0; idx < sensorsArr.length; idx++) {
+    const s = sensorsArr[idx];
     if (!s || typeof s !== 'object') {
       errors.push(`SENSORCAPTURE_${idx}_INVALID`);
       continue;

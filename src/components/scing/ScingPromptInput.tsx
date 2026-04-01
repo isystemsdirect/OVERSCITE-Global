@@ -49,6 +49,7 @@ export function ScingPromptInput() {
     conversationHistory,
     addConversationEntry,
     isScingThinking, setScingThinking,
+    injectedPrompt, clearInjectedPrompt,
   } = useScingPanel();
 
   const [panelMode, setPanelMode] = useState<'idle' | 'listening' | 'processing'>('idle');
@@ -95,6 +96,16 @@ export function ScingPromptInput() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Listen for injected prompts (e.g., from Guidance panels)
+  useEffect(() => {
+    if (injectedPrompt) {
+      form.setValue('query', injectedPrompt);
+      handleSubmit({ query: injectedPrompt });
+      clearInjectedPrompt();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [injectedPrompt]);
 
   async function handleSubmit(values: z.infer<typeof promptSchema>) {
     const userInput = values.query.trim();

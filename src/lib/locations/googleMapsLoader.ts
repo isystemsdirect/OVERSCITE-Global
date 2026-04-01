@@ -13,7 +13,7 @@ export const getGoogleMapsLoader = (): Loader => {
     loaderInstance = new Loader({
       apiKey,
       version: 'weekly',
-      libraries: ['places', 'geometry'], // Add more libraries as needed (e.g., 'drawing', 'visualization')
+      libraries: ['places', 'geometry', 'maps', 'marker'] as any, // Add more libraries as needed (e.g., 'drawing', 'visualization')
     });
   }
 
@@ -22,7 +22,7 @@ export const getGoogleMapsLoader = (): Loader => {
 
 export const loadGoogleMaps = async (): Promise<typeof google> => {
   const loader = getGoogleMapsLoader();
-  await loader.importLibrary('maps');
-  await loader.importLibrary('marker'); // Make sure we can use AdvancedMarkerElement
+  await (loader as any).importLibrary('maps');
+  await (loader as any).importLibrary('marker'); 
   return window.google;
 };

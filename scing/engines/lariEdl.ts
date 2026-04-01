@@ -1,7 +1,7 @@
 import ENGINES from '../engineRegistry';
 import { callModelWithTools } from '../providers/modelRouter';
 
-const LARI_EDL_ENGINE = ENGINES['lari-edl'];
+const LARI_EDL_ENGINE = ENGINES['LARI-SYNTHESIZER'];
 
 export type LariEdlMode =
   | 'glossary'

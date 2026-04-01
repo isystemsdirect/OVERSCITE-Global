@@ -19,7 +19,7 @@ export default function DynamicDashPage() {
       <PageHeader 
         title="Dynamic Orchestration Dashboard" 
         subtitle="Governance-first experimental workspace for real-time panel orchestration."
-        status="experimental"
+        status="candidate"
       />
       <div className="flex-1 min-h-0 relative mt-4">
         <PanelEngine />

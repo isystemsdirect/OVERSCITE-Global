@@ -17,10 +17,9 @@
 import React from 'react';
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ScingPanel } from '@/components/scing/ScingPanel';
-import { ScingGPT } from '@/components/ScingGPT';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Expand, Shrink, Bell } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface TopCommandBarProps {
   userId?: string | null;
@@ -37,27 +36,9 @@ export function TopCommandBar({
 }: TopCommandBarProps) {
   return (
     <header className="shell-surface sticky top-0 z-30 flex h-20 items-center border-b border-border/30 px-4 lg:px-6 w-full shadow-sm overflow-visible">
-      {/* ─── Left Group: Sidebar Trigger + Scing BFI Toggle ─── */}
+      {/* ─── Left Group: Sidebar Trigger ─── */}
       <div className="flex items-center gap-2 shrink-0">
         <SidebarTrigger className="md:hidden" />
-        {userId && (
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div>
-                  <ScingGPT 
-                    userId={userId} 
-                    accessKey={process.env.NEXT_PUBLIC_PICOVOICE_ACCESS_KEY || "dummy_key_for_development"} 
-                  />
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Toggle Scing™ BFI</p>
-                <p className="text-xs text-muted-foreground">Activate the Bona Fide Intelligence layer.</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        )}
       </div>
 
       {/* ─── Center: Scing Command Bar (shell-anchored, not modal) ─── */}

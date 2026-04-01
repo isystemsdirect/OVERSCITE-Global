@@ -8,7 +8,7 @@ export async function runGuardedTool<T>(params: {
   capabilities?: string[];
   exec: () => Promise<T>;
 }): Promise<T> {
-  const decision = baneToolGuard({
+  const decision = await baneToolGuard({
     toolName: params.toolName,
     requiredCapability: params.requiredCapability,
     payloadText: params.payloadText,

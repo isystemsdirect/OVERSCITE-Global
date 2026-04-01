@@ -1,0 +1,57 @@
+{
+  "NODE_HUMAN_001": {
+    "id": "NODE_HUMAN_001",
+    "name": "Human Authority Origin",
+    "layer": "HUMAN"
+  },
+  "NODE_ARC_001": {
+    "id": "NODE_ARC_001",
+    "name": "ARC Identity Layer",
+    "layer": "ARC"
+  },
+  "NODE_SCING_INTERFACE_001": {
+    "id": "NODE_SCING_INTERFACE_001",
+    "name": "Scing Interface Layer",
+    "layer": "SCING"
+  },
+  "NODE_SCINGULAR_CORE_001": {
+    "id": "NODE_SCINGULAR_CORE_001",
+    "name": "SCINGULAR Orchestration Core",
+    "layer": "SCINGULAR"
+  },
+  "NODE_OVERSCITE_RUNTIME_001": {
+    "id": "NODE_OVERSCITE_RUNTIME_001",
+    "name": "OVERSCITE Runtime Environment",
+    "layer": "OVERSCITE"
+  },
+  "NODE_LARI_CORE_001": {
+    "id": "NODE_LARI_CORE_001",
+    "name": "LARI Core (Reasoning)",
+    "layer": "LARI"
+  },
+  "NODE_LARI_COMPLIANCE_001": {
+    "id": "NODE_LARI_COMPLIANCE_001",
+    "name": "LARI Compliance (Reasoning)",
+    "layer": "LARI"
+  },
+  "NODE_LARI_ANALYSIS_001": {
+    "id": "NODE_LARI_ANALYSIS_001",
+    "name": "LARI Analysis (Reasoning)",
+    "layer": "LARI"
+  },
+  "NODE_BANE_CORE_001": {
+    "id": "NODE_BANE_CORE_001",
+    "name": "BANE Core Enforcement (Governance)",
+    "layer": "BANE"
+  },
+  "NODE_BANE_MOTIVE_001": {
+    "id": "NODE_BANE_MOTIVE_001",
+    "name": "BANE Motive Validation (Governance)",
+    "layer": "BANE"
+  },
+  "NODE_BANE_AUDIT_001": {
+    "id": "NODE_BANE_AUDIT_001",
+    "name": "BANE Audit System (Governance)",
+    "layer": "BANE"
+  }
+}

@@ -120,7 +120,7 @@ export default function CommunityPage() {
     <div className="flex flex-col gap-6">
       <PageHeader 
         title="Community Hub" 
-        status="experimental"
+        status="candidate"
         description="The OVERSCITE Community module is a governed social environment designed for professional collaboration, mentorship, and collective intelligence gathering. It connects verified field units across various jurisdictions, allowing them to share mission-critical findings and technical consensus markers in real-time. Scing™ facilitates these interactions by providing contextual data and archival support for all professional discussions. This collaborative layer ensures that the expertise of the individual inspector is amplified by the strength of the entire global network."
       >
         <Button variant="outline" size="sm" asChild className="h-8">

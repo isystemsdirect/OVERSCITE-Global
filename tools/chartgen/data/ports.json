@@ -1,0 +1,44 @@
+{
+  "PORT_HUMAN_TO_ARC_001": {
+    "id": "PORT_HUMAN_TO_ARC_001",
+    "source": "Human",
+    "target": "ARC",
+    "desc": "Human -> ARC"
+  },
+  "PORT_ARC_TO_SCING_001": {
+    "id": "PORT_ARC_TO_SCING_001",
+    "source": "ARC",
+    "target": "Scing",
+    "desc": "ARC -> Scing"
+  },
+  "PORT_SCING_TO_SCINGULAR_001": {
+    "id": "PORT_SCING_TO_SCINGULAR_001",
+    "source": "Scing",
+    "target": "SCINGULAR",
+    "desc": "Scing -> SCINGULAR"
+  },
+  "PORT_SCINGULAR_TO_LARI_001": {
+    "id": "PORT_SCINGULAR_TO_LARI_001",
+    "source": "SCINGULAR",
+    "target": "LARI",
+    "desc": "SCINGULAR -> LARI"
+  },
+  "PORT_LARI_TO_BANE_001": {
+    "id": "PORT_LARI_TO_BANE_001",
+    "source": "LARI",
+    "target": "BANE",
+    "desc": "LARI -> BANE"
+  },
+  "PORT_BANE_TO_OVERSCITE_001": {
+    "id": "PORT_BANE_TO_OVERSCITE_001",
+    "source": "BANE",
+    "target": "OVERSCITE",
+    "desc": "BANE -> OVERSCITE"
+  },
+  "PORT_BANE_TO_AUDIT_001": {
+    "id": "PORT_BANE_TO_AUDIT_001",
+    "source": "BANE",
+    "target": "Audit",
+    "desc": "BANE -> Audit"
+  }
+}

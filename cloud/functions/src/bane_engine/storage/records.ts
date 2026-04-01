@@ -12,6 +12,10 @@ export type BaneAuditRecord = {
   inputHash: string;
   safeTextHash?: string;
   findingsSummary: Array<{ id: string; severity: BaneSeverity; verdict: BaneVerdict }>;
+  prevHash?: string;
+  signature?: string;
+  sequenceRef?: number; // Monotonically increasing sequence
+  linkageId?: string;   // Link to parent action trace
 };
 
 export type BaneEventRecord = {

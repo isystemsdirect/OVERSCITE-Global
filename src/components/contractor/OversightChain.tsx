@@ -9,6 +9,7 @@ interface OversightNodeProps {
   verificationStatus: VerificationStatus;
   licenseRequired: boolean;
   registrationRequired: boolean;
+  readiness?: string;
 }
 
 const OversightNode: React.FC<OversightNodeProps> = ({ 

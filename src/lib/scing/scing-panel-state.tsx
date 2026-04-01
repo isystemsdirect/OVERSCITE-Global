@@ -41,6 +41,10 @@ interface ScingPanelState {
   isScingThinking: boolean;
   setScingThinking: (thinking: boolean) => void;
 
+  injectedPrompt: string | null;
+  injectPrompt: (prompt: string) => void;
+  clearInjectedPrompt: () => void;
+
   // ─── Voice & Multimodal ───
   isHandsFreeEnabled: boolean;
   setHandsFreeEnabled: (enabled: boolean) => void;
@@ -74,6 +78,8 @@ export function ScingPanelProvider({ children }: { children: ReactNode }) {
   ]);
   const [isScingThinking, setScingThinking] = useState(false);
 
+  const [injectedPrompt, setInjectedPrompt] = useState<string | null>(null);
+
   // Voice & multimodal
   const [isHandsFreeEnabled, setHandsFreeEnabled] = useState(false);
 
@@ -94,6 +100,14 @@ export function ScingPanelProvider({ children }: { children: ReactNode }) {
     setScingMode('conversational');
   }, []);
 
+  const injectPrompt = useCallback((prompt: string) => {
+    setInjectedPrompt(prompt);
+  }, []);
+
+  const clearInjectedPrompt = useCallback(() => {
+    setInjectedPrompt(null);
+  }, []);
+
   return (
     <ScingPanelStateContext.Provider
       value={{
@@ -109,6 +123,9 @@ export function ScingPanelProvider({ children }: { children: ReactNode }) {
         clearConversation,
         isScingThinking,
         setScingThinking,
+        injectedPrompt,
+        injectPrompt,
+        clearInjectedPrompt,
         isHandsFreeEnabled,
         setHandsFreeEnabled,
         detectedExecutionTrigger,

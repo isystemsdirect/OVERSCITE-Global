@@ -45,8 +45,8 @@ import {
   Wrench,
   Zap
 } from 'lucide-react';
-import OversciteLogo from '../../../public/logo.svg';
-import ScingIcon from '../../../public/Scing_ButtonIcon_White.svg';
+import OversciteLogo from '../../../../public/logo.svg';
+import ScingIcon from '../../../../public/Scing_ButtonIcon_White.svg';
 
 const lariSuite = [
     { 

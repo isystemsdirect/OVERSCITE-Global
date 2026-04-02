@@ -79,7 +79,11 @@ export interface FindingOverlay {
   title: string;
   category: string;
   severity: Severity;
+  /** @deprecated Use observedCondition, systemIdentification, and recommendation layers */
   description: string;
+  observedCondition: string; // Layer 1: Deterministic Capture
+  systemIdentification: string; // Layer 2: Probabilistic Identification
+  recommendation: string; // Layer 3: Human Authority
   geometry: Geometry;
   tag: FindingTag;
   review: FindingReview;

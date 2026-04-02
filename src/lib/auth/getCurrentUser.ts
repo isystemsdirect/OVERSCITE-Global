@@ -32,26 +32,34 @@ export const getCurrentUser = () => {
 export const normalizeUser = (user: any) => {
     if (!user) return null;
     
-    // If it's a DevUser
+    // If it's a DevUser (GENERIC mode)
     if (user.id && user.role) {
         return {
             uid: user.id,
             email: user.email,
-            displayName: user.name,
+            displayName: user.displayName || user.name,
+            name: user.name,
             role: user.role,
+            systemRole: user.systemRole,
             authorityLevel: user.authorityLevel,
+            professionalCredentialStatus: user.professionalCredentialStatus,
+            professionalCredentials: user.professionalCredentials || [],
             isGeneric: true
         };
     }
     
-    // If it's a Firebase User
+    // If it's a Firebase User (ARC mode)
     const fbUser = user as FirebaseUser;
     return {
         uid: fbUser.uid,
         email: fbUser.email,
-        displayName: fbUser.displayName,
-        role: "inspector", // Default Role for ARC users until role-resolution service is active
+        displayName: fbUser.displayName || 'ARC User',
+        name: fbUser.displayName || 'Unidentified ARC Operator',
+        role: "inspector", 
+        systemRole: "field_inspector",
         authorityLevel: "standard",
+        professionalCredentialStatus: "unverified",
+        professionalCredentials: [],
         isGeneric: false
     };
 };

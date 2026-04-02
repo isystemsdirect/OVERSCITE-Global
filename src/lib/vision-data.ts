@@ -10,7 +10,11 @@ export type VisionAnalysisOptions = {
 export type VisionFinding = {
     id: string;
     type: 'Crack' | 'Corrosion' | 'Spalling' | 'Text';
+    /** @deprecated Use observedCondition, systemIdentification, and recommendation layers */
     description: string;
+    observedCondition: string;
+    systemIdentification: string;
+    recommendation: string;
     confidence: number;
     severity: 'Low' | 'Medium' | 'High' | 'Critical';
     boundingBox: {
@@ -25,24 +29,36 @@ const baseFindings: Omit<VisionFinding, 'id' | 'confidence'>[] = [
     {
         type: 'Crack',
         description: 'Hairline crack detected on surface.',
+        observedCondition: 'Linear discontinuity detected along concrete surface.',
+        systemIdentification: 'Possible hairline crack formation.',
+        recommendation: 'Monitor for expansion; professional evaluation recommended if width exceeds 0.3mm.',
         severity: 'Medium',
         boundingBox: { x1: 20, y1: 30, x2: 60, y2: 35 },
     },
     {
         type: 'Corrosion',
         description: 'Minor surface corrosion identified.',
+        observedCondition: 'Reddish-brown oxidation present on metallic component.',
+        systemIdentification: 'Probable surface corrosion.',
+        recommendation: 'Clean and apply protective coating.',
         severity: 'Low',
         boundingBox: { x1: 75, y1: 50, x2: 85, y2: 65 },
     },
     {
         type: 'Spalling',
         description: 'Small area of concrete spalling.',
+        observedCondition: 'Detached or missing concrete fragments exposing aggregate.',
+        systemIdentification: 'Possible localized spalling.',
+        recommendation: 'Patch and seal to prevent rebar exposure.',
         severity: 'High',
         boundingBox: { x1: 10, y1: 70, x2: 30, y2: 85 },
     },
     {
         type: 'Text',
         description: 'Serial Number: A5B-123-XYZ',
+        observedCondition: 'Alphanumeric character sequence detected.',
+        systemIdentification: 'Identified as product Serial Number.',
+        recommendation: 'Metadata logged to asset registry.',
         severity: 'Low',
         boundingBox: { x1: 40, y1: 5, x2: 70, y2: 15 },
     },

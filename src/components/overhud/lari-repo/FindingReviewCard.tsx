@@ -6,6 +6,8 @@ import { FindingOverlay, ReviewStatus } from '@/lib/lari-repo/types';
 import { cn } from '@/lib/utils';
 import { Check, X, Edit3, MessageSquare, AlertCircle } from 'lucide-react';
 import { findingReviewService } from '@/lib/lari-repo/finding-review-service';
+import { useAuthStore } from '@/lib/auth/auth-service';
+import GlobalDisclosure from '@/components/reporting/GlobalDisclosure';
 
 interface FindingReviewCardProps {
   finding: FindingOverlay;
@@ -87,10 +89,31 @@ export default function FindingReviewCard({ finding, isSelected, onSelect }: Fin
             </div>
         </div>
 
-        <div className="text-[11px] font-bold text-foreground mb-1">{finding.title}</div>
-        <p className="text-[10px] text-muted-foreground line-clamp-2 mb-3 leading-relaxed">
-            {finding.description}
-        </p>
+        <div className="text-[11px] font-bold text-foreground mb-2">{finding.title}</div>
+        
+        {/* Layer 1: Deterministic Capture */}
+        <div className="space-y-1 mb-2">
+            <span className="text-[8px] font-mono font-bold uppercase text-primary/80 block">LAYER 1: OBSERVED [DETERMINISTIC]</span>
+            <p className="text-[10px] text-foreground leading-relaxed">
+                {finding.observedCondition || "No deterministic observation recorded."}
+            </p>
+        </div>
+
+        {/* Layer 2: Probabilistic Identification */}
+        <div className="space-y-1 mb-2 bg-white/5 p-1.5 rounded-sm border border-white/5">
+            <span className="text-[8px] font-mono font-bold uppercase text-amber-500/80 block">LAYER 2: IDENTIFIED AS [PROBABILISTIC]</span>
+            <p className="text-[10px] text-amber-100/90 italic leading-relaxed">
+                {finding.systemIdentification || `Possible ${finding.category} formation detected based on visual pattern recognition.`}
+            </p>
+        </div>
+
+        {/* Layer 3: Human Authority */}
+        <div className="space-y-1 mb-3">
+            <span className="text-[8px] font-mono font-bold uppercase text-muted-foreground block">LAYER 3: ASSESSMENT [HUMAN AUTHORITY]</span>
+            <p className="text-[10px] text-muted-foreground leading-relaxed">
+                {finding.recommendation || "Final determination is reserved for human evaluation."}
+            </p>
+        </div>
 
         <div className="flex gap-1">
             <button 
@@ -141,6 +164,16 @@ export default function FindingReviewCard({ finding, isSelected, onSelect }: Fin
             <div className="mt-2 pt-2 border-t border-border/10 flex items-center justify-between text-[9px] font-mono uppercase text-muted-foreground">
                 <span>Status: <span className="text-primary">{finding.review.status}</span></span>
                 <span>{finding.review.reviewedBy}</span>
+            </div>
+        )}
+
+        {/* Global Disclosure Surface (Enforces reporting doctrine) */}
+        {isSelected && (
+            <div className="mt-4 pt-4 border-t border-border/10">
+                <GlobalDisclosure 
+                    isUnverified={useAuthStore.getState().user?.professionalCredentialStatus === 'unverified'} 
+                    className="border-none bg-black/0 p-0" 
+                />
             </div>
         )}
     </div>

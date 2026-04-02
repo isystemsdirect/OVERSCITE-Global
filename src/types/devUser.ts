@@ -5,8 +5,12 @@
  */
 export interface DevUser {
     id: string;
+    systemRole: string;
     role: "admin" | "inspector" | "contractor";
     name: string;
-    authorityLevel: "standard" | "elevated";
+    displayName: string;
+    authorityLevel: "standard" | "elevated" | "elevated_immutable" | "highest_immutable";
     email?: string;
+    professionalCredentialStatus: "verified" | "unverified" | "not_required";
+    professionalCredentials?: string[];
 }

@@ -46,11 +46,16 @@ export interface Finding {
   id?: string;
   label?: string; // AI generated label
   type?: string; // Legacy type field
+  /** @deprecated Use observedCondition, systemIdentification, and recommendation layers */
   description: string;
+  observedCondition: string; // Layer 1: Deterministic Capture
+  systemIdentification: string; // Layer 2: Probabilistic Identification
+  recommendation: string; // Layer 3: Human Authority
   confidence: number;
   severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'Low' | 'Medium' | 'High';
   createdAt: FieldValue;
   sourceAssetId: string;
+  mediaRefs?: string[];
   engine: 'LARI-VISION' | string;
   modelVersion?: string;
   evidence?: any[];

@@ -155,8 +155,8 @@ export default function LoginPage() {
                                <UserCircle2 className="w-4 h-4" />
                             </div>
                             <div>
-                              <p className="text-sm font-medium text-white">{user.name}</p>
-                              <p className="text-[10px] text-white/40 uppercase tracking-tighter">{user.role} — {user.authorityLevel}</p>
+                              <p className="text-sm font-medium text-white">{user.displayName}</p>
+                              <p className="text-[10px] text-white/40 uppercase tracking-tighter">{user.systemRole} — {user.authorityLevel.replace('_', ' ')}</p>
                             </div>
                           </div>
                           <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-[#F5C242] translate-x-0 group-hover:translate-x-1 transition-all" />

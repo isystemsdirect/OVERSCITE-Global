@@ -109,7 +109,13 @@ export function FindingsDisplay({ image, findings, isLoading }: FindingsDisplayP
                     className={cn('cursor-pointer', selectedFinding?.id === finding.id && 'bg-primary/10')}
                 >
                     <TableCell className="font-medium">{finding.type}</TableCell>
-                    <TableCell>{finding.description}</TableCell>
+                    <TableCell className="max-w-[300px]">
+                        <div className="space-y-1">
+                            <div className="text-[10px] leading-tight"><span className="font-bold text-primary/70 uppercase text-[9px] mr-1">Observed:</span> {finding.observedCondition}</div>
+                            <div className="text-[10px] leading-tight text-amber-200/80 italic"><span className="font-bold text-amber-500/70 uppercase text-[9px] mr-1">Identified:</span> {finding.systemIdentification}</div>
+                            <div className="text-[10px] leading-tight text-muted-foreground"><span className="font-bold text-muted-primary/70 uppercase text-[9px] mr-1">Assessment:</span> {finding.recommendation}</div>
+                        </div>
+                    </TableCell>
                     <TableCell>
                         <Badge variant={getSeverityBadge(finding.severity)}>{finding.severity}</Badge>
                     </TableCell>

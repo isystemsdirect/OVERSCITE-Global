@@ -1,0 +1,74 @@
+# OVERSCITE_GLOBAL_ARCHITECTURE_POSITION.yaml
+# Canonical reference — do not edit without Director authorization
+# Effective: 2026-04-03 | Issued by: Director Anderson / Scing-Archi
+
+OVERSCITE_Global_Architecture_Position:
+
+  Classification:
+    Application_Layer: "Governed application workspace"
+    Role: "Connected consumer and binder of SCINGULAR Prime Intelligence"
+    Position: "Downstream of SCINGULAR Prime ecosystem"
+
+  What_OVERSCITE_Global_Is:
+    - "An application / workspace / operational environment"
+    - "A consumer and binder of intelligence services"
+    - "A governed surface connected to SCINGULAR Prime"
+    - "A downstream application layer, not the root system"
+
+  What_OVERSCITE_Global_Is_Not:
+    - "The origin of the SCINGULAR ecosystem"
+    - "The home of Prime Intelligence"
+    - "The owner of ScingIntelligence, LARIIntelligence, or BANEIntelligence"
+    - "The SCINGULAR root system"
+    - "A peer or parent of ScingOS Prime Orchestrator"
+
+  External_Prime_Layer:
+    System: "SCINGULAR Ecosystem / ScingOS Prime Orchestrator"
+    Prime_Intelligence_Domains:
+      - "ScingIntelligence"
+      - "LARIIntelligence"
+      - "BANEIntelligence"
+    Connection_Method: "ScingIntelligence SICP / NeuralBind binding layer"
+
+  Internal_Application_Layer:
+    System: "OVERSCITE Global"
+    Contents:
+      - "App-specific bindings to Prime Intelligence"
+      - "App-specific overlays and workflows"
+      - "Local app memory and runtime context"
+      - "Governed consumption of external Prime intelligence"
+
+  Approved_Platform_Language:
+    Use:
+      - "Connected to SCINGULAR Prime Intelligence"
+      - "Powered by SCINGULAR Prime Orchestration"
+      - "Bound to external Prime Intelligence domains"
+      - "OVERSCITE Global intelligence services linked through ScingOS"
+    Avoid:
+      - "OVERSCITE intelligence core"
+      - "OVERSCITE owns LARI / BANE / Scing Prime"
+      - "OVERSCITE is the SCINGULAR root"
+      - "OVERSCITE Prime Intelligence"
+
+  Agent_Memory_Rule:
+    Local_Context: "App-local only — scoped to OVERSCITE session and workflows"
+    Prime_Intelligence: "External — SCINGULAR-owned — accessed through governed SICP bindings only"
+    Hard_Rule: "No agent inside OVERSCITE may claim to own, originate, or mutate Prime Intelligence"
+
+  Visual_Hierarchy_Reference:
+    System_Map: |
+      SCINGULAR Ecosystem / ScingOS Prime
+          ├── ScingIntelligence
+          ├── LARIIntelligence
+          └── BANEIntelligence
+                  ↓  (governed SICP / NeuralBind connection)
+           OVERSCITE Global
+             ├── App bindings
+             ├── App overlays
+             └── Local workflows
+
+  Authority:
+    Director: "Director Anderson"
+    CDG: "Scing-Archi"
+    Status: "ACTIVE — permanent canonical reference"
+    Effective_Date: "2026-04-03"

@@ -1,0 +1,60 @@
+UDCB_S_V1:
+  Header:
+    Authority_Chain:
+      Director: "Director Anderson"
+      CDG: "Scing-Archi"
+    CB_Type: "UDCB-S"
+    CB_Base_Type: "UDCB"
+    CB_Version: "1.0.00"
+    Creation_DateTime: "2026-04-03"
+    CB_Title: "Prime Boundary and External Intelligence Statement"
+    Branch: "BANEIntelligence"
+
+  Prime_Boundary_Declaration:
+
+    SCINGULAR_Ecosystem:
+      Position: "Outside and above OVERSCITE-Global"
+      Role: "The sovereign system and architecture within which all intelligence domains operate"
+      Contains:
+        - "ScingOS — Prime Orchestrator / Ground Zero"
+        - "ScingIntelligence — Interface/Orchestration Intelligence (Prime)"
+        - "LARIIntelligence — Bounded Reasoning Intelligence (Prime)"
+        - "BANEIntelligence — Integrity/Governance Intelligence (Prime)"
+
+    OVERSCITE_Global:
+      Position: "Connected governed application and workspace surface"
+      Role: "Consumer, binder, and operational environment for intelligence services"
+      Is:
+        - "An application / workspace / operational environment"
+        - "A consumer and binder of intelligence services"
+        - "A governed surface connected to SCINGULAR"
+      Is_Not:
+        - "The origin of the SCINGULAR ecosystem"
+        - "The home of Prime Intelligence"
+        - "The SCINGULAR root system"
+        - "The owner of Scing, LARI, or BANE Prime intelligence"
+
+    Prime_Intelligence_Is_Not_App_Specific:
+      Statement: >
+        Prime Intelligence domains (ScingIntelligence, LARIIntelligence, BANEIntelligence)
+        are ecosystem-level constructs that exist independently of any single application.
+        OVERSCITE-Global consumes and binds intelligence services but does not define,
+        own, or originate them.
+
+    Structural_Hierarchy:
+      Diagram: |
+        SCINGULAR Ecosystem / ScingOS Prime
+            ├─ ScingIntelligence
+            ├─ LARIIntelligence
+            └─ BANEIntelligence
+                    ↓
+             OVERSCITE Global
+               ├─ app bindings
+               ├─ app overlays
+               └─ local workflows
+      Interpretation: "OVERSCITE is downstream, not root"
+
+  Footer:
+    Governing_Authority: "Director Anderson / Scing-Archi"
+    Artifact_Status: "Active"
+    Scope: "BANEIntelligence branch — OVERSCITE-Global repository"

@@ -1,0 +1,62 @@
+UDCB_S_V1:
+  Header:
+    Authority_Chain:
+      Director: "Director Anderson"
+      CDG: "Scing-Archi"
+    CB_Type: "UDCB-S"
+    CB_Base_Type: "UDCB"
+    CB_Version: "1.0.00"
+    Creation_DateTime: "2026-04-03"
+    CB_Title: "GetCB Mirror Retrieval Rules"
+    Branch: "BANEIntelligence"
+
+  GetCB_Definition:
+    Full_Name: "Get Control Block / Get CB"
+    Aliases:
+      - "GetCB"
+      - "GCB"
+      - "Get CB"
+    Purpose: >
+      GetCB is the branch-aware, identity-aware retrieval protocol used by agents to search
+      and retrieve Control Block artifacts, doctrine files, communications, and governance
+      records from authorized mirror paths within intelligence mirror branches.
+    Classification: "Retrieval Protocol — not Execution Protocol"
+
+  Retrieval_Rules:
+
+    Branch_Awareness:
+      Rule: "GetCB operations are branch-aware"
+      Behavior: >
+        When an agent performs a GetCB retrieval, it must resolve the correct intelligence
+        mirror branch (ScingIntelligence, LARIIntelligence, or BANEIntelligence) based on
+        the domain of the requested artifact. Agents must not cross-retrieve from unauthorized
+        branches without explicit governance approval.
+      Branch_Domain_Map:
+        ScingIntelligence: "Interface/orchestration intelligence artifacts"
+        LARIIntelligence: "Bounded reasoning intelligence artifacts"
+        BANEIntelligence: "Integrity/governance intelligence artifacts"
+
+    Identity_Awareness:
+      Rule: "GetCB operations are identity-aware"
+      Behavior: >
+        Retrieval requests must carry agent identity context. The requesting agent's authority
+        level and domain affiliation determine which mirror paths are accessible.
+
+    Retrieval_Is_Not_Execution:
+      Rule: "Retrieval is not execution"
+      Statement: >
+        A GetCB operation retrieves information for agent context, decision support, or
+        communication routing. It does not authorize, trigger, or imply execution of any
+        system action. Execution requires separate governance gate traversal.
+
+    Source_Of_Truth:
+      Rule: "Mirror retrieval returns mirror-quality data"
+      Statement: >
+        Data retrieved via GetCB from OVERSCITE-Global mirror branches is mirror-quality,
+        not Prime-quality. For authoritative Prime-quality data, agents must access the
+        SCINGULAR Prime ecosystem through ScingOS.
+
+  Footer:
+    Governing_Authority: "Director Anderson / Scing-Archi"
+    Artifact_Status: "Active"
+    Scope: "BANEIntelligence branch — OVERSCITE-Global repository"

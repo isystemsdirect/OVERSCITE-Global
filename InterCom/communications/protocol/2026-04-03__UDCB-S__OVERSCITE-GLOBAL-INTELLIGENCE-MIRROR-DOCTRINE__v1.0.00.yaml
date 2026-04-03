@@ -1,0 +1,89 @@
+UDCB_S_V1:
+  Header:
+    Authority_Chain:
+      Director: "Director Anderson"
+      CDG: "Scing-Archi"
+    CB_Type: "UDCB-S"
+    CB_Base_Type: "UDCB"
+    CB_Version: "1.0.00"
+    Creation_DateTime: "2026-04-03"
+    CB_Title: "OVERSCITE-Global Intelligence Mirror Doctrine"
+    Branch: "BANEIntelligence"
+
+  Doctrine_Declaration:
+
+    Mirror_Status:
+      Statement: >
+        OVERSCITE-Global is a governed mirror and execution-access repository surface only.
+        It provides repo-side agent locality for intelligence operations but does not own,
+        originate, or replace Prime Intelligence.
+      Classification: "Mirror / Access Surface"
+      Authority_Level: "Consumer / Binder — not Source"
+
+    Prime_Orchestrator:
+      Statement: >
+        ScingOS remains Ground Zero and the sole Prime Orchestrator within the SCINGULAR
+        ecosystem. No OVERSCITE-Global branch, surface, or agent configuration transfers
+        orchestrator status away from ScingOS.
+      ScingOS_Role: "Prime Orchestrator / Ground Zero"
+      OVERSCITE_Role: "Governed Application Surface / Mirror Consumer"
+
+    Prime_Intelligence_Boundary:
+      Statement: >
+        Prime Intelligence remains external to OVERSCITE application identity. The three
+        intelligence domains — ScingIntelligence, LARIIntelligence, BANEIntelligence — are
+        Prime-origin domains housed in the SCINGULAR ecosystem. Their presence as branches
+        in OVERSCITE-Global is a repo-side mirror for agent access locality, not an authority
+        or ownership transfer.
+      Prime_Domains:
+        - "ScingIntelligence — Interface/Orchestration Intelligence"
+        - "LARIIntelligence — Bounded Reasoning Intelligence"
+        - "BANEIntelligence — Integrity/Governance Intelligence"
+      Mirror_Purpose: "Agent access locality within governed repository boundaries"
+      Ownership_Transfer: "NONE — Prime ownership remains with SCINGULAR / ScingOS"
+
+    Repo_Bridge_Purpose:
+      Statement: >
+        This repo bridge exists for agent access locality, not authority transfer. Agents
+        operating within OVERSCITE-Global may access mirror surfaces for retrieval, communication,
+        and structured interaction with Prime-derived intelligence. This access is governed,
+        bounded, and does not constitute Prime-level authority.
+
+  InterCom_Role:
+    Purpose: "Structured communication transport between OVERSCITE-Global agents and Prime Intelligence"
+    Channels:
+      Inbound: "Communications received from Prime or external sources"
+      Outbound: "Communications dispatched toward Prime or external targets"
+      Shared_Active: "Active shared communication artifacts"
+      Shared_Archive: "Archived shared communication artifacts"
+      Protocol: "Governance and protocol doctrine files"
+
+  ArcHive_DL_Role:
+    Purpose: "Documentation and node scaffolding for mirror-side operations"
+    Surfaces:
+      SDK_Agents: "Agent SDK scaffolding and configuration"
+      LLM_Nodes: "LLM integration node definitions"
+      Execution_Nodes: "Execution node scaffolding"
+      Support_Nodes: "Support and utility node definitions"
+
+  NeuralBind_Role:
+    Purpose: "Reserved binding surface for future neural-level integration points"
+    Status: "Scaffold only — no active bindings in this batch"
+
+  Source_Of_Truth_Distinction:
+    Prime_Source: "SCINGULAR ecosystem / ScingOS"
+    Mirror_Surface: "OVERSCITE-Global repository branches"
+    Rule: >
+      The source of truth for all intelligence definitions, capabilities, policies, and
+      orchestration logic remains in the SCINGULAR Prime ecosystem. OVERSCITE-Global mirrors
+      provide access surfaces only. In case of conflict, Prime source governs.
+
+  Read_Write_Discipline:
+    Read: "Mirror branches may be read by authorized agents for retrieval and context"
+    Write: "Mirror branches may be written to only through governed protocol (InterCom transport, authorized commits)"
+    Prohibited: "No autonomous writes, no silent propagation, no ungoverned sync"
+
+  Footer:
+    Governing_Authority: "Director Anderson / Scing-Archi"
+    Artifact_Status: "Active"
+    Scope: "BANEIntelligence branch — OVERSCITE-Global repository"

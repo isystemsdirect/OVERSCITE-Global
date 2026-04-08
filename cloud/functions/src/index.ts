@@ -158,6 +158,43 @@ export const scing = {
   }),
 };
 
+// --- SRT Edge Spine ---
+export const srt = {
+  acceptMediaBatch: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.acceptSrtMediaBatch(data, context);
+  }),
+  acceptMediaSingle: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.acceptSrtMediaSingle(data, context);
+  }),
+  processMedia: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.processAcceptedSrtMedia(data, context);
+  }),
+  generateDerivatives: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.generateSrtDerivatives(data, context);
+  }),
+  dispatchAnalysis: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.dispatchSrtEngineAnalysis(data, context);
+  }),
+  persistFindings: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.persistSrtEngineFindings(data, context);
+  }),
+  bindVerification: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.bindBaneVerification(data, context);
+  }),
+  assembleExport: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.assembleSrtEvidenceExport(data, context);
+  }),
+  retryStep: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.retrySrtPipelineStep(data, context);
+  }),
+  quarantineFailure: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.quarantineSrtPipelineFailure(data, context);
+  }),
+  queryStatus: functions.https.onCall(async (data, context) => {
+    return require('./srt').srtRouter.querySrtPipelineStatus(data, context);
+  })
+};
+
 // Direct aliases for specific legacy names
 export const scingHealth = scing.health;
 export const baneIssueEntitlement = bane.issueEntitlement;

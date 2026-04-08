@@ -3,6 +3,8 @@
 import React from 'react';
 import { PenTool, FileCheck, ShieldAlert, History, Info } from 'lucide-react';
 import type { ProposalProfile, DivisionMode } from '../../lib/contractor/types';
+import { evaluateContractMutationGate } from '@/lib/bane/scing-execution-gate';
+import { toast } from '@/components/ui/use-toast';
 
 interface ProposalDraftingProps {
   proposals: ProposalProfile[];
@@ -102,6 +104,27 @@ export const ProposalDrafting: React.FC<ProposalDraftingProps> = ({ proposals, m
                 <div className="mt-6">
                   <button 
                     disabled={isAssistOnly}
+                    onClick={async () => {
+                      
+                      const decision = await evaluateContractMutationGate({
+                        actorId: 'human-reviewer-1',
+                        actionType: 'APPLY_HUMAN_SEAL',
+                        targetId: p.id
+                      });
+
+                      if (!decision.permitted) {
+                        toast({
+                          title: "BANE ENFORCEMENT - BLOCKED",
+                          description: `Proposal Finalization Rejected. Classification: ${decision.classification}`,
+                          variant: 'destructive',
+                        });
+                      } else {
+                        toast({
+                          title: "Human Seal Applied",
+                          description: `SDR Logged: ${decision.sdrId} | Classification: ${decision.classification}`,
+                        });
+                      }
+                    }}
                     className={`shrink-0 w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest transition-all ${
                       isAssistOnly 
                       ? 'bg-white/5 text-white/10 cursor-not-allowed border border-white/5' 

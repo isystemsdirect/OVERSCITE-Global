@@ -20,6 +20,8 @@ import { ScingPanel } from '@/components/scing/ScingPanel';
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Expand, Shrink, Bell } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { TruthStateCluster } from '@/components/shell/TruthStateCluster';
+import { ConnectedOrchestrationBadge } from '@/components/shell/ConnectedOrchestrationBadge';
 
 interface TopCommandBarProps {
   userId?: string | null;
@@ -41,13 +43,15 @@ export function TopCommandBar({
         <SidebarTrigger className="md:hidden" />
       </div>
 
-      {/* ─── Center: Scing Command Bar (shell-anchored, not modal) ─── */}
-      <div className="flex-1 flex items-center justify-center px-4 relative">
+      {/* ─── Center: Scing Command Bar + Prime Orchestration Badge ─── */}
+      <div className="flex-1 flex flex-col items-center justify-center px-4 relative gap-1">
         <ScingPanel />
+        <ConnectedOrchestrationBadge mode="POWERED_BY" />
       </div>
       
-      {/* ─── Right Group: Utility Actions ─── */}
-      <div className="flex items-center gap-2 shrink-0">
+      {/* ─── Right Group: Truth-State Cluster + Utility Actions ─── */}
+      <div className="flex items-center gap-3 shrink-0">
+        <TruthStateCluster state="LIVE" />
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>

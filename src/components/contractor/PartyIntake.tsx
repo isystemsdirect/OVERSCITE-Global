@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MapPin, Briefcase, FileSearch, ShieldCheck, ShieldAlert, Loader2 } from 'lucide-react';
 import { resolveRequirements } from '@/lib/contractor/resolutionService';
 import type { RoleClass, JurisdictionProfile, ProjectScopeProfile } from '@/lib/contractor/types';
+import { toast } from "@/components/ui/use-toast";
+import { emitUiAudit } from '@/lib/audit/ui-audit-bridge';
 
 export default function PartyIntake() {
   const [isComputing, setIsComputing] = useState(false);
@@ -182,6 +184,32 @@ export default function PartyIntake() {
             Requirement profiles are computed from role + trade + jurisdiction + value. No national license assumption. 
           </p>
         </div>
+
+        {result && (
+          <div className="mt-4">
+            <Button
+              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-widest transition-all shadow-xl shadow-emerald-900/20"
+              onClick={async () => {
+                await emitUiAudit({
+                  type: 'UI_MUTATION_REQUESTED',
+                  actorId: 'human-operator-1',
+                  action: 'SUBMIT_TO_AIRLOCK',
+                  targetId: form.partyName || 'anonymous-party'
+                });
+
+                toast({
+                  title: "Intake Airlock Triggered",
+                  description: `Contractor '${form.partyName}' registered with TRUTH STATE: [candidate]. Pending human oversight.`,
+                });
+              }}
+            >
+              Submit to Governance Airlock
+            </Button>
+            <p className="mt-2 text-[9px] text-white/40 text-center uppercase tracking-widest">
+              Forces initial Truth State: CANDIDATE
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
-import { PenTool, FileCheck, ShieldAlert, History, Info } from 'lucide-react';
 import type { ProposalProfile, DivisionMode } from '../../lib/contractor/types';
+import { evaluateContractMutationGate } from '@/lib/bane/scing-execution-gate';
+import { toast } from '@/components/ui/use-toast';
+import { emitUiAudit } from '@/lib/audit/ui-audit-bridge';
 
 interface ProposalDraftingProps {
   proposals: ProposalProfile[];
@@ -102,6 +103,54 @@ export const ProposalDrafting: React.FC<ProposalDraftingProps> = ({ proposals, m
                 <div className="mt-6">
                   <button 
                     disabled={isAssistOnly}
+                    onClick={async () => {
+                      const actorId = 'human-reviewer-1';
+                      
+                      // Phase 1: Audit Intent
+                      const auditId = await emitUiAudit({
+                        type: 'UI_MUTATION_REQUESTED',
+                        actorId,
+                        action: 'APPLY_HUMAN_SEAL',
+                        targetId: p.id
+                      });
+
+                      const decision = await evaluateContractMutationGate({
+                        actorId,
+                        actionType: 'APPLY_HUMAN_SEAL',
+                        targetId: p.id
+                      });
+
+                      if (!decision.permitted) {
+                        toast({
+                          title: "BANE ENFORCEMENT - BLOCKED",
+                          description: `Proposal Finalization Rejected. Classification: ${decision.classification}`,
+                          variant: 'destructive',
+                        });
+                        
+                        await emitUiAudit({
+                          type: 'UI_MUTATION_BLOCKED',
+                          actorId,
+                          action: 'APPLY_HUMAN_SEAL',
+                          targetId: p.id,
+                          traceId: decision.sdrId,
+                          metadata: { reason: 'Governance Refusal', auditRef: auditId }
+                        });
+                      } else {
+                        toast({
+                          title: "Human Seal Applied",
+                          description: `SDR Logged: ${decision.sdrId} | Classification: ${decision.classification}`,
+                        });
+
+                        await emitUiAudit({
+                          type: 'UI_MUTATION_APPROVED',
+                          actorId,
+                          action: 'APPLY_HUMAN_SEAL',
+                          targetId: p.id,
+                          traceId: decision.sdrId,
+                          metadata: { auditRef: auditId }
+                        });
+                      }
+                    }}
                     className={`shrink-0 w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest transition-all ${
                       isAssistOnly 
                       ? 'bg-white/5 text-white/10 cursor-not-allowed border border-white/5' 

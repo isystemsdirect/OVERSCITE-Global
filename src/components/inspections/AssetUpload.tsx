@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useRef } from 'react';
@@ -17,6 +16,7 @@ interface AssetUploadProps {
 export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isDrawing, setIsDrawing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
@@ -25,11 +25,11 @@ export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
     if (!file) return;
 
     // Validate file type
-    if (!file.type.startsWith('image/')) {
+    if (!file.type.startsWith('image/') && file.type !== 'application/pdf') {
       toast({
         variant: 'destructive',
         title: 'Invalid File Type',
-        description: 'Please upload an image file.',
+        description: 'Please upload an image or PDF file.',
       });
       return;
     }
@@ -66,7 +66,7 @@ export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
       await setDoc(assetDocRef, {
         inspectionId,
         assetId,
-        type: 'image',
+        type: file.type.startsWith('image/') ? 'image' : 'document',
         imageUrl,
         storagePath,
         createdAt: serverTimestamp(),
@@ -74,16 +74,21 @@ export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
         originalFileName: file.name,
         contentType: file.type,
         sizeBytes: file.size,
+        
+        // Phase 3: Drafting Metadata
+        isDrawingArtifact: isDrawing,
+        domainHint: isDrawing ? 'architectural' : null,
       });
 
       setUploadStatus('success');
       toast({
         title: 'Upload Successful',
-        description: 'Asset has been added to the inspection.',
+        description: 'Asset has been added to the inspection evidence queue.',
       });
       
       // Reset input
       if (fileInputRef.current) fileInputRef.current.value = '';
+      setIsDrawing(false);
       
     } catch (error: any) {
       console.error('Upload error:', error);
@@ -101,10 +106,24 @@ export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
   return (
     <div className="flex flex-col gap-4 p-4 border rounded-lg bg-card/40 backdrop-blur-sm border-dashed border-primary/30">
       <div className="flex items-center justify-between">
-        <div>
+        <div className="flex flex-col gap-1">
           <h3 className="text-sm font-semibold text-foreground">Add Inspection Asset</h3>
-          <p className="text-xs text-muted-foreground">Upload images for LARI-Vision analysis</p>
+          <p className="text-xs text-muted-foreground">Upload images or PDFs for LARI-Vision logic</p>
+          
+          <div className="flex items-center space-x-2 mt-2">
+            <input 
+              type="checkbox" 
+              id="isDrawing" 
+              checked={isDrawing} 
+              onChange={(e) => setIsDrawing(e.target.checked)}
+              className="h-3.5 w-3.5 rounded border-zinc-700 bg-zinc-900 text-sky-500 focus:ring-sky-500"
+            />
+            <label htmlFor="isDrawing" className="text-xs font-medium text-sky-400 cursor-pointer select-none">
+              Flag as Drawing / Blueprint (LARI_DRAFTING)
+            </label>
+          </div>
         </div>
+        
         <div className="flex items-center gap-2">
             {uploadStatus === 'success' && <CheckCircle2 className="h-5 w-5 text-green-500 animate-in fade-in zoom-in" />}
             {uploadStatus === 'error' && <AlertCircle className="h-5 w-5 text-destructive" />}
@@ -123,14 +142,14 @@ export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
                 ) : (
                 <>
                     <Upload className="mr-2 h-4 w-4" />
-                    Upload Image
+                    Upload Asset
                 </>
                 )}
                 <input
                     type="file"
                     ref={fileInputRef}
                     onChange={handleFileChange}
-                    accept="image/*"
+                    accept="image/*,application/pdf"
                     className="hidden"
                 />
             </Button>
@@ -139,3 +158,4 @@ export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
     </div>
   );
 };
+

@@ -27,7 +27,11 @@
  * @see src/lib/hooks/use-evidence-subscription.ts
  */
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
+import { useEvidenceSubscription } from "@/lib/hooks/use-evidence-subscription";
+import { getRecognitionPacket } from "@/lib/services/recognition-persistence-service";
+import { requestAnalysis, type RequestAnalysisInput } from "@/lib/services/recognition-orchestration";
+import { requestVerification, requestReanalysis } from "@/lib/services/recognition-governed-actions";
 import {
   Microscope,
   ScanLine,
@@ -121,185 +125,8 @@ export interface EvidenceEntry {
 }
 
 // ---------------------------------------------------------------------------
-// Mock Evidence Queue
+// Real-time Evidence Queue Hydration
 // ---------------------------------------------------------------------------
-
-const MOCK_EVIDENCE_QUEUE: EvidenceEntry[] = [
-  {
-    id: "evd-001", name: "IMG_4821.jpg", assetType: "photo",
-    mediaAnalysisState: "verified_by_overscite", domainClass: "residential",
-    confidence: "high", findingsCount: 3, updatedAt: "2 hrs ago",
-    analysisRequestedBy: "inspector_anderson", recognitionPacketId: "pkt-001",
-    verifiedBy: "inspector_anderson", verifiedAt: "2026-04-14T19:30:00Z",
-    observedFindings: [
-      "Dark staining visible on ceiling surface in northwest corner",
-      "Visible crack pattern along wall-to-ceiling junction",
-      "Discoloration on drywall surface below window frame",
-    ],
-    identifiedCandidates: [
-      { label: "Possible water intrusion from roof or plumbing above", confidence: "high" },
-      { label: "Likely settlement crack at structural junction", confidence: "moderate" },
-    ],
-    passResults: {
-      pass_1_scene: { passStatus: "complete", passConfidenceBand: "high", observations: ["Interior residential — bedroom"], candidates: [] },
-      pass_7_condition_anomaly: { passStatus: "complete", passConfidenceBand: "high", observations: ["Dark staining on ceiling", "Crack at junction"], candidates: [{ label: "Water intrusion", confidence: "high" }] },
-    },
-  },
-  {
-    id: "evd-002", name: "IMG_4822.jpg", assetType: "photo",
-    mediaAnalysisState: "analysis_complete", domainClass: "residential",
-    confidence: "moderate", hasLivingEntityOcclusion: true, hasVisibilityLimitations: true,
-    findingsCount: 1, updatedAt: "2 hrs ago",
-    analysisRequestedBy: "inspector_anderson", recognitionPacketId: "pkt-002",
-    observedFindings: ["White residue visible on foundation wall surface"],
-    identifiedCandidates: [{ label: "Possible efflorescence from moisture migration", confidence: "moderate" }],
-    visibilityLimits: [{ targetDescription: "Lower portion of foundation wall", visibilityState: "partially_visible", cause: "living_entity" }],
-    passResults: {
-      pass_3_living_entity: { passStatus: "complete", passConfidenceBand: "moderate", observations: ["Pet partially occluding lower wall"], candidates: [] },
-      pass_7_condition_anomaly: { passStatus: "complete", passConfidenceBand: "moderate", observations: ["White residue on foundation wall"], candidates: [{ label: "Efflorescence", confidence: "moderate" }] },
-    },
-  },
-  {
-    id: "evd-003", name: "IMG_4823.jpg", assetType: "photo",
-    mediaAnalysisState: "review_required", domainClass: "residential",
-    hasUnresolvedUnknowns: true, hasPestEvidence: true, confidence: "review_required",
-    findingsCount: 0, updatedAt: "3 hrs ago",
-    reviewRequiredReason: "Unresolved unknowns and pest evidence detected — human review required",
-    observedFindings: ["Dark particulate material on floor surface near baseboard"],
-    identifiedCandidates: [{ label: "Possible pest droppings (rodent)", confidence: "low" }],
-    unknowns: [{ reason: "insufficient_detail", partialObservation: "Small dark objects near HVAC duct — not classifiable" }],
-  },
-  {
-    id: "evd-008", name: "IMG_4835.jpg", assetType: "photo",
-    mediaAnalysisState: "verification_pending", domainClass: "commercial",
-    confidence: "high", findingsCount: 2, updatedAt: "30 min ago",
-    analysisRequestedBy: "inspector_anderson", recognitionPacketId: "pkt-008",
-    verificationRequestedBy: "inspector_anderson",
-    observedFindings: ["Fire extinguisher mounting bracket damaged", "Exit signage partially obscured"],
-    identifiedCandidates: [{ label: "Possible code violation — fire extinguisher access", confidence: "high" }],
-  },
-  {
-    id: "evd-004", name: "FloorPlan_A1.pdf", assetType: "drawing",
-    mediaAnalysisState: "analysis_complete", domainClass: "drafting_design",
-    isDrawingArtifact: true, confidence: "moderate", findingsCount: 0, updatedAt: "1 day ago",
-    analysisRequestedBy: "inspector_anderson", recognitionPacketId: "pkt-004",
-    observedFindings: ["Architectural floor plan with title block, gridlines, and dimension annotations"],
-    identifiedCandidates: [{ label: "Detected as architectural floor plan", confidence: "moderate" }],
-    passResults: {
-      pass_8_drafting: { passStatus: "complete", passConfidenceBand: "moderate", observations: ["Title block detected", "Gridlines and dimension annotations present", "Revision cloud in NE corner"], candidates: [{ label: "Architectural floor plan — residential", confidence: "moderate" }] },
-    },
-    draftingPanel: {
-      drawingDetected: true,
-      sheetType: "architectural",
-      disciplineClass: "architectural",
-      draftingState: "sheet_structure_detected",
-      fidelityWarning: "field_photo_interpretation",
-      titleBlockPresent: true,
-      titleBlockFields: {
-        projectName: "Elm Street Residence",
-        sheetNumber: "A-101",
-        revisionMarker: "Rev. C",
-        drawnBy: "JH",
-        scale: "1/4\" = 1'-0\"",
-        date: "2026-02-15",
-      },
-      revisionMarkersPresent: true,
-      symbolClassesDetected: [
-        { symbolCategory: "door_swing", confidence: "high", inActiveLibrary: true },
-        { symbolCategory: "window_type_tag", confidence: "high", inActiveLibrary: true },
-        { symbolCategory: "room_tag", confidence: "moderate", inActiveLibrary: true },
-        { symbolCategory: "north_arrow", confidence: "high", inActiveLibrary: true },
-        { symbolCategory: "grid_line_marker", confidence: "high", inActiveLibrary: true },
-        { symbolCategory: "revision_cloud", confidence: "moderate", inActiveLibrary: true },
-        { symbolCategory: "unknown_symbol", confidence: "low", inActiveLibrary: false },
-      ],
-      dimensionContextDetected: [
-        { rawText: "12'-6\"", dimensionType: "linear", confidence: "high" },
-        { rawText: "8'-0\"", dimensionType: "linear", confidence: "high" },
-        { rawText: "3'-6\"", dimensionType: "linear", confidence: "moderate" },
-      ],
-      noteDensityProfile: { totalNotes: 8, specNoteCount: 3, standardRefCount: 1 },
-      gdtDetected: false,
-      gdtFrames: [],
-      fieldComparisonReadiness: {
-        isReadyForComparison: true,
-        readinessScore: 0.78,
-        limitingFactors: ["partial_view"],
-        sheetNumber: "A-101",
-        revisionLevel: "Rev. C",
-      },
-      drawingReviewPosture: "review_recommended",
-      overallConfidence: "moderate",
-    },
-  },
-  {
-    id: "evd-009", name: "IMG_4840.jpg", assetType: "photo",
-    mediaAnalysisState: "analysis_complete", domainClass: "industrial",
-    confidence: "moderate", findingsCount: 4, updatedAt: "45 min ago",
-    analysisRequestedBy: "inspector_anderson", recognitionPacketId: "pkt-009",
-    observedFindings: [
-      "Steel piping run with visible surface corrosion on elbow joint",
-      "Flanged valve in closed position — no leakage visible",
-      "Safety barrier partially displaced from original anchor point",
-      "No PPE visible on worker in background",
-    ],
-    identifiedCandidates: [
-      { label: "Possible corrosion degradation at pipe elbow — further inspection recommended", confidence: "moderate" },
-      { label: "Possible safety barrier displacement — readiness affecting", confidence: "moderate" },
-    ],
-    visibilityLimits: [{ targetDescription: "Upper pipe run above 3m elevation", visibilityState: "angle_limited", cause: "angle" }],
-    hasVisibilityLimitations: true,
-    passResults: {
-      pass_1_scene: { passStatus: "complete", passConfidenceBand: "high", observations: ["Industrial interior — mechanical room"], candidates: [] },
-      pass_2_object: { passStatus: "complete", passConfidenceBand: "moderate", observations: ["Steel piping", "Flanged valve", "Safety barrier", "Worker"], candidates: [{ label: "Gate valve", confidence: "moderate" }] },
-      pass_7_condition_anomaly: { passStatus: "complete", passConfidenceBand: "moderate", observations: ["Surface corrosion on pipe elbow", "Barrier displacement"], candidates: [{ label: "Corrosion degradation", confidence: "moderate" }] },
-    },
-    siteopsPanel: {
-      enrichedDomain: "industrial",
-      domainConfidence: "high",
-      industrialEquipment: {
-        equipmentObserved: true,
-        observations: [
-          { observation: "Steel piping run with flanged connections — elbow joint shows surface corrosion", category: "piping_valve", severity: "warning", confidence: "moderate" },
-          { observation: "Gate valve in closed position — no active leakage observed", category: "piping_valve", severity: "observation_only", confidence: "high" },
-          { observation: "Safety barrier partially displaced from floor anchor", category: "barrier_guard", severity: "warning", confidence: "moderate" },
-        ],
-        identifications: [
-          { identification: "Possible external corrosion degradation at pipe elbow — material loss not assessable from image", category: "corrosion_leak", confidence: "moderate" },
-        ],
-      },
-      siteState: {
-        accessEgressAssessed: true,
-        accessObservations: [{ observation: "Access pathway clear on ground level", severity: "observation_only", confidence: "high" }],
-        debrisHousekeeping: [],
-        barricadeStaging: [{ observation: "Safety barrier displaced — may affect controlled access to pipe run", severity: "warning", confidence: "moderate" }],
-        weatherExposure: [],
-        readinessAffecting: [{ observation: "Displaced barrier may need repositioning before next maintenance window", severity: "info", confidence: "moderate" }],
-      },
-      safetyPosture: {
-        safetyAssessed: true,
-        ppeObservations: [{ observation: "Worker visible in background without visible PPE", severity: "critical", confidence: "low" }],
-        fallHazards: [],
-        blockedExits: [],
-        unsafeZones: [],
-        signageControl: [],
-      },
-      insuranceEmphasis: {
-        conditionDocumentation: [{ observation: "Pipe corrosion documented — supports condition assessment record", severity: "info", confidence: "moderate" }],
-        lossRiskIndicators: [],
-        claimSupportPosture: "partial_evidence",
-      },
-      domainVisibilityLimits: [{ targetDescription: "Upper pipe run above 3m", visibilityState: "angle_limited", cause: "angle" }],
-      unresolvedElements: [],
-      reviewRecommended: true,
-      reviewReasons: ["PPE observation has low confidence — verify with site supervisor"],
-      overallConfidence: "moderate",
-    },
-  },
-  { id: "evd-005", name: "IMG_4830.jpg", assetType: "photo", mediaAnalysisState: "accepted_unanalyzed", updatedAt: "5 min ago" },
-  { id: "evd-006", name: "IMG_4831.jpg", assetType: "photo", mediaAnalysisState: "accepted_unanalyzed", updatedAt: "5 min ago" },
-  { id: "evd-007", name: "IMG_4832.jpg", assetType: "photo", mediaAnalysisState: "analysis_in_progress", updatedAt: "1 min ago" },
-];
 
 // ---------------------------------------------------------------------------
 // Analysis State Icon
@@ -675,19 +502,97 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
 
 interface EvidenceLaneProps {
   activeDomain: InspectionDomainClass;
+  inspectionId?: string | null;
   subscriptionStatus?: SubscriptionStatus;
 }
 
-export function EvidenceLane({ activeDomain, subscriptionStatus = 'idle' }: EvidenceLaneProps) {
+export function EvidenceLane({ activeDomain, inspectionId, subscriptionStatus: propSubscriptionStatus }: EvidenceLaneProps) {
   const [selectedEntry, setSelectedEntry] = useState<string | null>(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
   const [verificationLoading, setVerificationLoading] = useState(false);
   const [reanalysisLoading, setReanalysisLoading] = useState(false);
-  const [evidenceQueue, setEvidenceQueue] = useState<EvidenceEntry[]>(MOCK_EVIDENCE_QUEUE);
   const [domainFilter, setDomainFilter] = useState(false);
 
+  // Live Subscription
+  const { evidenceStates, status: subStatus } = useEvidenceSubscription(inspectionId ?? null);
+  const subscriptionStatus = propSubscriptionStatus && propSubscriptionStatus !== 'idle' ? propSubscriptionStatus : subStatus;
+
+  // Local state to hold hydrated queue entries
+  const [evidenceQueue, setEvidenceQueue] = useState<EvidenceEntry[]>([]);
+  const packetCacheRef = useRef<Record<string, any>>({});
+
+  // Hydrate evidence states into EvidenceEntry artifacts for UI display
+  useEffect(() => {
+    let isMounted = true;
+    
+    const hydrateQueue = async () => {
+      const hydrated: EvidenceEntry[] = [];
+      
+      for (const state of evidenceStates) {
+        let entry: EvidenceEntry = {
+          id: state.stateId,
+          name: `Asset ${state.mediaAssetId.substring(0, 8)}`,
+          assetType: 'photo',
+          mediaAnalysisState: state.mediaAnalysisState,
+          updatedAt: state.updatedAt ? new Date(state.updatedAt).toLocaleString() : 'Just now',
+          analysisRequestedBy: state.analysisRequestedBy,
+          analysisRequestedAt: state.analysisRequestedAt,
+          recognitionPacketId: state.recognitionPacketId,
+          reviewRequiredReason: state.reviewRequiredReason,
+          verificationRequestedBy: (state as any).verificationRequestedBy,
+          verifiedBy: state.verifiedBy,
+          verifiedAt: state.verifiedAt,
+        };
+
+        if (state.recognitionPacketId) {
+          let packet = packetCacheRef.current[state.recognitionPacketId];
+          if (!packet) {
+            try {
+              packet = await getRecognitionPacket(state.recognitionPacketId);
+              if (packet && isMounted) {
+                packetCacheRef.current[state.recognitionPacketId] = packet;
+              }
+            } catch (err) {
+              console.error("[EVIDENCE_LANE] Hydration failed for packet:", state.recognitionPacketId, err);
+            }
+          }
+
+          if (packet) {
+            entry.domainClass = packet.domainClass;
+            entry.confidence = packet.confidenceProfile?.overall;
+            entry.findingsCount = packet.observedFindings?.length;
+            entry.hasLivingEntityOcclusion = packet.livingEntities?.some((e: any) => e.causesOcclusion);
+            entry.hasPestEvidence = packet.pestEvidence?.length > 0;
+            entry.hasUnresolvedUnknowns = packet.confidenceProfile?.unresolvedUnknowns;
+            entry.hasVisibilityLimitations = packet.confidenceProfile?.occlusionImpact;
+            entry.isDrawingArtifact = packet.sceneContext?.isDrawingArtifact;
+            entry.observedFindings = packet.observedFindings;
+            entry.identifiedCandidates = packet.identifiedCandidates;
+            entry.unknowns = packet.unknowns;
+            entry.visibilityLimits = packet.visibilityLimits;
+            entry.passResults = packet.passResults;
+            
+            if (packet.draftingArtifact) {
+              entry.assetType = 'drawing';
+            }
+          }
+        }
+        
+        hydrated.push(entry);
+      }
+
+      if (isMounted) {
+        setEvidenceQueue(hydrated);
+      }
+    };
+
+    hydrateQueue();
+
+    return () => { isMounted = false; };
+  }, [evidenceStates]);
+
   // Domain-aware filtering: prioritize matching domain, never hide review_required
-  const filteredQueue = domainFilter
+  let filteredQueue = domainFilter
     ? evidenceQueue.filter((e) =>
         e.domainClass === activeDomain
         || e.mediaAnalysisState === 'review_required'
@@ -695,6 +600,11 @@ export function EvidenceLane({ activeDomain, subscriptionStatus = 'idle' }: Evid
         || !e.domainClass
       )
     : evidenceQueue;
+
+  // Render something if no items found in the inspection
+  if (!inspectionId) {
+    filteredQueue = [];
+  }
 
   const unanalyzedCount = filteredQueue.filter((e) => e.mediaAnalysisState === "accepted_unanalyzed").length;
   const reviewCount = filteredQueue.filter((e) => e.mediaAnalysisState === "review_required").length;
@@ -704,39 +614,68 @@ export function EvidenceLane({ activeDomain, subscriptionStatus = 'idle' }: Evid
   const handleRequestAnalysis = useCallback(async (entryId: string) => {
     setAnalysisLoading(true);
     try {
-      await new Promise((r) => setTimeout(r, 1500));
-      setEvidenceQueue((prev) => prev.map((e) =>
-        e.id === entryId ? { ...e, mediaAnalysisState: "accepted_analysis_requested" as MediaAnalysisState, analysisRequestedBy: "current_user", analysisRequestedAt: new Date().toISOString() } : e
-      ));
-      setTimeout(() => {
-        setEvidenceQueue((prev) => prev.map((e) =>
-          e.id === entryId && e.mediaAnalysisState === "accepted_analysis_requested" ? { ...e, mediaAnalysisState: "analysis_in_progress" as MediaAnalysisState } : e
-        ));
-      }, 2000);
+      const state = evidenceStates.find(s => s.stateId === entryId);
+      if (!state) return;
+
+      const payload: RequestAnalysisInput = {
+        mediaAssetId: state.mediaAssetId,
+        mediaDataUri: 'placeholder_for_now',
+        mediaMimeType: 'image/jpeg',
+        inspectionId: state.inspectionId,
+        projectId: 'project-1',
+        siteId: 'site-1',
+        requestedBy: 'current_user',
+        requestedAt: new Date().toISOString(),
+        domainHint: activeDomain,
+        analysisTier: 'standard',
+      };
+
+      const res = await requestAnalysis(payload);
+      if (!res.success) {
+        console.error("[EVIDENCE_LANE] Request analysis failed:", res.error);
+        // Toast or Error message could be shown here.
+      }
     } finally { setAnalysisLoading(false); }
-  }, []);
+  }, [evidenceStates, activeDomain]);
 
   const handleRequestVerification = useCallback(async (entryId: string) => {
     setVerificationLoading(true);
     try {
-      await new Promise((r) => setTimeout(r, 1000));
-      setEvidenceQueue((prev) => prev.map((e) =>
-        e.id === entryId && e.mediaAnalysisState === "analysis_complete"
-          ? { ...e, mediaAnalysisState: "verification_pending" as MediaAnalysisState, verificationRequestedBy: "current_user" }
-          : e
-      ));
+      if (!inspectionId) return;
+      const state = evidenceStates.find(s => s.stateId === entryId);
+      if (!state) return;
+
+      const res = await requestVerification({
+        mediaAssetId: state.mediaAssetId,
+        inspectionId: inspectionId,
+        requestedBy: 'current_user',
+      });
+      
+      if (!res.success) {
+        console.error("[EVIDENCE_LANE] Verification request denied/failed:", res.error);
+      }
     } finally { setVerificationLoading(false); }
-  }, []);
+  }, [evidenceStates, inspectionId]);
 
   const handleRequestReanalysis = useCallback(async (entryId: string) => {
     setReanalysisLoading(true);
     try {
-      await new Promise((r) => setTimeout(r, 1000));
-      setEvidenceQueue((prev) => prev.map((e) =>
-        e.id === entryId ? { ...e, mediaAnalysisState: "accepted_unanalyzed" as MediaAnalysisState, recognitionPacketId: undefined, observedFindings: undefined, identifiedCandidates: undefined, passResults: undefined } : e
-      ));
+      if (!inspectionId) return;
+      const state = evidenceStates.find(s => s.stateId === entryId);
+      if (!state) return;
+
+      const res = await requestReanalysis({
+        mediaAssetId: state.mediaAssetId,
+        inspectionId: inspectionId,
+        requestedBy: 'current_user',
+        reason: 'User requested manual reanalysis',
+      });
+      
+      if (!res.success) {
+        console.error("[EVIDENCE_LANE] Reanalysis request denied/failed:", res.error);
+      }
     } finally { setReanalysisLoading(false); }
-  }, []);
+  }, [evidenceStates, inspectionId]);
 
   return (
     <div className="flex flex-col md:flex-row h-full gap-0 min-h-[500px]">

@@ -49,10 +49,10 @@ interface ShellLayoutState {
   /** Current OverHUD width in pixels (0 when closed, 420 when open) */
   overHUDWidth: number;
 
-  // ─── Scing Agent & Container State ──────────────────────────────────────────
+  // ─── SCINGULAR Prime Intelligence & App-binding State ──────────────────────────────────────────
   
-  /** Scing is always active in the OVERSCITE governed command paradigm */
-  isAgentActive: boolean;
+  /** App-bindings are always active in the OVERSCITE governed command paradigm */
+  isAppBindingActive: boolean;
   
   /** The currently active WorkSPACE container ID */
   activeWorkspaceId: string | null;
@@ -137,8 +137,8 @@ export function ShellLayoutProvider({
   const [isOverHUDOpen, setOverHUDOpen] = useState(defaultOverHUDOpen);
   const [isScingDropped, setScingDropped] = useState(false);
   
-  // Scing Agent Mode Details
-  const isAgentActive = true; // Governed constraint: Agent is always active
+  // SCINGULAR Prime Intelligence Mode Details
+  const isAppBindingActive = true; // Governed constraint: App-binding is always active
   const [activeWorkspaceId, setActiveWorkspaceId] = useState<string | null>('ws_alpha');
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null);
   
@@ -166,7 +166,7 @@ export function ShellLayoutProvider({
     toggleScingDrop,
     setScingDropped,
     overHUDWidth,
-    isAgentActive,
+    isAppBindingActive,
     activeWorkspaceId,
     setActiveWorkspaceId,
     activeThreadId,

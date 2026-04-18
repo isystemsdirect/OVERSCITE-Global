@@ -234,7 +234,21 @@ const lariDraftingFlow = ai.defineFlow(
   },
   async (input) => {
     const { output } = await lariDraftingPrompt(input);
-    return output!;
+    const safeOutput = { ...output! };
+    
+    // HARD RULE: Field photo interpretation overrides all fidelity
+    safeOutput.fidelityWarning = 'field_photo_interpretation';
+
+    // Apply Provisional Symbol Validation Mapping
+    if (safeOutput.symbolClassesDetected && safeOutput.symbolClassesDetected.length > 0) {
+      safeOutput.symbolClassesDetected = safeOutput.symbolClassesDetected.map(sym => ({
+        ...sym,
+        // Enforce provisional validation state until ArcHive is fully canonized
+        validationState: 'provisional_symbol_mapping' as any,
+      }));
+    }
+    
+    return safeOutput;
   }
 );
 

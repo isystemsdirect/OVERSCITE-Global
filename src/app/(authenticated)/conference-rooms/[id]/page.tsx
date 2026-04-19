@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -61,8 +60,8 @@ export default function ConferenceRoomHub() {
           </h1>
           <div className="flex items-center gap-2 ml-auto">
             <div className="flex -space-x-2 overflow-hidden">
-                {room.participants.slice(0, 5).map(member => {
-                    const avatar = PlaceHolderImages.find(p => p.id === member.imageHint);
+                {room.participants.slice(0, 5).map((member: any) => {
+                    const avatar = PlaceHolderImages.find((p: any) => p.id === member.imageHint);
                     return avatar ? <Image key={member.id} className="inline-block h-8 w-8 rounded-full ring-2 ring-background" src={avatar.imageUrl} alt={member.name} width={32} height={32} /> : null
                 })}
             </div>
@@ -83,7 +82,7 @@ export default function ConferenceRoomHub() {
                     {/* Chat messages would be rendered here */}
                     <div className="flex items-start gap-4">
                         <Avatar>
-                            <AvatarImage src={PlaceHolderImages.find(p => p.id === 'avatar2')?.imageUrl} />
+                            <AvatarImage src={PlaceHolderImages.find((p: any) => p.id === 'avatar2')?.imageUrl} />
                             <AvatarFallback>JS</AvatarFallback>
                         </Avatar>
                         <div>
@@ -98,7 +97,7 @@ export default function ConferenceRoomHub() {
                     </div>
                      <div className="flex items-start gap-4">
                         <Avatar>
-                            <AvatarImage src={PlaceHolderImages.find(p => p.id === 'avatar1')?.imageUrl} />
+                            <AvatarImage src={PlaceHolderImages.find((p: any) => p.id === 'avatar1')?.imageUrl} />
                             <AvatarFallback>JD</AvatarFallback>
                         </Avatar>
                         <div>
@@ -109,7 +108,7 @@ export default function ConferenceRoomHub() {
                             <div className="mt-1 rounded-lg bg-primary/20 p-3 text-sm">
                                 Of course. Attaching the primary evidence photo now. It's a non-structural hairline crack, approximately 1/16th inch wide, on the western wall. I've cross-referenced it with ACI 318-19, and it's within tolerance, but I recommend sealing it to prevent moisture ingress.
                                 <Card className="mt-3 overflow-hidden">
-                                    <Image src={PlaceHolderImages.find(p => p.id === 'inspection-foundation')?.imageUrl!} alt="Foundation Crack" width={300} height={200} className="object-cover" />
+                                    <Image src={PlaceHolderImages.find((p: any) => p.id === 'inspection-foundation')?.imageUrl!} alt="Foundation Crack" width={300} height={200} className="object-cover" />
                                 </Card>
                             </div>
                         </div>
@@ -147,11 +146,11 @@ export default function ConferenceRoomHub() {
                 <ScrollArea className="h-48">
                     <CardContent>
                         <ul className="space-y-4">
-                            {room.participants.map(p => (
+                            {room.participants.map((p: any) => (
                                 <li key={p.id} className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
                                         <Avatar className="h-8 w-8">
-                                            <AvatarImage src={PlaceHolderImages.find(i => i.id === p.imageHint)?.imageUrl} />
+                                            <AvatarImage src={PlaceHolderImages.find((i: any) => i.id === p.imageHint)?.imageUrl} />
                                             <AvatarFallback>{p.name.charAt(0)}</AvatarFallback>
                                         </Avatar>
                                         <div>
@@ -182,6 +181,7 @@ export default function ConferenceRoomHub() {
                                 <Button variant="outline" size="sm">View</Button>
                             </li>
                              <li className="flex items-center justify-between p-3 rounded-md border bg-background/50">
+                                { /* Placeholder document rendering */ }
                                 <div>
                                     <p className="font-medium text-sm">Structural_Peer_Review_Notes.docx</p>
                                     <p className="text-xs text-muted-foreground">Uploaded by Jane Smith</p>

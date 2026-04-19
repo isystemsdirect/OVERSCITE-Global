@@ -90,7 +90,7 @@ export default function LariPeriodicTablePage({ params }: { params: { id: string
                                     aspect-square flex flex-col items-center justify-center border border-white/10 rounded hover:border-white/50 transition-all
                                     ${selectedElement?.number === element.number ? 'bg-primary/20 border-primary shadow-[0_0_10px_rgba(var(--primary),0.5)]' : 'bg-white/5'}
                                 `}
-                                style={{ gridColumn: element.column, gridRow: element.row }}
+                                style={{ gridColumn: (element as any).xpos, gridRow: (element as any).ypos }}
                              >
                                  <span className="text-[10px] text-muted-foreground self-start pl-1">{element.number}</span>
                                  <span className="font-bold text-lg">{element.symbol}</span>

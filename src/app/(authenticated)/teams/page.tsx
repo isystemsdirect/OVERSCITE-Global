@@ -15,6 +15,7 @@ import {
 import { mockTeamsData, mockInspectors, mockClients, mockJobs } from '@/lib/data';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/components/../lib/placeholder-images';
+import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';

@@ -58,7 +58,7 @@ export function AiSearchDialog() {
   
   const [dialogState, setDialogState] = useState<DialogState>('idle');
   const [transcript, setTranscript] = useState('');
-  const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const recognitionRef = useRef<any>(null);
 
 
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -98,14 +98,14 @@ export function AiSearchDialog() {
       recognition.continuous = false; // Stop after first result
       recognition.interimResults = false;
 
-      recognition.onresult = (event) => {
+      recognition.onresult = (event: any) => {
         const currentTranscript = event.results[event.results.length - 1][0].transcript.trim();
         setTranscript(currentTranscript);
         form.setValue('query', currentTranscript);
         processAndRespond(currentTranscript);
       };
 
-      recognition.onerror = (event) => {
+      recognition.onerror = (event: any) => {
         console.error('Speech recognition error:', event.error);
         toast({
           variant: 'destructive',

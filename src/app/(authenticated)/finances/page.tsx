@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { Separator } from "@/components/ui/separator";
 import { 
   Check, 
   CreditCard, 
@@ -251,7 +252,7 @@ export default function FinancesPage() {
                             {invoices.map(invoice => (
                                 <TableRow key={invoice.id}>
                                     <TableCell className="font-mono text-xs">{invoice.invoice_number}</TableCell>
-                                    <TableCell>{new Date(invoice.issued_at).toLocaleDateString()}</TableCell>
+                                    <TableCell>{new Date(invoice.issued_at as any).toLocaleDateString()}</TableCell>
                                     <TableCell>{invoice.currency} {invoice.amount.toFixed(2)}</TableCell>
                                     <TableCell>
                                       <Badge variant={invoice.status === 'paid' ? 'default' : (invoice.status === 'overdue' ? 'destructive' : 'secondary')}>

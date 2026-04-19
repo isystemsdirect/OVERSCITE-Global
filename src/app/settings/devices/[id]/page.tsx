@@ -112,7 +112,7 @@ export default function DeviceDashboardPage() {
     notFound();
   }
 
-  const getStatusIndicator = (status: 'Connected' | 'Disconnected' | 'Error') => {
+  const getStatusIndicator = (status: string) => {
     switch (status) {
       case 'Connected':
         return <div className="flex items-center gap-2 text-foreground"><Wifi size={16} /><span>Connected</span></div>;

@@ -24,6 +24,7 @@ import {
   Timestamp,
   orderBy,
   limit,
+  Firestore,
 } from 'firebase/firestore';
 
 export interface RecognitionMetricsSnapshot {
@@ -67,7 +68,7 @@ export async function getRecognitionHealthSnapshot(): Promise<RecognitionMetrics
   // via a scheduled Google Cloud Function and written to a stats document.
   // We approximate the query here for the ArcHive front-end.
   
-  const evidenceRef = collection(db, 'evidence_analysis_states');
+  const evidenceRef = collection(db as Firestore, 'evidence_analysis_states');
   
   // Note: For simplicity without requiring complex composite indexes in the mock,
   // we do simple reads. Real environment uses aggregated data.
@@ -127,7 +128,7 @@ export async function getDriftReviewQueue(): Promise<DriftReviewItem[]> {
   if (!db) return [];
 
   // In real deployment, 'identifiedUnknowns' > 0 would be indexed.
-  const evidenceRef = collection(db, 'evidence_analysis_states');
+  const evidenceRef = collection(db as Firestore, 'evidence_analysis_states');
   const q = query(evidenceRef, orderBy('createdAt', 'desc'), limit(100));
   
   const snapshot = await getDocs(q);
@@ -164,7 +165,7 @@ export async function createProposalFromDrift(params: {
 }): Promise<string> {
   if (!db) throw new Error('Database not initialized');
 
-  const proposalRef = collection(db, 'recognition_control_proposals');
+  const proposalRef = collection(db as Firestore, 'recognition_control_proposals');
   
   // Create a record for the proposal packet
   // Note: stagedArtifactId would be a newly created domain pack version 

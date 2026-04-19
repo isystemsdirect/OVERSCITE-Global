@@ -93,7 +93,7 @@ function AuditEntryRow({ entry }: { entry: AuditLogEntry }) {
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold text-foreground">{actionLabel}</span>
             {entry.banePolicyRef && (
-              <Shield className="h-3 w-3 text-violet-400 shrink-0" title="BANE policy-referenced" />
+              <Shield className="h-3 w-3 text-violet-400 shrink-0" />
             )}
             {expanded ? <ChevronUp className="h-3 w-3 text-muted-foreground ml-auto shrink-0" /> : <ChevronDown className="h-3 w-3 text-muted-foreground ml-auto shrink-0" />}
           </div>

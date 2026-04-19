@@ -40,6 +40,7 @@ import {
   limit,
   serverTimestamp,
   Timestamp,
+  Firestore,
   type DocumentData,
 } from 'firebase/firestore';
 import { nanoid } from 'nanoid';
@@ -96,7 +97,7 @@ async function appendRecognitionAuditEntry(
       serverTimestamp: serverTimestamp(),
       __immutable: true,
     };
-    const ref = await addDoc(collection(db, COLLECTIONS.RECOGNITION_AUDIT_LOG), auditEntry);
+    const ref = await addDoc(collection(db as Firestore, COLLECTIONS.RECOGNITION_AUDIT_LOG), auditEntry);
     return ref.id;
   } catch (error) {
     console.error('[RECOGNITION_AUDIT] CRITICAL: audit write failed:', error);
@@ -168,7 +169,7 @@ export async function getEvidenceAnalysisState(
   if (!db) return null;
   try {
     const q = query(
-      collection(db, COLLECTIONS.EVIDENCE_ANALYSIS_STATES),
+      collection(db as Firestore, COLLECTIONS.EVIDENCE_ANALYSIS_STATES),
       where('mediaAssetId', '==', mediaAssetId),
       limit(1)
     );
@@ -190,7 +191,7 @@ export async function getEvidenceQueueForInspection(
   if (!db) return [];
   try {
     const q = query(
-      collection(db, COLLECTIONS.EVIDENCE_ANALYSIS_STATES),
+      collection(db as Firestore, COLLECTIONS.EVIDENCE_ANALYSIS_STATES),
       where('inspectionId', '==', inspectionId),
       orderBy('createdAt', 'desc')
     );
@@ -266,7 +267,7 @@ export async function recordAnalysisRequest(
     });
 
     // Persist the analysis request record
-    const requestRef = await addDoc(collection(db, 'analysis_requests'), {
+    const requestRef = await addDoc(collection(db as Firestore, 'analysis_requests'), {
       ...request,
       __canonical: true,
       __v: '2.0.0',
@@ -297,7 +298,7 @@ export async function markAnalysisInProgress(params: {
 }): Promise<RecognitionWriteResult> {
   if (!db) return { success: false, error: 'Database not initialized' };
   try {
-    const stateRef = doc(db, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
+    const stateRef = doc(db as Firestore, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
     const snap = await getDoc(stateRef);
     if (!snap.exists()) return { success: false, error: 'State record not found' };
 
@@ -340,7 +341,7 @@ export async function markAnalysisComplete(params: {
 }): Promise<RecognitionWriteResult> {
   if (!db) return { success: false, error: 'Database not initialized' };
   try {
-    const stateRef = doc(db, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
+    const stateRef = doc(db as Firestore, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
     const snap = await getDoc(stateRef);
     if (!snap.exists()) return { success: false, error: 'State record not found' };
 
@@ -384,7 +385,7 @@ export async function markReviewRequired(params: {
 }): Promise<RecognitionWriteResult> {
   if (!db) return { success: false, error: 'Database not initialized' };
   try {
-    const stateRef = doc(db, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
+    const stateRef = doc(db as Firestore, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
     const snap = await getDoc(stateRef);
     if (!snap.exists()) return { success: false, error: 'State record not found' };
     const current = snap.data() as EvidenceAnalysisState;
@@ -444,7 +445,7 @@ export async function persistRecognitionPacket(
   }
 
   try {
-    await setDoc(doc(db, COLLECTIONS.RECOGNITION_PACKETS, packet.packetId), {
+    await setDoc(doc(db as Firestore, COLLECTIONS.RECOGNITION_PACKETS, packet.packetId), {
       ...packet,
       __canonical: true,
       __v: '2.0.0',
@@ -476,7 +477,7 @@ export async function getRecognitionPacket(
 ): Promise<InspectionRecognitionPacket | null> {
   if (!db) return null;
   try {
-    const snap = await getDoc(doc(db, COLLECTIONS.RECOGNITION_PACKETS, packetId));
+    const snap = await getDoc(doc(db as Firestore, COLLECTIONS.RECOGNITION_PACKETS, packetId));
     if (!snap.exists()) return null;
     return snap.data() as InspectionRecognitionPacket;
   } catch (error) {
@@ -521,7 +522,7 @@ export async function recordVerificationDecision(params: {
   }
 
   try {
-    const stateRef = doc(db, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
+    const stateRef = doc(db as Firestore, COLLECTIONS.EVIDENCE_ANALYSIS_STATES, params.stateId);
     const snap = await getDoc(stateRef);
     if (!snap.exists()) return { success: false, error: 'State record not found' };
 

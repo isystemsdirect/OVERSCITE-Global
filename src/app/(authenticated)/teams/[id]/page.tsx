@@ -106,7 +106,7 @@ export default function TeamCentralHubPage() {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {team.members.map((member, index) => {
+                            {team.members.map((member: any, index: any) => {
                             const avatar = PlaceHolderImages.find(p => p.id === member.imageHint);
                             const role = index === 0 ? 'Admin' : index === 1 ? 'Lead Inspector' : 'Inspector';
                             const status = member.onCall ? 'On-Call' : 'Offline';
@@ -160,7 +160,7 @@ export default function TeamCentralHubPage() {
                     <CardContent>
                         {team.docs.length > 0 ? (
                            <ul className="space-y-3">
-                                {team.docs.map(doc => (
+                                {team.docs.map((doc: any) => (
                                     <li key={doc.id} className="flex items-center justify-between p-3 rounded-md border bg-background/50 hover:bg-muted/50 transition-colors">
                                         <div>
                                             <p className="font-medium">{doc.name}</p>
@@ -208,7 +208,7 @@ export default function TeamCentralHubPage() {
                                 <h4 className="font-semibold mb-2">Admin Action Log</h4>
                                 {team.adminActions.length > 0 ? (
                                     <ul className="space-y-2 text-sm text-muted-foreground max-h-40 overflow-y-auto">
-                                        {team.adminActions.map(log => (
+                                        {team.adminActions.map((log: any) => (
                                             <li key={log.id} className="flex gap-2">
                                                 <span className="font-mono text-xs opacity-70">[{log.timestamp}]</span>
                                                 <span>{log.action}</span>

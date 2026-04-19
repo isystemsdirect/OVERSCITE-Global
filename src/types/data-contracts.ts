@@ -24,7 +24,7 @@ export interface NormalizedGeospatialAsset {
   id: string;
   coordinates: [number, number]; // [lon, lat]
   status: 'nominal' | 'off-grid' | 'maintenance' | 'unknown';
-  lastUpdated: number; // UTC epoch seconds
+  timestamp: number; // UTC epoch seconds
   sourceSignature: string;
 }
 

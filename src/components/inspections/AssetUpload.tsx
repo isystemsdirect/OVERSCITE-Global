@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { getDb, getFirebaseStorage } from '@/lib/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, doc, setDoc, serverTimestamp, Firestore } from 'firebase/firestore';
 import { Loader2, Upload, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -52,7 +52,7 @@ export const AssetUpload: React.FC<AssetUploadProps> = ({ inspectionId }) => {
 
     try {
       // 1. Generate unique asset ID
-      const assetDocRef = doc(collection(db, 'inspections', inspectionId, 'assets'));
+      const assetDocRef = doc(collection(db as Firestore, 'inspections', inspectionId, 'assets'));
       const assetId = assetDocRef.id;
 
       // 2. Upload to Firebase Storage

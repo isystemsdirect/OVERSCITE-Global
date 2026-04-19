@@ -568,7 +568,7 @@ export default function WorkstationPage() {
                         <div className="flex gap-6 items-center">
                           <div className={cn(
                             "h-14 w-14 rounded-xl border transition-all duration-500 group-hover:scale-110 flex items-center justify-center shadow-inner",
-                            cap.status === 'active' ? "bg-primary/10 border-primary/20 text-primary" : "bg-muted/10 border-border/50 text-muted-foreground opacity-60"
+                            cap.status === 'live' ? "bg-primary/10 border-primary/20 text-primary" : "bg-muted/10 border-border/50 text-muted-foreground opacity-60"
                           )}>
                              {cap.category === 'LARI_VISION' && <Eye className="h-7 w-7" />}
                              {cap.category === 'SCING_VOICE' && <Zap className="h-7 w-7" />}
@@ -591,13 +591,13 @@ export default function WorkstationPage() {
                           </div>
                         </div>
                         <div className="flex items-center gap-6 pr-4">
-                          <Badge variant={cap.status === 'active' ? 'default' : 'outline'} className={cn(
+                          <Badge variant={cap.status === 'live' ? 'default' : 'outline'} className={cn(
                             "text-[11px] font-black font-mono px-3 h-6 tracking-tighter",
-                            cap.status === 'active' ? "bg-green-500" : "opacity-40"
+                            cap.status === 'live' ? "bg-green-500" : "opacity-40"
                           )}>
                             {cap.status.toUpperCase()}
                           </Badge>
-                          {cap.status === 'active' ? (
+                          {cap.status === 'live' ? (
                             <Button variant="outline" size="icon" className="h-10 w-10 rounded-xl bg-background/30 border-border/40 hover:bg-primary/10 hover:text-primary transition-all group-hover:border-primary/40"><Settings className="h-4 w-4"/></Button>
                           ) : (
                             <Button variant="pro" size="sm" className="h-10 px-6 rounded-xl font-black text-xs shadow-lg shadow-primary/10">Authorize Node</Button>

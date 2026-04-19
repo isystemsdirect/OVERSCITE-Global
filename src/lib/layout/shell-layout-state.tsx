@@ -177,7 +177,7 @@ export function ShellLayoutProvider({
     isOverHUDOpen,
     isScingDropped,
     overHUDWidth,
-    isAgentActive,
+    // isAgentActive removed from dependencies - not found in scope
     activeWorkspaceId,
     activeThreadId,
     workspaces,

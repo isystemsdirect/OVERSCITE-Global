@@ -13,9 +13,9 @@ const InspectionFlowPanel = () => {
     async function load() {
       const inspections = await getInspections();
       setStats({
-        upcoming: inspections.filter(i => i.status === 'Draft').length,
-        inProgress: inspections.filter(i => i.status === 'In Progress').length,
-        pending: inspections.filter(i => i.status === 'Final').length,
+        upcoming: inspections.filter(i => i.status === 'candidate').length,
+        inProgress: inspections.filter(i => i.status === 'partial').length,
+        pending: inspections.filter(i => i.status === 'accepted').length,
       });
     }
     load();

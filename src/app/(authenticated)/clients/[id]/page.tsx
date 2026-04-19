@@ -130,15 +130,15 @@ export default function ClientProfilePage({ params }: { params: { id: string } }
                                   <TableCell>
                                       <div className="font-medium">{inspection.title}</div>
                                       <div className="hidden text-sm text-muted-foreground md:inline">
-                                      {inspection.propertyAddress.street}
+                                      {(inspection as any).propertyAddress?.street || (inspection as any).propertyAddress}
                                       </div>
                                   </TableCell>
                                   <TableCell>
-                                      <Badge variant={inspection.status === 'Final' ? 'default' : 'secondary'}>
+                                      <Badge variant={(inspection.status as any) === 'accepted' ? 'default' : 'secondary'}>
                                       {inspection.status}
                                       </Badge>
                                   </TableCell>
-                                  <TableCell className="hidden md:table-cell">{inspection.date}</TableCell>
+                                  <TableCell className="hidden md:table-cell">{String(inspection.date)}</TableCell>
                                   <TableCell className="text-right">
                                       <Button asChild variant="outline" size="sm">
                                       <Link href={`/inspections/${inspection.id}`}>View Report</Link>

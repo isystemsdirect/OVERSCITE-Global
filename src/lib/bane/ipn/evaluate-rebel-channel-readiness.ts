@@ -1,4 +1,4 @@
-import { IPNSession } from '../../../ipn/types';
+import { IPNSession } from '../../ipn/types';
 
 export function evaluateRebelChannelReadiness(
     session: IPNSession,

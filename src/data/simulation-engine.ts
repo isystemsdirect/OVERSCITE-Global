@@ -43,7 +43,7 @@ export const generateGeospatialAssets = (count: number): NormalizedGeospatialAss
     id: `geo_asset_${i}`,
     coordinates: [ (seededRandom() * 180 - 90), (seededRandom() * 360 - 180) ],
     status: statuses[i % statuses.length],
-    lastUpdated: Date.now() - Math.floor(seededRandom() * 120000),
+    timestamp: Date.now() - Math.floor(seededRandom() * 120000),
     sourceSignature: createSignature(`geo_asset_${i}`),
   }));
 };
@@ -65,7 +65,7 @@ export const generateDispatchEvents = (count: number): NormalizedDispatchEvent[]
 export const injectVolatilitySpike = (assets: NormalizedGeospatialAsset[]): NormalizedGeospatialAsset[] => {
   if (assets.length > 2) {
     assets[1].status = 'off-grid';
-    assets[1].lastUpdated = Date.now();
+    assets[1].timestamp = Date.now();
   }
   return assets;
 };

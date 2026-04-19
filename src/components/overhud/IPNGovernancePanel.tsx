@@ -10,8 +10,8 @@ export default function IPNGovernancePanel() {
     const def = getPostureDefinition(posture.currentState);
 
     const PostureIcon = useMemo(() => {
-        if (posture.currentState === IPNPostureStateEnum.Aggressive) return ShieldCheck;
-        if (posture.currentState === IPNPostureStateEnum.Controlled) return Shield;
+        if (posture.currentState === IPNPostureStateEnum.AGGRESSIVE) return ShieldCheck;
+        if (posture.currentState === IPNPostureStateEnum.CONTROLLED) return Shield;
         return ShieldAlert;
     }, [posture.currentState]);
 
@@ -26,7 +26,7 @@ export default function IPNGovernancePanel() {
                     <div className="flex flex-col">
                         <span className="text-[10px] text-muted-foreground uppercase">Network Posture</span>
                         <span className="text-primary font-bold flex items-center gap-2 mt-0.5">
-                            <PostureIcon size={16} className={posture.currentState === IPNPostureStateEnum.Aggressive ? 'text-green-500' : 'text-yellow-500'} />
+                            <PostureIcon size={16} className={posture.currentState === IPNPostureStateEnum.AGGRESSIVE ? 'text-green-500' : 'text-yellow-500'} />
                             {def.label}
                         </span>
                     </div>

@@ -21,7 +21,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { FileDiff, GitBranch, LayoutList, Network, ArrowRightCircle } from 'lucide-react';
 import { DriftReviewQueue } from './drift-review-queue';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 export function RecognitionGovernanceDashboard() {
   const { toast } = useToast();

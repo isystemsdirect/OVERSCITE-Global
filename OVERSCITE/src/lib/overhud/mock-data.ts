@@ -29,7 +29,7 @@ export const mockRepos: MountedRepo[] = [
 ];
 
 // In a real app, this would be fetched from a file system API
-export const mockFileTree: ExplorerNode[] = [
+export const mockFileTree: any[] = [
     {
         id: 'src', repoId: 'repo-overscite', name: 'src', path: '/src', relativePath: 'src', nodeType: 'directory', hasChildren: true,
         children: [
@@ -49,12 +49,12 @@ export const mockFileTree: ExplorerNode[] = [
     { id: '.env', repoId: 'repo-overscite', name: '.env', path: '/.env', relativePath: '.env', nodeType: 'file', extension: '', size: 123, modifiedAt: new Date().toISOString(), isHidden: true, isSensitive: true },
 ];
 
-export const processTreeForStore = (nodes: ExplorerNode[], repoId: string) => {
-    const tree: Record<string, ExplorerNode> = {};
+export const processTreeForStore = (nodes: any[], repoId: string) => {
+    const tree: Record<string, any> = {};
     const childrenMap: Record<string, string[]> = {};
     const rootNodeIds: string[] = [];
 
-    const traverse = (node: ExplorerNode, parentId?: string) => {
+    const traverse = (node: any, parentId?: string) => {
         const { children, ...rest } = node;
         tree[node.id] = { ...rest, repoId };
 
@@ -62,8 +62,8 @@ export const processTreeForStore = (nodes: ExplorerNode[], repoId: string) => {
             rootNodeIds.push(node.id);
         }
         if (children && children.length > 0) {
-            childrenMap[node.id] = children.map(c => c.id);
-            children.forEach(child => traverse(child, node.id));
+            childrenMap[node.id] = children.map((c: any) => c.id);
+            children.forEach((child: any) => traverse(child, node.id));
         }
     };
     nodes.forEach(node => traverse(node));

@@ -9,7 +9,8 @@ import {
   query, 
   where, 
   orderBy, 
-  onSnapshot 
+  onSnapshot,
+  Firestore,
 } from 'firebase/firestore';
 import { getDb } from '@/lib/firebase';
 import { SecurityAuditLog } from '@/types/security-audit-log';
@@ -22,7 +23,7 @@ export const securityAuditStore = {
    */
   async recordAudit(audit: SecurityAuditLog): Promise<string> {
     const db = getDb();
-    const docRef = await addDoc(collection(db, COLLECTION_NAME), audit);
+    const docRef = await addDoc(collection(db as Firestore, COLLECTION_NAME), audit);
     return docRef.id;
   },
 
@@ -32,7 +33,7 @@ export const securityAuditStore = {
   subscribeToEventAudit(eventId: string, callback: (logs: SecurityAuditLog[]) => void) {
     const db = getDb();
     const q = query(
-      collection(db, COLLECTION_NAME),
+      collection(db as Firestore, COLLECTION_NAME),
       where('eventId', '==', eventId),
       orderBy('timestamp', 'asc')
     );

@@ -8,7 +8,7 @@
  * Implementation Status: SCAFFOLD — writes deferred to recordMarketAuditEvent Cloud Function.
  */
 
-import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
+import { collection, query, where, orderBy, limit, getDocs, Firestore } from 'firebase/firestore';
 import { getDb } from '../firebase';
 import type { MarketAuditEvent, MarketEntityType } from '../types/marketplace';
 
@@ -24,7 +24,7 @@ export async function getAuditEventsForEntity(
   maxResults = 50
 ): Promise<MarketAuditEvent[]> {
   const db = getDb();
-  const col = collection(db, AUDIT_COLLECTION);
+  const col = collection(db as Firestore, AUDIT_COLLECTION);
   const q = query(
     col,
     where('entity_type', '==', entityType),
@@ -45,7 +45,7 @@ export async function getAuditEventsForActor(
   maxResults = 100
 ): Promise<MarketAuditEvent[]> {
   const db = getDb();
-  const col = collection(db, AUDIT_COLLECTION);
+  const col = collection(db as Firestore, AUDIT_COLLECTION);
   const q = query(
     col,
     where('actor_id', '==', actorId),

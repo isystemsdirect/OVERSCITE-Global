@@ -1,5 +1,5 @@
-import { IPNDevice, IPNConflictEvent } from '../../../ipn/types';
-import { calculateConflictPressure } from '../../../ipn/conflict-evaluator';
+import { IPNDevice, IPNConflictEvent, IPNPostureStateEnum } from '../../ipn/types';
+import { calculateConflictPressure } from '../../ipn/conflict-evaluator';
 
 export function evaluateQuarantineTrigger(
     device: IPNDevice,
@@ -12,11 +12,11 @@ export function evaluateQuarantineTrigger(
     }
 
     const conflictPressure = calculateConflictPressure(recentConflicts);
-    if (conflictPressure >= 90 && device.postureState === 'DEGRADED') {
+    if (conflictPressure >= 90 && device.postureState === IPNPostureStateEnum.DEGRADED) {
         return { triggered: true, reason: 'Critical conflict pressure co-occurring with degraded device posture.' };
     }
 
-    if (device.srtBound === false && device.postureState === 'DEGRADED') {
+    if (device.srtBound === false && device.postureState === IPNPostureStateEnum.DEGRADED) {
          return { triggered: true, reason: 'Degraded non-SRT device poses unacceptable transit risk. Containment engaged.' };
     }
 

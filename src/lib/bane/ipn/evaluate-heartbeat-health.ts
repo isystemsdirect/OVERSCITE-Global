@@ -1,5 +1,5 @@
-import { IPNDevice } from '../../../ipn/types';
-import { calculateHeartbeatStaleness, HEARTBEAT_OFFLINE_THRESHOLD_MS, HEARTBEAT_STALE_THRESHOLD_MS } from '../../../ipn/heartbeat';
+import { IPNDevice } from '../../ipn/types';
+import { calculateHeartbeatStaleness, HEARTBEAT_OFFLINE_THRESHOLD_MS, HEARTBEAT_STALE_THRESHOLD_MS } from '../../ipn/heartbeat';
 
 export function evaluateHeartbeatHealth(device: IPNDevice): { isHealthy: boolean, reason: string } {
     const staleness = calculateHeartbeatStaleness(device.lastSeenAt);

@@ -1,5 +1,5 @@
 
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, Firestore } from 'firebase/firestore';
 import { getDb } from './firebase';
 
 export const subscriptionPlans = {
@@ -19,7 +19,7 @@ export const subscriptionPlans = {
 
 export async function getUserSubscription(userId: string) {
   const db = getDb();
-  const userDocRef = doc(db, 'users', userId);
+  const userDocRef = doc(db as Firestore, 'users', userId);
   const userDoc = await getDoc(userDocRef);
 
   if (userDoc.exists()) {

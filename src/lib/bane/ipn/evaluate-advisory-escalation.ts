@@ -1,4 +1,4 @@
-import { IPNRecommendationEvent } from '../../../ipn/types';
+import { IPNRecommendationEvent } from '../../ipn/types';
 
 export function evaluateAdvisoryEscalation(
     recommendation: IPNRecommendationEvent,

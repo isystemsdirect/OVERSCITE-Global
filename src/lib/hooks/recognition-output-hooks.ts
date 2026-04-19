@@ -43,7 +43,8 @@ export interface MapReadyHookPayload {
   inspectionId: string;
   /** Payload type discriminator */
   type: 'hazard' | 'site_state' | 'visibility_limited' | 'review_required'
-    | 'industrial_corrosion' | 'safety_ppe' | 'drawing_discrepancy_readiness';
+    | 'industrial_corrosion' | 'safety_ppe' | 'drawing_discrepancy_readiness'
+    | 'weather_exposed_site' | 'unsafe_condition';
   /** Human-readable summary */
   summary: string;
   /** Severity for display prioritization */

@@ -5,7 +5,7 @@ export const relayPacket = functions.https.onCall(async (data, context) => {
         throw new functions.https.HttpsError('unauthenticated', 'ARC-bound identity required');
     }
 
-    const { requestId, sessionId, target, payloadHash, authorizationContext } = data;
+    const { requestId, sessionId, target, authorizationContext } = data;
 
     if (!requestId || !sessionId || !target || !authorizationContext) {
         throw new functions.https.HttpsError('invalid-argument', 'Missing routing info or authorization context');

@@ -2,8 +2,9 @@
 
 import type { ProposalProfile, DivisionMode } from '../../lib/contractor/types';
 import { evaluateContractMutationGate } from '@/lib/bane/scing-execution-gate';
-import { toast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { emitUiAudit } from '@/lib/audit/ui-audit-bridge';
+import { ShieldAlert, Info, FileCheck } from 'lucide-react';
 
 interface ProposalDraftingProps {
   proposals: ProposalProfile[];
@@ -11,6 +12,7 @@ interface ProposalDraftingProps {
 }
 
 export const ProposalDrafting: React.FC<ProposalDraftingProps> = ({ proposals, mode }) => {
+  const { toast } = useToast();
   const isAssistOnly = mode === 'DRAFT_ASSIST_ONLY' || mode === 'SETUP_REQUIRED';
 
   return (
@@ -115,15 +117,18 @@ export const ProposalDrafting: React.FC<ProposalDraftingProps> = ({ proposals, m
                       });
 
                       const decision = await evaluateContractMutationGate({
-                        actorId,
-                        actionType: 'APPLY_HUMAN_SEAL',
-                        targetId: p.id
-                      });
+                        intent_id: `intent_${Date.now()}`,
+                        actor_id: actorId,
+                        inferred_tier: 'TIER_3_EXECUTION',
+                        target_entity_uid: p.id,
+                        context: { action: 'APPLY_HUMAN_SEAL' },
+                        trigger_audit: { detected: true, word: 'seal' }
+                      } as any);
 
                       if (!decision.permitted) {
                         toast({
                           title: "BANE ENFORCEMENT - BLOCKED",
-                          description: `Proposal Finalization Rejected. Classification: ${decision.classification}`,
+                          description: `Proposal Finalization Rejected. Reason: ${decision.reason}`,
                           variant: 'destructive',
                         });
                         
@@ -132,13 +137,13 @@ export const ProposalDrafting: React.FC<ProposalDraftingProps> = ({ proposals, m
                           actorId,
                           action: 'APPLY_HUMAN_SEAL',
                           targetId: p.id,
-                          traceId: decision.sdrId,
+                          traceId: decision.audit_signature.timestamp,
                           metadata: { reason: 'Governance Refusal', auditRef: auditId }
                         });
                       } else {
                         toast({
                           title: "Human Seal Applied",
-                          description: `SDR Logged: ${decision.sdrId} | Classification: ${decision.classification}`,
+                          description: `SDR Logged: ${decision.audit_signature.timestamp} | Action: ${decision.audit_signature.action_type}`,
                         });
 
                         await emitUiAudit({
@@ -146,7 +151,7 @@ export const ProposalDrafting: React.FC<ProposalDraftingProps> = ({ proposals, m
                           actorId,
                           action: 'APPLY_HUMAN_SEAL',
                           targetId: p.id,
-                          traceId: decision.sdrId,
+                          traceId: decision.audit_signature.timestamp,
                           metadata: { auditRef: auditId }
                         });
                       }

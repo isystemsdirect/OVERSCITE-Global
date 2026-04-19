@@ -1,5 +1,5 @@
 // context.ts
-export type UserRole = 'INSPECTOR' | 'ADMIN' | 'AUDITOR' | 'SYSTEM' | 'reviewer' | 'director';
+export type UserRole = 'INSPECTOR' | 'ADMIN' | 'AUDITOR' | 'SYSTEM' | 'reviewer' | 'director' | 'supervisor';
 
 export type DevicePosture = 'HEALTHY' | 'DEGRADED' | 'ROOTED' | 'UNKNOWN' | 'secure';
 

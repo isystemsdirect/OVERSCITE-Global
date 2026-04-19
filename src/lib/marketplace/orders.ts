@@ -20,6 +20,7 @@ import {
   getDocs,
   getDoc,
   doc,
+  Firestore,
 } from 'firebase/firestore';
 import { getDb } from '../firebase';
 import type { OrderRecord, OrderStatus } from '../types/marketplace';
@@ -35,7 +36,7 @@ export async function getOrdersByBuyer(
   maxResults = 50
 ): Promise<OrderRecord[]> {
   const db = getDb();
-  const col = collection(db, ORDERS_COL);
+  const col = collection(db as Firestore, ORDERS_COL);
   const constraints: Parameters<typeof query>[1][] = [
     where('buyer_arc_id', '==', buyerArcId),
   ];
@@ -58,7 +59,7 @@ export async function getOrdersByBuyerOrg(
   maxResults = 50
 ): Promise<OrderRecord[]> {
   const db = getDb();
-  const col = collection(db, ORDERS_COL);
+  const col = collection(db as Firestore, ORDERS_COL);
   const q = query(
     col,
     where('buyer_org_id', '==', orgId),
@@ -74,7 +75,7 @@ export async function getOrdersByBuyerOrg(
  */
 export async function getOrderById(orderId: string): Promise<OrderRecord | null> {
   const db = getDb();
-  const ref = doc(db, ORDERS_COL, orderId);
+  const ref = doc(db as Firestore, ORDERS_COL, orderId);
   const snap = await getDoc(ref);
   if (!snap.exists()) return null;
   return { order_id: snap.id, ...snap.data() } as OrderRecord;

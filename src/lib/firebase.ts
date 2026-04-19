@@ -84,6 +84,7 @@ function getFirebaseStorage(): FirebaseStorage | null {
 
 export { 
     getFirebaseApp, 
+    getFirebaseApp as getApp,
     getFirebaseAuth, 
     getDb, 
     getFirebaseFunctions,

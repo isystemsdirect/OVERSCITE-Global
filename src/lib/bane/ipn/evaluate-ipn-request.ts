@@ -1,4 +1,4 @@
-import { IPNTransportRequest } from '../../../ipn/types';
+import { IPNTransportRequest } from '../../ipn/types';
 
 export function evaluateTransportRequest(request: IPNTransportRequest, policyPackVersion: string, currentPosture: string): { decision: 'ALLOW' | 'DENY' | 'CONSTRAIN' | 'REVIEW_REQUIRED', reason: string } {
     // Phase 1 Governed Relay logic

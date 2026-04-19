@@ -147,7 +147,7 @@ function getActiveTileLayerId(
     )
     .sort((a, b) => (b.zOrder ?? 0) - (a.zOrder ?? 0));
 
-  return environmentalLayers[0]?.tileProviderId ?? null;
+  return (environmentalLayers[0] as any)?.tileProviderId ?? null;
 }
 
 /**

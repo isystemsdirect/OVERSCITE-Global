@@ -1,5 +1,5 @@
-import { IPNConflictEvent, IPNPostureStateEnum } from '../../../ipn/types';
-import { calculateConflictPressure, recommendPostureFromConflict } from '../../../ipn/conflict-evaluator';
+import { IPNConflictEvent, IPNPostureStateEnum } from '../../ipn/types';
+import { calculateConflictPressure, recommendPostureFromConflict } from '../../ipn/conflict-evaluator';
 
 export function evaluateConflictPressure(
     events: IPNConflictEvent[],
@@ -10,7 +10,7 @@ export function evaluateConflictPressure(
     const recommended = recommendPostureFromConflict(pressure);
 
     // If pressure is maxed out but we are restricted from opening posture by safety locking
-    if (pressure >= 90 && currentGlobalPosture === IPNPostureStateEnum.Aggressive) {
+    if (pressure >= 90 && currentGlobalPosture === IPNPostureStateEnum.AGGRESSIVE) {
         return {
             recommendation: currentGlobalPosture,
             requireQuarantine: true,

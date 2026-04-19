@@ -89,7 +89,8 @@ export class FindingReviewService {
         console.error('Integrity invalidation failed', e);
     }
     
-    return { success: true };
+    // Terminal return for void promise
+    return;
   }
 }
 

@@ -25,6 +25,7 @@ import {
   where,
   orderBy,
   onSnapshot,
+  Firestore,
   type Unsubscribe,
   type QuerySnapshot,
   type DocumentData,
@@ -107,7 +108,7 @@ export function useEvidenceSubscription(
 
     try {
       const q = query(
-        collection(db, 'evidence_analysis_states'),
+        collection(db as Firestore, 'evidence_analysis_states'),
         where('inspectionId', '==', inspectionId),
         orderBy('createdAt', 'desc')
       );

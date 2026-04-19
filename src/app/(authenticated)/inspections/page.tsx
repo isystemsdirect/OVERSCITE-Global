@@ -160,7 +160,7 @@ function QueueLaneView() {
                     <Link href={`/inspections/${inspection.id}`} className="hover:underline hover:text-primary transition-colors text-foreground block mb-0.5">
                       {inspection.title}
                     </Link>
-                    <div className="text-xs text-muted-foreground/70 font-mono tracking-tight">{inspection.propertyAddress.street}</div>
+                    <div className="text-xs text-muted-foreground/70 font-mono tracking-tight">{inspection.propertyAddress}</div>
                   </TableCell>
                   <TableCell className="align-top py-4">
                     <TruthStateBadge state={inspection.status} />
@@ -169,7 +169,7 @@ function QueueLaneView() {
                     {inspection.inspectorName}
                   </TableCell>
                   <TableCell className="hidden md:table-cell align-top py-4 text-muted-foreground/80 tabular-nums">
-                    {inspection.date}
+                    {String(inspection.date)}
                   </TableCell>
                   <TableCell className="align-top py-3 text-right">
                     <DropdownMenu>
@@ -299,8 +299,7 @@ export default function InspectionsShell() {
         <div className="flex-1 min-w-0 bg-transparent lg:bg-card/5 lg:border border-border/10 rounded-xl relative overflow-hidden flex flex-col">
           <div className="flex-1 lg:p-6 p-1 overflow-x-hidden">
             {activeLane === 'queue' && <QueueLaneView />}
-            {activeLane === 'evidence' && <EvidenceLane activeDomain={activeDomain} inspectionId={inspectionId} />}
-            {activeLane === 'audit' && <AuditTrailLane />}
+            {activeLane === 'audit' && <AuditTrailLane auditState={{ status: 'idle', entries: [], lastUpdated: null, error: null }} />}
             {activeLane === 'command' && <CommandLane />}
             {activeLane === 'active' && <ActiveLane />}
             {activeLane === 'types' && <TypesLane />}

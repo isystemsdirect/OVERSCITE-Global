@@ -18,6 +18,7 @@ import {
   orderBy,
   limit,
   getDocs,
+  Firestore,
 } from 'firebase/firestore';
 import { getDb } from '../firebase';
 import type { EntitlementRecord, EntitlementStatus } from '../types/marketplace';
@@ -33,7 +34,7 @@ export async function getEntitlements(
   statusFilter?: EntitlementStatus
 ): Promise<EntitlementRecord[]> {
   const db = getDb();
-  const col = collection(db, ENTITLEMENTS_COL);
+  const col = collection(db as Firestore, ENTITLEMENTS_COL);
   const constraints: Parameters<typeof query>[1][] = [
     where('owner_type', '==', ownerType),
     where('owner_id', '==', ownerId),

@@ -11,6 +11,8 @@ export const CANON = {
   LARI_ROLE: "Analytical Intelligence Layer",
   BANE_ROLE: "Trust & Enforcement Layer",
 
+  SCING: "SCING",
+  LARI: "LARI",
   PROTOCOL_FAMILY_MUCB: "Multi-Purpose UCB Protocol",
   PACKET_CLASS_MUDTCB_S: "Multi-Purpose Ultra Dialog-Transfer Consolidated Batch (Strict)"
 };

@@ -19,7 +19,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { AlertTriangle, Info, ShieldAlert, Clock, MapPin, ExternalLink, Activity } from 'lucide-react';
+import { AlertTriangle, Info, ShieldAlert, Clock, MapPin, ExternalLink, Activity, Cloud } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { MapReadyHookPayload } from '@/lib/hooks/recognition-output-hooks';
 
@@ -42,6 +42,7 @@ export function RecognitionAdvisoryWidget({ payload, className, showLink = true 
     industrial_corrosion: AlertTriangle,
     safety_ppe: ShieldAlert,
     drawing_discrepancy_readiness: Info,
+    weather_exposed_site: Cloud,
   };
 
   const Icon = IconMap[payload.type as keyof typeof IconMap] || AlertTriangle;

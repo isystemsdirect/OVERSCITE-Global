@@ -11,7 +11,8 @@ import {
   query, 
   orderBy, 
   limit, 
-  onSnapshot 
+  onSnapshot,
+  Firestore,
 } from 'firebase/firestore';
 import { getDb } from '@/lib/firebase';
 import { SecurityEvent } from '@/types/security-event';
@@ -24,7 +25,7 @@ export const securityEventsStore = {
    */
   async saveEvent(event: SecurityEvent): Promise<void> {
     const db = getDb();
-    const eventRef = doc(db, COLLECTION_NAME, event.id);
+    const eventRef = doc(db as Firestore, COLLECTION_NAME, event.id);
     await setDoc(eventRef, event);
   },
 
@@ -33,7 +34,7 @@ export const securityEventsStore = {
    */
   async getEvent(id: string): Promise<SecurityEvent | null> {
     const db = getDb();
-    const eventSnap = await getDoc(doc(db, COLLECTION_NAME, id));
+    const eventSnap = await getDoc(doc(db as Firestore, COLLECTION_NAME, id));
     return eventSnap.exists() ? (eventSnap.data() as SecurityEvent) : null;
   },
 
@@ -43,7 +44,7 @@ export const securityEventsStore = {
   subscribeToLiveEvents(callback: (events: SecurityEvent[]) => void, maxCount = 50) {
     const db = getDb();
     const q = query(
-      collection(db, COLLECTION_NAME),
+      collection(db as Firestore, COLLECTION_NAME),
       orderBy('timestamp', 'desc'),
       limit(maxCount)
     );

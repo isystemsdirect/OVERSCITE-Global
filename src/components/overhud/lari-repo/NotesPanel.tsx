@@ -75,7 +75,8 @@ export default function NotesPanel() {
                                     await learningPortalService.dispatchToLearningQueue({
                                         findingId: note.findingId,
                                         type: 'note_bundle',
-                                        payload: { noteId: note.id, text: note.text }
+                                        payload: { noteId: note.id, text: note.text },
+                                        enteredBy: note.authorId
                                     });
                                     // Refresh logic here
                                 })();

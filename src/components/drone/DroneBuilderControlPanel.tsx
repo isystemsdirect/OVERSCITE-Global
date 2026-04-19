@@ -132,8 +132,9 @@ export function DroneBuilderControlPanel({ droneId, initialConfig }: DroneBuilde
 
            {/* FAA Compliance Card */}
            <FAACompliancePanel 
-            config={config} 
-            onValidationComplete={(results) => {
+            droneId={droneId}
+            complianceStatus={config.faaCompliance} 
+            onValidationComplete={(results: any) => {
               console.log('FAA Validation:', results);
             }}
           />

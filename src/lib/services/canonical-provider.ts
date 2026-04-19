@@ -19,7 +19,8 @@ import {
   where, 
   orderBy, 
   limit,
-  DocumentData 
+  DocumentData,
+  Firestore,
 } from 'firebase/firestore';
 import { Inspection, Inspector, Client } from '@/lib/types';
 
@@ -29,7 +30,7 @@ import { Inspection, Inspector, Client } from '@/lib/types';
 export async function getInspections(): Promise<Inspection[]> {
   if (!db) return [];
   try {
-    const q = query(collection(db, 'inspections'), orderBy('date', 'desc'), limit(50));
+    const q = query(collection(db as Firestore, 'inspections'), orderBy('date', 'desc'), limit(50));
     const snapshot = await getDocs(q);
     return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as Inspection));
   } catch (error) {
@@ -44,7 +45,7 @@ export async function getInspections(): Promise<Inspection[]> {
 export async function getInspectionsByClientId(clientId: string): Promise<Inspection[]> {
   if (!db) return [];
   try {
-    const q = query(collection(db, 'inspections'), where('clientId', '==', clientId), orderBy('date', 'desc'));
+    const q = query(collection(db as Firestore, 'inspections'), where('clientId', '==', clientId), orderBy('date', 'desc'));
     const snapshot = await getDocs(q);
     return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as Inspection));
   } catch (error) {
@@ -59,7 +60,7 @@ export async function getInspectionsByClientId(clientId: string): Promise<Inspec
 export async function getInspectors(): Promise<Inspector[]> {
   if (!db) return [];
   try {
-    const q = query(collection(db, 'users'), where('role', 'in', ['Inspector', 'Admin', 'Lead Inspector']));
+    const q = query(collection(db as Firestore, 'users'), where('role', 'in', ['Inspector', 'Admin', 'Lead Inspector']));
     const snapshot = await getDocs(q);
     return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as Inspector));
   } catch (error) {
@@ -74,7 +75,7 @@ export async function getInspectors(): Promise<Inspector[]> {
 export async function getClients(): Promise<Client[]> {
   if (!db) return [];
   try {
-    const q = collection(db, 'clients');
+    const q = collection(db as Firestore, 'clients');
     const snapshot = await getDocs(q);
     return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as Client));
   } catch (error) {
@@ -89,7 +90,7 @@ export async function getClients(): Promise<Client[]> {
 export async function getClientById(id: string): Promise<Client | null> {
   if (!db) return null;
   try {
-    const docRef = doc(db, 'clients', id);
+    const docRef = doc(db as Firestore, 'clients', id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       return { id: docSnap.id, ...docSnap.data() } as Client;

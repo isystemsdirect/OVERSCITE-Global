@@ -88,7 +88,7 @@ export interface EvidenceEntry {
   id: string;
   name: string;
   assetType: "photo" | "drawing" | "document";
-  mediaAnalysisState: MediaAnalysisState;
+  mediaState: MediaAnalysisState;
   domainClass?: InspectionDomainClass;
   hasLivingEntityOcclusion?: boolean;
   hasPestEvidence?: boolean;
@@ -268,7 +268,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
       {/* Asset Info */}
       <div className="flex flex-col gap-1">
         <span className="text-xs font-black text-foreground">{entry.name}</span>
-        <MediaAnalysisStateBadge state={entry.mediaAnalysisState} />
+        <MediaAnalysisStateBadge state={entry.mediaState} />
         {entry.analysisRequestedBy && (
           <span className="text-[10px] text-muted-foreground/60 mt-0.5">
             Requested by: {entry.analysisRequestedBy}
@@ -279,7 +279,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
             Verified by: {entry.verifiedBy} • {entry.verifiedAt ? new Date(entry.verifiedAt).toLocaleString() : ''}
           </span>
         )}
-        {entry.verificationRequestedBy && entry.mediaAnalysisState === "verification_pending" && (
+        {entry.verificationRequestedBy && entry.mediaState === "verification_pending" && (
           <span className="text-[10px] text-violet-400/70 mt-0.5">
             Verification requested by: {entry.verificationRequestedBy}
           </span>
@@ -380,7 +380,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
       />
 
       {/* Review Reason */}
-      {entry.mediaAnalysisState === "review_required" && entry.reviewRequiredReason && (
+      {entry.mediaState === "review_required" && entry.reviewRequiredReason && (
         <div className="flex flex-col gap-1">
           <span className="text-[10px] font-black tracking-widest uppercase text-rose-500">Review Reason</span>
           <div className="text-[11px] text-rose-400/90 bg-rose-950/15 rounded-lg px-2.5 py-1.5 border border-rose-800/20">{entry.reviewRequiredReason}</div>
@@ -431,7 +431,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
       {/* Actions */}
       <div className="flex flex-col gap-2 mt-auto pt-2 border-t border-border/20">
         {/* Request Analysis — only accepted_unanalyzed */}
-        {entry.mediaAnalysisState === "accepted_unanalyzed" && (
+        {entry.mediaState === "accepted_unanalyzed" && (
           <Button size="sm" className="w-full gap-2 h-8 text-xs font-bold" id={`request-analysis-${entry.id}`}
             onClick={() => onRequestAnalysis(entry.id)} disabled={analysisLoading}>
             {analysisLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <ScanLine className="h-3.5 w-3.5" />}
@@ -440,7 +440,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
         )}
 
         {/* Request Verification — only analysis_complete */}
-        {entry.mediaAnalysisState === "analysis_complete" && (
+        {entry.mediaState === "analysis_complete" && (
           <Button size="sm" variant="outline" className="w-full gap-2 h-8 text-xs font-bold" id={`request-verification-${entry.id}`}
             onClick={() => onRequestVerification(entry.id)} disabled={verificationLoading}>
             {verificationLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <ShieldCheck className="h-3.5 w-3.5" />}
@@ -449,7 +449,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
         )}
 
         {/* Verification Pending state */}
-        {entry.mediaAnalysisState === "verification_pending" && (
+        {entry.mediaState === "verification_pending" && (
           <div className="flex items-center gap-2 text-xs text-violet-400 bg-violet-950/15 rounded-lg px-2.5 py-2 border border-violet-800/20">
             <Clock className="h-3.5 w-3.5 animate-pulse shrink-0" />
             <span className="font-bold">Verification Pending</span> — awaiting human authority review
@@ -457,7 +457,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
         )}
 
         {/* Verified state */}
-        {entry.mediaAnalysisState === "verified_by_overscite" && (
+        {entry.mediaState === "verified_by_overscite" && (
           <div className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-950/15 rounded-lg px-2.5 py-2 border border-emerald-800/20">
             <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
             <span className="font-bold">Verified by OVERSCITE</span>
@@ -465,7 +465,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
         )}
 
         {/* Review Required */}
-        {entry.mediaAnalysisState === "review_required" && (
+        {entry.mediaState === "review_required" && (
           <Button size="sm" variant="outline" className="w-full gap-2 h-8 text-xs font-bold border-rose-700 text-rose-400 hover:bg-rose-950/20" id={`open-review-${entry.id}`}>
             <AlertCircle className="h-3.5 w-3.5" />
             Open Review
@@ -473,7 +473,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
         )}
 
         {/* Reanalysis — analysis_complete, review_required, or verified_by_overscite */}
-        {(entry.mediaAnalysisState === "analysis_complete" || entry.mediaAnalysisState === "review_required" || entry.mediaAnalysisState === "verified_by_overscite") && (
+        {(entry.mediaState === "analysis_complete" || entry.mediaState === "review_required" || entry.mediaState === "verified_by_overscite") && (
           <Button size="sm" variant="ghost" className="w-full gap-2 h-7 text-[10px] font-bold text-muted-foreground hover:text-foreground" id={`request-reanalysis-${entry.id}`}
             onClick={() => onRequestReanalysis(entry.id)} disabled={reanalysisLoading}>
             {reanalysisLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <RotateCcw className="h-3 w-3" />}
@@ -482,7 +482,7 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
         )}
 
         {/* Not eligible for actions banner */}
-        {entry.mediaAnalysisState === "analysis_in_progress" && (
+        {entry.mediaState === "analysis_in_progress" && (
           <div className="text-[10px] text-muted-foreground/60 text-center py-1">
             Analysis in progress — actions available after completion
           </div>
@@ -533,7 +533,7 @@ export function EvidenceLane({ activeDomain, inspectionId, subscriptionStatus: p
           id: state.stateId,
           name: `Asset ${state.mediaAssetId.substring(0, 8)}`,
           assetType: 'photo',
-          mediaAnalysisState: state.mediaAnalysisState,
+          mediaState: state.mediaState,
           updatedAt: state.updatedAt ? new Date(state.updatedAt).toLocaleString() : 'Just now',
           analysisRequestedBy: state.analysisRequestedBy,
           analysisRequestedAt: state.analysisRequestedAt,
@@ -595,8 +595,8 @@ export function EvidenceLane({ activeDomain, inspectionId, subscriptionStatus: p
   let filteredQueue = domainFilter
     ? evidenceQueue.filter((e) =>
         e.domainClass === activeDomain
-        || e.mediaAnalysisState === 'review_required'
-        || e.mediaAnalysisState === 'accepted_unanalyzed'
+        || e.mediaState === 'review_required'
+        || e.mediaState === 'accepted_unanalyzed'
         || !e.domainClass
       )
     : evidenceQueue;
@@ -606,8 +606,8 @@ export function EvidenceLane({ activeDomain, inspectionId, subscriptionStatus: p
     filteredQueue = [];
   }
 
-  const unanalyzedCount = filteredQueue.filter((e) => e.mediaAnalysisState === "accepted_unanalyzed").length;
-  const reviewCount = filteredQueue.filter((e) => e.mediaAnalysisState === "review_required").length;
+  const unanalyzedCount = filteredQueue.filter((e) => e.mediaState === "accepted_unanalyzed").length;
+  const reviewCount = filteredQueue.filter((e) => e.mediaState === "review_required").length;
 
   const selectedEntryData = selectedEntry ? filteredQueue.find((e) => e.id === selectedEntry) ?? null : null;
 
@@ -725,14 +725,14 @@ export function EvidenceLane({ activeDomain, inspectionId, subscriptionStatus: p
               )}>
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2 min-w-0">
-                  <AnalysisStateIcon state={entry.mediaAnalysisState} />
+                  <AnalysisStateIcon state={entry.mediaState} />
                   <span className="text-xs font-medium text-foreground truncate">{entry.name}</span>
                 </div>
                 <span className="text-[10px] text-muted-foreground/60 shrink-0">{entry.updatedAt}</span>
               </div>
               <div className="flex items-center gap-1.5 flex-wrap ml-6">
-                <MediaAnalysisStateBadge state={entry.mediaAnalysisState} showDot={false} />
-                {entry.confidence && entry.mediaAnalysisState !== "accepted_unanalyzed" && (
+                <MediaAnalysisStateBadge state={entry.mediaState} showDot={false} />
+                {entry.confidence && entry.mediaState !== "accepted_unanalyzed" && (
                   <ConfidenceBandBadge band={entry.confidence} />
                 )}
                 {entry.findingsCount !== undefined && entry.findingsCount > 0 && (

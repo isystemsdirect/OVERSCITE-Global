@@ -39,7 +39,7 @@ const MessagingDialog = () => {
 
     return () => {
       if (chatClient) {
-        chatClient.disconnectUser();
+        (chatClient as any).disconnectUser();
         setChatClient(null);
       }
     };
@@ -48,10 +48,10 @@ const MessagingDialog = () => {
   useEffect(() => {
     if (chatClient && targetUser?.id) {
       const startChat = async () => {
-        const channel = chatClient.channel('messaging', {
+        const channel = chatClient.channel('messaging', targetUser.id, {
           members: ['john-doe', targetUser.id],
           name: `Chat with ${targetUser.name}`,
-        });
+        } as any);
         await channel.watch();
       };
       startChat();

@@ -14,7 +14,8 @@ import {
   addDoc, 
   serverTimestamp,
   updateDoc,
-  doc 
+  doc,
+  Firestore,
 } from 'firebase/firestore';
 import { Inspection } from '@/lib/types';
 
@@ -42,7 +43,7 @@ export async function createInspection(payload: Partial<Inspection>): Promise<Wr
       __v: '1.0.0',
     };
 
-    const docRef = await addDoc(collection(db, 'inspections'), canonicalPayload);
+    const docRef = await addDoc(collection(db as Firestore, 'inspections'), canonicalPayload);
     
     console.log(`[CANONICAL_WRITE] Created inspection: ${docRef.id}`);
     return { success: true, id: docRef.id };
@@ -59,7 +60,7 @@ export async function updateInspection(id: string, updates: Partial<Inspection>)
   if (!db) return { success: false, error: 'Database not initialized' };
 
   try {
-    const docRef = doc(db, 'inspections', id);
+    const docRef = doc(db as Firestore, 'inspections', id);
     await updateDoc(docRef, {
       ...updates,
       updatedAt: serverTimestamp(),

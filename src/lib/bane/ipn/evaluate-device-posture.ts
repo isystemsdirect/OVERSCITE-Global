@@ -1,4 +1,4 @@
-import { IPNDevice } from '../../../ipn/types';
+import { IPNDevice } from '../../ipn/types';
 
 export function evaluateDevicePostureForTransport(device: IPNDevice, currentPosture: string): { decision: 'ALLOW' | 'DENY', reason: string } {
     if (device.postureState !== 'VALID') {

@@ -17,6 +17,7 @@ import {
   getDocs,
   getDoc,
   doc,
+  Firestore,
 } from 'firebase/firestore';
 import { getDb } from '../firebase';
 import type {
@@ -42,7 +43,7 @@ export interface ProductFilters {
  */
 export async function getCapabilityProducts(filters: ProductFilters = {}): Promise<CapabilityProduct[]> {
   const db = getDb();
-  const col = collection(db, PRODUCTS_COL);
+  const col = collection(db as Firestore, PRODUCTS_COL);
   const constraints: Parameters<typeof query>[1][] = [];
 
   const status = filters.status ?? 'live';
@@ -68,7 +69,7 @@ export async function getCapabilityProducts(filters: ProductFilters = {}): Promi
  */
 export async function getCapabilityProductById(productId: string): Promise<CapabilityProduct | null> {
   const db = getDb();
-  const ref = doc(db, PRODUCTS_COL, productId);
+  const ref = doc(db as Firestore, PRODUCTS_COL, productId);
   const snap = await getDoc(ref);
   if (!snap.exists()) return null;
   return { product_id: snap.id, ...snap.data() } as CapabilityProduct;
@@ -79,7 +80,7 @@ export async function getCapabilityProductById(productId: string): Promise<Capab
  */
 export async function getLariKeysByOrg(orgId: string): Promise<LariKey[]> {
   const db = getDb();
-  const col = collection(db, KEYS_COL);
+  const col = collection(db as Firestore, KEYS_COL);
   const q = query(
     col,
     where('org_id', '==', orgId),
@@ -95,7 +96,7 @@ export async function getLariKeysByOrg(orgId: string): Promise<LariKey[]> {
  */
 export async function getLariKeysByArcUser(arcId: string): Promise<LariKey[]> {
   const db = getDb();
-  const col = collection(db, KEYS_COL);
+  const col = collection(db as Firestore, KEYS_COL);
   const q = query(
     col,
     where('assigned_arc_id', '==', arcId),

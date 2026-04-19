@@ -11,7 +11,8 @@ import {
   getDoc, 
   getDocs, 
   query, 
-  where 
+  where,
+  Firestore,
 } from 'firebase/firestore';
 import { getDb } from '@/lib/firebase';
 import { SecuritySource } from '@/types/security-source';
@@ -24,7 +25,7 @@ export const securitySourcesStore = {
    */
   async registerSource(source: SecuritySource): Promise<void> {
     const db = getDb();
-    const sourceRef = doc(db, COLLECTION_NAME, source.sourceId);
+    const sourceRef = doc(db as Firestore, COLLECTION_NAME, source.sourceId);
     await setDoc(sourceRef, {
       ...source,
       lastSeenAt: source.lastSeenAt || new Date().toISOString()
@@ -36,7 +37,7 @@ export const securitySourcesStore = {
    */
   async getSource(sourceId: string): Promise<SecuritySource | null> {
     const db = getDb();
-    const snap = await getDoc(doc(db, COLLECTION_NAME, sourceId));
+    const snap = await getDoc(doc(db as Firestore, COLLECTION_NAME, sourceId));
     return snap.exists() ? (snap.data() as SecuritySource) : null;
   },
 
@@ -45,7 +46,7 @@ export const securitySourcesStore = {
    */
   async listEnabledSources(): Promise<SecuritySource[]> {
     const db = getDb();
-    const q = query(collection(db, COLLECTION_NAME), where('isEnabled', '==', true));
+    const q = query(collection(db as Firestore, COLLECTION_NAME), where('isEnabled', '==', true));
     const snap = await getDocs(q);
     return snap.docs.map(doc => doc.data() as SecuritySource);
   }

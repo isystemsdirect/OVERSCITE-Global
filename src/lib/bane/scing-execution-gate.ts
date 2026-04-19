@@ -46,3 +46,10 @@ export function evaluateBANEExecutionGate(intent: CommandIntent): BANEExecutionD
     audit_signature: signature
   };
 }
+
+/**
+ * Gatekeeper alias for contract-specific mutations.
+ */
+export function evaluateContractMutationGate(intent: CommandIntent): BANEExecutionDecision {
+  return evaluateBANEExecutionGate(intent);
+}

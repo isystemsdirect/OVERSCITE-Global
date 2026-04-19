@@ -89,6 +89,7 @@ const CONFIDENCE_CONFIG: Record<ConfidenceBand, { label: string; color: string }
   moderate:       { label: "MOD",      color: "border-amber-500 text-amber-400 bg-amber-950/30" },
   low:            { label: "LOW",      color: "border-orange-600 text-orange-400 bg-orange-950/30" },
   review_required:{ label: "REVIEW",   color: "border-rose-500 text-rose-400 bg-rose-950/30" },
+  verified_by_overscite: { label: "VERIFIED", color: "border-emerald-400 text-emerald-300 bg-emerald-950/60" },
 };
 
 // ---------------------------------------------------------------------------

@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 
 import { Building, PlusCircle, Video, Users, Search, Globe, Lock, Clock, MoreVertical, User } from 'lucide-react';
 import Link from 'next/link';
@@ -73,8 +72,8 @@ export default function MeetingsAndConferencesPage() {
                 <div className="flex items-center">
                     <p className="text-sm font-medium mr-2">Attendees:</p>
                     <div className="flex -space-x-2 overflow-hidden">
-                        {room.participants.slice(0, 5).map(member => {
-                            const avatar = PlaceHolderImages.find(p => p.id === member.imageHint);
+                        {room.participants.slice(0, 5).map((member: any) => {
+                            const avatar = PlaceHolderImages.find((p: any) => p.id === member.imageHint);
                             return avatar ? <Image key={member.id} className="inline-block h-6 w-6 rounded-full ring-2 ring-background" src={avatar.imageUrl} alt={member.name} width={24} height={24} /> : null
                         })}
                         {room.participants.length > 5 && (

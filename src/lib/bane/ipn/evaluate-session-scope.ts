@@ -1,5 +1,5 @@
-import { IPNSession } from '../../../ipn/types';
-import { isSessionExpired } from '../../../ipn/session';
+import { IPNSession } from '../../ipn/types';
+import { isSessionExpired } from '../../ipn/session';
 
 export function evaluateSessionScopeForAction(session: IPNSession, requiredAction: string): { decision: 'ALLOW' | 'DENY', reason: string } {
     if (isSessionExpired(session)) {

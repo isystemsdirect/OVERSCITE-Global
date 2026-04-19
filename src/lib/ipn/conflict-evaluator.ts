@@ -11,7 +11,7 @@ export function calculateConflictPressure(events: IPNConflictEvent[]): number {
 }
 
 export function recommendPostureFromConflict(pressureScore: number): IPNPostureStateEnum {
-    if (pressureScore >= 80) return IPNPostureStateEnum.Controlled_Open;
-    if (pressureScore >= 40) return IPNPostureStateEnum.Controlled;
-    return IPNPostureStateEnum.Aggressive;
+    if (pressureScore >= 80) return IPNPostureStateEnum.CONTROLLED_OPEN;
+    if (pressureScore >= 40) return IPNPostureStateEnum.CONTROLLED;
+    return IPNPostureStateEnum.AGGRESSIVE;
 }

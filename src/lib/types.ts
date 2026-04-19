@@ -205,7 +205,7 @@ export interface Device {
   id: string;
   name: string;
   type: string;
-  status: string;
+  status: 'Connected' | 'Disconnected' | 'Error' | string;
   lastSeen: string;
   firmwareVersion: string;
 }

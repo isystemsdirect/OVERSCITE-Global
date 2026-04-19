@@ -1,6 +1,6 @@
 {
   "name": "scingula-ai-drone-control",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "npx next dev -p 3001",

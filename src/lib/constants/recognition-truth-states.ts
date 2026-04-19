@@ -147,6 +147,7 @@ export const CONFIDENCE_BANDS = [
   'moderate',
   'low',
   'review_required',
+  'verified_by_overscite',
 ] as const;
 
 export type ConfidenceBand = typeof CONFIDENCE_BANDS[number];

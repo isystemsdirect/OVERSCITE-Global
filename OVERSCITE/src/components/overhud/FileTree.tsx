@@ -70,11 +70,11 @@ const TreeNode = ({ nodeId, level }: { nodeId: string, level: number }) => {
                 <Icon className={cn("h-4 w-4 mr-2 shrink-0", iconColor)} />
                 <span className="truncate flex-1">{node.name}</span>
                 <div className="flex items-center gap-1.5 ml-auto pr-1">
-                    {node.isCanonical && <Shield size={12} className="text-green-500" title="Canonical" />}
-                    {node.isProtected && <Lock size={12} className="text-red-500" title="Protected" />}
-                    {node.isArchived && <Archive size={12} className="text-yellow-500" title="Archived" />}
-                    {node.isGenerated && <Bot size={12} className="text-purple-500" title="AI Generated" />}
-                    {node.isSensitive && <BrainCircuit size={12} className="text-orange-500" title="Sensitive" />}
+                    {node.isCanonical && <Shield size={12} className="text-green-500" />}
+                    {node.isProtected && <Lock size={12} className="text-red-500" />}
+                    {node.isArchived && <Archive size={12} className="text-yellow-500" />}
+                    {node.isGenerated && <Bot size={12} className="text-purple-500" />}
+                    {node.isSensitive && <BrainCircuit size={12} className="text-orange-500" />}
                 </div>
             </div>
             {isExpanded && childIds.map(childId => (

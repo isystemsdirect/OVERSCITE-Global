@@ -22,7 +22,8 @@ import {
   orderBy, 
   limit, 
   getDocs,
-  Timestamp 
+  Timestamp,
+  Firestore 
 } from 'firebase/firestore';
 import type { 
   MapReadyHookPayload 
@@ -48,7 +49,7 @@ export interface SchedulerAdvisoryPayload {
 export async function persistMapAdvisory(payload: MapReadyHookPayload): Promise<string> {
   if (!db) throw new Error('Database not initialized');
   
-  const colRef = collection(db, 'recognition_advisory_map');
+  const colRef = collection(db as Firestore, 'recognition_advisory_map');
   const docRef = await addDoc(colRef, {
     ...payload,
     persistedAt: new Date().toISOString()
@@ -63,7 +64,7 @@ export async function persistMapAdvisory(payload: MapReadyHookPayload): Promise<
 export async function persistSchedulerAdvisory(payload: SchedulerAdvisoryPayload): Promise<string> {
   if (!db) throw new Error('Database not initialized');
   
-  const colRef = collection(db, 'recognition_advisory_scheduler');
+  const colRef = collection(db as Firestore, 'recognition_advisory_scheduler');
   const docRef = await addDoc(colRef, {
     ...payload,
     persistedAt: new Date().toISOString()
@@ -82,7 +83,7 @@ export async function getRecentMapAdvisories(params: {
 }): Promise<MapReadyHookPayload[]> {
   if (!db) return [];
   
-  const colRef = collection(db, 'recognition_advisory_map');
+  const colRef = collection(db as Firestore, 'recognition_advisory_map');
   let q = query(colRef, orderBy('generatedAt', 'desc'), limit(params.limitCount || 20));
   
   if (params.inspectionId) {
@@ -99,7 +100,7 @@ export async function getRecentMapAdvisories(params: {
 export async function getRecentSchedulerAdvisories(limitCount = 10): Promise<SchedulerAdvisoryPayload[]> {
   if (!db) return [];
   
-  const colRef = collection(db, 'recognition_advisory_scheduler');
+  const colRef = collection(db as Firestore, 'recognition_advisory_scheduler');
   const q = query(colRef, orderBy('generatedAt', 'desc'), limit(limitCount));
   
   const snapshot = await getDocs(q);

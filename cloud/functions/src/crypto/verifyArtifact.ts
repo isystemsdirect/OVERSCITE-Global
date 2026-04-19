@@ -10,7 +10,7 @@ import { enforceBaneCallable } from '../bane/enforce';
  * or ARCHIVAL_SEAL (RSA-4096).
  */
 export const bciVerifyArtifact = onCall(async (request) => {
-    const gate = await enforceBaneCallable({ 
+    await enforceBaneCallable({ 
         name: 'bciVerifyArtifact', 
         data: request.data, 
         ctx: request as any 

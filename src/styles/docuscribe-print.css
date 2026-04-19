@@ -1,0 +1,62 @@
+/**
+ * DocuSCRIBE™ — Print / Export Stylesheet
+ *
+ * @classification STYLE
+ * @authority DocuSCRIBE Division
+ * @status P1_FOUNDATION
+ *
+ * Ensures truth-state disclosure footer appears on printed output.
+ * Hides navigation chrome and non-essential shell elements during print.
+ */
+
+/* ─── Screen: Disclosure Footer Styling ─── */
+.docuscribe-disclosure-footer {
+  /* Screen styles are handled by Tailwind classes in the component.
+     This file provides print-specific overrides. */
+}
+
+/* ─── Print Media ─── */
+@media print {
+  /* Ensure disclosure footer is always visible and prominent */
+  .docuscribe-disclosure-footer {
+    display: flex !important;
+    visibility: visible !important;
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+    border: 2px solid #f59e0b !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    margin-top: 16px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide navigation chrome */
+  [data-sidebar="sidebar"],
+  .docuscribe-sub-sidebar,
+  .flash-notification-bar,
+  .scing-panel {
+    display: none !important;
+  }
+
+  /* Maximize canvas area for print */
+  .docuscribe-canvas-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure page breaks work correctly */
+  .docuscribe-disclosure-footer {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}

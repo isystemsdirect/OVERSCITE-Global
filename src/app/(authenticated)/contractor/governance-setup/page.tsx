@@ -14,7 +14,7 @@ export default function GovernanceSetupPage() {
         </p>
       </div>
 
-      <GovernanceSetup />
+      <GovernanceSetup governance={{ sections: [] } as any} onUpdateField={() => {}} onInvokeWizard={() => {}} />
     </div>
   );
 }

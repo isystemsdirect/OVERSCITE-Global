@@ -29,7 +29,7 @@ export const mockRepos: MountedRepo[] = [
   },
 ];
 
-export const mockFileTree = [
+export const mockFileTree: any[] = [
     {
         id: 'src',
         repoId: 'repo-overscite',
@@ -81,7 +81,7 @@ export const mockFileTree = [
                 relativePath: 'src/components',
                 nodeType: 'directory',
                 hasChildren: false,
-                children: [] // Important for consistent type checking if needed
+                children: [] 
             }
         ]
     },
@@ -118,7 +118,6 @@ export const processTreeForStore = (nodes: any[], repoId: string) => {
     const rootNodeIds: string[] = [];
 
     const traverse = (node: any, parentId?: string) => {
-        // Separate children from the rest of the node properties for flat storage
         const { children, ...rest } = node;
         tree[node.id] = { ...rest, repoId };
 
@@ -130,9 +129,6 @@ export const processTreeForStore = (nodes: any[], repoId: string) => {
             childrenMap[node.id] = children.map((c: any) => c.id);
             children.forEach((child: any) => traverse(child, node.id));
         } else {
-             // Ensure empty directories or files have an entry in childrenMap if desired,
-             // or just leave it undefined/empty array logic in component.
-             // Here we can be safe:
              if(node.nodeType === 'directory') {
                  childrenMap[node.id] = [];
              }

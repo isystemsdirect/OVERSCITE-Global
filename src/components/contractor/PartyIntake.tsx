@@ -9,10 +9,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MapPin, Briefcase, FileSearch, ShieldCheck, ShieldAlert, Loader2 } from 'lucide-react';
 import { resolveRequirements } from '@/lib/contractor/resolutionService';
 import type { RoleClass, JurisdictionProfile, ProjectScopeProfile } from '@/lib/contractor/types';
-import { toast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { emitUiAudit } from '@/lib/audit/ui-audit-bridge';
 
 export default function PartyIntake() {
+  const { toast } = useToast();
   const [isComputing, setIsComputing] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [form, setForm] = useState({

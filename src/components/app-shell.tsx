@@ -31,7 +31,8 @@ import {
   CloudRain,
   Eye,
   Camera,
-  Building2
+  Building2,
+  PenLine
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -293,6 +294,7 @@ export default function AppShell({
     { href: "/overview", icon: <FileText className="h-4 w-4" />, label: "Overview Report" },
     { href: "/inspections", icon: <ClipboardList className="h-4 w-4" />, label: "Inspections", badge: "3" },
     { href: "/contractor", icon: <Building2 className="h-4 w-4" />, label: "Contractor" },
+    { href: "/docuscribe", icon: <PenLine className="h-4 w-4" />, label: "DocuSCRIBE™" },
     { href: "/calendar", icon: <Calendar className="h-4 w-4" />, label: "Calendar & Scheduling" },
     { href: "/messaging", icon: <MessageSquare className="h-4 w-4" />, label: "Messaging" },
     { href: "/clients", icon: <Users className="h-4 w-4" />, label: "Clients & Contacts" },

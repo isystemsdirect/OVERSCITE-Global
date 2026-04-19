@@ -17,6 +17,7 @@ export const initializeMockData = async () => {
         reviewStatus: 'pending',
         ingestionEligibility: 'not_eligible',
         version: '1.0.0',
+        currentVersionNumber: 1,
         metadata: {
             resolution: '7680x4320',
             exposure: 'auto',

@@ -264,6 +264,49 @@ export interface EvidenceReviewQueueEntry {
   reviewPriority: 'urgent' | 'normal' | 'low' | 'none';
 }
 
+/**
+ * Persistence-layer record for the analysis state of a media asset.
+ * Tracks the progression from unanalyzed → requested → in_progress → complete → verified.
+ */
+export interface EvidenceAnalysisState {
+  /** collection primary key, typically nanoid() */
+  stateId: string;
+  /** Link to original media asset */
+  mediaAssetId: string;
+  /** Link to parent inspection */
+  inspectionId: string;
+  /** Current state in the Lifecycle Machine */
+  mediaState: MediaAnalysisState;
+  /** Linked recognition packet (populated at analysis_complete) */
+  currentPacketId?: string;
+  /** Alias for currentPacketId for recognition-stack contract parity */
+  recognitionPacketId?: string;
+  /** Linked analysis request ID */
+  currentRequestId?: string;
+  /** Engine ID used for analysis (if in_progress or complete) */
+  currentEngineId?: string;
+  /** Overall confidence of the analysis results */
+  overallConfidence?: ConfidenceBand;
+  /** When this state record was created */
+  createdAt: string;
+  /** When this state record was last updated */
+  updatedAt?: string;
+  /** Who explicitly requested analysis */
+  analysisRequestedBy?: string;
+  /** When analysis was requested */
+  analysisRequestedAt?: string;
+  /** Reason if review is required */
+  reviewRequiredReason?: string;
+  /** Who explicitly verified the analysis */
+  verifiedBy?: string;
+  /** When verification occurred */
+  verifiedAt?: string;
+  /** Audit version of the state contract */
+  __v: string;
+  /** Canonical truth marker */
+  __canonical: boolean;
+}
+
 // ---------------------------------------------------------------------------
 // LARI_EVIDENCE Engine Input/Output Contracts
 // ---------------------------------------------------------------------------

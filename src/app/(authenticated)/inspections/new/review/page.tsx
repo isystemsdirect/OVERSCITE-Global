@@ -58,12 +58,12 @@ function NewInspectionReviewContent() {
     setIsSubmitting(true);
     setError(null);
 
-    const payload: Partial<Inspection> = {
+    const payload: any = {
         clientId: clientId,
         clientName: selectedClient.name,
         type: inspectionType,
-        status: 'pending',
-        date: new Date().toISOString().split('T')[0],
+        status: 'candidate',
+        date: new Date(),
         location: "123 Main St, Anytown, CA", 
     };
 

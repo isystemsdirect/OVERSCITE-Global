@@ -1,4 +1,4 @@
-import { IPNDevice } from './types';
+import { IPNDevice, IPNPostureStateEnum } from './types';
 import { calculatePostureScore, validateDevicePosture } from './device-posture';
 
 export async function createDeviceRecord(
@@ -20,7 +20,7 @@ export async function createDeviceRecord(
         displayName: deviceData.displayName || 'Unknown Device',
         publicKey: deviceData.publicKey || 'mock-public-key',
         postureScore: score,
-        postureState: score >= 60 ? 'VALID' : 'DEGRADED',
+        postureState: score >= 60 ? IPNPostureStateEnum.VALID : IPNPostureStateEnum.DEGRADED,
         lastSeenAt: new Date(),
         capabilities,
         srtBound

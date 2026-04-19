@@ -240,7 +240,7 @@ export default function AdminNotificationsConsolePage() {
                 })}
               </div>
               <div className="flex flex-col items-center justify-center py-8 text-white/20">
-                <package className="h-10 w-10 mb-3" />
+                <Package className="h-10 w-10 mb-3" />
                 <p className="text-sm">No delivery evidence — pipeline scaffold</p>
               </div>
             </CardContent>

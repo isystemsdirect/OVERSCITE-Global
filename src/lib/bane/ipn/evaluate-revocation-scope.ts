@@ -1,4 +1,4 @@
-import { IPNRevocationEvent } from '../../../ipn/types';
+import { IPNRevocationEvent } from '../../ipn/types';
 
 export function evaluateRevocationScopeAllowed(
     operatorArcId: string,

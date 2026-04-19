@@ -9,7 +9,12 @@ export const globalRevoke = functions.https.onCall(async (data: any, context: an
 
     const { targetId, reason } = data;
 
-    const evaluation = evaluateRevocationScopeAllowed(context.auth.uid, 'GLOBAL', { isScingDirector: data.isScingDirector });
+    const evaluation = evaluateRevocationScopeAllowed(
+        context.auth.uid, 
+        'GLOBAL', 
+        { isScingDirector: data.isScingDirector },
+        data.authorityBasis || 'Emergency Global Shutdown'
+    );
     if (!evaluation.allowed) {
         throw new functions.https.HttpsError('permission-denied', evaluation.reason);
     }

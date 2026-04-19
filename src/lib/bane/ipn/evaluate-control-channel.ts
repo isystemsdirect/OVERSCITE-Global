@@ -1,5 +1,5 @@
-import { IPNSession, IPNTransportRequest } from '../../../ipn/types';
-import { isChannelPermitted } from '../../../ipn/channel-policy';
+import { IPNSession, IPNTransportRequest } from '../../ipn/types';
+import { isChannelPermitted } from '../../ipn/channel-policy';
 
 export function evaluateControlChannelGate(
     session: IPNSession,

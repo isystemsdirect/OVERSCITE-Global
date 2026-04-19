@@ -17,6 +17,7 @@ import {
   getDocs,
   getDoc,
   doc,
+  Firestore,
 } from 'firebase/firestore';
 import { getDb } from '../firebase';
 import type {
@@ -48,7 +49,7 @@ export interface JobListingFilters {
  */
 export async function getJobListings(filters: JobListingFilters = {}): Promise<JobListing[]> {
   const db = getDb();
-  const col = collection(db, JOBS_COL);
+  const col = collection(db as Firestore, JOBS_COL);
   const constraints: Parameters<typeof query>[1][] = [];
 
   const status = filters.status ?? 'live';
@@ -74,7 +75,7 @@ export async function getJobListings(filters: JobListingFilters = {}): Promise<J
  */
 export async function getJobListingById(jobId: string): Promise<JobListing | null> {
   const db = getDb();
-  const ref = doc(db, JOBS_COL, jobId);
+  const ref = doc(db as Firestore, JOBS_COL, jobId);
   const snap = await getDoc(ref);
   if (!snap.exists()) return null;
   return { job_id: snap.id, ...snap.data() } as JobListing;
@@ -85,7 +86,7 @@ export async function getJobListingById(jobId: string): Promise<JobListing | nul
  */
 export async function getDispatchOffersForJob(jobId: string): Promise<DispatchOffer[]> {
   const db = getDb();
-  const col = collection(db, OFFERS_COL);
+  const col = collection(db as Firestore, OFFERS_COL);
   const q = query(col, where('job_id', '==', jobId), orderBy('offered_at', 'desc'));
   const snap = await getDocs(q);
   return snap.docs.map(d => ({ offer_id: d.id, ...d.data() }) as DispatchOffer);
@@ -96,7 +97,7 @@ export async function getDispatchOffersForJob(jobId: string): Promise<DispatchOf
  */
 export async function getOffersForAgent(agentId: string): Promise<DispatchOffer[]> {
   const db = getDb();
-  const col = collection(db, OFFERS_COL);
+  const col = collection(db as Firestore, OFFERS_COL);
   const q = query(
     col,
     where('recipient_agent_id', '==', agentId),
@@ -112,7 +113,7 @@ export async function getOffersForAgent(agentId: string): Promise<DispatchOffer[
  */
 export async function getAgentProfile(agentId: string): Promise<FieldAgentProfile | null> {
   const db = getDb();
-  const ref = doc(db, AGENTS_COL, agentId);
+  const ref = doc(db as Firestore, AGENTS_COL, agentId);
   const snap = await getDoc(ref);
   if (!snap.exists()) return null;
   return { agent_id: snap.id, ...snap.data() } as FieldAgentProfile;
@@ -123,7 +124,7 @@ export async function getAgentProfile(agentId: string): Promise<FieldAgentProfil
  */
 export async function getReputationPackets(subjectId: string): Promise<ReputationPacket[]> {
   const db = getDb();
-  const col = collection(db, REPUTATION_COL);
+  const col = collection(db as Firestore, REPUTATION_COL);
   const q = query(
     col,
     where('subject_id', '==', subjectId),
@@ -141,7 +142,7 @@ export async function getReputationPackets(subjectId: string): Promise<Reputatio
  */
 export async function getPayoutsForRecipient(recipientId: string): Promise<PayoutRecord[]> {
   const db = getDb();
-  const col = collection(db, PAYOUTS_COL);
+  const col = collection(db as Firestore, PAYOUTS_COL);
   const q = query(
     col,
     where('recipient_id', '==', recipientId),

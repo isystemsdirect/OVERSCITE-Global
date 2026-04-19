@@ -10,7 +10,7 @@ import { enforceBaneCallable } from '../bane/enforce';
  * Bounded backend route for archival sealing using RSA-4096.
  */
 export const bciSealExport = onCall(async (request) => {
-    const gate = await enforceBaneCallable({ 
+    await enforceBaneCallable({ 
         name: 'bciSealExport', 
         data: request.data, 
         ctx: request as any 

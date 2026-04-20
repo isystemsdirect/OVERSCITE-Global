@@ -37,7 +37,7 @@ export function TopCommandBar({
   handleRefresh
 }: TopCommandBarProps) {
   return (
-    <header className="shell-surface sticky top-0 z-30 flex h-20 items-center border-b border-border/30 px-4 lg:px-6 w-full shadow-sm overflow-visible">
+    <header className="shell-surface sticky top-0 z-30 flex h-16 items-center border-b border-white/[0.08] px-4 lg:px-6 w-full overflow-visible transition-all duration-300">
       {/* ─── Left Group: Sidebar Trigger ─── */}
       <div className="flex items-center gap-2 shrink-0">
         <SidebarTrigger className="md:hidden" />

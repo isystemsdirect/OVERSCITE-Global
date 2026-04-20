@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { OverHUDContextProvider } from "./context/OverHUDContextProvider";
@@ -10,28 +10,42 @@ import { useShellLayout } from '@/lib/layout/shell-layout-state';
 /**
  * @classification UI_COMPONENT
  * @authority Director
- * @status IMPLEMENTED
- * @version 2.0.0
+ * @status RECALIBRATED_P1
+ * @version 2.1.0
  *
  * @purpose
- * Full-height right-side intelligence panel. Consumes shell layout state
- * for OverHUD expansion. When open, pushes the entire shell composition
- * left via flex layout rather than overlaying.
- *
- * @refactor_note
- * V2: Removed prop-based open/onToggle. Now consumes ShellLayoutState context.
- * Height now spans full viewport (h-screen) as a flex sibling of SidebarInset,
- * not a child of the scrollable body row.
+ * Recalibrated OverHUD following Prime Dominance Protocol.
+ * Supports 3-state behavior:
+ * 1. Inline: Flex sibling (viewport >= 1400px)
+ * 2. Overlay: Floating layer (viewport < 1400px)
+ * 3. Icon/Compressed: (Visual yield)
  */
 export default function OverHUD() {
   const { isOverHUDOpen, toggleOverHUD } = useShellLayout();
+  const [isOverlayMode, setIsOverlayMode] = useState(false);
+
+  // ─── Viewport Yield Logic ──────────────────────────────────────────
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsOverlayMode(window.innerWidth < 1400);
+    };
+
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
+  }, []);
 
   return (
     <OverHUDContextProvider>
       <div
         className={cn(
-          "h-screen flex-shrink-0 relative transition-all duration-500 ease-in-out flex items-center overflow-visible z-[1001] overhud-panel",
-          isOverHUDOpen ? "w-[420px]" : "w-0"
+          "h-screen transition-all duration-500 ease-in-out flex items-center overflow-visible z-[1001] overhud-panel",
+          // Layout Mode Logic
+          isOverlayMode ? "fixed right-0 top-0 shadow-2xl" : "relative flex-shrink-0",
+          // Expansion Logic
+          isOverHUDOpen ? "w-[420px]" : "w-0",
+          // Visual tweaks for overlay
+          isOverlayMode && isOverHUDOpen ? "bg-black/60 backdrop-blur-xl border-l border-white/10" : "bg-transparent"
         )}
       >
         {/* Toggle Button — vertically centered, gold tab */}
@@ -68,3 +82,4 @@ export default function OverHUD() {
     </OverHUDContextProvider>
   );
 }
+

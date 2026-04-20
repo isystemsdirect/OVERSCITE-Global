@@ -14,6 +14,8 @@
 // ─── Authority Classes ───────────────────────────────────────────────
 // These define the edit/view posture of a document. Enforcement is mandatory.
 
+export type DocumentStatus = 'draft' | 'archived' | 'approved';
+
 export type AuthorityClass =
   | 'draft_editable'
   | 'partial_edit'
@@ -23,12 +25,113 @@ export type AuthorityClass =
 
 // ─── Document Status ─────────────────────────────────────────────────
 
-export type DocumentStatus =
-  | 'draft'
-  | 'in_review'
-  | 'approved'
-  | 'archived'
-  | 'superseded';
+// ─── Phase 3 Extensions ──────────────────────────────────────────────
+
+export type SectionTruthState = 'draft' | 'reviewed' | 'locked' | 'archived';
+
+// ─── Phase 5: Data Integration Blocks ───────────────────────────────
+
+export type DataBlockType = 'weather' | 'location' | 'timestamp' | 'inspection_section';
+
+export interface DocuScribeDataBlock {
+  block_id: string;
+  type: DataBlockType;
+  mode: 'live' | 'snapshot';
+  source: string;
+  timestamp: string;
+  data: any; // Type-specific payload
+  author_notes?: string;
+}
+
+export interface DocumentLocation {
+  lat: number;
+  lng: number;
+  address?: string;
+  site_id?: string;
+}
+
+export interface DocumentComment {
+  id: string;
+  page_id: string;
+  author: string;
+  text: string;
+  timestamp: string;
+  resolved: boolean;
+  replies?: Omit<DocumentComment, 'replies' | 'page_id'>[];
+}
+
+export interface DiscussionMessage {
+  id: string;
+  author: string;
+  text: string;
+  timestamp: string;
+  /** Link to a specific data block or page if relevant */
+  block_id?: string;
+  page_id?: string;
+}
+
+export interface DistributionLink {
+  id: string;
+  url: string;
+  type: 'live' | 'snapshot';
+  snapshot_id?: string;
+  expiry: string; // ISO
+  permissions: 'view_only' | 'can_comment';
+  revoked: boolean;
+  view_count: number;
+}
+
+export interface DocumentSnapshot {
+  version_id: string;
+  author: string;
+  timestamp: string;
+  pages: DocuScribePage[];
+  note?: string;
+}
+
+export interface AuditEntry {
+  id: string;
+  timestamp: string;
+  action: string;
+  actor: string;
+  details: string;
+  target_id?: string;
+}
+
+export interface DocuScribePage {
+  /** Page ID for keying/tracking */
+  page_id: string;
+  /** Body content (HTML) for this specific page */
+  content: string;
+  /** Optional override for page header */
+  header_override?: string;
+  /** Optional override for page footer */
+  footer_override?: string;
+  /** Governance state of this specific page/section */
+  status: SectionTruthState;
+  /** Phase 5: Registry of data blocks embedded in this page */
+  blocks: Record<string, DocuScribeDataBlock>;
+}
+
+export interface DocumentFormatting {
+  /** Page dimensions (default: Letter) */
+  pageSize: 'Letter' | 'A4' | 'Legal';
+  /** Page margins in inches */
+  margins: {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  };
+  /** Base line height */
+  lineSpacing: number;
+  /** Primary document font */
+  fontFamily: string;
+  /** Document-level header default (overridden by page-level) */
+  defaultHeader?: string;
+  /** Document-level footer default (overridden by page-level) */
+  defaultFooter?: string;
+}
 
 // ─── Core Document Interface ────────────────────────────────────────
 
@@ -53,14 +156,33 @@ export interface DocuScribeDocument {
   created_at: string;
   /** ISO timestamp of last modification */
   updated_at: string;
-  /** Document body content */
+  /** Phase 5: Geographic context for weather and site intelligence */
+  location?: DocumentLocation;
+  /** Legacy: Document body content (v1 compatibility) */
   content: string;
+  /** New: Array of discrete pages for structured auth (v2) */
+  pages: DocuScribePage[];
+  /** Document-wide formatting settings */
+  formatting: DocumentFormatting;
   /** Template ID used to create this document (if any) */
   template_id: string | null;
   /** Trust Stamp applied to this document (P2) */
   trust_stamp?: TrustStamp | null;
   /** Findings with confidence values for CARR calculation (P2) */
   findings?: DocumentFinding[];
+  /** Phase 3: Version history */
+  history: DocumentSnapshot[];
+  /** Phase 3: Collaborative comments */
+  comments: DocumentComment[];
+  /** Phase 3: Structural audit trail */
+  audit_log: AuditEntry[];
+  /** Phase 6: Governed distribution registry */
+  distribution: {
+    links: DistributionLink[];
+    outbound_history: any[];
+  };
+  /** Phase 6: Document-linked internal messaging */
+  discussion_thread: DiscussionMessage[];
 }
 
 // ─── Document Template ──────────────────────────────────────────────
@@ -197,7 +319,11 @@ export type StampAuditAction =
   | 'stamp_reissued'
   | 'stamp_viewed'
   | 'generation_blocked'
-  | 'generation_authorized';
+  | 'generation_authorized'
+  | 'link_created'
+  | 'link_revoked'
+  | 'document_shared_email'
+  | 'internal_message_posted';
 
 export interface StampAuditEntry {
   /** Unique entry identifier */

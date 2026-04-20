@@ -56,7 +56,7 @@ export default function DocuScribeWritePage() {
   const { 
     documents, 
     activeDocument, 
-    updateDocumentContent, 
+    updatePageContent, 
     createDocument,
     issueStamp,
     templates
@@ -87,11 +87,8 @@ export default function DocuScribeWritePage() {
   const handleOpenExport = useCallback(() => setExportDialogOpen(true), []);
 
   const handleInsertText = (text: string) => {
-    // For rich text, we append or use execCommand
-    // This is handled via onContentChange in the renderer for now
-    if (activeDocument) {
-      updateDocumentContent(activeDocument.content + text);
-    }
+    // For rich text, we append or use execCommand in the active editor
+    // The editor now handles this directly via internal range selection or execCommand.
   };
 
   // ─── Formal Report Generation ─────────────────────────────────────
@@ -121,7 +118,7 @@ export default function DocuScribeWritePage() {
   }, [activeDocument]);
 
   return (
-    <div className="flex flex-col h-full bg-[#050505] text-white/90 font-sans">
+    <div className="flex flex-col h-full bg-transparent text-white/90 font-sans">
       {/* ─── Page Header ─── */}
       <div className="p-6 md:p-8 lg:p-10 pb-0">
         <PageHeader
@@ -136,12 +133,11 @@ export default function DocuScribeWritePage() {
       <div className="flex-1 flex min-h-0 px-6 md:px-8 lg:px-10 pb-4 gap-0">
 
         {/* Center: Document Canvas (The Desk) */}
-        <div className="flex-1 flex flex-col min-w-0 border-y border-white/5 bg-transparent overflow-hidden">
+        <div className="flex-1 flex flex-col min-w-[900px] flex-shrink-0 bg-transparent overflow-hidden">
           {activeDocument ? (
             <div className="flex-1 min-h-0">
               <DocumentCanvas
                 document={activeDocument}
-                onContentChange={updateDocumentContent}
                 onOpenFormulas={handleOpenFormulas}
                 onOpenElements={handleOpenElements}
                 onOpenExport={handleOpenExport}
@@ -157,7 +153,7 @@ export default function DocuScribeWritePage() {
         </div>
 
         {/* Right: Metadata Panel */}
-        <div className="w-80 shrink-0 border border-white/5 rounded-r-xl bg-black/20 overflow-hidden">
+        <div className="w-[300px] shrink-0 border-l border-white/5 bg-black/10 overflow-hidden">
           {activeDocument ? (
             <MetadataPanel
               document={activeDocument}

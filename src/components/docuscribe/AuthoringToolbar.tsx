@@ -14,9 +14,11 @@ import {
   List, ListOrdered, Type, Heading1, Heading2, 
   Table as TableIcon, Image as ImageIcon, Sigma, Hexagon,
   Link as LinkIcon, Minus, Hash, Superscript, Subscript,
-  Eraser, ChevronDown
+  Eraser, ChevronDown, Camera, MessageSquare, CloudRain, ShieldCheck,
+  Share2
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useDocuScribe } from '@/lib/docuscribe/context';
 
 interface ToolbarButtonProps {
   icon: React.ElementType;
@@ -46,12 +48,14 @@ function ToolbarButton({ icon: Icon, title, onClick, active, disabled }: Toolbar
 
 interface AuthoringToolbarProps {
   onCommand: (command: string, value?: string) => void;
-  onOpenFormulas: () => void;
-  onOpenElements: () => void;
-  onOpenExport: () => void;
+  onOpenFormulas?: () => void;
+  onOpenElements?: () => void;
+  onOpenExport?: () => void;
+  onOpenShare?: () => void;
 }
 
-export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, onOpenExport }: AuthoringToolbarProps) {
+export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, onOpenExport, onOpenShare }: AuthoringToolbarProps) {
+  const { activeDocument, updateFormatting, createSnapshot, addComment, insertDataBlock } = useDocuScribe();
   const [activeCategory, setActiveCategory] = useState<'text' | 'para' | 'struct' | 'insert'>('text');
 
   const categories = [
@@ -61,8 +65,15 @@ export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, on
     { id: 'insert', name: 'Insert', icon: Sigma },
   ];
 
+  const lineSpacings = [1.0, 1.15, 1.5, 2.0];
+  const fonts = [
+    { name: 'Inter', family: 'Inter' },
+    { name: 'Roboto', family: 'Roboto' },
+    { name: 'Technical', family: 'JetBrains Mono' }
+  ];
+
   return (
-    <div className="flex flex-col border-b border-white/5 bg-black/40 backdrop-blur-sm sticky top-0 z-30">
+    <div className="flex flex-col border border-white/5 bg-black/10 rounded-t-xl overflow-hidden transition-all duration-500">
       {/* ─── Category Tabs ─── */}
       <div className="flex px-4 pt-4 gap-6 border-b border-white/[0.02]">
         {categories.map((cat) => (
@@ -97,6 +108,18 @@ export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, on
               <ToolbarButton icon={Superscript} title="Superscript" onClick={() => onCommand('superscript')} />
               <ToolbarButton icon={Subscript} title="Subscript" onClick={() => onCommand('subscript')} />
               <div className="w-px h-6 bg-white/5 mx-1" />
+              
+              <select 
+                className="bg-transparent text-[10px] text-white/60 font-black uppercase tracking-wider outline-none cursor-pointer border border-white/10 rounded px-1 hover:text-white"
+                value={activeDocument?.formatting.fontFamily}
+                onChange={(e) => updateFormatting({ fontFamily: e.target.value })}
+              >
+                {fonts.map(f => (
+                  <option key={f.family} value={f.family} className="bg-zinc-900">{f.name}</option>
+                ))}
+              </select>
+
+              <div className="w-px h-6 bg-white/5 mx-1" />
               <ToolbarButton icon={Eraser} title="Clear Formatting" onClick={() => onCommand('removeFormat')} />
             </>
           )}
@@ -110,6 +133,24 @@ export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, on
               <div className="w-px h-6 bg-white/5 mx-1" />
               <ToolbarButton icon={List} title="Bulleted List" onClick={() => onCommand('insertUnorderedList')} />
               <ToolbarButton icon={ListOrdered} title="Numbered List" onClick={() => onCommand('insertOrderedList')} />
+              <div className="w-px h-6 bg-white/5 mx-1" />
+              
+              <div className="flex items-center gap-1">
+                {lineSpacings.map(s => (
+                  <button
+                    key={s}
+                    onClick={() => updateFormatting({ lineSpacing: s })}
+                    className={cn(
+                      "px-1.5 py-0.5 text-[9px] font-black rounded transition-all",
+                      activeDocument?.formatting.lineSpacing === s
+                        ? "bg-primary text-black"
+                        : "text-white/40 hover:text-white hover:bg-white/5"
+                    )}
+                  >
+                    {s}x
+                  </button>
+                ))}
+              </div>
             </>
           )}
 
@@ -117,26 +158,84 @@ export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, on
             <>
               <ToolbarButton icon={Heading1} title="Heading 1" onClick={() => onCommand('formatBlock', 'H1')} />
               <ToolbarButton icon={Heading2} title="Heading 2" onClick={() => onCommand('formatBlock', 'H2')} />
+              {[3, 4, 5, 6].map(n => (
+                <button 
+                  key={n}
+                  onClick={() => onCommand('formatBlock', `H${n}`)}
+                  className="px-2 py-1 text-[9px] font-black text-white/20 hover:text-primary transition-colors border border-white/5 rounded-md hover:border-primary/20"
+                >
+                  H{n}
+                </button>
+              ))}
               <div className="w-px h-6 bg-white/5 mx-1" />
-              <ToolbarButton icon={Hash} title="Page Break" onClick={() => onCommand('insertHorizontalRule')} />
+              <ToolbarButton icon={Hash} title="Section Break (HR)" onClick={() => onCommand('insertHorizontalRule')} />
             </>
           )}
 
           {activeCategory === 'insert' && (
             <>
-              <ToolbarButton icon={TableIcon} title="Insert Table" onClick={() => alert('Table integration in next sub-phase')} />
+              <ToolbarButton 
+                icon={TableIcon} 
+                title="Insert Table" 
+                onClick={() => onCommand('insertHTML', '<table style=\"width:100%; border-collapse: collapse; margin: 1em 0;\"><tr style=\"border: 1px solid #ddd;\"><td style=\"border: 1px solid #ddd; padding: 8px;\">Cell 1</td><td style=\"border: 1px solid #ddd; padding: 8px;\">Cell 2</td></tr><tr style=\"border: 1px solid #ddd;\"><td style=\"border: 1px solid #ddd; padding: 8px;\">Cell 3</td><td style=\"border: 1px solid #ddd; padding: 8px;\">Cell 4</td></tr></table>')} 
+              />
               <ToolbarButton icon={ImageIcon} title="Insert Image" onClick={() => alert('Image upload integration in next sub-phase')} />
               <div className="w-px h-6 bg-white/5 mx-1" />
-              <ToolbarButton icon={Sigma} title="Formula Library" onClick={onOpenFormulas} />
-              <ToolbarButton icon={Hexagon} title="Element Library" onClick={onOpenElements} />
+              <ToolbarButton icon={Sigma} title="Formula Library" onClick={onOpenFormulas || (() => {})} />
+              <ToolbarButton icon={Hexagon} title="Element Library" onClick={onOpenElements || (() => {})} />
+              <div className="w-px h-6 bg-white/5 mx-1" />
+              <ToolbarButton 
+                icon={CloudRain} 
+                title="Insert Weather Intelligence" 
+                onClick={() => {
+                  const pageId = activeDocument?.pages[0]?.page_id;
+                  if (pageId) insertDataBlock(pageId, 'weather');
+                }} 
+              />
+              <ToolbarButton 
+                icon={ShieldCheck} 
+                title="Insert Inspection Findings" 
+                onClick={() => {
+                  const pageId = activeDocument?.pages[0]?.page_id;
+                  if (pageId) insertDataBlock(pageId, 'inspection_section');
+                }} 
+              />
             </>
           )}
         </div>
 
-        {/* ─── Global Actions ─── */}
-        <div className="flex items-center gap-2">
+        {/* ─── Governance & Review ─── */}
+        <div className="flex items-center gap-1.5 px-3 border-r border-white/5">
+          <button 
+            onClick={() => createSnapshot()}
+            className="p-1.5 rounded hover:bg-white/5 text-white/40 hover:text-primary transition-all"
+            title="Capture Version Snapshot"
+          >
+            <Camera className="w-4 h-4" />
+          </button>
+          <button 
+            onClick={() => {
+              const text = window.prompt('Enter Review Comment:');
+              if (text) addComment(text);
+            }}
+            className="p-1.5 rounded hover:bg-white/5 text-white/40 hover:text-primary transition-all"
+            title="Add Review Comment"
+          >
+            <MessageSquare className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* ─── Technical & Export ─── */}
+        <div className="flex items-center gap-1.5 px-3">
           <button
-            onClick={onOpenExport}
+            onClick={onOpenShare || (() => {})}
+            className="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-[10px] font-black uppercase tracking-widest text-primary hover:bg-primary hover:text-black transition-all flex items-center gap-2"
+          >
+            <Share2 className="w-3 h-3" />
+            Share
+          </button>
+          <button
+            onClick={onOpenExport || (() => {})}
             className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest text-white/60 hover:text-white hover:bg-white/10 transition-all"
           >
             Export

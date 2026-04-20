@@ -15,67 +15,207 @@
  * Design: Crisp text, high contrast, no glass/blur overlays on canvas.
  */
 
-'use client';
-
-import React, { useRef } from 'react';
-import { Lock, ShieldAlert } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { 
+  Lock, 
+  ShieldAlert, 
+  ShieldCheck, 
+  Hash, 
+  Eye, 
+  EyeOff 
+} from 'lucide-react';
+import { useDocuScribe } from '@/lib/docuscribe/context';
+import { cn } from '@/lib/utils';
 import type { DocuScribeDocument } from '@/lib/docuscribe/types';
-import { canEdit } from '@/lib/docuscribe/types';
 import { AuthoringToolbar } from './AuthoringToolbar';
 import { PageRenderer } from './PageRenderer';
+import { HorizontalRuler } from './HorizontalRuler';
+import { canEdit } from '@/lib/docuscribe/types';
+import { DocumentOutline } from './DocumentOutline';
+import { GovernancePanel } from './GovernancePanel';
+import { ShareDialog } from './ShareDialog';
+
+interface DocumentCanvasProps {
+  document: DocuScribeDocument;
+  onOpenFormulas: () => void;
+  onOpenElements: () => void;
+  onOpenExport: () => void;
+}
 
 export function DocumentCanvas({ 
   document, 
-  onContentChange,
   onOpenFormulas,
   onOpenElements,
   onOpenExport
 }: DocumentCanvasProps) {
+  const [isPreview, setIsPreview] = useState(false);
+  const [showGovernance, setShowGovernance] = useState(true);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [isConstrained, setIsConstrained] = useState(false);
+  
+  const { executeScingAction } = useDocuScribe();
+  const deskRef = useRef<HTMLDivElement>(null);
   const editable = canEdit(document.authority_class);
+
+  // Layout Excellence: Viewport Rescue Monitoring
+  useEffect(() => {
+    const checkConstraints = () => {
+      const constrained = window.innerWidth < 1100; // Calibrated threshold for 816px + 280px sidebar
+      setIsConstrained(constrained);
+      // In rescue mode, we might want to force certain collapses,
+      // but for now we let the layout yield.
+    };
+    
+    checkConstraints();
+    window.addEventListener('resize', checkConstraints);
+    return () => window.removeEventListener('resize', checkConstraints);
+  }, []);
 
   // Execute rich text commands
   const handleCommand = (command: string, value?: string) => {
-    if (!editable) return;
-    document.execCommand(command, false, value);
-    // Note: Modern browsers support document.execCommand for basic actions, 
-    // even though it's deprecated. For a production SCINGULAR app, 
-    // we would eventually move to a more robust state-based editor.
+    if (!editable || isPreview) return;
+    window.document.execCommand(command, false, value);
   };
 
+  const handleNavigate = (pageIndex: number, elementId: string) => {
+    const selector = `[data-page="${pageIndex + 1}"]`;
+    const target = deskRef.current?.querySelector(selector);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Standardized Excellence Timing
+  const TRANSITION_BASE = "transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]";
+
   return (
-    <div className="flex flex-col h-full bg-[#050505] relative">
-      {/* ─── Fixed Authoring Toolbar (P3.3A) ─── */}
-      <AuthoringToolbar 
-        onCommand={handleCommand}
-        onOpenFormulas={onOpenFormulas}
-        onOpenElements={onOpenElements}
-        onOpenExport={onOpenExport}
+    <div className={cn(
+      "flex h-full relative overflow-hidden overflow-x-hidden", 
+      TRANSITION_BASE,
+      isPreview ? "bg-zinc-300" : "bg-transparent"
+    )}>
+      {/* ─── Global Layout: Intelligence Rails ─── */}
+      
+      {/* Prime Dominance: Main Workstation Desk */}
+      <div className={cn(
+        "flex-1 flex flex-col min-w-0 relative h-full",
+        TRANSITION_BASE
+      )}>
+        {/* ─── Toolbar & Toggles ─── */}
+        <div className="absolute top-4 left-4 right-4 z-50 flex items-center justify-between pointer-events-none">
+          <div className="flex items-center gap-2 pointer-events-auto">
+             {!isPreview && (
+               <button 
+                 onClick={() => setShowGovernance(!showGovernance)}
+                 className={cn(
+                  "p-2 rounded-lg border border-white/5 bg-black/40 backdrop-blur-md text-white/40 hover:text-white shadow-xl",
+                  TRANSITION_BASE
+                 )}
+                 title="Toggle Structure Navigation"
+               >
+                 <Hash className="w-4 h-4" />
+               </button>
+             )}
+          </div>
+
+          <div className="flex items-center gap-2 pointer-events-auto">
+            <button 
+              onClick={() => setIsPreview(!isPreview)}
+              className={cn(
+                "p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/5 text-white/40 hover:text-white shadow-xl",
+                TRANSITION_BASE
+              )}
+              title={isPreview ? "Exit Preview" : "Print Preview"}
+            >
+              {isPreview ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            </button>
+            {!isPreview && (
+              <button 
+                onClick={() => setShowGovernance(!showGovernance)}
+                className={cn(
+                  "p-2 rounded-lg border border-white/5 bg-black/40 backdrop-blur-md text-white/40 hover:text-white shadow-xl",
+                  TRANSITION_BASE
+                )}
+                title="Toggle OverHUD Support"
+              >
+                <ShieldCheck className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* ─── The Desk (Dynamic Center Execution) ─── */}
+        <div 
+          ref={deskRef}
+          className={cn(
+            "flex-1 min-h-0 overflow-y-auto overflow-x-hidden scrollbar-hide docuscribe-desk pb-24 scroll-smooth flex flex-col items-center",
+            TRANSITION_BASE,
+            isPreview && "pt-12"
+          )}
+        >
+          {/* Internal Wrapper to Center Page without Shrinking */}
+          <div className={cn("w-full flex-none flex flex-col items-center", TRANSITION_BASE)}>
+            {/* Horizontal Ruler (Locked to Page Wide Authority) */}
+            {!isPreview && <HorizontalRuler />}
+
+            <div className={cn(
+              "max-w-[816px] w-full flex flex-col gap-0 items-center justify-center",
+              TRANSITION_BASE,
+              !isPreview && "pt-12"
+            )}>
+              {/* ─── Attached Authoring Toolbar ─── */}
+              {!isPreview && (
+                <AuthoringToolbar 
+                  onCommand={handleCommand}
+                  onOpenFormulas={onOpenFormulas}
+                  onOpenElements={onOpenElements}
+                  onOpenExport={onOpenExport}
+                  onOpenShare={() => setShareOpen(true)}
+                />
+              )}
+              
+              <div className={cn("w-full flex justify-center", TRANSITION_BASE)}>
+                <PageRenderer
+                  document={document}
+                  readOnly={!editable || isPreview}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT RAIL: Governance / OverHUD (Yield & Rescue Posture) */}
+      {!isPreview && (
+        <div className={cn(
+          "h-full border-l border-white/5 overflow-hidden flex-none z-40",
+          TRANSITION_BASE,
+          showGovernance ? "w-80" : "w-0",
+          // Rescue Posture: When constrained and panel is open, use overlay logic
+          (isConstrained && showGovernance) && "fixed top-0 right-0 h-full bg-zinc-900 border-l border-white/10 shadow-[-20px_0_40px_rgba(0,0,0,0.5)]"
+        )}>
+          <GovernancePanel 
+            document={document} 
+            onNavigate={handleNavigate}
+          />
+          
+          {/* Rescue Handle (Manual Close in Overlay Mode) */}
+          {(isConstrained && showGovernance) && (
+            <button 
+              onClick={() => setShowGovernance(false)}
+              className="absolute top-1/2 -left-3 w-3 h-12 bg-primary/40 rounded-l flex items-center justify-center text-black hover:bg-primary transition-all"
+            >
+              <div className="w-1 h-4 bg-black/60 rounded-full" />
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* Distribution Modal */}
+      <ShareDialog 
+        open={shareOpen} 
+        onOpenChange={setShareOpen} 
       />
-
-      {/* ─── Authority/Status Indicators ─── */}
-      <div className="absolute top-24 right-8 flex flex-col gap-2 z-10 pointer-events-none opacity-40 hover:opacity-100 transition-opacity">
-        {!editable && (
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/20 text-[10px] font-black uppercase tracking-widest text-rose-400">
-            <ShieldAlert className="w-3 h-3" />
-            READ ONLY
-          </div>
-        )}
-        {document.authority_class === 'partial_edit' && (
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-[10px] font-black uppercase tracking-widest text-amber-400">
-            <Lock className="w-3 h-3" />
-            PARTIAL
-          </div>
-        )}
-      </div>
-
-      {/* ─── Page Rendering Surface (The Desk) ─── */}
-      <div className="flex-1 min-h-0 overflow-y-auto scrollbar-hide docuscribe-desk">
-        <PageRenderer
-          document={document}
-          onContentChange={onContentChange}
-          readOnly={!editable}
-        />
-      </div>
     </div>
   );
 }

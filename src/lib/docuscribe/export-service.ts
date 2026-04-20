@@ -69,19 +69,39 @@ export function downloadBlob(blob: Blob, filename: string): void {
 export function exportAsHTML(doc: DocuScribeDocument): Blob {
   const isFormal = doc.status === 'approved' || doc.is_verified;
   const stamp = doc.trust_stamp;
+  const { formatting, pages } = doc;
+  const { margins, lineSpacing, fontFamily, defaultHeader, defaultFooter } = formatting;
   
   // Format dates
-  const createdDate = new Date(doc.created_at).toLocaleString();
   const updatedDate = new Date(doc.updated_at).toLocaleString();
 
-  // Basic markdown-to-html (very simple subset for P3)
-  const renderedContent = doc.content
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-    .replace(/\n\n/g, '<br><br>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // Helper to render basic markdown/html
+  const renderContent = (content: string) => {
+    return content
+      .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+      .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+      .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+      .replace(/\n/g, '<br>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  };
+
+  const pagesHtml = pages.map((page, index) => {
+    return `
+    <div class="page" id="page-${index + 1}">
+      <div class="page-header">${page.header_override || defaultHeader || 'DocuSCRIBE™ Export'}</div>
+      <div class="page-content" style="padding: ${margins.top * 0.5}in ${margins.right}in ${margins.bottom * 0.5}in ${margins.left}in; line-height: ${lineSpacing};">
+        ${renderContent(page.content)}
+      </div>
+      <div class="page-footer">
+        <div class="footer-text">${page.footer_override || defaultFooter || `Page ${index + 1} of ${pages.length}`}</div>
+        ${index === pages.length - 1 && isFormal && stamp ? `
+          <div class="stamp-verified">SCINGULAR VERIFIED AUTHENTICITY</div>
+        ` : ''}
+      </div>
+    </div>
+    `;
+  }).join('');
 
   const html = `
 <!DOCTYPE html>
@@ -90,146 +110,120 @@ export function exportAsHTML(doc: DocuScribeDocument): Blob {
   <meta charset="UTF-8">
   <title>${doc.title} - DocuSCRIBE Export</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700&family=JetBrains+Mono&display=swap');
+    
     :root {
-      --primary: #4ade80; /* emerald-400 equivalent for print */
+      --primary: #10b981;
     }
+    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f3f4f6;
+      font-family: '${fontFamily}', sans-serif;
       color: #1a1a1a;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px;
+    }
+
+    @media print {
+      body { background: white; }
+      .no-print { display: none; }
+      .page {
+        margin: 0 !important;
+        box-shadow: none !important;
+      }
+    }
+
+    .page {
       background: white;
-    }
-    .header {
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 20px;
-      margin-bottom: 30px;
+      width: 8.5in;
+      height: 11in;
+      margin: 20px auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: relative;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      flex-direction: column;
+      page-break-after: always;
+      box-sizing: border-box;
     }
-    .brand {
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: -0.025em;
+
+    .page-header {
+      padding: 0.5in 1in 0;
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #9ca3af;
     }
-    .brand span {
-      color: #6b7280;
-      font-weight: 400;
-      font-size: 1rem;
+
+    .page-content {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .page-footer {
+      padding: 0 1in 0.5in;
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
       letter-spacing: 0.1em;
-      text-transform: uppercase;
+      color: #9ca3af;
+      border-top: 1px solid #f3f4f6;
+      margin-top: auto;
     }
-    .meta {
-      font-size: 0.875rem;
-      color: #4b5563;
-      text-align: right;
-    }
-    .meta-item { margin-bottom: 4px; }
+
+    .footer-text { margin-top: 20px; }
     
-    .stamp-container {
-      margin: 30px 0;
-      padding: 20px;
-      border: 2px solid #10b981;
-      background-color: #ecfdf5;
-      border-radius: 8px;
-    }
-    .stamp-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #047857;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 15px;
-    }
-    .stamp-header svg {
-      width: 24px;
-      height: 24px;
-    }
-    .stamp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      font-size: 0.875rem;
-    }
-    .stamp-label { color: #065f46; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;}
-    .stamp-value { color: #022c22; font-family: monospace; }
-    
-    .content h1 { font-size: 1.875rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 10px; margin-top: 40px;}
-    .content h2 { font-size: 1.5rem; margin-top: 30px;}
-    .content h3 { font-size: 1.25rem; margin-top: 25px;}
-    
-    .footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 0.75rem;
-      color: #6b7280;
-      text-align: center;
-    }
-    .unverified-warning {
-      color: #b91c1c;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-align: center;
+    .stamp-verified {
       margin-top: 10px;
+      color: var(--primary);
+      font-weight: 900;
+      border: 1px solid var(--primary);
+      display: inline-block;
+      padding: 2px 8px;
     }
+
+    .doc-meta-cover {
+      page-break-after: always;
+      padding: 1in;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 11in;
+      box-sizing: border-box;
+      background: #fafafa;
+    }
+
+    .brand { font-weight: 900; font-size: 24px; margin-bottom: 40px; }
+    .title { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+    .meta-grid { display: grid; grid-template-columns: 120px 1fr; gap: 10px; font-size: 12px; }
+    .label { font-weight: bold; color: #6b7280; text-transform: uppercase; }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <div class="brand">
-      OVERSCITE™<br>
-      <span>DocuSCRIBE Division</span>
+  <div class="doc-meta-cover">
+    <div class="brand">OVERSCITE™<br><span style="font-weight:400; font-size: 14px; color:#9ca3af; letter-spacing:0.2em;">DocuSCRIBE DIVISION</span></div>
+    <div class="title">${doc.title}</div>
+    <div class="meta-grid">
+      <div class="label">Document ID</div><div style="font-family:monospace;">${doc.document_id}</div>
+      <div class="label">Date</div><div>${updatedDate}</div>
+      <div class="label">Authority</div><div>${doc.authority_class.toUpperCase()}</div>
+      <div class="label">Status</div><div>${doc.status.toUpperCase()}</div>
     </div>
-    <div class="meta">
-      <div class="meta-item"><strong>ID:</strong> ${doc.document_id}</div>
-      <div class="meta-item"><strong>Date:</strong> ${updatedDate}</div>
-      <div class="meta-item"><strong>Version:</strong> v${doc.version}.${doc.sub_version}</div>
-      <div class="meta-item"><strong>Status:</strong> ${doc.status.toUpperCase()}</div>
+
+    ${stamp ? `
+    <div style="margin-top: 60px; padding: 20px; border: 2px solid var(--primary); background: #ecfdf5; border-radius: 8px;">
+      <div style="font-weight:900; color:#065f46; letter-spacing:0.1em; margin-bottom: 15px;">SCINGULAR TRUST STAMP</div>
+      <div class="meta-grid">
+        <div class="label">Issued By</div><div>${stamp.issued_by}</div>
+        <div class="label">Score</div><div>${stamp.carr_score.toFixed(2)} CARR</div>
+        <div class="label">Hash</div><div style="font-family:monospace; font-size: 10px;">${stamp.content_hash}</div>
+      </div>
     </div>
+    ` : ''}
   </div>
 
-  ${stamp && stamp.is_valid ? `
-  <div class="stamp-container">
-    <div class="stamp-header">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-      SCINGULAR TRUST STAMP
-    </div>
-    <div class="stamp-grid">
-      <div>
-        <div class="stamp-label">Issued By</div>
-        <div class="stamp-value">${stamp.issued_by}</div>
-      </div>
-      <div>
-        <div class="stamp-label">Issued At</div>
-        <div class="stamp-value">${new Date(stamp.issued_at).toLocaleString()}</div>
-      </div>
-      <div>
-        <div class="stamp-label">CARR Score</div>
-        <div class="stamp-value">${stamp.carr_score.toFixed(2)}</div>
-      </div>
-      <div>
-        <div class="stamp-label">Content SHA-256 Hash</div>
-        <div class="stamp-value">${stamp.content_hash.slice(0, 32)}...</div>
-      </div>
-    </div>
-  </div>
-  ` : ''}
-
-  <div class="content">
-    ${renderedContent}
-  </div>
-
-  <div class="footer">
-    <div>Generated by DocuSCRIBE™ Export Service on ${new Date().toLocaleString()}</div>
-    ${!doc.is_verified ? '<div class="unverified-warning">★ TRUTH-STATE WARNING: UNVERIFIED DRAFT ★</div>' : ''}
-  </div>
+  ${pagesHtml}
 
 </body>
 </html>
@@ -237,3 +231,4 @@ export function exportAsHTML(doc: DocuScribeDocument): Blob {
 
   return new Blob([html], { type: 'text/html;charset=utf-8' });
 }
+

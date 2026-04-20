@@ -46,7 +46,7 @@ function SidebarContent() {
   const isWriteMode = pathname === '/docuscribe';
 
   return (
-    <aside className="docuscribe-sub-sidebar w-72 border-r border-border/20 bg-background/20 flex flex-col pt-6 shrink-0 relative z-20">
+    <aside className="docuscribe-sub-sidebar w-[240px] border-r border-white/5 bg-transparent flex flex-col pt-6 shrink-0 relative z-20 transition-all duration-300">
       {/* Division Identity Header */}
       <div className="px-6 mb-8">
         <div className="flex items-center gap-2 text-primary mb-1">
@@ -111,11 +111,13 @@ export default function DocuScribeLayout({
 }) {
   return (
     <DocuScribeProvider>
-      <div className="flex h-full min-h-[calc(100vh-13rem)] rounded-xl overflow-hidden border border-border/20 bg-black/40 backdrop-blur-md shadow-2xl">
+      <div className="flex h-full min-h-[calc(100vh-13rem)] overflow-hidden">
         <SidebarContent />
 
         {/* ─── Main Content Area ─── */}
         <main className="flex-grow overflow-y-auto bg-transparent relative scrollbar-hide">
+          {/* Vignette Overlay for depth */}
+          <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]" />
           {children}
         </main>
       </div>

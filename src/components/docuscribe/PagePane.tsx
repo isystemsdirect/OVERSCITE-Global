@@ -65,7 +65,7 @@ export function PagePane({
       {/* ─── Page Header Slot ─── */}
       <div 
         className={cn(
-          "shrink-0 px-[1in] pt-6 text-[10px] text-black/30 font-mono uppercase tracking-[0.2em] outline-none",
+          "shrink-0 px-[1in] pt-6 text-[10px] text-zinc-600 font-mono uppercase tracking-[0.2em] outline-none",
           effectiveReadOnly ? "cursor-default" : "cursor-text"
         )}
         contentEditable={!effectiveReadOnly}
@@ -90,7 +90,7 @@ export function PagePane({
       <div className="shrink-0 px-[1in] pb-8 flex flex-col gap-2">
         <div 
           className={cn(
-            "text-[10px] text-black/30 font-mono uppercase tracking-[0.2em] mb-4 outline-none border-t border-black/5 pt-4",
+            "text-[10px] text-zinc-600 font-mono uppercase tracking-[0.2em] mb-4 outline-none border-t border-black/5 pt-4",
             effectiveReadOnly ? "cursor-default" : "cursor-text"
           )}
           contentEditable={!effectiveReadOnly}

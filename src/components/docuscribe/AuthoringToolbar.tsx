@@ -37,7 +37,7 @@ function ToolbarButton({ icon: Icon, title, onClick, active, disabled }: Toolbar
         "p-2 rounded-lg transition-all duration-200",
         active 
           ? "bg-primary text-black shadow-lg shadow-primary/20" 
-          : "text-white/40 hover:text-white hover:bg-white/5 disabled:opacity-20 disabled:pointer-events-none"
+          : "text-zinc-300 hover:text-white hover:bg-white/5 disabled:opacity-20 disabled:pointer-events-none"
       )}
       title={title}
     >
@@ -73,7 +73,7 @@ export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, on
   ];
 
   return (
-    <div className="flex flex-col border border-white/5 bg-black/10 rounded-t-xl overflow-hidden transition-all duration-500">
+    <div className="flex flex-col border border-white/10 bg-zinc-950/98 backdrop-blur-xl rounded-t-xl overflow-hidden transition-all duration-500 shadow-2xl shadow-black/50">
       {/* ─── Category Tabs ─── */}
       <div className="flex px-4 pt-4 gap-6 border-b border-white/[0.02]">
         {categories.map((cat) => (
@@ -84,7 +84,7 @@ export function AuthoringToolbar({ onCommand, onOpenFormulas, onOpenElements, on
               "pb-3 px-1 text-[10px] font-black uppercase tracking-[0.2em] transition-all relative",
               activeCategory === cat.id 
                 ? "text-primary opacity-100" 
-                : "text-white/20 hover:text-white/40 opacity-50"
+                : "text-zinc-400 hover:text-white transition-colors"
             )}
           >
             {cat.name}

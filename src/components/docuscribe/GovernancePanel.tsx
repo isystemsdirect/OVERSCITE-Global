@@ -42,7 +42,7 @@ export function GovernancePanel({ document, onNavigate }: GovernancePanelProps) 
   ];
 
   return (
-    <div className="flex flex-col h-full bg-black/20">
+    <div className="flex flex-col h-full bg-zinc-950/98 backdrop-blur-xl shadow-2xl">
       {/* ─── Tab Navigation ─── */}
       <div className="flex border-b border-white/5 bg-black/20">
         {tabs.map((tab) => (
@@ -53,7 +53,7 @@ export function GovernancePanel({ document, onNavigate }: GovernancePanelProps) 
               "flex-1 flex flex-col items-center py-3 gap-1.5 transition-all relative",
               activeTab === tab.id 
                 ? "text-primary bg-primary/5" 
-                : "text-white/20 hover:text-white/40"
+                : "text-zinc-400 hover:text-white transition-all"
             )}
           >
             <tab.icon className="w-3.5 h-3.5" />
@@ -259,7 +259,7 @@ function StatusBadge({ status }: { status: SectionTruthState }) {
   const configs = {
     draft: { color: 'text-white/40 border-white/10 bg-white/5', icon: ShieldAlert, label: 'Draft' },
     reviewed: { color: 'text-amber-400 border-amber-500/20 bg-amber-500/5', icon: CheckCircle2, label: 'Reviewed' },
-    locked: { color: 'text-primary border-primary/20 bg-primary/5', icon: Lock, label: 'Locked' },
+    locked: { color: 'text-primary border-primary/40 bg-zinc-900', icon: Lock, label: 'Locked' },
     archived: { color: 'text-rose-400 border-rose-500/20 bg-rose-500/5', icon: History, label: 'Archived' },
   };
 

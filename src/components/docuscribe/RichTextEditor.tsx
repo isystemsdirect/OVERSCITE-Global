@@ -75,7 +75,7 @@ export function RichTextEditor({ initialContent, onChange, className, readOnly, 
         onKeyDown={handleKeyDown}
         className={cn(
           "w-full h-full min-h-full outline-none",
-          "prose prose-invert max-w-none transition-opacity duration-300",
+          "prose max-w-none transition-opacity duration-300",
           "selection:bg-primary/30",
           readOnly ? "cursor-default opacity-60" : "cursor-text"
         )}

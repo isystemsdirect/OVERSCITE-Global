@@ -92,8 +92,10 @@ export function DocumentCanvas({
     <div className={cn(
       "flex h-full relative overflow-hidden overflow-x-hidden", 
       TRANSITION_BASE,
-      isPreview ? "bg-zinc-300" : "bg-transparent"
+      isPreview ? "bg-zinc-300" : "bg-black/60"
     )}>
+      {/* ─── Background Suppression Layer (Ambient Shield) ─── */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none z-0" />
       {/* ─── Global Layout: Intelligence Rails ─── */}
       
       {/* Prime Dominance: Main Workstation Desk */}
@@ -108,7 +110,7 @@ export function DocumentCanvas({
                <button 
                  onClick={() => setShowGovernance(!showGovernance)}
                  className={cn(
-                  "p-2 rounded-lg border border-white/5 bg-black/40 backdrop-blur-md text-white/40 hover:text-white shadow-xl",
+                  "p-2 rounded-lg border border-white/10 bg-black/90 backdrop-blur-xl text-zinc-300 hover:text-white shadow-2xl",
                   TRANSITION_BASE
                  )}
                  title="Toggle Structure Navigation"
@@ -122,7 +124,7 @@ export function DocumentCanvas({
             <button 
               onClick={() => setIsPreview(!isPreview)}
               className={cn(
-                "p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/5 text-white/40 hover:text-white shadow-xl",
+                "p-2 rounded-full bg-black/90 backdrop-blur-xl border border-white/10 text-zinc-300 hover:text-white shadow-2xl",
                 TRANSITION_BASE
               )}
               title={isPreview ? "Exit Preview" : "Print Preview"}
@@ -133,7 +135,7 @@ export function DocumentCanvas({
               <button 
                 onClick={() => setShowGovernance(!showGovernance)}
                 className={cn(
-                  "p-2 rounded-lg border border-white/5 bg-black/40 backdrop-blur-md text-white/40 hover:text-white shadow-xl",
+                  "p-2 rounded-lg border border-white/10 bg-black/90 backdrop-blur-xl text-zinc-300 hover:text-white shadow-2xl",
                   TRANSITION_BASE
                 )}
                 title="Toggle OverHUD Support"

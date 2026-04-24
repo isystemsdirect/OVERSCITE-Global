@@ -23,6 +23,7 @@ import {
   Firestore,
 } from 'firebase/firestore';
 import { Inspection, Inspector, Client } from '@/lib/types';
+import { CHURCH_CIP, CHURCH_PIP } from '@/lib/data/church/profiles';
 
 /**
  * Fetches all Inspections from the canonical governed collection.
@@ -52,6 +53,15 @@ export async function getInspectionsByClientId(clientId: string): Promise<Inspec
     console.error('[CANONICAL] Error fetching inspections for client:', error);
     return [];
   }
+}
+
+/**
+ * Fetches PIPs for a client.
+ */
+export async function getPIPsByClientId(clientId: string): Promise<any[]> {
+  if (clientId === 'CIP-CHURCH-001') return [CHURCH_PIP];
+  // In real firestore, query properties collection
+  return [];
 }
 
 /**
@@ -90,6 +100,8 @@ export async function getClients(): Promise<Client[]> {
 export async function getClientById(id: string): Promise<Client | null> {
   if (!db) return null;
   try {
+    if (id === 'CIP-CHURCH-001') return CHURCH_CIP as any as Client;
+    
     const docRef = doc(db as Firestore, 'clients', id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {

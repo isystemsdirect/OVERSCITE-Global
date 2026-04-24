@@ -95,9 +95,87 @@ export interface CalendarBooking {
   end_at: FieldValue | string;
   status: TruthState | 'cancelled' | 'tentative' | 'confirmed';
   location: string;
-  linked_entity_type: 'inspection' | 'meeting' | 'operational_block';
+  linked_entity_type: 'inspection' | 'meeting' | 'operational_block' | 'method_execution';
   linked_entity_id: string;
+  linked_method_id?: string;
+  linked_property_id?: string;
+  schedule_posture?: SchedulePosture;
   created_by: string;
+}
+
+/**
+ * Operational postures for SmartSCHEDULER™ proposals.
+ */
+export type SchedulePosture = 
+  | 'approved_candidate'
+  | 'advisory_candidate'
+  | 'restricted'
+  | 'blocked'
+  | 'manual_review_required';
+
+/**
+ * Classification for forensic-grade mutations.
+ */
+export type MutationClass =
+  | 'activity_only'
+  | 'enhancement_append'
+  | 'accepted_minor_refinement'
+  | 'accepted_major_revision'
+  | 'schedule_event'
+  | 'approval_event'
+  | 'scheduling_protocol_activated'
+  | 'method_graph_initialized'
+  | 'node_started'
+  | 'node_completed'
+  | 'node_blocked'
+  | 'branch_opened'
+  | 'branch_closed'
+  | 'graph_completed'
+  | 'artifact_created'
+  | 'artifact_modified'
+  | 'artifact_locked'
+  | 'artifact_exported';
+
+/**
+ * Evidence-grade audit entry.
+ * Supports chain-of-custody tracking across all operational basins.
+ */
+export interface ForensicAuditEntry {
+  event_id: string;
+  prior_event_hash: string;
+  event_hash: string;
+  checksum: string;
+  timestamp: FieldValue | string;
+  actor_type: 'human' | 'system' | 'agent';
+  actor_id: string;
+  role: string;
+  policy_version: string;
+  engine_version: string;
+  success_state: boolean;
+  mutation_class: MutationClass;
+  linkedEntityType: string;
+  linkedEntityId: string;
+  linkedMethodId?: string;
+  truthStateBefore?: any;
+  truthStateAfter?: any;
+  signatureMetadata?: {
+    signature: string;
+    publicKey: string;
+    algorithm: string;
+    timestamp: string;
+  };
+  provenance: {
+    source: string;
+    origin_id: string;
+    chain_of_custody_notes?: string;
+  };
+  environmental_context?: {
+    iriScore: number;
+    weatherMode: string;
+    windSustained: number;
+    windGust: number;
+    temperature: number;
+  };
 }
 
 export interface FinanceInvoice {

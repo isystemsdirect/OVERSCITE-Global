@@ -19,6 +19,7 @@
  */
 // src/components/overhud/OverHUDTabs.tsx
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 import { Shield, Database } from 'lucide-react';
 import { GuidanceHint } from '@/components/guidance/GuidanceHint';
@@ -53,7 +54,9 @@ const BOTTOM_ZONE_TABS = [
 const ALL_TABS = [...TOP_ZONE_TABS, ...BOTTOM_ZONE_TABS];
 
 export default function OverHUDTabs() {
-  const [activeTab, setActiveTab] = useState('bane');
+  const pathname = usePathname();
+  const isDroneVision = pathname?.includes('drone-vision');
+  const [activeTab, setActiveTab] = useState(isDroneVision ? 'repo' : 'bane');
 
   const renderContent = () => {
     switch (activeTab) {

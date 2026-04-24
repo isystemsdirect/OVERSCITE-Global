@@ -166,6 +166,10 @@ export interface DocuScribeDocument {
   formatting: DocumentFormatting;
   /** Template ID used to create this document (if any) */
   template_id: string | null;
+  /** Methodology Linkage (UTCB-S Phase 1) */
+  method_id: string | null;
+  method_version?: string;
+  active_phase_id?: string;
   /** Trust Stamp applied to this document (P2) */
   trust_stamp?: TrustStamp | null;
   /** Findings with confidence values for CARR calculation (P2) */
@@ -193,6 +197,12 @@ export interface DocumentTemplate {
   description: string;
   default_content: string;
   authority_class: AuthorityClass;
+  /** Methodology Linkage */
+  method_binding?: {
+    methodId: string;
+    requiredSections: string[];
+    protectedSections: string[];
+  };
 }
 
 // ─── Authority Class Enforcement Helpers ─────────────────────────────

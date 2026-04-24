@@ -1,4 +1,3 @@
-
 'use client';
 
 import { getClients, getClientById } from "@/lib/services/canonical-provider";
@@ -15,10 +14,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ClientForm } from "@/components/client-form";
 import { slugify } from "@/lib/utils";
 import { EEPIP_Status, Delta_Packet } from "@/lib/types/property-intelligence";
+import { StandardGeospatialViewport } from "@/components/maps/StandardGeospatialViewport";
+
 import { PropertyExternalDataStatusCard } from "./property/PropertyExternalDataStatusCard";
 import { PropertyDeltaReviewDrawer } from "./property/PropertyDeltaReviewDrawer";
-
-
 
 type DynamicInspectionFormProps = {
     inspectionType: string;
@@ -36,8 +35,6 @@ function DynamicInspectionFormContent({ inspectionType }: DynamicInspectionFormP
   const [activeDelta, setActiveDelta] = useState<Delta_Packet | null>(null);
   const inspectionSlug = slugify(inspectionType);
 
-
-
   useEffect(() => {
     async function loadData() {
         setIsLoading(true);
@@ -52,11 +49,26 @@ function DynamicInspectionFormContent({ inspectionType }: DynamicInspectionFormP
     loadData();
   }, [clientId]);
 
-  // In a real app, you would generate form fields based on inspectionType
-  // For this example, we'll use a standard set of fields.
-
   return (
     <div className="grid gap-8">
+        {/* MANDATORY GEOSPATIAL VIEWPORT */}
+        <div className="space-y-4">
+             <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-lg">Geospatial Awareness</h3>
+                <div className="flex items-center gap-2">
+                    <span className="text-[10px] bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded border border-emerald-500/20 font-bold uppercase tracking-widest">Live Viewport</span>
+                </div>
+             </div>
+             <StandardGeospatialViewport 
+                address="Active Inspection Property"
+                lat={34.0522} 
+                lng={-118.2437} 
+                className="h-[300px]"
+             />
+        </div>
+
+        <Separator />
+
         <div className="grid gap-4">
             <h3 className="font-semibold text-lg">Client Information</h3>
             {isLoading ? (
@@ -159,7 +171,6 @@ function DynamicInspectionFormContent({ inspectionType }: DynamicInspectionFormP
                 status={eepipStatus} 
                 lastFetchAt={lastFetchAt}
                 onConnect={() => {
-                   // [SIMULATION] Fetch + Delta Building
                    setEepipStatus(EEPIP_Status.PENDING_REVIEW);
                    setActiveDelta({
                      delta_packet_id: 'dp_sim_1',
@@ -189,7 +200,6 @@ function DynamicInspectionFormContent({ inspectionType }: DynamicInspectionFormP
                 onClose={() => setIsReviewOpen(false)}
                 deltaPacket={activeDelta}
                 onAccept={(fields) => {
-                    console.log('Accepted fields:', fields);
                     setEepipStatus(fields.length > 1 ? EEPIP_Status.FULLY_INGESTED : EEPIP_Status.PARTIALLY_INGESTED);
                     setLastFetchAt(new Date().toISOString());
                     setIsReviewOpen(false);
@@ -201,9 +211,7 @@ function DynamicInspectionFormContent({ inspectionType }: DynamicInspectionFormP
             />
         </div>
 
-        
         <Separator />
-
 
         <div className="grid gap-4">
             <h3 className="font-semibold text-lg">Inspection-Specific Details</h3>
@@ -222,7 +230,6 @@ function DynamicInspectionFormContent({ inspectionType }: DynamicInspectionFormP
                 More inspection-specific fields will appear here based on the selected template.
             </p>
         </div>
-
 
         <Separator />
         <div className="flex justify-end">

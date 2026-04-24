@@ -8,6 +8,23 @@
 - **Role**: The primary SCINGULAR application workspace for building the inspection-focused operating layer
 - **Stack**: Next.js 14+ / TypeScript / Firebase (Auth, Firestore, Functions, Storage) / Tailwind CSS
 
+## Intelligence Architecture (Four-Layer Model)
+
+OVERSCITE operates a dual-layer intelligence model across two primary domains:
+
+- **Client Domain**:
+  - `CIP`: Accepted Client baseline truth (v[x].[x]).
+  - `EECIP`: External Client enhancement candidates/proposals.
+- **Property Domain**:
+  - `PIP`: Accepted Property baseline truth (v[x].[x]).
+  - `EEPIP`: External Property enhancement candidates/proposals.
+
+### Geospatial Requirement
+Every Property Intelligence Profile (PIP) MUST be spatially grounded via a mandatory, address-bound Google Maps viewport featuring:
+- Satellite / Hybrid visual context.
+- Photo attribution and Place integration.
+- 3D View / Perspective support.
+
 ## What This Workspace Governs
 
 - ScingOS client layer (voice-first UI, session management, inspection workflows)

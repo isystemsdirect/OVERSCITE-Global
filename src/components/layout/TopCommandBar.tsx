@@ -44,9 +44,13 @@ export function TopCommandBar({
       </div>
 
       {/* ─── Center: Scing Command Bar + Prime Orchestration Badge ─── */}
-      <div className="flex-1 flex flex-col items-center justify-center px-4 relative gap-1">
-        <ScingPanel />
-        <ConnectedOrchestrationBadge mode="POWERED_BY" />
+      <div className="flex-1 flex items-center justify-center px-4 relative min-w-0">
+        <div className="w-full max-w-3xl relative flex flex-col items-center">
+          <ScingPanel />
+          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 pointer-events-none">
+            <ConnectedOrchestrationBadge mode="POWERED_BY" />
+          </div>
+        </div>
       </div>
       
       {/* ─── Right Group: Truth-State Cluster + Utility Actions ─── */}

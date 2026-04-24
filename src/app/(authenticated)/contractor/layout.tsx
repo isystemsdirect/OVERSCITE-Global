@@ -14,7 +14,8 @@ import {
   LayoutTemplate, 
   Settings, 
   History,
-  Activity
+  Activity,
+  FolderKanban
 } from 'lucide-react';
 
 const navItems = [
@@ -22,6 +23,7 @@ const navItems = [
   { name: 'Parties', href: '/contractor/parties', icon: Users },
   { name: 'Proposals', href: '/contractor/proposals', icon: FileText },
   { name: 'Contracts', href: '/contractor/contracts', icon: Handshake },
+  { name: 'Project Manager', href: '/contractor/project-manager', icon: FolderKanban },
   { name: 'Subcontract Oversight', href: '/contractor/subcontract-oversight', icon: Eye },
   { name: 'Estimates', href: '/contractor/estimates', icon: Calculator },
   { name: 'Templates', href: '/contractor/templates', icon: LayoutTemplate },

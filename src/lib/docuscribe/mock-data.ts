@@ -31,6 +31,10 @@ export const MOCK_DOCUMENTS: DocuScribeDocument[] = [
     lineage_parent_id: null,
     created_at: '2026-04-15T09:00:00Z',
     updated_at: '2026-04-18T14:30:00Z',
+    template_id: 'tpl-inspection',
+    method_id: 'general-property',
+    method_version: '1.0.0',
+    active_phase_id: 'capture',
     content: '', // Deprecated in favor of pages
     pages: [
       {
@@ -73,7 +77,6 @@ export const MOCK_DOCUMENTS: DocuScribeDocument[] = [
     history: [],
     comments: [],
     audit_log: [],
-    template_id: 'tpl-inspection',
     trust_stamp: null,
     findings: [
       { id: 'find-001a', title: 'Concrete Curing Complete', severity: 'None', description: 'All primary pad concrete curing appears complete on visual inspection.', confidence: 'high', category: 'Structural' },
@@ -95,6 +98,8 @@ export const MOCK_DOCUMENTS: DocuScribeDocument[] = [
     lineage_parent_id: null,
     created_at: '2026-03-20T08:00:00Z',
     updated_at: '2026-04-10T16:45:00Z',
+    method_id: 'general-property',
+    method_version: '1.0.0',
     content: '',
     pages: [
       {
@@ -136,6 +141,9 @@ export const MOCK_DOCUMENTS: DocuScribeDocument[] = [
     lineage_parent_id: null,
     created_at: '2026-04-18T10:00:00Z',
     updated_at: '2026-04-18T10:00:00Z',
+    template_id: 'tpl-field-log',
+    method_id: 'environment-safety',
+    method_version: '1.0.0',
     content: '',
     pages: [
       {
@@ -154,7 +162,6 @@ export const MOCK_DOCUMENTS: DocuScribeDocument[] = [
     history: [],
     comments: [],
     audit_log: [],
-    template_id: null,
     trust_stamp: null,
     findings: [],
     distribution: { links: [], outbound_history: [] },
@@ -171,6 +178,8 @@ export const MOCK_DOCUMENTS: DocuScribeDocument[] = [
     lineage_parent_id: null,
     created_at: '2026-04-18T11:00:00Z',
     updated_at: '2026-04-18T11:00:00Z',
+    method_id: 'general-property',
+    method_version: '1.0.0',
     content: '',
     pages: [
       {
@@ -233,6 +242,11 @@ export const MOCK_TEMPLATES: DocumentTemplate[] = [
 <h2>Action Items</h2>
 <p>&nbsp;</p>`,
     authority_class: 'draft_editable',
+    method_binding: {
+      methodId: 'general-property',
+      requiredSections: ['disclosures', 'observations'],
+      protectedSections: ['disclosures']
+    }
   },
   {
     id: 'tpl-field-log',
@@ -264,6 +278,11 @@ export const MOCK_TEMPLATES: DocumentTemplate[] = [
 ## Notes
 `,
     authority_class: 'draft_editable',
+    method_binding: {
+      methodId: 'general-property',
+      requiredSections: ['personnel', 'work-performed'],
+      protectedSections: []
+    }
   },
   {
     id: 'tpl-compliance-memo',

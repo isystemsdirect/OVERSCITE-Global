@@ -175,6 +175,105 @@ Represents a social object in the SCINGULAR Social ecosystem:
 
 ---
 
+### 3.6 DocuSCRIBE™ Sovereign File Classes
+
+Sovereign file classes for DocuSCRIBE™ authored artifacts. These are the
+native truth-format for all inspection report outputs. Exports (PDF, DOCX,
+HTML) are derivative representations that must not back-propagate into
+native truth.
+
+| .sgtx | SCINGULAR™ Governed Text Artifact | Authoring | Native DocuSCRIBE™ authored document |
+| .sggr | SCINGULAR™ Governed Graph Artifact | Analysis | Native graph/diagram/chart data |
+| .sgta | SCINGULAR™ Governed Table Artifact | Data | Native table/spread matrix artifact |
+| .sgpm | SCINGULAR™ Governed Project Manager Artifact | Ops | Governed project manager state container |
+| .sgpl | SCINGULAR™ Governed Project Plan Artifact | Ops | Governed project plan state container |
+| .sgtm | SCINGULAR™ Governed Training Module | Training | SCINGULAR-native training and methodology unit |
+
+#### 3.6.1 `.sgtx` – SCINGULAR™ Governed Text Artifact
+
+Represents a native DocuSCRIBE™ authored text document with page-aware
+structure, section hierarchy, and method binding.
+
+**Contains:**
+
+- Page-based authored content (HTML body per page).
+- Section hierarchy with protected marking support.
+- Typography metadata and formatting rules.
+- Method execution binding (methodId, workflowInstanceId).
+- Lineage reference with version chain for ArcHive™ tracking.
+
+**Engine Owner:** DocuSCRIBE™
+
+**Export Targets:** HTML, PDF, DOCX
+
+#### 3.6.2 `.sggr` – SCINGULAR™ Governed Graph Artifact
+
+Represents a native graph/chart/diagram data artifact. Preserves
+structural graph definition rather than flattened image output.
+
+**Contains:**
+
+- Series model for chart-type visualizations (line, bar, scatter, area).
+- Node/edge model for diagram and network topologies.
+- Axis definitions with scale type metadata.
+- Rendering rules (color scheme, label format, legend position).
+- Method execution binding with workflow lineage.
+
+**Engine Owner:** DocuSCRIBE™
+
+**Export Targets:** HTML, PNG, JSON
+
+## [SGPM] SCINGULAR™ Governed Project Manager Artifact
+- **Extension:** `.sgpm`
+- **Role:** Project-state managerial container. Encapsulates issues, risks, advisories, and approval posture.
+- **Governance:** BANE-gated. Lineage-bound to `projectId`. Advisory-only reasoning posture.
+
+## [SGPL] SCINGULAR™ Governed Project Plan Artifact
+- **Extension:** `.sgpl`
+- **Role:** Project planning and sequencing container. Encapsulates dependencies, critical paths, and scenarios.
+- **Governance:** BANE-gated. Lineage-bound to `projectId`. No direct schedule mutation authority.
+
+## [SGTM] SCINGULAR™ Governed Training Module Artifact
+
+#### 3.6.3 `.sgta` – SCINGULAR™ Governed Table Artifact
+
+Represents a native table/spread matrix artifact with row/column schema,
+cell-level typing, and header/body/footer semantics.
+
+**Contains:**
+
+- Column schema with per-column value types (string, number, date, currency, etc.).
+- Row data with cell-level formatting and display rules.
+- Merge region definitions for spanned cells.
+- Computed cell references (deferred — formula engine not yet active).
+- Method execution binding for evidence traceability.
+
+**Engine Owner:** DocuSCRIBE™
+
+**Export Targets:** HTML, CSV, JSON
+
+#### 3.6.4 Deferred — `.sgdc` / `.sgdp`
+
+Composite document packages that bundle multiple `.sgtx`, `.sggr`, and `.sgta`
+artifacts into a single governed delivery unit. Extension selection pending
+Director confirmation:
+
+- `.sgdc` — SCINGULAR™ Governed DocuSCRIBE™ Composite (recommended)
+- `.sgdp` — SCINGULAR™ Governed DocuSCRIBE™ Package (alternative)
+
+**Status:** Recognized but not locked.
+
+#### 3.6.5 Rejected Extensions
+
+The following extensions were considered and rejected:
+
+- `.sgdoc` — Too generic; conflicts with common document conventions.
+- `.sgtext` — Too verbose; does not convey governed semantics.
+- `.sgtbl` — Ambiguous abbreviation.
+- `.sggraph` — Too long; inconsistent with 4-character suffix convention.
+
+---
+
 ## 4. Versioning and Compatibility
 
 - All `.sg*` formats must include a **schema version**.
@@ -206,6 +305,15 @@ AIP must be capable of:
 - Owns `.sglog` and `.sgsec`.
 - Verifies integrity and signatures of `.sg*` files where required.
 - Coordinates with LARI-LEGAL to attach policy and legal context to actions.
+- Governs all mutations to `.sgtx`, `.sggr`, `.sgta` artifacts via method-execution-gate.
+- Enforces fail-closed policy for artifact lifecycle (create, modify, lock, export).
+
+### 5.4 DocuSCRIBE™
+
+- Owns `.sgtx`, `.sggr`, `.sgta` file classes.
+- Generates sovereign artifacts exclusively from method execution (no freeform creation).
+- Enforces protected sections and template completeness validation.
+- Archives artifacts before mutation via ArcHive™ versioning.
 
 ---
 
@@ -214,12 +322,15 @@ AIP must be capable of:
 - Implement file-type detection based on **internal headers**, not suffix alone.
 - Treat all `.sg*` files as potentially sensitive; apply encryption and access controls according to their classification.
 - Provide export bridges to standard formats (e.g., JSON, CSV, PDF) where contractually permitted, without leaking licensed or proprietary data.
+- All DocuSCRIBE™ `.sg*` artifacts must carry `methodBinding` and `lineageRef` fields.
+- Export derivatives must include source artifact ID and hash for traceability.
 
 ---
 
 ## 7. Versioning
 
-- Version: 1.0.0
+- Version: 1.1.0
 - Source Blueprint: SCINGULAR Proprietary File Extension Specification (internal Space document).
-- Last Updated: December 6, 2025
+- Last Updated: April 21, 2026
 - Maintainers: SCINGULAR OS Architecture team
+

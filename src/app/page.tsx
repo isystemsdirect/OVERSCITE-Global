@@ -2,13 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
+/**
+ * @diagnostic_test 2026-04-21
+ */
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Logo from "@/components/logo";
-import { Chrome, Mail, Apple, Loader2, ShieldCheck, LockKeyhole, UserCircle2, ChevronRight, KeyRound } from "lucide-react";
+import { Mail, Apple, Loader2, ShieldCheck, LockKeyhole, UserCircle2, ChevronRight, KeyRound } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuthStore } from "@/lib/auth/auth-service";
 import { AUTH_MODE } from "@/config/auth";

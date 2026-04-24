@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Logo from "@/components/logo";
-import { Chrome, Mail, Apple } from "lucide-react";
+import { Globe, Mail, Apple } from "lucide-react";
 
 export default function SignupPage() {
   return (
@@ -58,7 +58,7 @@ export default function SignupPage() {
             </div>
             <div className="grid grid-cols-3 gap-2">
                <Button variant="outline">
-                <Chrome className="mr-2 h-4 w-4" />
+                <Globe className="mr-2 h-4 w-4" />
                 Google
               </Button>
                <Button variant="outline">

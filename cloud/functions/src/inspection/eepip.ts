@@ -116,8 +116,10 @@ export const buildPropertyDeltaPacket = functions.https.onCall(
     return {
       delta_packet_id: `dp_${propertyId}_${Date.now()}`,
       property_id: propertyId,
-      pip_version_base: currentPip?.version || 1,
-      proposed_eepip_version: 'v1.0.0',
+      pip_version_base: currentPip?.pip_version || 'v1.0',
+      proposed_eepip_version: 'v1.0',
+      profileType: 'EEPIP',
+      truthClass: 'external_enhancement_candidate',
       retrieved_at: eepipData.retrieved_at,
       source_list: eepipData.sources.map((s: EEPIP_Source) => s.name),
       change_count: fieldChanges.length,
@@ -163,11 +165,22 @@ export const applyAcceptedPropertyDelta = functions.https.onCall(
         }
 
         const currentPip = pipDoc.data() || {};
-        const preVersion = currentPip.pip_version || 1;
-        const postVersion = preVersion + 1;
+        const preVersion = currentPip.pip_version || 'v1.0';
+        
+        // Version increment logic: Default to minor increment vX.Y+1
+        let postVersion = preVersion;
+        if (typeof preVersion === 'string' && preVersion.startsWith('v')) {
+          const parts = preVersion.substring(1).split('.');
+          const major = parseInt(parts[0], 10) || 1;
+          const minor = parseInt(parts[1], 10) || 0;
+          postVersion = `v${major}.${minor + 1}`;
+        } else {
+          // Migration from numeric to vX.0
+          postVersion = `v${preVersion || 1}.0`;
+        }
 
         // 1. Snapshot the old version for history
-        const vId = `${propertyId}_v${preVersion}`;
+        const vId = `${propertyId}_${preVersion}`;
         const versionRef = db.collection('property_pip_versions').doc(vId);
         transaction.set(versionRef, {
           ...currentPip,
@@ -178,6 +191,8 @@ export const applyAcceptedPropertyDelta = functions.https.onCall(
         // 2. Update main PIP with accepted fields and new metadata
         const updates: any = {
           pip_version: postVersion,
+          profileType: 'PIP',
+          truthClass: 'accepted_baseline',
           last_eepip_accepted_at: new Date().toISOString(),
           eepip_status: acceptedFields.length > 0 ? 'PARTIALLY_INGESTED' : 'FULLY_INGESTED',
           updatedAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -198,7 +213,9 @@ export const applyAcceptedPropertyDelta = functions.https.onCall(
           pip_version_before: preVersion,
           pip_version_after: postVersion,
           source_summary: `Ingested ${acceptedFields.length} fields from EEPIP`,
-          classification: 'SIMULATION_MUTATION'
+          classification: 'SIMULATION_MUTATION',
+          profile_type: 'PIP',
+          truth_class: 'accepted_baseline'
         });
 
         return { success: true, new_version: postVersion };

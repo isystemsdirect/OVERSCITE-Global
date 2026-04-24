@@ -35,6 +35,23 @@ export interface ConversationContext {
   entries: ConversationEntry[];
   currentRoute?: string;
   sessionStartedAt: Date;
+  /** Active workflow context for method-execution-aware guidance */
+  workflowContext?: {
+    instanceId: string;
+    methodId: string;
+    activeNodeIds: string[];
+    status: 'active' | 'completed' | 'suspended' | 'aborted';
+  };
+  /** Active project context for project operations guidance */
+  projectContext?: {
+    projectId: string;
+    projectName: string;
+    activeMode: 'manager' | 'planner';
+    activeIssueCount: number;
+    scenarioCount: number;
+    blockedPackageCount: number;
+    overallHealth: 'healthy' | 'at_risk' | 'critical' | 'blocked';
+  };
 }
 
 export interface ScingResponse {
@@ -138,6 +155,30 @@ const SCHEDULING_PATTERNS: ResponsePattern = {
   ],
 };
 
+const METHOD_EXECUTION_PATTERNS: ResponsePattern = {
+  triggers: [
+    /\b(workflow|method|step|phase|node|graph|next step|current step|what'?s next)\b/i,
+  ],
+  responses: (input: string, ctx: ConversationContext) => {
+    if (!ctx.workflowContext) {
+      return "No active workflow in this session. Start an inspection to activate method execution.";
+    }
+    const { methodId, status, activeNodeIds } = ctx.workflowContext;
+    if (status === 'completed') {
+      return `The ${methodId} workflow is complete. Ready for report generation or review.`;
+    }
+    if (activeNodeIds.length === 0) {
+      return `The ${methodId} workflow is active but no steps are currently ready. Check for blocked dependencies.`;
+    }
+    return `You're working through ${methodId}. ${activeNodeIds.length} step(s) are currently active. Let me know which one you'd like to focus on.`;
+  },
+  followUps: [
+    "Show active steps",
+    "What evidence is needed?",
+    "Skip to next phase",
+  ],
+};
+
 const THANKS_PATTERNS: ResponsePattern = {
   triggers: [
     /^(thanks|thank you|thx|ty|appreciate|cheers)/i,
@@ -171,6 +212,37 @@ const THINKING_PATTERNS: ResponsePattern = {
   ],
 };
 
+const PROJECT_OPERATIONS_PATTERNS: ResponsePattern = {
+  triggers: [
+    /\b(project|work package|dependency|critical path|scenario|resequenc|issue|risk cluster|blocker|planner|project manager)\b/i,
+  ],
+  responses: (input: string, ctx: ConversationContext) => {
+    if (!ctx.projectContext) {
+      return "No active project context. Open the Project Manager workspace to begin project operations.";
+    }
+    const { projectName, overallHealth, activeIssueCount, blockedPackageCount, activeMode } = ctx.projectContext;
+    if (/issue|risk|blocker/i.test(input)) {
+      return `Project ${projectName} has ${activeIssueCount} open issue(s) and ${blockedPackageCount} blocked package(s). Health: ${overallHealth}. Check the Issue Panel for details or ask me to explain a specific risk cluster.`;
+    }
+    if (/scenario|resequenc|what.?if/i.test(input)) {
+      return `The Planner has ${ctx.projectContext.scenarioCount} scenario(s) available for ${projectName}. Scenarios are advisory — no schedule mutation occurs until you approve through BANE. Want me to walk through the options?`;
+    }
+    if (/dependency|critical path/i.test(input)) {
+      return `I can explain the dependency graph and critical path for ${projectName}. Switch to Planner mode and I'll walk you through the bottlenecks and sequencing constraints.`;
+    }
+    if (/package|trade|crew|vendor/i.test(input)) {
+      return `Looking at work packages for ${projectName}. Currently operating in ${activeMode} mode. ${blockedPackageCount} package(s) are blocked. Let me know which package you want to review.`;
+    }
+    return `Project ${projectName} is ${overallHealth}. You're in ${activeMode} mode. ${activeIssueCount} open issue(s), ${blockedPackageCount} blocked package(s). What would you like to focus on?`;
+  },
+  followUps: [
+    "Show project issues",
+    "Explain the critical path",
+    "Review scenarios",
+    "What packages are blocked?",
+  ],
+};
+
 const ALL_PATTERNS: ResponsePattern[] = [
   GREETING_PATTERNS,
   STATUS_PATTERNS,
@@ -181,6 +253,8 @@ const ALL_PATTERNS: ResponsePattern[] = [
   INSPECTION_PATTERNS,
   DRONE_PATTERNS,
   SCHEDULING_PATTERNS,
+  METHOD_EXECUTION_PATTERNS,
+  PROJECT_OPERATIONS_PATTERNS,
 ];
 
 // ─── Fallback ────────────────────────────────────────────────────────────────

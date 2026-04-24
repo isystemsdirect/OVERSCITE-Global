@@ -1,8 +1,8 @@
-import { GenericTelemetry } from '../core/ScingularRuntimeEngine';
+﻿import { GenericTelemetry } from '../core/ScingularRuntimeEngine';
 
 /**
  * @classification WIRM_DOMAIN_ADAPTER
- * @purpose Translates OS-grade generic telemetry and state into WIRM� (Wireless Intelligent Robotic Module) specific structures. Focuses on actuation and non-visual hardware control.
+ * @purpose Translates OS-grade generic telemetry and state into WIRM™ (Will / Intent Responsive Matter) specific structures. Focuses on actuation and non-visual hardware control (e.g., WIRM™ robotic modules).
  */
 
 export interface WirmActuatorState {

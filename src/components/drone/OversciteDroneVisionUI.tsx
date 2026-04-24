@@ -381,22 +381,7 @@ export default function OversciteDroneVisionUI() {
           <div className="col-span-12 lg:col-span-3 xl:col-span-3 flex flex-col min-h-0 overflow-hidden gap-3 z-10">
             <DroneFindingsPanel activeMode={activeMode} />
             
-            <div className="bg-black/60 backdrop-blur-md border border-red-500/20 rounded-lg overflow-hidden shrink-0 shadow-[0_0_20px_rgba(239,68,68,0.05)]">
-                 <div className="px-3 py-1.5 bg-red-500/10 border-b border-red-500/20 flex items-center justify-between">
-                     <span className="text-[8px] font-black text-red-500 uppercase tracking-[0.3em]">BANE™ SECURITY_DOCK</span>
-                     <div className="h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_5px_red]" />
-                 </div>
-                 <div className="p-3 space-y-2">
-                    <div className="flex justify-between items-center text-[8px] font-mono text-muted-foreground">
-                       <span>ZTI_ENFORCEMENT</span>
-                       <span className="text-red-400">ENCRYPTED</span>
-                    </div>
-                    <div className="flex justify-between items-center text-[8px] font-mono text-muted-foreground">
-                       <span>AUDIT_LINAGE</span>
-                       <span className="text-white/60">STRATUM-1::VERIFIED</span>
-                    </div>
-                 </div>
-            </div>
+            <BaneAuditDiagnosticPanel />
           </div>
         </div>
       </div>
@@ -503,6 +488,76 @@ function DroneFindingsPanel({ activeMode }: { activeMode: string }) {
           </div>
         </ScrollArea>
       </div>
+    </div>
+  );
+}
+
+function BaneAuditDiagnosticPanel() {
+  const { currentOperatorRole } = useLiveFlight();
+  const { state: runtimeState } = useScingularRuntime();
+  
+  const isSupervisor = currentOperatorRole === 'SUPERVISOR';
+  
+  return (
+    <div className="bg-black/60 backdrop-blur-md border border-red-500/20 rounded-lg overflow-hidden flex flex-col shrink-0 shadow-[0_0_20px_rgba(239,68,68,0.05)] max-h-48">
+       <div className="px-3 py-1.5 bg-red-500/10 border-b border-red-500/20 flex items-center justify-between shrink-0">
+           <span className="text-[8px] font-black text-red-500 uppercase tracking-[0.3em]">BANE™ SECURITY_DOCK</span>
+           <div className="flex items-center gap-2">
+             {isSupervisor && <Badge variant="outline" className="h-3.5 text-[6px] border-red-500/30 text-red-400">SUPERVISOR_DIAGNOSTICS</Badge>}
+             <div className="h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_5px_red]" />
+           </div>
+       </div>
+       
+       <div className="p-3 flex-1 overflow-hidden flex flex-col">
+          {!isSupervisor ? (
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-[8px] font-mono text-muted-foreground">
+                 <span>ZTI_ENFORCEMENT</span>
+                 <span className="text-red-400">ENCRYPTED</span>
+              </div>
+              <div className="flex justify-between items-center text-[8px] font-mono text-muted-foreground">
+                 <span>AUDIT_LINAGE</span>
+                 <span className="text-white/60">STRATUM-1::VERIFIED</span>
+              </div>
+              <div className="mt-2 text-[7px] text-red-500/60 font-mono text-center uppercase">
+                [ DIAGNOSTIC TRACE CLASSIFIED ]
+              </div>
+            </div>
+          ) : (
+            <ScrollArea className="flex-1 pr-2">
+               <div className="flex flex-col gap-2">
+                  {runtimeState.baneAuditLog.length === 0 ? (
+                    <div className="text-[7px] text-white/40 font-mono text-center py-2 uppercase">NO_AUDIT_EVENTS</div>
+                  ) : (
+                    runtimeState.baneAuditLog.map((log, i) => (
+                      <div key={i} className={cn(
+                        "p-2 rounded border border-white/5 bg-black/40 relative overflow-hidden",
+                        log.permitted ? "border-l-green-500/50" : "border-l-red-500/50"
+                      )}>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-[7px] font-black text-white/80 tracking-widest">{log.action}</span>
+                          <span className="text-[6px] text-muted-foreground font-mono">{new Date(log.timestamp).toLocaleTimeString()}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1 mb-1.5">
+                          <span className="text-[6px] px-1 bg-white/5 rounded text-white/60 uppercase">{log.triad.role}</span>
+                          <span className="text-[6px] px-1 bg-white/5 rounded text-white/60 uppercase">{log.triad.surfaceClassification}</span>
+                          <span className={cn(
+                            "text-[6px] px-1 rounded uppercase font-bold",
+                            log.permitted ? "bg-green-500/10 text-green-400" : "bg-red-500/10 text-red-400"
+                          )}>
+                            {log.permitted ? 'PERMITTED' : `BLOCKED: ${log.reason}`}
+                          </span>
+                        </div>
+                        <div className="text-[5px] font-mono text-muted-foreground uppercase break-all">
+                          HASH: {log.baneComplianceHash}
+                        </div>
+                      </div>
+                    ))
+                  )}
+               </div>
+            </ScrollArea>
+          )}
+       </div>
     </div>
   );
 }

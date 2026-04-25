@@ -74,7 +74,8 @@ export interface MultiJobScheduleResult {
 export async function proposeOptimalWindow(
   methodId: string,
   lat: number,
-  lon: number
+  lon: number,
+  droneContext?: import('@/lib/scimega/drone-schedule-context').DroneScheduleContext
 ): Promise<ScheduleProposal[]> {
   const method = getMethodPack(methodId);
   const constraints = method.schedulingConstraints;
@@ -113,6 +114,22 @@ export async function proposeOptimalWindow(
       reasonCodes.push('daylight');
     }
 
+    // Constraint: SCIMEGA Drone Environmental Limits
+    if (droneContext) {
+      if (weather.current.wind_speed > droneContext.environmentalLimits.windMaxMph) {
+         posture = posture === 'blocked' ? 'blocked' : 'restricted';
+         reasonCodes.push('drone_wind_limit_exceeded');
+      }
+      if (weather.current.temp < droneContext.environmentalLimits.tempMinF || weather.current.temp > droneContext.environmentalLimits.tempMaxF) {
+         posture = posture === 'blocked' ? 'blocked' : 'restricted';
+         reasonCodes.push('drone_temp_limit_exceeded');
+      }
+      if (droneContext.readiness !== 'ready') {
+         posture = 'blocked';
+         reasonCodes.push(`drone_not_ready_${droneContext.readiness}`);
+      }
+    }
+
     // Constraint: Conflict Check
     const hasConflict = existingBookings.some(b => {
       const bStart = new Date(b.start_at as string);
@@ -121,7 +138,7 @@ export async function proposeOptimalWindow(
     });
 
     if (hasConflict) {
-      posture = 'manual_review_required';
+      posture = posture === 'blocked' ? 'blocked' : 'manual_review_required';
       reasonCodes.push('crew_conflict');
     }
 

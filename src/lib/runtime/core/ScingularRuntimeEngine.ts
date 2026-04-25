@@ -6,6 +6,9 @@
 
 import { GlobalAuthorityEngine, SystemActuationPosture, CommandTriad } from './GlobalAuthorityEngine';
 import { LariSyncUniversal, UniversalSyncPayload } from './LariSyncUniversal';
+import { MockTelePortHAL, ITelePortHAL } from './TelePortHAL';
+import { RealTelePortHAL } from './RealTelePortHAL';
+import { BaneLedger } from './BaneLedger';
 
 export interface AuditLogEntry {
   timestamp: string;
@@ -41,16 +44,18 @@ export interface UniversalRuntimeState<T = any> {
 export class ScingularRuntimeEngine<T = any> {
   private authorityEngine: GlobalAuthorityEngine;
   private syncEngine: LariSyncUniversal;
+  public hal: ITelePortHAL;
   
   private currentState: UniversalRuntimeState<T>;
   private stateSubscribers: Array<(state: UniversalRuntimeState<T>) => void> = [];
   
-  private tickInterval: NodeJS.Timeout | null = null;
   private domainEvaluator: ((telemetry: GenericTelemetry) => T) | null = null;
+  private unsubscribeHAL: (() => void) | null = null;
 
-  constructor(domain: SCINGULAR_DOMAIN) {
+  constructor(domain: SCINGULAR_DOMAIN, useRealHardware = false) {
     this.authorityEngine = new GlobalAuthorityEngine();
     this.syncEngine = new LariSyncUniversal();
+    this.hal = useRealHardware ? new RealTelePortHAL() : new MockTelePortHAL();
 
     this.currentState = {
       domain,
@@ -65,7 +70,7 @@ export class ScingularRuntimeEngine<T = any> {
       },
       domainSpecificState: null,
       syncPayload: null,
-      baneAuditLog: []
+      baneAuditLog: BaneLedger.readLedger()
     };
   }
 
@@ -85,34 +90,36 @@ export class ScingularRuntimeEngine<T = any> {
     this.stateSubscribers.forEach(sub => sub({ ...this.currentState }));
   }
 
-  public startRuntime() {
-    if (this.tickInterval) return;
-
-    this.tickInterval = setInterval(() => {
-      this.tick();
-    }, 1000); // 1Hz runtime base tick
-  }
-
-  public stopRuntime() {
-    if (this.tickInterval) {
-      clearInterval(this.tickInterval);
-      this.tickInterval = null;
+  public bindHardwareLayer(useRealHardware: boolean) {
+    const wasRunning = this.unsubscribeHAL !== null;
+    this.stopRuntime();
+    
+    this.hal = useRealHardware ? new RealTelePortHAL() : new MockTelePortHAL();
+    
+    if (wasRunning) {
+      this.startRuntime();
     }
   }
 
-  private tick() {
-    // 1. Simulate telemetry decay/drift
-    const activeDrain = this.currentState.isActiveOrArmed ? 0.2 : 0.05;
-    
-    this.currentState.telemetry = {
-      ...this.currentState.telemetry,
-      energyLevel: Math.max(0, this.currentState.telemetry.energyLevel - activeDrain),
-      connectionQuality: this.currentState.isActiveOrArmed && this.currentState.telemetry.energyLevel < 10 
-        ? Math.max(0, this.currentState.telemetry.connectionQuality - 1) 
-        : this.currentState.telemetry.connectionQuality,
-      altitudeZ: this.currentState.isActiveOrArmed ? this.currentState.telemetry.altitudeZ + (Math.random() * 2 - 0.5) : this.currentState.telemetry.altitudeZ,
-      velocity: this.currentState.isActiveOrArmed ? Math.max(0, this.currentState.telemetry.velocity + (Math.random() * 0.5 - 0.2)) : this.currentState.telemetry.velocity
-    };
+  public startRuntime() {
+    if (this.unsubscribeHAL) return;
+
+    this.hal.connect();
+    this.unsubscribeHAL = this.hal.onTelemetry((telemetry) => {
+      this.handleTelemetry(telemetry);
+    });
+  }
+
+  public stopRuntime() {
+    if (this.unsubscribeHAL) {
+      this.unsubscribeHAL();
+      this.unsubscribeHAL = null;
+    }
+    this.hal.disconnect();
+  }
+
+  private handleTelemetry(telemetry: GenericTelemetry) {
+    this.currentState.telemetry = telemetry;
 
     // 2. Evaluate Authority constraints
     this.currentState.actuationPosture = this.authorityEngine.evaluateSystemPosture(
@@ -147,6 +154,9 @@ export class ScingularRuntimeEngine<T = any> {
       return;
     }
     this.currentState.isActiveOrArmed = active;
+    if (this.hal instanceof MockTelePortHAL || this.hal instanceof RealTelePortHAL) {
+      this.hal.setHardwareActuation(active);
+    }
     this.notifySubscribers();
   }
 
@@ -158,20 +168,16 @@ export class ScingularRuntimeEngine<T = any> {
   ) {
     const validation = this.authorityEngine.validateCommand(triad, commandType);
     
-    // Simulate a cryptographic trace hash for BANE compliance
-    const baneHash = `BANE-ZTI-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
-    
-    const entry: AuditLogEntry = {
+    const fullEntry = BaneLedger.append({
       timestamp: new Date().toISOString(),
       commandType,
       triad,
       action,
       permitted: validation.permitted,
-      reason: validation.reason,
-      baneComplianceHash: baneHash
-    };
+      reason: validation.reason
+    });
 
-    this.currentState.baneAuditLog = [entry, ...this.currentState.baneAuditLog].slice(0, 100);
+    this.currentState.baneAuditLog = BaneLedger.readLedger();
 
     if (validation.permitted) {
       executeFn();

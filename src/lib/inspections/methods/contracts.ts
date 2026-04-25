@@ -332,4 +332,13 @@ export interface MethodSchedulingConstraints {
   environmentalRestrictions: string[];
   requiredResources: string[]; // e.g., 'drone_kit_v2', 'ladder_20ft'
   crewRequirements: number; // Minimum personnel
+  /** SCIMEGA Drone Capabilities Required */
+  requiredCapabilities?: {
+    visual?: boolean;
+    thermal?: boolean;
+    lidar?: boolean;
+    minimumRangeMeters?: number;
+    minimumFlightTimeMinutes?: number;
+    minimumStabilityClass?: 'LOW' | 'MEDIUM' | 'HIGH' | 'PRECISION';
+  };
 }

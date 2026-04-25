@@ -87,7 +87,7 @@ export function FlashNotificationBar() {
 
   return (
     // Pinned intelligence header
-    <div className="sticky top-20 z-20 w-full bg-black/20 backdrop-blur-xl border-b border-white/5 shadow-sm">
+    <div className="sticky top-16 z-20 w-full bg-black/20 backdrop-blur-xl border-b border-white/5 shadow-sm">
         <div className="mx-auto flex h-14 max-w-full items-center justify-between px-4 lg:px-6">
 
             {/* Notification Stream */}

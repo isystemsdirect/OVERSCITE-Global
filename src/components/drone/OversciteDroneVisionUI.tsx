@@ -22,6 +22,8 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { useLiveFlight } from "@/context/LiveFlightContext";
 import { useScingularRuntime } from "@/context/ScingularRuntimeContext";
 import { useShellLayout } from "@/lib/layout/shell-layout-state";
+import { useArcIdentity } from "@/lib/auth/ArcIdentityContext";
+import { MissionLogger } from "@/lib/runtime/services/MissionLogger";
 import { RestrictedFlightSidebar } from "./RestrictedFlightSidebar";
 import { LiveFlightMap } from "./LiveFlightMap";
 import { UnifiedPostureIdentityCard } from "./UnifiedPostureIdentityCard";
@@ -58,7 +60,12 @@ export default function OversciteDroneVisionUI() {
     setMissionData, trackWindow, activeSupportWindows,
     delegateAuthority, currentOperatorRole
   } = useLiveFlight();
-  const { state: runtimeState, switchDomain } = useScingularRuntime();
+  const { 
+    state: runtimeState, switchDomain, setConnection, bindHardwareLayer
+  } = useScingularRuntime();
+  
+  const { currentIdentity, loginAs, logout, getSignature } = useArcIdentity();
+
   const { isOverHUDOpen } = useShellLayout();
   const [activeMode, setActiveMode] = useState('flight');
   const [showStressController, setShowStressController] = useState(false);
@@ -320,6 +327,109 @@ export default function OversciteDroneVisionUI() {
                          {d}
                        </button>
                     ))}
+                 </div>
+              </div>
+
+              <div className="h-px bg-white/10 my-1" />
+
+              {/* Phase 8 Controls */}
+              <div className="flex flex-col gap-1.5">
+                 <span className="text-[9px] font-black tracking-widest text-cyan-400">SIGNAL & INTEGRITY STRESS (HAL)</span>
+                 <div className="grid grid-cols-2 gap-1">
+                    {(['NONE', 'TELEMETRY_LOSS', 'COMMAND_DELAY', 'DATA_CORRUPTION'] as const).map(f => (
+                       <button 
+                         id={`stress-failure-${f}`}
+                         key={f} 
+                         onClick={() => {
+                            if ((window as any).__SCINGULAR_ENGINE) {
+                                (window as any).__SCINGULAR_ENGINE.hal.injectFailure(f);
+                            }
+                         }}
+                         className={cn(
+                           "text-[7px] font-black py-1 border rounded uppercase transition-all hover:bg-white/10 border-white/5 text-white/40"
+                         )}
+                       >
+                         {f.replace('_', ' ')}
+                       </button>
+                    ))}
+                 </div>
+                 
+                 <div className="mt-1">
+                    <button 
+                         id="stress-domain-collision"
+                         onClick={() => {
+                            // Rapid switching simulation
+                            const domains = ['FLIGHT', 'INSPECTION', 'WIRM'] as const;
+                            let ticks = 0;
+                            const interval = setInterval(() => {
+                               switchDomain(domains[ticks % 3]);
+                               ticks++;
+                               if (ticks > 15) clearInterval(interval); // Stop after 1.5 seconds of thrashing
+                            }, 100);
+                         }}
+                         className={cn(
+                           "w-full text-[7px] font-black py-1 border rounded uppercase transition-all bg-red-500/10 border-red-500/30 text-red-400 hover:bg-red-500/20"
+                         )}
+                       >
+                         TRIGGER DOMAIN COLLISION TEST
+                    </button>
+                 </div>
+              </div>
+
+              <div className="h-px bg-white/10 my-1" />
+
+              {/* Phase 9 Controls */}
+              <div className="flex flex-col gap-1.5">
+                 <span className="text-[9px] font-black tracking-widest text-green-400">PHASE 9 - DEPLOYMENT</span>
+                 <div className="grid grid-cols-2 gap-1">
+                    <button 
+                         onClick={() => bindHardwareLayer(true)}
+                         className="text-[7px] font-black py-1 border rounded uppercase transition-all hover:bg-white/10 border-white/5 text-white/40"
+                    >
+                         BIND PHYSICAL HAL
+                    </button>
+                    <button 
+                         onClick={() => bindHardwareLayer(false)}
+                         className="text-[7px] font-black py-1 border rounded uppercase transition-all hover:bg-white/10 border-white/5 text-white/40"
+                    >
+                         REVERT MOCK HAL
+                    </button>
+                 </div>
+                 
+                 <div className="grid grid-cols-2 gap-1 mt-1">
+                    {!currentIdentity ? (
+                        <button 
+                            onClick={() => loginAs({
+                                arcId: 'ARC-8921-X',
+                                displayName: 'L. Anderson',
+                                clearanceLevel: 5,
+                                certifications: ['FLIGHT_SUPERVISOR', 'WIRM_OP'],
+                                sessionToken: Math.random().toString(36).substring(2)
+                            })}
+                            className="col-span-2 text-[7px] font-black py-1 border rounded uppercase transition-all bg-emerald-500/10 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20"
+                        >
+                            ARC LOGIN (SIMULATED)
+                        </button>
+                    ) : (
+                        <button 
+                            onClick={logout}
+                            className="col-span-2 text-[7px] font-black py-1 border rounded uppercase transition-all hover:bg-white/10 border-white/5 text-white/40"
+                        >
+                            LOGOUT ARC: {currentIdentity.arcId}
+                        </button>
+                    )}
+                 </div>
+
+                 <div className="mt-1">
+                     <button 
+                         onClick={() => {
+                             const report = MissionLogger.generateMissionReport(runtimeState, currentIdentity);
+                             MissionLogger.exportToOverscite(report);
+                         }}
+                         className="w-full text-[7px] font-black py-1 border rounded uppercase transition-all bg-blue-500/10 border-blue-500/30 text-blue-400 hover:bg-blue-500/20"
+                     >
+                         EXPORT OVERSCITE MISSION LOG
+                     </button>
                  </div>
               </div>
            </div>

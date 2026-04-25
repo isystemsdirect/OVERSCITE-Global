@@ -75,6 +75,13 @@ export default function LoginPage() {
       if (!user) return;
 
       setIsLoading(true);
+      
+      // Phase 1 XSCITE: Add ATG/dev boot delay tolerance note for legacy dv7 startup
+      toast({
+          title: "Boot Initialization",
+          description: "ATG/dev boot delay tolerance active. Legacy dv7 startup may experience +300ms routing.",
+      });
+
       setTimeout(() => {
           localStorage.setItem("devUser", JSON.stringify(user));
           useAuthStore.getState().setUser(normalizeUser(user));

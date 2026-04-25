@@ -21,15 +21,16 @@ interface LiveFlightSovereignShellProps {
  * Handles automatic sidebar collapsing when ARMED.
  */
 export function LiveFlightSovereignShell({ children, className }: LiveFlightSovereignShellProps) {
-  const { isOverFLIGHTActive } = useLiveFlight();
+  const { isOverFLIGHTActive, isArmed } = useLiveFlight();
   const { isOverHUDOpen } = useShellLayout();
 
   if (!isOverFLIGHTActive) return <>{children}</>;
 
   return (
     <div className={cn(
-      "fixed inset-0 bg-black z-40 flex flex-col overflow-hidden transition-all duration-300 ease-in-out",
-      isOverHUDOpen ? "pr-[620px]" : "pr-0",
+      "z-40 flex flex-col overflow-hidden transition-all duration-300 ease-in-out",
+      isArmed ? "fixed inset-0 bg-black" : "flex-1 relative bg-[#020406]",
+      isOverHUDOpen && isArmed ? "pr-[620px]" : "pr-0",
       className
     )}>
       {/* OverFLIGHT™ Mode Indicator */}

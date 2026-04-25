@@ -12,6 +12,7 @@ export interface CommandTriad {
   role: OperatorRole;
   surfaceClassification: SurfaceClassification;
   surfacePosture: SurfaceAuthorityPosture;
+  arcSignature?: string; // Phase 9 ARC identity tracing
 }
 
 export class GlobalAuthorityEngine {
@@ -38,6 +39,10 @@ export class GlobalAuthorityEngine {
   }
 
   public validateCommand(triad: CommandTriad, commandType: 'CRITICAL_ACTUATION' | 'MODE_CHANGE' | 'DELEGATION' | 'ROUTINE'): { permitted: boolean; reason: string | null } {
+    if (!triad.arcSignature || triad.arcSignature === 'ANONYMOUS_UNAUTHORIZED') {
+      return { permitted: false, reason: "BANE-BLOCK: Execution rejected due to missing or invalid ARC Identity signature." };
+    }
+
     if (triad.surfacePosture === 'BLOCKED' || triad.surfacePosture === 'DISPLAY_ONLY') {
       return { permitted: false, reason: `SURFACE_RESTRICTED::${triad.surfacePosture}` };
     }

@@ -32,7 +32,8 @@ import {
   Eye,
   Camera,
   Building2,
-  PenLine
+  PenLine,
+  Plane
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -304,8 +305,8 @@ export default function AppShell({
 
   const toolsItems = [
     { href: "/weather", icon: <CloudRain className="h-4 w-4" />, label: "Environment & Safety" },
-    { href: "/lari-vision", icon: <Eye className="h-4 w-4" />, label: "LARI Vision" },
-    { href: "/drone-vision", icon: <Camera className="h-4 w-4" />, label: "Drone Vision" },
+    { href: "/lari-vision", icon: <Eye className="h-4 w-4" />, label: "LARI™ VISION" },
+    { href: "/drone-vision", icon: <Plane className="h-4 w-4" />, label: "XSCITE™ Controller" },
     { href: "/library", icon: <Library className="h-4 w-4" />, label: "Standards Library" },
     { href: "/marketplace", icon: <Store className="h-4 w-4" />, label: "Marketplace" },
     { href: "/community", icon: <MessageSquare className="h-4 w-4" />, label: "Community Hub" },

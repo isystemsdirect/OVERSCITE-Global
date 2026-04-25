@@ -237,7 +237,14 @@ export const METHOD_REGISTRY: Record<string, InspectionMethod> = {
       daylightRequirement: 'mandatory',
       environmentalRestrictions: ['Rain', 'Snow', 'High Wind', 'Ice'],
       requiredResources: ['tall_ladder'],
-      crewRequirements: 1
+      crewRequirements: 1,
+      requiredCapabilities: {
+        visual: true,
+        thermal: true,
+        minimumRangeMeters: 50,
+        minimumFlightTimeMinutes: 15,
+        minimumStabilityClass: 'HIGH'
+      }
     },
     guidanceHooks: [
       { triggerType: 'phase_entry', phaseId: 'safety', prompt: 'Safety First: Confirm ladder tie-off before ascending.' }
@@ -284,7 +291,11 @@ export const METHOD_REGISTRY: Record<string, InspectionMethod> = {
       daylightRequirement: 'preferred',
       environmentalRestrictions: ['Heavy Rain'],
       requiredResources: [],
-      crewRequirements: 1
+      crewRequirements: 1,
+      requiredCapabilities: {
+        visual: true,
+        minimumStabilityClass: 'MEDIUM'
+      }
     },
     guidanceHooks: [],
     workflowGraph: {
@@ -388,7 +399,10 @@ export const METHOD_REGISTRY: Record<string, InspectionMethod> = {
       daylightRequirement: 'optional',
       environmentalRestrictions: [],
       requiredResources: ['moisture_meter', 'thermal_imager'],
-      crewRequirements: 1
+      crewRequirements: 1,
+      requiredCapabilities: {
+        thermal: true
+      }
     },
     guidanceHooks: [],
     workflowGraph: {
@@ -440,7 +454,13 @@ export const METHOD_REGISTRY: Record<string, InspectionMethod> = {
       daylightRequirement: 'mandatory',
       environmentalRestrictions: ['High Wind', 'Rain', 'Snow', 'Low Visibility'],
       requiredResources: ['drone_unit'],
-      crewRequirements: 1 // 1 Pilot (VO preferred but not mandatory for first test)
+      crewRequirements: 1, // 1 Pilot (VO preferred but not mandatory for first test)
+      requiredCapabilities: {
+        visual: true,
+        minimumRangeMeters: 200,
+        minimumFlightTimeMinutes: 20,
+        minimumStabilityClass: 'HIGH'
+      }
     },
     guidanceHooks: [],
     workflowGraph: {

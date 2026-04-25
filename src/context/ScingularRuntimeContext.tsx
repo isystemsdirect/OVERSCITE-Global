@@ -16,6 +16,7 @@ interface RuntimeContextValue {
   setConnection: (connected: boolean) => void;
   setActuationState: (active: boolean) => void;
   switchDomain: (domain: SCINGULAR_DOMAIN) => void;
+  bindHardwareLayer: (useRealHardware: boolean) => void;
   
   // Sync / Distribution Mutations
   registerSurface: (id: string, classification: SurfaceClassification, role: OperatorRole) => void;
@@ -54,9 +55,15 @@ export function ScingularRuntimeProvider({ children }: { children: React.ReactNo
 
     engine.startRuntime();
 
+    // Expose for Phase 8 HAL injection
+    if (typeof window !== 'undefined') {
+      (window as any).__SCINGULAR_ENGINE = engine;
+    }
+
     return () => {
       unsubscribe();
       engine.stopRuntime();
+      if (typeof window !== 'undefined') delete (window as any).__SCINGULAR_ENGINE;
     };
   }, []);
 
@@ -76,6 +83,7 @@ export function ScingularRuntimeProvider({ children }: { children: React.ReactNo
     setConnection: (c) => engineRef.current.setConnection(c),
     setActuationState: (a) => engineRef.current.setActuationState(a),
     switchDomain,
+    bindHardwareLayer: (h) => engineRef.current.bindHardwareLayer(h),
     registerSurface: (id, cls, role) => engineRef.current.getSyncEngine().registerSurface(id, cls, role),
     unregisterSurface: (id) => engineRef.current.getSyncEngine().unregisterSurface(id),
     delegateAuthority: (id, posture) => engineRef.current.getSyncEngine().updateSurfaceAuthority(id, posture)

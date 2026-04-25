@@ -17,6 +17,7 @@ The ecosystem is currently in a **SIMULATION / DRY-LINK** state.
 ## Full Ecosystem Documentation
 For detailed system definitions, relationship maps, and development history, refer to the **ATG Weekly Continuity Layer**:
 
+- [**Canonical Definitions Index**](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCINGULAR_CANONICAL_DEFINITIONS.md)
 - [**Full 3-Week Development Dossier**](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCINGULAR_FULL_DEV_DOSSIER_LAST_3_WEEKS.md)
 - [**Ecosystem Definitions Index**](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCINGULAR_ECOSYSTEM_DEFINITIONS.md)
 - [**System Relationship Map**](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCINGULAR_SYSTEM_RELATIONSHIPS.md)
@@ -25,4 +26,5 @@ For detailed system definitions, relationship maps, and development history, ref
 - [**DocuSCRIBE™ Overview**](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/DOCUSCRIBE_SYSTEM_OVERVIEW.md)
 - [**Weather Intelligence System**](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/WEATHER_INTELLIGENCE_SYSTEM.md)
 - [**SCIMEGA™ UIX Evolution**](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCIMEGA_UIX_EVOLUTION.md)
+
 

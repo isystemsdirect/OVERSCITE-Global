@@ -29,5 +29,10 @@ This dossier provides a comprehensive reconstruction of the architectural and im
 
 ## Architectural Taxonomy
 - **Implementation**: Current state as represented in the `src/` directory.
-- **Canon**: Official architectural rules as defined in the `docs/atg/` and `.agents/` directories.
+- **Canon**: Official architectural rules as defined in the **[SCINGULAR™ Canonical Definitions](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCINGULAR_CANONICAL_DEFINITIONS.md)**.
 - **Future Intent**: Roadmap for Reality Bridge activation and multi-drone orchestration.
+
+## Authority & Continuity Chain
+All development adheres to the mandatory SCINGULAR™ authority chain:
+**IU Imprint** → **Scing Interface** → **LARI-ArcHive™** → **System**
+

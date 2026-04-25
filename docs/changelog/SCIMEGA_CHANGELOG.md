@@ -14,10 +14,28 @@
 - Implemented SCIMEGA™ Builder, capability intelligence, method binding, scheduler posture, export boundary, ARC authorization, read-only telemetry, terminal simulation, audit/training, replay, ArcHive™ manifests, cryptographic integrity, BFI autonomy, PL boundary, dry-link contracts, and unified command UIX.
 - Added authority flow trace, dynamic Scing presence, grouped command rail, severity-aware right rail, and authority/safety timeline.
 
-### ATG Weekly Documentation Expansion
-- Generated ATG Weekly Development Dossier (2026-04-24) summarizing implementation facts vs. canon definitions.
-- Created SCIMEGA™ Definitions Index and System Descriptions.
-- Mapped Phase 1–12 implementation layers to governance boundaries and architectural domains.
-- Synchronized repository state with formal ATG-generated continuity layers.
+### Corrective Documentation & Canon Closure (2026-04-24)
+- **Status**: Corrected implementation truth-gap and terminology drift.
+- **Terminology Corrections**:
+    - **SCIMEGA™ PL**: Corrected from "Policy Layer" and "Physical Layer" to **Physical Laboratory** in all drone-vision and orchestration contexts.
+    - **SCIMEGA™ DOS**: Corrected from "Disk Operating System" to **Drone Operating System**.
+    - **ArcHive DL / ArcHive PL**: Corrected to **Digital Layer** and **Physical Laboratory** expressions.
+    - **Dry-Link**: Explicitly separated from "DL" usage; defined as activation-aware metadata-only sync boundary.
+    - **LARI-ArcHive™**: Corrected misclassification; formally defined as a super-advanced LARI engine (downstream of Scing), not a fourth intelligence.
+- **Missing Documentation Added**:
+    - [Master Gap Closure Index](../atg/FULL_DOCUMENTATION_GAP_CLOSURE_INDEX.md)
+    - [Authority Chain Reconciliation](../architecture/AUTHORITY_CHAIN_RECONCILIATION.md)
+    - [LARI-ArcHive™ Engine Architecture](../atg/LARI_ARCHIVE_ENGINE_ARCHITECTURE.md)
+    - [PL/DL Terminology Clarification](../glossary/PL_DL_TERMINOLOGY_CLARIFICATION.md)
+    - [DocuSCRIBE™ Full System Dossier](../atg/DOCUSCRIBE_FULL_SYSTEM_DOSSIER.md)
+    - [Weather & Environment Intelligence Dossier](../atg/WEATHER_ENVIRONMENT_INTELLIGENCE_DOSSIER.md)
+    - [SmartSCHEDULER™ System Spec](../atg/SMARTSCHEDULER_SYSTEM_SPEC.md)
+    - [Inspection Methodology Stack](../atg/INSPECTION_METHODOLOGY_STACK.md)
+    - [Contractor Division Architecture](../atg/CONTRACTOR_DIVISION_CURRENT_ARCHITECTURE.md)
+    - [SCIMEGA™ Production Readiness Boundary](../deployment/SCIMEGA_PRODUCTION_READINESS_BOUNDARY.md)
+    - [ARC Signature KMS Roadmap](../security/ARC_SIGNATURE_KMS_ROADMAP.md)
+    - [Truth-State Registry](../truth/TRUTH_STATE_REGISTRY.md)
+    - [BANE/TEON Autonomy Test Matrix](../testing/BANE_TEON_AUTONOMY_TEST_MATRIX.md)
+    - [SRT Universal Capture Doctrine](../architecture/SRT_UNIVERSAL_CAPTURE_DOCTRINE.md)
 
 

@@ -3,7 +3,7 @@
 ## Ecosystem Core
 - **SCINGULAR™**: SCINGULAR™ is a human-governed, AI-augmented operational ecosystem that unifies cognition, workflow, hardware interaction, and domain intelligence into a single structured environment while preserving human authority.
 - **SCING**: Scing is the IU-facing interface that translates human intent into governed system actions and maintains operational clarity across all system layers.
-- **LARI-ArcHive™**: LARI-ArcHive™ is a super-advanced LARI engine responsible for system translation, lifecycle governance, manifest packaging, and cross-system continuity.
+- **LARI-ArcHive™**: A super-advanced LARI engine responsible for system translation, lifecycle governance, manifest packaging, and cross-system continuity. (Downstream of Scing).
 - **XSCITE™ Builder**: The OVERSCITE™ interface for designing and validating SCIMEGA™ systems.
 
 ## Authority & Identity
@@ -19,8 +19,8 @@
 
 ## Execution & Boundaries
 - **SCIMEGA™**: SCIMEGA™ is a hybrid operating system and hardware execution platform enabling governed autonomy and inspection operations.
-- **PL Boundary (Policy Layer)**: A modeled hardware interface layer with no execution capability.
-- **Dry-Link**: A metadata-only interface describing potential hardware interaction without connection.
+- **PL Boundary (Physical Laboratory)**: The governed physical laboratory environment where hardware embodiment and device modeling are represented.
+- **Dry-Link**: An activation-aware metadata-only synchronization boundary. Telemetry flows inward; no commands flow outward.
 - **Reality Bridge**: A controlled boundary governing any future transition to real-world execution.
 
 ## Intelligence Layers

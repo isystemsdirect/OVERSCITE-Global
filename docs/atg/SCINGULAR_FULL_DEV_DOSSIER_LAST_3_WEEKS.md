@@ -23,7 +23,7 @@ This dossier provides a comprehensive reconstruction of the architectural and im
 - **BFI Governance Lock**: Finalized the BANE/TEON/ARC enforcement triad for autonomous operations (Phases 5–8).
 - **Telemetry & Dry-Link**: Implemented read-only telemetry intake and the Dry-Link metadata synchronization boundary (Phases 9–10).
 - **LARI-ArcHive™ Engine**: Established witness-grade record keeping, manifest packaging, replay, and cryptographic integrity (Phase 11).
-- **PL Boundary & Dry-Link Contracts**: Modeled the Policy Layer interface and enforced metadata-only communication patterns (Phase 11–12).
+- **PL Boundary & Dry-Link Contracts**: Modeled the Physical Laboratory interface and enforced metadata-only communication patterns (Phase 11–12).
 - **Unified Command UIX**: Consolidated all drone orchestration controls into a single, high-fidelity command surface with decision provenance (Phase 12).
 
 ## Autonomy System Build Record
@@ -35,7 +35,7 @@ The BFI (Bona Fide Intelligence) autonomy system was constructed across Weeks 2�
 5. **Anchor Hold**: A stabilization state that ensures safe transition between autonomy and manual control.
 
 ## PL Boundary & Dry-Link Introduction
-- **PL (Policy Layer)**: A modeled hardware interface layer. In v0.1.2, PL has **no execution capability**. It represents the formal governance constraint surface.
+- **PL (Physical Laboratory)**: The governed physical laboratory environment where hardware embodiment and device modeling are represented. In v0.1.2, PL has **no execution capability**.
 - **Dry-Link**: A metadata-only interface describing potential hardware interaction **without connection**. It is activation-aware (the system knows the hardware exists) but does not transmit commands.
 - **Reality Bridge**: The controlled boundary governing any future transition from Dry-Link to real-world execution. In v0.1.2, the Reality Bridge is **physically and logically locked**.
 

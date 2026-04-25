@@ -2,7 +2,7 @@
 
 ## Core Systems
 - **SCIMEGA™**: The Operating System + hardware execution substrate. It provides the foundational capability to interface with and drive drone hardware under strict governance.
-- **SCIMEGA™ DOS**: The Disk Operating System layer of SCIMEGA™, managing file storage, manifest persistence, and low-level resource allocation.
+- **SCIMEGA™ DOS**: The Drone Operating System layer of SCIMEGA™, managing flight execution, sensor coordination, and resource allocation.
 - **XSCITE™ Drone Builder**: The OVERSCITE-side command and build surface used to design, configure, and validate drone profiles before mission deployment.
 - **Scing Interface**: The upstream Intellectual Unit (IU) interface presence that provides guidance, assistance, and oversight to the human operator.
 
@@ -18,11 +18,11 @@
 - **IU Imprint Binding**: The unique cryptographic link between a human's intellectual presence (IU) and the system interface (Scing).
 
 ## Communication & Boundaries
-- **PL Boundary (Policy Layer)**: The explicit expression of governance constraints and operational rules within the system.
+- **PL Boundary (Physical Laboratory)**: The governed physical laboratory environment where hardware embodiment and device modeling are represented.
 - **Dry-Link**: An activation-aware metadata-only synchronization boundary. It allows real-time telemetry intake without enabling hardware command execution.
 - **Reality Bridge**: The controlled and currently non-executing interface between the virtual command surface and physical drone hardware.
 
 ## Intelligence Engines
 - **ArcHive™**: The governance-anchored witness and archival engine.
 - **LARI-ArcHive™**: A super-advanced LARI (Layered Adaptive Resource Intelligence) engine responsible for mission packaging and witness-record generation.
-- **ArcHive DL / ArcHive PL**: Expressions of the ArcHive™ engine's governance (Data Link / Policy Layer), not independent authority sources.
+- **ArcHive DL / ArcHive PL**: Expressions of the ArcHive™ engine's governance (Digital Layer / Physical Laboratory), not independent authority sources.

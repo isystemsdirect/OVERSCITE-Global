@@ -1,24 +1,40 @@
 # Inspection Methodology Stack
 
 ## Overview
-The Inspection Methodology Stack is the standardized framework for conducting field operations within the OVERSCITE™ ecosystem. It ensures that all inspections are conducted with deterministic rigor and full evidentiary traceability.
+The Inspection Methodology Stack is the standardized framework for conducting field operations within the OVERSCITE™ ecosystem.
 
 ## Core Components
-### 1. Inspection Methods
-- **Analysis Profile**: The specific parameters and logic used to evaluate a target.
-- **Blocker/Inhibitor Profile**: The identification of physical or environmental obstructions (e.g., furniture, lighting, weather) that impact inspection validity.
+### Inspection Methods
+Discrete, well-defined procedures for evaluating a target. Each method has a contract specifying inputs, evidence requirements, and acceptance criteria.
 
-### 2. Capability Binding
-- Methods are bound to SCIMEGA™ capabilities through the **XSCITE™ Drone Builder**.
-- Only drone profiles with the required capability intelligence can execute specific inspection methods.
+### Method Packs
+Bundled collections of related methods for specific inspection types (e.g., roofing, structural, environmental). Method packs are versioned and governed.
 
-### 3. Scheduling Logic (SmartScheduler™)
-- Inspections are scheduled based on resource availability, priority tiering, and environmental safety signals.
-- **BANE** governs all scheduling mutations to prevent unauthorized overrides of critical inspection windows.
+### Workflow Graph
+The ordered sequence of methods, decision points, and evidence gates that constitute a complete inspection. The graph enforces that prerequisites are met before dependent methods execute.
 
-### 4. SCIMEGA™ Integration
-- Scheduled inspections are exported as **ArcHive™ Manifests**.
-- SCIMEGA™ intakes these manifests and executes them under **BFI-Governed Autonomy**, with **TEON** enforcing safety constraints based on real-time sensor data.
+### Evidence Rules
+Each method defines what evidence is required (photos, measurements, sensor readings), acceptable formats, and minimum quality thresholds.
 
-## Evidentiary Chain
-All inspection findings are witness-recorded by the **LARI-ArcHive™** engine and promoted to **DocuSCRIBE™** for final reporting.
+### Training Modules
+Operators must complete training modules before using specific methods. Training completion is tracked and bound to ARC identity.
+
+### Scing Guidance Hooks
+Scing provides contextual guidance during method execution — suggesting evidence capture angles, flagging potential deficiencies, and alerting to environmental conditions.
+
+### Template Bindings
+Methods bind to DocuSCRIBE™ templates, ensuring that reports are pre-structured for the specific methodology used.
+
+### QA Gates
+Quality assurance checkpoints within the workflow graph that require human or Scing verification before proceeding.
+
+## SCIMEGA™ Capability Binding
+Methods are bound to SCIMEGA™ capabilities through the XSCITE™ Drone Builder. Only drone profiles with the required capability intelligence can execute specific inspection methods.
+
+## SmartSCHEDULER™ Relationship
+Scheduled inspections reference methodology contracts. SmartSCHEDULER™ validates that the scheduled resources (drones, operators) meet the capability requirements defined by the methodology.
+
+## Observation vs. Identification vs. Human Assessment
+- **Observation**: Raw data capture (SRT domain). No interpretation.
+- **Identification**: Pattern recognition and classification (LARI domain). Machine-assisted.
+- **Human Assessment**: Professional judgment and conclusion (Human/ARC domain). Always required for final findings.

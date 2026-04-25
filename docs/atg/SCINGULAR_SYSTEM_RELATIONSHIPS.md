@@ -11,7 +11,7 @@
 - Every high-impact action requires valid ARC authorization and Scing advisory clearance.
 
 ### 3. Governance Flow (Integrity & Safety)
-- **BANE** intercepts all truth-state transitions to ensure compliance with the **PL (Policy Layer)**.
+- **BANE** intercepts all truth-state transitions to ensure compliance with the **PL (Physical Laboratory)**.
 - **TEON** intercepts all kinetic execution requests to ensure they fall within the **Flight Safety Envelope**.
 
 ## System Interplay

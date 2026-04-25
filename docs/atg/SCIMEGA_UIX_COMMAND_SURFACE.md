@@ -7,7 +7,7 @@ The SCIMEGA™ UIX Command Surface is the unified operator interface for all dro
 The command surface is structured into three sovereign regions:
 
 ### 1. Primary Work Region (Center)
-The dominant visual area. Displays the currently active domain panel (Builder, Telemetry, Replay, ArcHive™, Dry-Link, PL Boundary). The operator's attention is directed here first. Content changes based on domain selection from the grouped command rail.
+The dominant visual area. Displays the currently active domain panel (Builder, Telemetry, Replay, ArcHive™, Dry-Link, Physical Laboratory). The operator's attention is directed here first. Content changes based on domain selection from the grouped command rail.
 
 ### 2. Grouped Command Rail (Left)
 A vertically organized, domain-grouped control rail. Each group represents a SCIMEGA™ operational domain. Groups are collapsible and icon-first where safe. Active domain is highlighted; inactive domains recede visually. Groups include:

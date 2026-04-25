@@ -32,6 +32,20 @@
 - **DRY-LINK**: Real-time metadata synchronization with physical TelePort nodes (read-only).
 - **LIVE-LOCKED**: Execution pathways are physically and logically blocked.
 
+## ATG Weekly Continuity Layers
+### Core Definitions
+- **SCIMEGA™**: The OS + hardware execution substrate.
+- **XSCITE™ Drone Builder**: The OVERSCITE-side orchestration layer.
+- **Scing**: The upstream IU interface presence.
+- **BFI Autonomy**: IU-authorized, BANE-gated, TEON-constrained automation.
+- **LARI-ArcHive™**: Super-advanced LARI engine (not a 4th intelligence).
+
+### Documentation Indices
+- [ATG Weekly Dev Dossier (2026-04-24)](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/ATG_WEEKLY_DEV_DOSSIER_2026-04-24.md)
+- [SCIMEGA™ Definitions Index](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCIMEGA_DEFINITIONS_INDEX.md)
+- [SCIMEGA™ System Descriptions](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCIMEGA_SYSTEM_DESCRIPTIONS.md)
+- [SCIMEGA™ Weekly Change Map](file:///g:/GIT/isystemsdirect/OVERSCITE-Global/docs/atg/SCIMEGA_WEEKLY_CHANGE_MAP.md)
+
 ## Known Limitations
 - Mock authority flow events require replacement with real `ControlArbitrationEngine` emitter.
 - ArcHive™ manifests currently use `localStorage` for persistence.
@@ -43,3 +57,4 @@
 2. Implement automated state transition tests for BANE/TEON.
 3. Establish persistent backend vault for ArcHive™ manifests.
 4. Upgrade ARC to full cryptographic keypair signing.
+

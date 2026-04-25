@@ -46,7 +46,7 @@ export function ClientActivityWorkspace({
       actor_type: 'system',
       actor_id: 'BANE-Enforcement',
       role: 'Governing Engine',
-      policy_version: 'OVERSCITE-1.1',
+      policy_version: 'SCINGULAR-1.1',
       engine_version: 'BANE-2.0',
       success_state: true,
       mutation_class: 'baseline_initialized',
@@ -65,7 +65,7 @@ export function ClientActivityWorkspace({
       actor_type: 'human',
       actor_id: 'id-001',
       role: 'Lead Inspector',
-      policy_version: 'OVERSCITE-1.1',
+      policy_version: 'SCINGULAR-1.1',
       engine_version: 'BANE-2.0',
       success_state: true,
       mutation_class: 'accepted_minor_refinement',
@@ -97,7 +97,7 @@ export function ClientActivityWorkspace({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Terminal className="h-4 w-4 opacity-40" />
-              <span className="text-[10px] font-black uppercase tracking-widest opacity-60 italic">OVERSCITE-CORE-LEDGER-V1</span>
+              <span className="text-[10px] font-black uppercase tracking-widest opacity-60 italic">SCINGULAR-CORE-LEDGER-V1</span>
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5 text-[10px] text-green-500 font-bold">

@@ -26,7 +26,7 @@ const SEED_DOCUMENTS: LibraryDocument[] = [
   },
   {
     id: 'doc-003',
-    title: 'OVERSCITE Field Safety Protocol V2',
+    title: 'SCINGULAR Field Safety Protocol V2',
     category: 'Internal Governance',
     document_type: 'PDF',
     storage_path_or_url: '/docs/internal/safety-v2.pdf',
@@ -55,7 +55,7 @@ export async function uploadLibraryDocument(
     title,
     category,
     document_type: file.type.split('/')[1]?.toUpperCase() || 'UNKNOWN',
-    storage_path_or_url: `gs://overscite-global-library/${file.name}`,
+    storage_path_or_url: `gs://SCINGULAR-global-library/${file.name}`,
     status: 'candidate',
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),

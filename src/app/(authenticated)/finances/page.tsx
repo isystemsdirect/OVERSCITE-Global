@@ -109,7 +109,7 @@ export default function FinancesPage() {
       <PageHeader 
         title="Financial Hub" 
         status="live"
-        description="The Financial Hub provides transparent, governed visibility into all subscription layers, billing histories, and operational revenue streams. It ensures that every transaction between jurisdictional clients and the OVERSCITE network is audit-ready and compliant with corporate fiscal doctrine. By monitoring real-time absorption rates and pending payouts, the hub maintains the economic integrity of the global inspection ecosystem. This layer of financial intelligence is critical for the sustainable and scalable growth of our professional services."
+        description="The Financial Hub provides transparent, governed visibility into all subscription layers, billing histories, and operational revenue streams. It ensures that every transaction between jurisdictional clients and the SCINGULAR network is audit-ready and compliant with corporate fiscal doctrine. By monitoring real-time absorption rates and pending payouts, the hub maintains the economic integrity of the global inspection ecosystem. This layer of financial intelligence is critical for the sustainable and scalable growth of our professional services."
       />
       <div className="flex flex-col gap-8">
 

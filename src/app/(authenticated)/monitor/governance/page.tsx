@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Governance Monitor Board (MON_GOV)
+ * SCINGULAR Global — Governance Monitor Board (MON_GOV)
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * MON_GOV lane: BANE-facing review packets, override attempts,

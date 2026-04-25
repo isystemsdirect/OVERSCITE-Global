@@ -5,31 +5,31 @@
 @property --glow-color {
   syntax: '<color>';
   inherits: false;
-  initial-value: #FFD84D;
+  initial-value: #006bff;
 }
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
+    --background: 240 10% 2%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 240 10% 2%;
     --popover-foreground: 0 0% 98%;
-    --primary: 45 91% 61%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    --primary: 215 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3.7% 10%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --muted: 240 3.7% 10%;
+    --muted-foreground: 240 5% 60%;
+    --accent: 240 3.7% 15%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 45 91% 61%;
-    --radius: 0.75rem;
+    --border: 240 3.7% 12%;
+    --input: 240 3.7% 12%;
+    --ring: 215 100% 50%;
+    --radius: 0.5rem;
   }
   
   * {
@@ -37,12 +37,12 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    background-image: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    background-image: radial-gradient(circle at center, #0a0a0c 0%, #000 100%);
     min-height: 100vh;
   }
 }
 
-/* OVERSCITE UI Accents */
+/* SCINGULAR UI Accents */
 .glass-panel {
   @apply bg-black/40 backdrop-blur-md border border-white/10;
 }
@@ -51,28 +51,29 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
+.text-scingular-glow {
+  text-shadow: 0 0 10px rgba(0, 107, 255, 0.4);
+}
+
+.text-ai-glow {
+  text-shadow: 0 0 15px rgba(0, 107, 255, 0.6);
+}
+
 /* Animations */
 @keyframes pulseGlow {
   0%, 100% { 
     filter: 
-      drop-shadow(0 0 1px #FFD84D) 
-      drop-shadow(0 0 4px rgba(255, 216, 77, 0.1));
-    opacity: 0.9;
+      drop-shadow(0 0 1px rgba(14, 165, 233, 0.4)) 
+      drop-shadow(0 0 4px rgba(14, 165, 233, 0.1));
+    opacity: 0.95;
     transform: scale(1);
   }
-  33% {
+  50% {
     filter: 
-      drop-shadow(0 0 2px #4ADE80) 
-      drop-shadow(0 0 8px rgba(74, 222, 128, 0.15));
+      drop-shadow(0 0 2px rgba(14, 165, 233, 0.6)) 
+      drop-shadow(0 0 8px rgba(14, 165, 233, 0.2));
     opacity: 1;
-    transform: scale(1.005);
-  }
-  66% {
-    filter: 
-      drop-shadow(0 0 3px #0EA5E9) 
-      drop-shadow(0 0 10px rgba(14, 165, 233, 0.2));
-    opacity: 0.95;
-    transform: scale(1.01);
+    transform: scale(1.002);
   }
 }
 
@@ -129,13 +130,13 @@
 }
 
 .scing-border-glow {
-  @apply border-primary/20 shadow-[0_0_15px_rgba(245,194,66,0.05)];
+  @apply border-primary/20 shadow-[0_0_15px_rgba(0,107,255,0.05)];
   animation: borderFlicker 10s ease-in-out infinite;
 }
 
 @keyframes borderFlicker {
-  0%, 100% { border-color: rgba(245, 194, 66, 0.2); }
-  50% { border-color: rgba(245, 194, 66, 0.4); }
+  0%, 100% { border-color: rgba(0, 107, 255, 0.1); }
+  50% { border-color: rgba(0, 107, 255, 0.3); }
 }
 
 .scing-interactive-panel {
@@ -157,27 +158,27 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 216, 77, 0.05);
+  background: rgba(0, 107, 255, 0.1);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 216, 77, 0.2);
+  background: rgba(0, 107, 255, 0.3);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 216, 77, 0.05) transparent;
+  scrollbar-color: rgba(0, 107, 255, 0.1) transparent;
 }
 
-@keyframes pulseGold {
-  0%, 100% { box-shadow: 0 0 5px rgba(255, 216, 77, 0.4); }
-  50% { box-shadow: 0 0 15px rgba(255, 216, 77, 0.8); }
+@keyframes pulseBlue {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 107, 255, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(0, 107, 255, 0.4); }
 }
 
-.animate-pulse-gold {
-  animation: pulseGold 2s infinite;
+.animate-pulse-blue {
+  animation: pulseBlue 2s infinite;
 }
 
 /* ─── Guidance System Constraints ─── */

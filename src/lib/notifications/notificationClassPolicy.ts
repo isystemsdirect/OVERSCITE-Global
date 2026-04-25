@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Notification Class Policy
+ * SCINGULAR Global — Notification Class Policy
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Pure policy — no network calls. Maps each notification class to its

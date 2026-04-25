@@ -110,7 +110,7 @@ export default function ClientProfilePage({ params }: { params: { id: string } }
           </TabsList>
 
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest opacity-40 italic">OVERSCITE Operational Shell v1.1</span>
+            <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest opacity-40 italic">SCINGULAR Operational Shell v1.1</span>
           </div>
         </div>
 

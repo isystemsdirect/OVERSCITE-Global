@@ -5,7 +5,7 @@
  * @phase Phase 1 — Foundation
  *
  * Defines recognition-domain-specific truth states, domain classes, visibility
- * states, confidence bands, and pass identifiers for the OVERSCITE Recognition Stack.
+ * states, confidence bands, and pass identifiers for the SCINGULAR Recognition Stack.
  *
  * IMPORTANT: This file extends the core truth state system WITHOUT modifying
  * the protected canonical `truth-states.ts`. These constants are scoped to
@@ -28,7 +28,7 @@
  *     → analysis_in_progress          (engine execution begun)
  *     → analysis_complete             (all requested passes complete)
  *     → verification_pending          (awaiting human review)
- *     → verified_by_overscite         (human authority confirmed)
+ *     → verified_by_SCINGULAR         (human authority confirmed)
  *     → review_required               (anomaly or confidence failure — at any stage)
  *
  * HARD RULE: Verification cannot precede analysis completion and governed binding.
@@ -40,7 +40,7 @@ export const MEDIA_ANALYSIS_STATES = [
   'analysis_in_progress',
   'analysis_complete',
   'verification_pending',
-  'verified_by_overscite',
+  'verified_by_SCINGULAR',
   'review_required',
 ] as const;
 
@@ -147,7 +147,7 @@ export const CONFIDENCE_BANDS = [
   'moderate',
   'low',
   'review_required',
-  'verified_by_overscite',
+  'verified_by_SCINGULAR',
 ] as const;
 
 export type ConfidenceBand = typeof CONFIDENCE_BANDS[number];

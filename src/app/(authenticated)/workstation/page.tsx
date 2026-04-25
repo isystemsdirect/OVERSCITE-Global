@@ -120,7 +120,7 @@ export default function WorkstationPage() {
       <PageHeader 
         title="Workstation Command" 
         status="mock"
-        description="The Workstation Command center is the primary interface for managing your professional identity, intelligence thresholds, and digital fleet assets. It allows mission controllers to fine-tune Scing™ interaction layers and LARI™ sensor sensitivities to match their specific field requirements. Through this hub, all system mutations and fiscal boundaries are monitored and enforced by the BANE™ governance engine. This is the nervous system of your OVERSCITE experience, providing absolute control over your operational environment."
+        description="The Workstation Command center is the primary interface for managing your professional identity, intelligence thresholds, and digital fleet assets. It allows mission controllers to fine-tune Scing™ interaction layers and LARI™ sensor sensitivities to match their specific field requirements. Through this hub, all system mutations and fiscal boundaries are monitored and enforced by the BANE™ governance engine. This is the nervous system of your SCINGULAR experience, providing absolute control over your operational environment."
         actions={
           <div className="bg-card/30 backdrop-blur-md border border-border/40 p-3 rounded-xl flex items-center gap-4 shadow-xl">
             <div className="flex flex-col items-center px-4 border-r border-border/40">
@@ -158,7 +158,7 @@ export default function WorkstationPage() {
             <Card className="bg-card/40 backdrop-blur-md border-border/50 shadow-2xl rounded-xl overflow-hidden">
               <CardHeader className="bg-gradient-to-b from-primary/5 to-transparent pb-8">
                 <CardTitle className="text-2xl">Inspector Identity Profile</CardTitle>
-                <CardDescription>Authenticated credentials for the OVERSCITE field registry. Your identity is anchor-verified by BANE.</CardDescription>
+                <CardDescription>Authenticated credentials for the SCINGULAR field registry. Your identity is anchor-verified by BANE.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-8 px-8">
                 <div className="grid gap-8 md:grid-cols-2">
@@ -274,7 +274,7 @@ export default function WorkstationPage() {
                         <Checkbox id="c-2" className="mt-1" />
                         <div className="space-y-1 opacity-60 group-hover:opacity-100 transition-opacity">
                           <Label htmlFor="c-2" className="text-base font-bold leading-none cursor-pointer">Global Fleet Contribution</Label>
-                          <p className="text-xs text-muted-foreground leading-relaxed">Contribute anonymized anomaly signatures to help train the OVERSCITE Global network models. Identity remains masked.</p>
+                          <p className="text-xs text-muted-foreground leading-relaxed">Contribute anonymized anomaly signatures to help train the SCINGULAR Global network models. Identity remains masked.</p>
                         </div>
                      </div>
                    </div>
@@ -294,7 +294,7 @@ export default function WorkstationPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <CardTitle className="text-2xl">Fleet Hub & Hardware</CardTitle>
-                    <CardDescription>Manage and calibrate your OVERSCITE-connected capture hardware and UAV nodes.</CardDescription>
+                    <CardDescription>Manage and calibrate your SCINGULAR-connected capture hardware and UAV nodes.</CardDescription>
                   </div>
                   <Button size="sm" className="gap-2 h-10 px-5 rounded-xl bg-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
                     <Plus className="h-4 w-4"/> Pair New Asset
@@ -548,7 +548,7 @@ export default function WorkstationPage() {
                   </div>
                   <div>
                     <CardTitle className="text-2xl">Capability Registry & LARI Keys</CardTitle>
-                    <CardDescription>Manage your authorized system extensions and specialized forensic modules within the OVERSCITE ecosystem.</CardDescription>
+                    <CardDescription>Manage your authorized system extensions and specialized forensic modules within the SCINGULAR ecosystem.</CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -701,7 +701,7 @@ export default function WorkstationPage() {
                   </CardContent>
                   <CardFooter className="pt-8 pb-8 px-8 bg-muted/10 border-t border-border/30">
                      <div className="flex items-center justify-between w-full">
-                        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">Notification Engine: OVERSCITE-SIG-1</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">Notification Engine: SCINGULAR-SIG-1</p>
                         <Button variant="outline" className="h-10 px-8 rounded-xl font-bold bg-background/50 hover:bg-background">Internal Alert Test</Button>
                      </div>
                   </CardFooter>

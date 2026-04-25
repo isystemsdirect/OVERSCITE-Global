@@ -6,7 +6,7 @@
  * 
  * @purpose
  * Typed definition of the One-Time Capability Invocation Token (OCIT).
- * Represents the native bridge handshake between OVERSCITE and the REBEL Dock.
+ * Represents the native bridge handshake between SCINGULAR and the REBEL Dock.
  * 
  * @doctrinal_lock
  * Frontend application logic operates in `mock_ui` or `simulated_runtime` mode only.

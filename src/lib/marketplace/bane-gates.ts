@@ -1,6 +1,6 @@
 /**
  * BANE Gate Functions — Marketplace Plane
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Implements the four canonical BANE governance gates for marketplace mutations.
  * Gates are client-side pre-validation guards. Critical mutations MUST also pass

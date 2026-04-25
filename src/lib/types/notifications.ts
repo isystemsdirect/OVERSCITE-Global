@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Canonical Notifications Fabric Type System
+ * SCINGULAR Global — Canonical Notifications Fabric Type System
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Governance: BANE-governed, Director-authorized, human-sovereign.
@@ -176,7 +176,7 @@ export type SenderVerificationStatus =
 export interface NotificationSenderProfile {
   sender_profile_id: string;
   display_name: string;
-  /** Full from-address. e.g. "receipts@billing.overscite.com" */
+  /** Full from-address. e.g. "receipts@billing.SCINGULAR.com" */
   from_address: string;
   /** Reply-to address — must be intentional, not accidental. */
   reply_to_address: string;

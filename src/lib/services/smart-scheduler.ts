@@ -1,5 +1,5 @@
 /**
- * OVERSCITE™ SmartSCHEDULER™ — Methodology-Aware Operational Guidance
+ * SCINGULAR™ SmartSCHEDULER™ — Methodology-Aware Operational Guidance
  *
  * Provides governed scheduling proposals by binding inspection methodology
  * constraints to environmental conditions, team availability, method

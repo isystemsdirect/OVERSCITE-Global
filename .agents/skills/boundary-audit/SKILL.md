@@ -7,7 +7,7 @@ description: Detect architecture drift, naming drift, trust-boundary collapse, o
 
 ## Purpose
 
-Systematically detect and report architecture drift, naming drift, trust-boundary collapse, or accidental system convergence within the OVERSCITE workspace. This skill ensures that canonical separations defined by SCINGULAR doctrine remain intact.
+Systematically detect and report architecture drift, naming drift, trust-boundary collapse, or accidental system convergence within the SCINGULAR workspace. This skill ensures that canonical separations defined by SCINGULAR doctrine remain intact.
 
 ## When to Use
 
@@ -21,7 +21,7 @@ Systematically detect and report architecture drift, naming drift, trust-boundar
 ## Audit Areas
 
 ### 1. Identity vs. Workspace
-- **ARC** (accountable human identity) must remain distinct from **OVERSCITE** (organizational workspace/environment)
+- **ARC** (accountable human identity) must remain distinct from **SCINGULAR** (organizational workspace/environment)
 - Check for code that conflates user identity with workspace configuration
 - Verify auth flows separate personal identity from organizational context
 - **Violation Pattern**: User profile data mixed into workspace config objects

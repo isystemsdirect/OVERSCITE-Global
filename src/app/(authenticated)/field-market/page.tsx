@@ -2,7 +2,7 @@
 
 /**
  * Field Market — Plane 1: Labor/Dispatch Exchange
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Implementation Status:
  *  - Opportunity Feed UI: LIVE (display layer)
@@ -331,7 +331,7 @@ export default function FieldMarketPage() {
         <PageHeader
           title="Field Market"
           status={TRUTH_STATES[1]}
-          description="The Field Market is the OVERSCITE Global labor and dispatch exchange for certified field agents, operators, and specialized contractors. Opportunities range from thermal inspections and LiDAR mapping to forensic capture and environmental surveys. All dispatch actions are BANE-gated and require credentialed agent eligibility. Offer acceptance and payout release are server-authoritative and governed at every state transition."
+          description="The Field Market is the SCINGULAR Global labor and dispatch exchange for certified field agents, operators, and specialized contractors. Opportunities range from thermal inspections and LiDAR mapping to forensic capture and environmental surveys. All dispatch actions are BANE-gated and require credentialed agent eligibility. Offer acceptance and payout release are server-authoritative and governed at every state transition."
           actions={
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5 text-[10px] font-mono text-amber-400/80 border border-amber-500/20 bg-amber-500/5 rounded px-2 py-1">

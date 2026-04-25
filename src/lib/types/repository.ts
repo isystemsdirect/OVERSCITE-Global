@@ -5,7 +5,7 @@
  * @version 1.0.0
  * 
  * @purpose
- * Structural definition of the OVERSCITE Repository Object Model.
+ * Structural definition of the SCINGULAR Repository Object Model.
  * Provides the explicit domain array required for tree hierarchies 
  * representing evidence, governance, and operational pipelines.
  */

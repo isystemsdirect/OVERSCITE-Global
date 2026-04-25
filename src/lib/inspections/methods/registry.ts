@@ -1,5 +1,5 @@
 /**
- * @fileOverview Method Registry — OVERSCITE™ Methodology Stack
+ * @fileOverview Method Registry — SCINGULAR™ Methodology Stack
  * @domain Inspections / Methodology
  * @canonical true
  * 
@@ -126,7 +126,7 @@ export const METHOD_REGISTRY: Record<string, InspectionMethod> = {
       { evidenceId: 'site-photo', evidenceType: 'photo', label: 'Overall Site View', description: 'Photo showing the property from the front/access point.', required: true }
     ],
     templateBindings: [
-      { templateSectionId: 'disclosures', sectionName: 'Governed Disclosures', required: true, isProtected: true, fixedContent: 'Standard OVERSCITE Compliance Disclosure v1.0' }
+      { templateSectionId: 'disclosures', sectionName: 'Governed Disclosures', required: true, isProtected: true, fixedContent: 'Standard SCINGULAR Compliance Disclosure v1.0' }
     ],
     qaAcceptanceCriteria: {
       minimumEvidenceCount: 5,

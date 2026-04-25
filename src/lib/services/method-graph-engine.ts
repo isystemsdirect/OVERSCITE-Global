@@ -1,5 +1,5 @@
 /**
- * @fileOverview Method Graph Engine — OVERSCITE™ Methodology Stack
+ * @fileOverview Method Graph Engine — SCINGULAR™ Methodology Stack
  * @domain Inspections / Methodology / Workflow
  * @canonical true
  * @status Phase 2 Implementation

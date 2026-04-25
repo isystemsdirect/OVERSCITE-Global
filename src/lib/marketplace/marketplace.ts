@@ -1,6 +1,6 @@
 /**
  * Capability Marketplace Service — client-side data access layer.
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Reads from Marketplace Firestore collections.
  * ALL writes must go through Cloud Functions (Admin SDK). No client-side writes.

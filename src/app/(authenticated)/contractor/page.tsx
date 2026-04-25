@@ -71,7 +71,7 @@ export default function ContractorStatusBoard() {
         title="Contractor Division" 
         status="live"
         guidanceId="contractor-division"
-        description="The Contractor Management module is designed to govern the full lifecycle of third-party personnel and jurisdictional partnerships within the OVERSCITE ecosystem. It facilitates credential verification, readiness auditing, and contract resolution to ensure all external parties adhere to the strict SCINGULAR safety protocols. By providing a transparent view of contractor performance and compliance status, it maintains the trust boundaries necessary for secure global operations. This interface is critical for managing the accountability and evidentiary chains of every site inspection and field mission."
+        description="The Contractor Management module is designed to govern the full lifecycle of third-party personnel and jurisdictional partnerships within the SCINGULAR ecosystem. It facilitates credential verification, readiness auditing, and contract resolution to ensure all external parties adhere to the strict SCINGULAR safety protocols. By providing a transparent view of contractor performance and compliance status, it maintains the trust boundaries necessary for secure global operations. This interface is critical for managing the accountability and evidentiary chains of every site inspection and field mission."
       />
 
       {/* Main Command Surface */}

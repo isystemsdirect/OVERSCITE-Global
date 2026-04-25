@@ -102,7 +102,7 @@ export default function AdminPage() {
       <PageHeader 
         title="Admin Control Center" 
         status="candidate"
-        description="The Admin Control Center is the high-level orchestration surface for managing system health, personnel registries, and global security protocols. It provides administrators with real-time observability into component latency, BANE™ enforcement status, and the forensic audit trail. Through this interface, users can be provisioned, credentials managed, and system-wide diagnostic runs executed to ensure peak operational readiness. This command deck is the ultimate authority for maintaining the technical and social stability of the OVERSCITE Global platform."
+        description="The Admin Control Center is the high-level orchestration surface for managing system health, personnel registries, and global security protocols. It provides administrators with real-time observability into component latency, BANE™ enforcement status, and the forensic audit trail. Through this interface, users can be provisioned, credentials managed, and system-wide diagnostic runs executed to ensure peak operational readiness. This command deck is the ultimate authority for maintaining the technical and social stability of the SCINGULAR Global platform."
       >
         <div className="flex items-center gap-2">
            <Button variant="outline" size="sm" onClick={loadHealth} disabled={loadingHealth} className="h-8">
@@ -254,7 +254,7 @@ export default function AdminPage() {
                     <CardHeader className="flex flex-row items-center justify-between space-y-0">
                         <div>
                             <CardTitle>Operational Health Deck</CardTitle>
-                            <CardDescription>Authenticated heart-beat monitoring for OVERSCITE core services.</CardDescription>
+                            <CardDescription>Authenticated heart-beat monitoring for SCINGULAR core services.</CardDescription>
                         </div>
                         <Badge variant={health?.overall_status === 'operational' ? 'default' : 'destructive'} className="h-6">
                             SYSTEM: {health?.overall_status?.toUpperCase() || 'QUERYING...'}

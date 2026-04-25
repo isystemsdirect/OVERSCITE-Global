@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Dispatch Monitor Board (MON_DISPATCH)
+ * SCINGULAR Global — Dispatch Monitor Board (MON_DISPATCH)
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * MON_DISPATCH lane: job publication, offers, acceptance, assignment,

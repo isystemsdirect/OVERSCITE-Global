@@ -3,8 +3,8 @@ import { MountedRepo } from './types';
 
 export const mockRepos: MountedRepo[] = [
   {
-    id: 'repo-overscite',
-    name: 'OVERSCITE',
+    id: 'repo-SCINGULAR',
+    name: 'SCINGULAR',
     rootPath: '/',
     sourceType: 'sdk_workspace',
     branch: 'main',
@@ -32,7 +32,7 @@ export const mockRepos: MountedRepo[] = [
 export const mockFileTree: any[] = [
     {
         id: 'src',
-        repoId: 'repo-overscite',
+        repoId: 'repo-SCINGULAR',
         name: 'src',
         path: '/src',
         relativePath: 'src',
@@ -41,7 +41,7 @@ export const mockFileTree: any[] = [
         children: [
             {
                 id: 'app',
-                repoId: 'repo-overscite',
+                repoId: 'repo-SCINGULAR',
                 name: 'app',
                 path: '/src/app',
                 relativePath: 'src/app',
@@ -50,7 +50,7 @@ export const mockFileTree: any[] = [
                 children: [
                     {
                         id: 'layout.tsx',
-                        repoId: 'repo-overscite',
+                        repoId: 'repo-SCINGULAR',
                         name: 'layout.tsx',
                         path: '/src/app/layout.tsx',
                         relativePath: 'src/app/layout.tsx',
@@ -61,7 +61,7 @@ export const mockFileTree: any[] = [
                     },
                     {
                         id: 'page.tsx',
-                        repoId: 'repo-overscite',
+                        repoId: 'repo-SCINGULAR',
                         name: 'page.tsx',
                         path: '/src/app/page.tsx',
                         relativePath: 'src/app/page.tsx',
@@ -75,7 +75,7 @@ export const mockFileTree: any[] = [
             },
             {
                 id: 'components',
-                repoId: 'repo-overscite',
+                repoId: 'repo-SCINGULAR',
                 name: 'components',
                 path: '/src/components',
                 relativePath: 'src/components',
@@ -87,7 +87,7 @@ export const mockFileTree: any[] = [
     },
     {
         id: 'package.json',
-        repoId: 'repo-overscite',
+        repoId: 'repo-SCINGULAR',
         name: 'package.json',
         path: '/package.json',
         relativePath: 'package.json',
@@ -99,7 +99,7 @@ export const mockFileTree: any[] = [
     },
     {
         id: '.env',
-        repoId: 'repo-overscite',
+        repoId: 'repo-SCINGULAR',
         name: '.env',
         path: '/.env',
         relativePath: '.env',

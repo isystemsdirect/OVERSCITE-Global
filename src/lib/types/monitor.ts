@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Canonical LARI-Monitor Type System
+ * SCINGULAR Global — Canonical LARI-Monitor Type System
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Governance: BANE-governed, Director-authorized, human-sovereign.
@@ -14,7 +14,7 @@
 import { Timestamp, FieldValue } from 'firebase/firestore';
 
 // ---------------------------------------------------------------------------
-// EVENT DOMAIN — Canonical domain vocabulary for all OVERSCITE events.
+// EVENT DOMAIN — Canonical domain vocabulary for all SCINGULAR events.
 // No subsystem may invent a private ad hoc domain string for critical events.
 // ---------------------------------------------------------------------------
 

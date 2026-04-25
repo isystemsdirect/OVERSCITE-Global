@@ -9,7 +9,7 @@ import LocationIntelligenceDrawer from './LocationIntelligenceDrawer';
 import LocationsOperationsRail from './LocationsOperationsRail';
 import { MapLayerState, LocationEntity } from '@/lib/locations/locationTypes';
 
-export default function LocationsOverSCITE() {
+export default function LocationsSCINGULAR() {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   const [layers, setLayers] = useState<MapLayerState>({
@@ -30,7 +30,7 @@ export default function LocationsOverSCITE() {
   };
 
   const handleSearch = (query: string) => {
-    console.debug('[LocationsOverSCITE] Search request:', query);
+    console.debug('[LocationsSCINGULAR] Search request:', query);
     // STUB: Will connect to Geocoding & Entity search API
   };
 

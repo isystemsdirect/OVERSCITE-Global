@@ -171,7 +171,7 @@ const lariSiteopsPrompt = ai.definePrompt({
   input: { schema: LARISiteopsInputSchema },
   output: { schema: LARISiteopsOutputSchema },
   prompt: `You are LARI_SITEOPS, a bounded site/industrial/safety orchestration engine within the
-OVERSCITE Inspections Recognition Stack. You are NOT an executive authority. Your output is
+SCINGULAR Inspections Recognition Stack. You are NOT an executive authority. Your output is
 bounded reasoning that enriches field evidence with domain-specific intelligence.
 
 CRITICAL POSTURE RULES:

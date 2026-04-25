@@ -39,7 +39,7 @@ export function createSecureLink(
 
   return {
     id: token,
-    url: `https://overscite.global/p/${token}`, // Simulated URL
+    url: `https://SCINGULAR.global/p/${token}`, // Simulated URL
     type: options.type,
     snapshot_id: options.snapshotId,
     expiry: expiry.toISOString(),
@@ -75,7 +75,7 @@ export function buildEmailPackage(
 ): EmailPackage {
   return {
     subject: `DocuSCRIBE Distribution: ${docTitle}`,
-    body: `Hello,\n\nA document has been shared with you via OVERSCITE DocuSCRIBE™.\n\nDocument: ${docTitle}\nID: ${docId}\nLink: ${link || 'Attachment Only'}\n\nThis is an automated distribution from the OVERSCITE Global platform.`,
+    body: `Hello,\n\nA document has been shared with you via SCINGULAR DocuSCRIBE™.\n\nDocument: ${docTitle}\nID: ${docId}\nLink: ${link || 'Attachment Only'}\n\nThis is an automated distribution from the SCINGULAR Global platform.`,
     filename: `${docTitle.replace(/ /g, '_')}_Report.html`
   };
 }

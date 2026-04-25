@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — LARI-Monitor Event Normalizer
+ * SCINGULAR Global — LARI-Monitor Event Normalizer
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Client-side event normalization helper.

@@ -1,5 +1,5 @@
 /**
- * @fileOverview Recognition Contracts — OVERSCITE™ Phase 3 Preparation
+ * @fileOverview Recognition Contracts — SCINGULAR™ Phase 3 Preparation
  * @domain Inspections / Recognition
  * @canonical true
  * @status SEED / ARCHITECTURAL_PREP

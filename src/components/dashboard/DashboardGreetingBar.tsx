@@ -5,7 +5,7 @@ export default function DashboardGreetingBar() {
   const hour = new Date().getHours();
 
   const timeOfDay = hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening";
-  const greeting = `Good ${timeOfDay} - OVERSCITE Global Online`;
+  const greeting = `Good ${timeOfDay} - SCINGULAR Global Online`;
 
   return (
     <div className="w-full px-6 py-4">

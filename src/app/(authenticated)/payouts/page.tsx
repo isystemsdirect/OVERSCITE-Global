@@ -2,7 +2,7 @@
 
 /**
  * Payouts — Field Market labor disbursement surface
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Displays payout records for field agents and org dispatchers.
  * Payout release requires server-authoritative backend payment pipeline.

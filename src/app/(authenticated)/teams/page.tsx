@@ -46,7 +46,7 @@ export default function TeamDispatchPage() {
         <PageHeader 
           title="Teams & Dispatch" 
           status="live"
-          description="The Teams & Dispatch module enables precise geospatial coordination and personnel management across all jurisdictional territories. It provides supervisors with real-time visibility into inspector availability, current assignments, and mission-readiness status. By utilizing integrated Google Maps tracking and instant messaging, the module facilitates seamless communication between command and field units. This interface ensures the efficient allocation of human resources while maintaining the strict accountability required for OVERSCITE operations."
+          description="The Teams & Dispatch module enables precise geospatial coordination and personnel management across all jurisdictional territories. It provides supervisors with real-time visibility into inspector availability, current assignments, and mission-readiness status. By utilizing integrated Google Maps tracking and instant messaging, the module facilitates seamless communication between command and field units. This interface ensures the efficient allocation of human resources while maintaining the strict accountability required for SCINGULAR operations."
         />
         
         <div className="flex items-center justify-end gap-2 -mt-12 mb-6">

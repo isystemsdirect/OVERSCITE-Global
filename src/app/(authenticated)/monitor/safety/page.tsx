@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Safety Monitor Board (MON_SAFE)
+ * SCINGULAR Global — Safety Monitor Board (MON_SAFE)
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * MON_SAFE lane: BioHUD events, environmental hazard thresholds,

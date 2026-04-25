@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Monitor Audit Surface
+ * SCINGULAR Global — Monitor Audit Surface
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Cross-lane audit event log. Exportable evidence packs.

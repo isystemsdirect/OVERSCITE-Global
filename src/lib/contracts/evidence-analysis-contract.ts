@@ -5,7 +5,7 @@
  * @phase Phase 1 — Foundation
  *
  * Governs the full evidence analysis lifecycle for media assets within the
- * OVERSCITE Inspections Recognition Stack.
+ * SCINGULAR Inspections Recognition Stack.
  *
  * This contract defines:
  *   - The analysis request payload (explicit, attributable, auditable)
@@ -169,7 +169,7 @@ export interface ComputeConsumption {
 
 /**
  * Verification request — the explicit human-authority step to advance a
- * recognition packet from analysis_complete → verified_by_overscite.
+ * recognition packet from analysis_complete → verified_by_SCINGULAR.
  *
  * HARD RULE: Verification cannot precede analysis completion.
  * BANE must gate this transition and record the human authority decision.

@@ -51,7 +51,7 @@ interface ShellLayoutState {
 
   // ─── SCINGULAR Prime Intelligence & App-binding State ──────────────────────────────────────────
   
-  /** App-bindings are always active in the OVERSCITE governed command paradigm */
+  /** App-bindings are always active in the SCINGULAR governed command paradigm */
   isAppBindingActive: boolean;
   
   /** The currently active WorkSPACE container ID */

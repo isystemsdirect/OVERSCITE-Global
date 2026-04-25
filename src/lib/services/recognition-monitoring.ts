@@ -33,7 +33,7 @@ export interface RecognitionMetricsSnapshot {
     totalAnalyzed24h: number;
     verificationPendingCount: number;
     reviewRequiredRate: number;      // 0-1
-    verifiedByOversciteRate: number; // 0-1
+    verifiedBySCINGULARRate: number; // 0-1
   };
   governance: {
     unknownObjectFrequency: number;
@@ -64,7 +64,7 @@ export async function getRecognitionHealthSnapshot(): Promise<RecognitionMetrics
   const yesterday = new Date();
   yesterday.setHours(yesterday.getHours() - 24);
 
-  // Note: In a production OVERSCITE deployment, this would be computed
+  // Note: In a production SCINGULAR deployment, this would be computed
   // via a scheduled Google Cloud Function and written to a stats document.
   // We approximate the query here for the ArcHive front-end.
   
@@ -93,7 +93,7 @@ export async function getRecognitionHealthSnapshot(): Promise<RecognitionMetrics
   const domainDist: Record<string, number> = {};
 
   for (const doc of recent24h) {
-    if (doc.status === 'verified_by_overscite') verifiedCount++;
+    if (doc.status === 'verified_by_SCINGULAR') verifiedCount++;
     if (doc.status === 'review_required') reviewReqCount++;
     if (doc.status === 'verification_pending') pendingCount++;
 
@@ -110,7 +110,7 @@ export async function getRecognitionHealthSnapshot(): Promise<RecognitionMetrics
       totalAnalyzed24h: recent24h.length,
       verificationPendingCount: pendingCount,
       reviewRequiredRate: reviewReqCount / total,
-      verifiedByOversciteRate: verifiedCount / total,
+      verifiedBySCINGULARRate: verifiedCount / total,
     },
     governance: {
       unknownObjectFrequency: unknownsCount / total,

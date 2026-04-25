@@ -257,7 +257,7 @@ export function getAuthorityClassLabel(ac: AuthorityClass): string {
 
 /**
  * Returns Tailwind color classes for authority class display.
- * Consistent with OVERSCITE design token vocabulary.
+ * Consistent with SCINGULAR design token vocabulary.
  */
 export function getAuthorityClassColor(ac: AuthorityClass): string {
   switch (ac) {

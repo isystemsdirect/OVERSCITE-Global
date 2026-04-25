@@ -1,7 +1,7 @@
 /**
  * DocuSCRIBE™ — Weather Intelligence Connector
  * 
- * Bridges the OVERSCITE NWS/Weather service with the DocuSCRIBE
+ * Bridges the SCINGULAR NWS/Weather service with the DocuSCRIBE
  * document engine, providing environmental risk context.
  * 
  * @authority SCINGULAR Intelligence Layer
@@ -23,7 +23,7 @@ export interface WeatherDataPayload {
  * Fetches current weather and risk intelligence for a document location.
  */
 export async function getWeatherData(lat: number, lng: number): Promise<WeatherDataPayload> {
-  // Use existing OVERSCITE weather logic
+  // Use existing SCINGULAR weather logic
   const model = generateMockWeatherData(lat, lng);
   const iri = calculateIRI(model);
   const roof = calculateRoofTemp(model.current.temp, model.current.uvi, model.current.wind_speed);

@@ -1,7 +1,7 @@
 # Inspections Parity Completion & Hardening Log
 
 ## Objective
-Finalize parity of the OVERSCITE Inspections division with the canonical 10-lane command environment, harden drafting/site intelligence layers, and enforce structural lexicon discipline.
+Finalize parity of the SCINGULAR Inspections division with the canonical 10-lane command environment, harden drafting/site intelligence layers, and enforce structural lexicon discipline.
 
 ## Execution Timeline (UTCB-S__20260418-031500Z__SCING__014)
 
@@ -27,7 +27,7 @@ Finalize parity of the OVERSCITE Inspections division with the canonical 10-lane
 
 ### 5. Lexicon Architecture Enforcement
 - **Task:** Purged downstream lexicon violations.
-- **Result:** Audited global layout structure and source files. Verified null occurrences of `Agent Memory`, identifying it correctly as `Local app memory`. Validated no unauthorized `OVERSCITE Intelligence` references remain visible outside authorized Scingular App-binding references.
+- **Result:** Audited global layout structure and source files. Verified null occurrences of `Agent Memory`, identifying it correctly as `Local app memory`. Validated no unauthorized `SCINGULAR Intelligence` references remain visible outside authorized Scingular App-binding references.
 
 ## Conclusion
 The physical layer for Inspections has achieved functional structural parity with canon architecture. Next operations will handle final Git commitments wrapping the `UTCB` sequence.

@@ -1,11 +1,11 @@
 /**
- * @fileOverview OVERSCITE Recognition Stack Contract
+ * @fileOverview SCINGULAR Recognition Stack Contract
  * @domain Inspections / Field Intelligence
  * @canonical true
  * @phase Phase 1 — Foundation
  *
  * Defines the core typed contracts governing the 11-layer Recognition Stack
- * that powers OVERSCITE Inspections as the unified field-intelligence division.
+ * that powers SCINGULAR Inspections as the unified field-intelligence division.
  *
  * HARD BOUNDARIES:
  * - Engines are bounded reasoning units; they do not self-authorize conclusions.
@@ -354,7 +354,7 @@ export interface EvidenceAnalysisState {
  * HARD RULES:
  * - packetId is immutable after creation
  * - auditRefs must be populated before any state transition
- * - verificationState may not advance to 'verified_by_overscite' without
+ * - verificationState may not advance to 'verified_by_SCINGULAR' without
  *   a completed governed analysis path
  */
 export interface InspectionRecognitionPacket {
@@ -410,7 +410,7 @@ export interface InspectionRecognitionPacket {
   confidenceProfile: PacketConfidenceProfile;
   /** Current recognition state */
   recognitionState: RecognitionState;
-  /** Verification state — must not be 'verified_by_overscite' without governed path */
+  /** Verification state — must not be 'verified_by_SCINGULAR' without governed path */
   verificationState: MediaAnalysisState;
   /** Human review posture */
   reviewPosture: 'no_review_required' | 'review_recommended' | 'review_required' | 'review_in_progress' | 'review_complete';

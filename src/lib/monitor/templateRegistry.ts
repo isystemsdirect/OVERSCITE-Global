@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Notification Template Registry Stub
+ * SCINGULAR Global — Notification Template Registry Stub
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Maps NotificationClass → template metadata contract.
@@ -41,7 +41,7 @@ export const TEMPLATE_STUBS: TemplateStub[] = [
     channel: 'email',
     version: '1.0.0',
     status: 'draft',
-    subject_preview: 'Your OVERSCITE receipt for {{order_reference}}',
+    subject_preview: 'Your SCINGULAR receipt for {{order_reference}}',
   },
   {
     template_id: 'tpl_transactional_receipt_inapp_v1',
@@ -59,7 +59,7 @@ export const TEMPLATE_STUBS: TemplateStub[] = [
     channel: 'email',
     version: '1.0.0',
     status: 'draft',
-    subject_preview: 'Action required: Payment issue on your OVERSCITE account',
+    subject_preview: 'Action required: Payment issue on your SCINGULAR account',
   },
   {
     template_id: 'tpl_payment_warning_inapp_v1',
@@ -104,7 +104,7 @@ export const TEMPLATE_STUBS: TemplateStub[] = [
     channel: 'email',
     version: '1.0.0',
     status: 'draft',
-    subject_preview: 'OVERSCITE payout update: {{payout_status}}',
+    subject_preview: 'SCINGULAR payout update: {{payout_status}}',
   },
   {
     template_id: 'tpl_dispute_case_notice_email_v1',

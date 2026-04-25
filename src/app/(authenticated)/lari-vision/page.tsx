@@ -39,7 +39,7 @@ export default function LariVisionCommandPage() {
         <PageHeader 
           title="LARI Vision Command" 
           status="live"
-          description="LARI Vision Command is the most advanced sensor-fusion interface in the OVERSCITE arsenal, providing real-time anomaly detection across multiple spectrums. It integrates live optical, thermal, and LiDAR feeds into a unified visual environment for deep structural assessment. By utilizing Scing™-guided inference, the system can automatically identify hidden hazards and propose forensic findings with extreme precision. This module transforms raw sensor data into actionable intelligence, empowering inspectors to see beyond the visible surface."
+          description="LARI Vision Command is the most advanced sensor-fusion interface in the SCINGULAR arsenal, providing real-time anomaly detection across multiple spectrums. It integrates live optical, thermal, and LiDAR feeds into a unified visual environment for deep structural assessment. By utilizing Scing™-guided inference, the system can automatically identify hidden hazards and propose forensic findings with extreme precision. This module transforms raw sensor data into actionable intelligence, empowering inspectors to see beyond the visible surface."
         >
           <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md rounded-full px-3 py-1 border border-white/10">
              <div className="hidden md:flex items-center gap-2">

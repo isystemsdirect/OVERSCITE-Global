@@ -113,7 +113,7 @@ export default function LoginPage() {
           
           <div className="flex flex-col items-center justify-center">
              <Logo isLoginPage={true} disableMask={true} />
-             <p className="tracking-[0.2em] font-light text-[10px] text-white/50 uppercase mt-4">OVERSCITE™ GLOBAL NODE</p>
+             <p className="tracking-[0.2em] font-light text-[10px] text-white/50 uppercase mt-4">SCINGULAR™ GLOBAL NODE</p>
           </div>
           
           <CardDescription className="text-white/40 font-mono text-[10px] pt-4 flex items-center justify-center gap-2">

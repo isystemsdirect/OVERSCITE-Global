@@ -77,7 +77,7 @@ export function InsuranceRiskSummary({ inspectionId = 'IPN-992-G' }: { inspectio
            <p className="text-xs text-muted-foreground leading-relaxed">
              The findings above are derived from LARI-RECOG probabilistic pattern matching and 
              remain advisory. Every indicator is bound to a verified evidence packet within the 
-             OVERSCITE audit chain.
+             SCINGULAR audit chain.
            </p>
            <div className="pt-2">
              <button className="flex items-center gap-2 text-[10px] font-bold text-primary hover:underline">

@@ -46,14 +46,14 @@ import {
   Wrench,
   Zap
 } from 'lucide-react';
-import OversciteLogo from '../../../../public/logo.svg';
+import SCINGULARLogo from '../../../../public/logo.svg';
 import ScingIcon from '../../../../public/Scing_ButtonIcon_White.svg';
 
 const lariSuite = [
     { 
         name: "LARI-VISION", 
         icon: Eye,
-        description: "Processes visual data for defect recognition, OCR, and 3D modeling. Uses Genkit flows with Gemini 1.5 Flash for multimodal analysis." 
+        description: "Processes visual data for defect recognition, OCR, and 3D modeling. Uses Genkit flows with SCINGULAR 1.5 Flash for multimodal analysis." 
     },
     { 
         name: "LARI-MAPPER", 
@@ -202,7 +202,7 @@ const weatherStackFeatures = [
 
 const integrations = [
     { name: "Google Firebase", desc: "Auth, Firestore, Storage, Functions" },
-    { name: "Google Gemini (Genkit)", desc: "Multimodal Augmented Intelligence" },
+    { name: "SCINGULAR AI (Genkit)", desc: "Multimodal Augmented Intelligence" },
     { name: "Google Maps Platform", desc: "Geospatial Visualization" },
     { name: "Picovoice Porcupine", desc: "Wake Word Detection" },
     { name: "Stream Chat", desc: "Real-time Messaging" },
@@ -220,7 +220,7 @@ export default function OverviewPage() {
                 <PageHeader 
                   title="System Architecture & Feature Report" 
                   status="candidate"
-                  description="The Overview Report module provides a high-level forensic synthesis of all jurisdictional activities and inspection outcomes within the OVERSCITE ecosystem. It utilizes advanced data aggregation to present a comprehensive view of system health, regulatory compliance, and mission-critical performance metrics. Analysts can leverage this report to identify structural trends, evaluate personnel efficiency, and generate evidentiary documentation for governance reviews. As a core transparency tool, the Overview Report ensures that all organizational actions are traceable and align with the sovereign SCINGULAR mandate."
+                  description="The Overview Report module provides a high-level forensic synthesis of all jurisdictional activities and inspection outcomes within the SCINGULAR ecosystem. It utilizes advanced data aggregation to present a comprehensive view of system health, regulatory compliance, and mission-critical performance metrics. Analysts can leverage this report to identify structural trends, evaluate personnel efficiency, and generate evidentiary documentation for governance reviews. As a core transparency tool, the Overview Report ensures that all organizational actions are traceable and align with the sovereign SCINGULAR mandate."
                 />
 
                 <Separator className="my-8" />
@@ -252,7 +252,7 @@ export default function OverviewPage() {
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 <p className="text-muted-foreground">
-                                    The <strong>Analytical Brain</strong>. A federated suite of specialized sub-engines (Vision, Therm, Compliance) that ingest raw sensor data and transform it into structured, actionable Augmented Intelligence using Genkit and Gemini 1.5 Flash.
+                                    The <strong>Analytical Brain</strong>. A federated suite of specialized sub-engines (Vision, Therm, Compliance) that ingest raw sensor data and transform it into structured, actionable Augmented Intelligence using Genkit and SCINGULAR 1.5 Flash.
                                 </p>
                             </CardContent>
                         </Card>
@@ -304,7 +304,7 @@ export default function OverviewPage() {
                         <div>
                             <h2 className="text-3xl font-bold flex items-center gap-3">
                                 <CloudRain className="h-8 w-8 text-primary" /> 
-                                OVERSCITE™ Weather & LARI-GUANGEL™ Stack
+                                SCINGULAR™ Weather & LARI-GUANGEL™ Stack
                             </h2>
                             <p className="text-muted-foreground mt-1">
                                 Operational Environmental Intelligence Layer: Transforming atmospheric data into safety & risk metrics.
@@ -478,7 +478,7 @@ export default function OverviewPage() {
                     <Rocket className="h-12 w-12 text-primary mx-auto" />
                     <h2 className="text-2xl font-bold">Defining the Future of Field Intelligence</h2>
                     <p className="max-w-3xl mx-auto text-muted-foreground">
-                        OVERSCITE is not merely software; it is the central nervous system for physical asset management. 
+                        SCINGULAR is not merely software; it is the central nervous system for physical asset management. 
                         By creating a self-reinforcing ecosystem where advanced Augmented Intelligence tools drive the creation of valuable data, 
                         we are positioned for exponential growth and complete market domination.
                     </p>

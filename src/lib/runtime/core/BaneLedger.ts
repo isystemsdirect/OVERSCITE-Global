@@ -6,7 +6,7 @@
 
 import { AuditLogEntry } from './ScingularRuntimeEngine';
 
-const BANE_LEDGER_KEY = 'OVERSCITE_BANE_LEDGER';
+const BANE_LEDGER_KEY = 'SCINGULAR_BANE_LEDGER';
 
 export class BaneLedger {
   public static append(entry: Omit<AuditLogEntry, 'baneComplianceHash'>): AuditLogEntry {

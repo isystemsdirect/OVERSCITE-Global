@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Canonical Sender Profile Registry
+ * SCINGULAR Global — Canonical Sender Profile Registry
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Defines the 9 canonical sender profiles. This registry is the
@@ -45,9 +45,9 @@ const NOW = new Date().toISOString();
 export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile> = {
   sp_receipts_primary: {
     sender_profile_id: 'sp_receipts_primary',
-    display_name: 'OVERSCITE Receipts',
-    from_address: 'receipts@billing.overscite.com',
-    reply_to_address: 'support@overscite.com',
+    display_name: 'SCINGULAR Receipts',
+    from_address: 'receipts@billing.SCINGULAR.com',
+    reply_to_address: 'support@SCINGULAR.com',
     notification_classes: ['transactional_receipt', 'entitlement_notice'],
     active: true,
     verification_status: 'unverified', // [SCAFFOLD] requires DNS verification + provider onboarding
@@ -59,9 +59,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_orders_primary: {
     sender_profile_id: 'sp_orders_primary',
-    display_name: 'OVERSCITE Orders',
-    from_address: 'orders@billing.overscite.com',
-    reply_to_address: 'support@overscite.com',
+    display_name: 'SCINGULAR Orders',
+    from_address: 'orders@billing.SCINGULAR.com',
+    reply_to_address: 'support@SCINGULAR.com',
     notification_classes: ['transactional_receipt', 'dispatch_notice'],
     active: true,
     verification_status: 'unverified',
@@ -73,9 +73,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_payouts_primary: {
     sender_profile_id: 'sp_payouts_primary',
-    display_name: 'OVERSCITE Payouts',
-    from_address: 'payouts@billing.overscite.com',
-    reply_to_address: 'finance-support@overscite.com',
+    display_name: 'SCINGULAR Payouts',
+    from_address: 'payouts@billing.SCINGULAR.com',
+    reply_to_address: 'finance-support@SCINGULAR.com',
     notification_classes: ['payout_notice'],
     active: true,
     verification_status: 'unverified',
@@ -87,9 +87,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_payment_alerts_primary: {
     sender_profile_id: 'sp_payment_alerts_primary',
-    display_name: 'OVERSCITE Payment Alerts',
-    from_address: 'payment-alerts@billing.overscite.com',
-    reply_to_address: 'billing-support@overscite.com',
+    display_name: 'SCINGULAR Payment Alerts',
+    from_address: 'payment-alerts@billing.SCINGULAR.com',
+    reply_to_address: 'billing-support@SCINGULAR.com',
     notification_classes: ['payment_warning'],
     active: true,
     verification_status: 'unverified',
@@ -101,9 +101,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_returns_primary: {
     sender_profile_id: 'sp_returns_primary',
-    display_name: 'OVERSCITE Returns',
-    from_address: 'returns@billing.overscite.com',
-    reply_to_address: 'billing-support@overscite.com',
+    display_name: 'SCINGULAR Returns',
+    from_address: 'returns@billing.SCINGULAR.com',
+    reply_to_address: 'billing-support@SCINGULAR.com',
     notification_classes: ['refund_return_case'],
     active: true,
     verification_status: 'unverified',
@@ -115,9 +115,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_disputes_primary: {
     sender_profile_id: 'sp_disputes_primary',
-    display_name: 'OVERSCITE Disputes',
-    from_address: 'disputes@billing.overscite.com',
-    reply_to_address: 'billing-support@overscite.com',
+    display_name: 'SCINGULAR Disputes',
+    from_address: 'disputes@billing.SCINGULAR.com',
+    reply_to_address: 'billing-support@SCINGULAR.com',
     notification_classes: ['dispute_case_notice'],
     active: true,
     verification_status: 'unverified',
@@ -129,9 +129,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_finance_admin_primary: {
     sender_profile_id: 'sp_finance_admin_primary',
-    display_name: 'OVERSCITE Finance Operations',
-    from_address: 'finance-admin@ops.overscite.com',
-    reply_to_address: 'finance-admin@ops.overscite.com',
+    display_name: 'SCINGULAR Finance Operations',
+    from_address: 'finance-admin@ops.SCINGULAR.com',
+    reply_to_address: 'finance-admin@ops.SCINGULAR.com',
     notification_classes: ['finance_admin_alert', 'system_exception_alert'],
     active: true,
     verification_status: 'unverified',
@@ -143,9 +143,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_governance_primary: {
     sender_profile_id: 'sp_governance_primary',
-    display_name: 'OVERSCITE Governance',
-    from_address: 'governance@ops.overscite.com',
-    reply_to_address: 'governance@ops.overscite.com',
+    display_name: 'SCINGULAR Governance',
+    from_address: 'governance@ops.SCINGULAR.com',
+    reply_to_address: 'governance@ops.SCINGULAR.com',
     notification_classes: ['governance_notice'],
     active: true,
     verification_status: 'unverified',
@@ -157,9 +157,9 @@ export const SENDER_PROFILES: Record<SenderProfileId, NotificationSenderProfile>
 
   sp_monitor_primary: {
     sender_profile_id: 'sp_monitor_primary',
-    display_name: 'OVERSCITE Monitor',
-    from_address: 'monitor@ops.overscite.com',
-    reply_to_address: 'support@overscite.com',
+    display_name: 'SCINGULAR Monitor',
+    from_address: 'monitor@ops.SCINGULAR.com',
+    reply_to_address: 'support@SCINGULAR.com',
     notification_classes: ['support_case_notice', 'inspection_notice', 'dispatch_notice', 'safety_notice'],
     active: true,
     verification_status: 'unverified',

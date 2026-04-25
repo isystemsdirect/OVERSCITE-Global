@@ -32,7 +32,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 /** P2 mock passphrase. Production will use Firebase Auth re-authentication. */
-const STAMP_PASSPHRASE = 'OVERSCITE_STAMP_2026';
+const STAMP_PASSPHRASE = 'SCINGULAR_STAMP_2026';
 
 interface TrustStampDialogProps {
   open: boolean;

@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Admin Notifications Console
+ * SCINGULAR Global — Admin Notifications Console
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Multi-tab admin console:
@@ -43,7 +43,7 @@ export default function AdminNotificationsConsolePage() {
       <PageHeader
         title="Notifications Console"
         status="partial"
-        description="The Admin Notifications Console provides finance-administration and governance-authorized operators with visibility into the full OVERSCITE Notifications Fabric: financial notice routing, template lifecycle management, sender profile registry, delivery evidence exploration, and approval review queues. All consoles display live system state where pipeline data is available. Customer-facing notice content is never displayed on admin surfaces — only class, state, recipient type, and delivery evidence are shown. Live data requires full notification pipeline activation."
+        description="The Admin Notifications Console provides finance-administration and governance-authorized operators with visibility into the full SCINGULAR Notifications Fabric: financial notice routing, template lifecycle management, sender profile registry, delivery evidence exploration, and approval review queues. All consoles display live system state where pipeline data is available. Customer-facing notice content is never displayed on admin surfaces — only class, state, recipient type, and delivery evidence are shown. Live data requires full notification pipeline activation."
         actions={
           <Button variant="outline" size="sm" className="text-xs">
             <RefreshCw className="mr-1.5 h-3.5 w-3.5" />

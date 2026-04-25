@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Contractor Division — Core Data Models
+ * SCINGULAR Contractor Division — Core Data Models
  *
  * Authority: UTCB-G
  */

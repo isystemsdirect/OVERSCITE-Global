@@ -7,7 +7,7 @@ import { useCollectionData } from "@/lib/hooks/use-collection-data";
 
 /**
  * Secondary Lane Hydration
- * Implements the remaining canonical lanes for OVERSCITE Inspections.
+ * Implements the remaining canonical lanes for SCINGULAR Inspections.
  */
 
 // ---------------------------------------------------------------------------

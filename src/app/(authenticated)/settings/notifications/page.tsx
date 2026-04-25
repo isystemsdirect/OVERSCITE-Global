@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — User Notification Preferences
+ * SCINGULAR Global — User Notification Preferences
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Class-based channel preferences where policy permits.
@@ -79,7 +79,7 @@ export default function NotificationPreferencesPage() {
             Your Notification Classes
           </CardTitle>
           <CardDescription className="text-xs">
-            These notifications are addressed to you as an OVERSCITE account holder.
+            These notifications are addressed to you as an SCINGULAR account holder.
             [SCAFFOLD] — preference persistence not yet wired to backend.
           </CardDescription>
         </CardHeader>

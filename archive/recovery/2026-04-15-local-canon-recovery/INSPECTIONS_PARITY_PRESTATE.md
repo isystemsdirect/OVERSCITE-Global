@@ -24,6 +24,6 @@ Presently a standalone file exposing empty stubs (`CommandLane`, `ActiveLane`, `
 Both are intact and schema-compliant.
 
 ## 5. Lexicon State Before Mutation
-`shell-layout-state.tsx` and related surfaces have already engaged some lexical transition, but require an exhaustive sweep to ensure no remaining references to "Agent Memory" or claims of OVERSCITE originating intelligence remain.
+`shell-layout-state.tsx` and related surfaces have already engaged some lexical transition, but require an exhaustive sweep to ensure no remaining references to "Agent Memory" or claims of SCINGULAR originating intelligence remain.
 
 STATUS: Pre-mutation state securely logged. Architecture Parity execution authorized to begin.

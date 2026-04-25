@@ -5,14 +5,14 @@
 **Objective:** Controlled dual-repo portability recovery across 5 specific UI/Intelligence domains without global synchronization or architecture collapse.
 
 ## Active Repository (Canon Anchor)
-- **Path:** `g:\GIT\isystemsdirect\OVERSCITE-Global`
+- **Path:** `g:\GIT\isystemsdirect\SCINGULAR-Global`
 - **Initial Branch:** `recovery/phase2-compare-restore`
 - **New Recovery Branch:** `recovery/portability-canon-reconcile`
 - **Starting HEAD Hash:** `e24777aac4098e2e715acfa41212acb36a5de0b0`
 - **Role:** The true canonical anchor containing active routing structure, advanced shell posture, and security gates.
 
 ## Alternate Repository (Candidate Implementation Source)
-- **Path:** `g:\OVERSCITE-Global`
+- **Path:** `g:\SCINGULAR-Global`
 - **Branch:** `archive/post-bane-trace-baseline-2026-04-07`
 - **Starting HEAD Hash:** `bac20a49dedbe0e11689b16565ff3098770f3598`
 - **Role:** Candidate logic and missing file source. Not to be synced globally.

@@ -11,7 +11,7 @@ export async function emitUiAudit(payload: {
   traceId?: string;
   metadata?: any;
 }): Promise<string> {
-  // In OVERSCITE, all consequential UI actions must be auditable.
+  // In SCINGULAR, all consequential UI actions must be auditable.
   // This bridge provides the entry point for Scing-triggered UI audits.
   console.log(`[UI_AUDIT] ${payload.type}`, payload);
   return `audit_${Date.now()}`;

@@ -1,5 +1,5 @@
 /**
- * @fileOverview Inspection Methodology Contracts — OVERSCITE™ Methodology Stack
+ * @fileOverview Inspection Methodology Contracts — SCINGULAR™ Methodology Stack
  * @domain Inspections / Methodology
  * @canonical true
  * @status Phase 1 Implementation

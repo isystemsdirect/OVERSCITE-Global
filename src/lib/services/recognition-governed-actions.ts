@@ -12,7 +12,7 @@
  *   - Requesting reanalysis on eligible assets
  *
  * HARD RULES:
- * - No client-side direct verified_by_overscite assignment
+ * - No client-side direct verified_by_SCINGULAR assignment
  * - All transitions are BANE-gated and policy-referenced
  * - Engine actors may never surface as verification actors
  * - Attribution is mandatory
@@ -182,7 +182,7 @@ export async function executeVerification(params: {
     success: result.success,
     error: result.error,
     policyDecision,
-    resultState: result.success ? 'verified_by_overscite' : undefined,
+    resultState: result.success ? 'verified_by_SCINGULAR' : undefined,
   };
 }
 
@@ -194,7 +194,7 @@ export async function executeVerification(params: {
  * Requests reanalysis on an eligible media asset.
  *
  * HARD RULES:
- * - Only analysis_complete, review_required, or verified_by_overscite are eligible
+ * - Only analysis_complete, review_required, or verified_by_SCINGULAR are eligible
  * - BANE gate must pass
  * - Attribution is mandatory
  */

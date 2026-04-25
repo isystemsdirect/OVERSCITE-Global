@@ -11,7 +11,7 @@ export const initializeMockData = async () => {
         name: 'Main Property Capture_0323.jpg',
         type: 'image',
         jobId: 'JOB-2026-A1X',
-        clientId: 'OVERSCITE_GLOBAL',
+        clientId: 'SCINGULAR_GLOBAL',
         createdAt: new Date().toISOString(),
         createdBy: 'SRT_SENSOR_ALPHA',
         reviewStatus: 'pending',

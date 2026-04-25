@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Unified Identity Resolver
+ * SCINGULAR Global — Unified Identity Resolver
  * 
  * Handles identity discovery for both GENERIC (internal) and ARC (production) modes.
  */

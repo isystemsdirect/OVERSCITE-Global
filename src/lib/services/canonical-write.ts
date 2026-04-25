@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Canonical Write Service
+ * SCINGULAR Global — Canonical Write Service
  * 
  * Provides a governed boundary for all authoritative data mutations.
  * Enforces metadata standards, BANE-aligned validation, and audit traces.
@@ -140,7 +140,7 @@ export async function forensicUpdate(params: {
       actor_type: params.actorType,
       actor_id: params.actorId,
       role: params.actorRole,
-      policy_version: 'OVERSCITE-1.1',
+      policy_version: 'SCINGULAR-1.1',
       engine_version: 'BANE-2.0',
       success_state: true,
       mutation_class: params.mutationClass,

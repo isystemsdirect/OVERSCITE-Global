@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Environment & Safety | OVERSCITE',
+  title: 'Environment & Safety | SCINGULAR',
   description: 'Atmospheric intelligence and operational safety monitoring.',
 };
 

@@ -9,8 +9,8 @@
  * Prevents direct CSS manipulation and ensures visual compliance.
  *
  * @responsibilities
- *  - Apply OVERSCITE™ blue theme (default).
- *  - Support Ultra-Grade amber variant.
+ *  - Apply SCINGULAR™ blue theme (default).
+ *  - Support Ultra-Grade silver variant.
  *  - Maintain glow intensity limits.
  *  - Control glass depth and blur effects.
  *  - Enforce accessibility contrast ratios.
@@ -21,10 +21,10 @@
  *  - All theme properties MUST be exposed as CSS variables.
  */
 
-export type ThemeVariant = 'OVERSCITE_BLUE' | 'ULTRA_GRADE_AMBER';
+export type ThemeVariant = 'SCINGULAR_BLUE' | 'SCINGULAR_SILVER';
 
 class ThemeHarmonizer {
-  private currentTheme: ThemeVariant = 'OVERSCITE_BLUE';
+  private currentTheme: ThemeVariant = 'SCINGULAR_BLUE';
 
   public applyTheme(variant: ThemeVariant) {
     this.currentTheme = variant;

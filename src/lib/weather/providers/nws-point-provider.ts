@@ -21,7 +21,7 @@ import { buildSourceMetadata, computeRawHash, NOAA_ATTRIBUTION } from '@/lib/wea
 // ─── Configuration ───────────────────────────────────────────────
 
 const NWS_BASE_URL = 'https://api.weather.gov';
-const NWS_USER_AGENT = 'OVERSCITE (contact@overscite.io)';
+const NWS_USER_AGENT = 'SCINGULAR (contact@SCINGULAR.io)';
 
 const NWS_HEADERS: HeadersInit = {
   'User-Agent': NWS_USER_AGENT,

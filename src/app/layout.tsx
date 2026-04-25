@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn('dark', inter.variable)}>
       <head>
-        <title>OVERSCITE - AI-Powered Inspections</title>
+        <title>SCINGULAR - AI-Powered Inspections</title>
         <meta
           name="description"
-          content="The future of inspection technology, powered by AI."
+          content="The future of inspection technology, powered by SCINGULAR AI."
         />
       </head>
       <body>

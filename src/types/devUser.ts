@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Development User Definition
+ * SCINGULAR Global — Development User Definition
  * 
  * Defines the identity structure for internal testing and role simulation.
  */

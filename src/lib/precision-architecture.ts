@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * @fileOverview Implements the FBS_OVERSCITE_UNIVERSAL_PRECISION_ARCHITECTURE.
+ * @fileOverview Implements the FBS_SCINGULAR_UNIVERSAL_PRECISION_ARCHITECTURE.
  * This file contains the declarative logic for the Secure Remote Telemetry (SRT) pipeline,
  * as defined in the UTCB (Universal Telemetry Control Block).
  */

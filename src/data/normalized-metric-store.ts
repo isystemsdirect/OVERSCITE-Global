@@ -5,7 +5,7 @@
  * @version 1.0.0
  *
  * @purpose
- * The single source of truth for all instrument data in OVERSCITE.
+ * The single source of truth for all instrument data in SCINGULAR.
  * Manages the state of normalized data streams, ensuring panels are always
  * displaying validated, consistent, and up-to-date information.
  */

@@ -14,9 +14,10 @@ interface ScimegaScingPresencePanelProps {
     explanation?: string;
   };
   systemStatus: string;
+  isWorkstationLocked?: boolean;
 }
 
-export function ScimegaScingPresencePanel({ advisory, systemStatus }: ScimegaScingPresencePanelProps) {
+export function ScimegaScingPresencePanel({ advisory, systemStatus, isWorkstationLocked }: ScimegaScingPresencePanelProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
@@ -65,6 +66,18 @@ export function ScimegaScingPresencePanel({ advisory, systemStatus }: ScimegaSci
           )}
         </div>
       </div>
+
+      {isWorkstationLocked && (
+        <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 animate-in fade-in slide-in-from-top-2 duration-500">
+          <div className="flex items-center gap-3 mb-2">
+            <ShieldAlert className="h-4 w-4 text-red-500" />
+            <span className="text-[10px] font-black text-red-500 uppercase tracking-widest">Workstation Lockout Active</span>
+          </div>
+          <p className="text-[10px] text-white/60 leading-relaxed italic">
+            "Full workstation access is currently suspended. Building, mission mutation, or firmware export paths are unsafe during active Pilot Mode or flight-critical states. Real-time calibration and diagnostics remain authorized."
+          </p>
+        </div>
+      )}
 
       <div className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-lg">
         <Info className="h-3 w-3 text-white/20" />

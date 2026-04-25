@@ -83,7 +83,7 @@ export default function MailWorkspacePage() {
               
               <div className="space-y-1.5">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-white/50 ml-1">Subject</label>
-                <Input defaultValue={selectedDoc ? `OVERSCITE Submission: ${selectedDoc.title}` : ''} className="bg-black/50 border-white/10" />
+                <Input defaultValue={selectedDoc ? `SCINGULAR Submission: ${selectedDoc.title}` : ''} className="bg-black/50 border-white/10" />
               </div>
 
               <div className="space-y-1.5 pt-4">

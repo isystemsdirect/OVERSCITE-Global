@@ -62,7 +62,7 @@ export function GoogleDocsConnectorPanel() {
           <div className="bg-red-500/5 border border-red-500/20 rounded-lg p-3">
             <h4 className="text-[10px] font-bold uppercase tracking-wider text-red-400 mb-1">Configuration Required</h4>
             <p className="text-[10px] text-red-400/70 leading-relaxed">
-              Connection refused. Valid OVERSCITE service account credentials or OAuth2 Client ID must be provisioned
+              Connection refused. Valid SCINGULAR service account credentials or OAuth2 Client ID must be provisioned
               by the Director in the environment variables before this connector can execute external network requests.
             </p>
           </div>

@@ -1,6 +1,6 @@
 /**
  * Orders Service — client-side read layer.
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Reads order records spanning both marketplace planes.
  * Order CREATION and payment capture via Cloud Functions only (Admin SDK).

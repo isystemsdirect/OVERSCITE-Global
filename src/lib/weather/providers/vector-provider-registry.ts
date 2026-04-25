@@ -39,7 +39,7 @@ export class NoaaVectorProvider implements VectorIntelProvider {
         `&outFields=*&f=geojson`;
 
       const res = await fetch(url, {
-        headers: { 'User-Agent': 'OVERSCITE (contact@overscite.io)' },
+        headers: { 'User-Agent': 'SCINGULAR (contact@SCINGULAR.io)' },
       });
 
       if (!res.ok) {
@@ -81,7 +81,7 @@ export class NoaaVectorProvider implements VectorIntelProvider {
         `&outFields=*&f=geojson`;
 
       const res = await fetch(url, {
-        headers: { 'User-Agent': 'OVERSCITE (contact@overscite.io)' },
+        headers: { 'User-Agent': 'SCINGULAR (contact@SCINGULAR.io)' },
       });
 
       if (!res.ok) return [];
@@ -127,7 +127,7 @@ export class NoaaVectorProvider implements VectorIntelProvider {
         `&outFields=*&f=geojson`;
 
       const res = await fetch(url, {
-        headers: { 'User-Agent': 'OVERSCITE (contact@overscite.io)' },
+        headers: { 'User-Agent': 'SCINGULAR (contact@SCINGULAR.io)' },
       });
 
       if (!res.ok) return [];
@@ -164,7 +164,7 @@ export class NoaaVectorProvider implements VectorIntelProvider {
 
       const res = await fetch(url, {
         headers: {
-          'User-Agent': 'OVERSCITE (contact@overscite.io)',
+          'User-Agent': 'SCINGULAR (contact@SCINGULAR.io)',
           'Accept': 'application/geo+json',
         },
       });

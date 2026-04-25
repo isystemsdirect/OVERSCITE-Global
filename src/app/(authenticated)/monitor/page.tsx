@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — LARI-Monitor Command Board
+ * SCINGULAR Global — LARI-Monitor Command Board
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Cross-lane status summary. Priority operational rollups.
@@ -100,7 +100,7 @@ export default function MonitorCommandBoardPage() {
       <PageHeader
         title="Monitor"
         status="partial"
-        description="LARI-Monitor Command Board provides cross-lane operational visibility across all classified OVERSCITE platform events. Each lane represents a governed domain of activity, surfacing alert packets, severity signals, and review-queue depth without exposing raw event noise. Live event ingestion depends on the classifyEvent pipeline being active — current data is structural scaffold. Monitor surfaces observe and report; they do not authorize binding platform actions."
+        description="LARI-Monitor Command Board provides cross-lane operational visibility across all classified SCINGULAR platform events. Each lane represents a governed domain of activity, surfacing alert packets, severity signals, and review-queue depth without exposing raw event noise. Live event ingestion depends on the classifyEvent pipeline being active — current data is structural scaffold. Monitor surfaces observe and report; they do not authorize binding platform actions."
         actions={
           <Button variant="outline" size="sm" className="text-xs">
             <RefreshCw className="mr-1.5 h-3.5 w-3.5" />

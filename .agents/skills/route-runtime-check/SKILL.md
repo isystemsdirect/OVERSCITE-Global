@@ -7,7 +7,7 @@ description: Validate that primary route surfaces load and behave correctly afte
 
 ## Purpose
 
-Validate that the primary application routes load correctly, render without errors, and behave as expected after code changes. This skill provides a systematic approach to verifying route health across the OVERSCITE application.
+Validate that the primary application routes load correctly, render without errors, and behave as expected after code changes. This skill provides a systematic approach to verifying route health across the SCINGULAR application.
 
 ## When to Use
 

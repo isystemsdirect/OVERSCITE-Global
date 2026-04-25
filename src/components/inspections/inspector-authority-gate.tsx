@@ -57,7 +57,7 @@ export function InspectorAuthorityGate() {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2"><ShieldAlert className="h-6 w-6 text-primary" /> Inspector Authority Gate</CardTitle>
                 <CardDescription>
-                    Final legal attestation. Once signed, this record becomes immutable in the OVERSCITE™ Ledger.
+                    Final legal attestation. Once signed, this record becomes immutable in the SCINGULAR™ Ledger.
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">

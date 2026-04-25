@@ -1,4 +1,4 @@
-# OVERSCITE Recovery Manifest
+# SCINGULAR Recovery Manifest
 ## Phase 1: Preservation Scaffold
 **Timestamp:** 2026-04-16T11:18:00Z
 **Baseline Identifier:** UTCB-S__20260416-000100Z__SCING__006

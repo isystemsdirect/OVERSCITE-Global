@@ -107,7 +107,7 @@ export function ShareDialog({ open, onOpenChange }: ShareDialogProps) {
             <DialogHeader className="p-6 pb-0">
               <DialogTitle className="text-xl font-bold tracking-tight">Governance Distribution Bridge</DialogTitle>
               <DialogDescription className="text-white/40 text-sm">
-                Control how this document is shared across OVERSCITE nodes.
+                Control how this document is shared across SCINGULAR nodes.
               </DialogDescription>
             </DialogHeader>
 
@@ -202,9 +202,9 @@ export function ShareDialog({ open, onOpenChange }: ShareDialogProps) {
                 <TabsContent value="email" className="mt-0 space-y-4">
                   <div className="space-y-4">
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-white/30 uppercase">Recipient OVERSCITE Node</label>
+                      <label className="text-[10px] font-bold text-white/30 uppercase">Recipient SCINGULAR Node</label>
                       <Input 
-                        placeholder="node-id@overscite.domain" 
+                        placeholder="node-id@SCINGULAR.domain" 
                         value={emailForm.recipient}
                         onChange={(e) => setEmailForm({...emailForm, recipient: e.target.value})}
                         className="bg-white/5 border-white/10 text-xs" 

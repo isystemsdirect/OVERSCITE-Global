@@ -1,5 +1,5 @@
 /**
- * @fileOverview Method Migration Utility — OVERSCITE™ Methodology Stack
+ * @fileOverview Method Migration Utility — SCINGULAR™ Methodology Stack
  * @domain Inspections / Methodology
  * @canonical true
  * 

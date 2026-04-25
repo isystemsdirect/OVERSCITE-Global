@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global Marketplace — Service Layer Barrel Export
+ * SCINGULAR Global Marketplace — Service Layer Barrel Export
  * UTCB-S V1.0 — Ultra-Grade Marketplace Stack
  */
 

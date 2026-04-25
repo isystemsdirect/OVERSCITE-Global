@@ -66,7 +66,7 @@ const MEDIA_STATE_CONFIG: Record<MediaAnalysisState, StateConfig> = {
     dot: "bg-violet-500 animate-pulse",
     description: "Analysis complete. Waiting for human authority verification.",
   },
-  verified_by_overscite: {
+  verified_by_SCINGULAR: {
     label: "VERIFIED",
     color: "border-emerald-400 text-emerald-300 bg-emerald-950/60",
     dot: "bg-emerald-400",
@@ -89,7 +89,7 @@ const CONFIDENCE_CONFIG: Record<ConfidenceBand, { label: string; color: string }
   moderate:       { label: "MOD",      color: "border-amber-500 text-amber-400 bg-amber-950/30" },
   low:            { label: "LOW",      color: "border-orange-600 text-orange-400 bg-orange-950/30" },
   review_required:{ label: "REVIEW",   color: "border-rose-500 text-rose-400 bg-rose-950/30" },
-  verified_by_overscite: { label: "VERIFIED", color: "border-emerald-400 text-emerald-300 bg-emerald-950/60" },
+  verified_by_SCINGULAR: { label: "VERIFIED", color: "border-emerald-400 text-emerald-300 bg-emerald-950/60" },
 };
 
 // ---------------------------------------------------------------------------

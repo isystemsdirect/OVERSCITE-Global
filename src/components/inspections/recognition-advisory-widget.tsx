@@ -7,7 +7,7 @@
  * @phase Phase 6 — Operational Integration
  *
  * Provides a governed UI component for displaying passive recognition 
- * advisories. This widget is used in Map (Locations OverSCITE), Safety, 
+ * advisories. This widget is used in Map (Locations SCINGULAR), Safety, 
  * and Scheduler surfaces.
  * 
  * HARD RULES:
@@ -80,7 +80,7 @@ export function RecognitionAdvisoryWidget({ payload, className, showLink = true 
                   <span>Confidence:</span>
                   <span className={cn(
                     "font-semibold",
-                    payload.confidenceBand === 'verified_by_overscite' ? "text-emerald-500" :
+                    payload.confidenceBand === 'verified_by_SCINGULAR' ? "text-emerald-500" :
                     payload.confidenceBand === 'high' ? "text-primary" :
                     payload.confidenceBand === 'moderate' ? "text-amber-500" : "text-destructive"
                   )}>

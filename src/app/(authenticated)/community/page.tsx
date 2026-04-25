@@ -121,7 +121,7 @@ export default function CommunityPage() {
       <PageHeader 
         title="Community Hub" 
         status="candidate"
-        description="The OVERSCITE Community module is a governed social environment designed for professional collaboration, mentorship, and collective intelligence gathering. It connects verified field units across various jurisdictions, allowing them to share mission-critical findings and technical consensus markers in real-time. Scing™ facilitates these interactions by providing contextual data and archival support for all professional discussions. This collaborative layer ensures that the expertise of the individual inspector is amplified by the strength of the entire global network."
+        description="The SCINGULAR Community module is a governed social environment designed for professional collaboration, mentorship, and collective intelligence gathering. It connects verified field units across various jurisdictions, allowing them to share mission-critical findings and technical consensus markers in real-time. Scing™ facilitates these interactions by providing contextual data and archival support for all professional discussions. This collaborative layer ensures that the expertise of the individual inspector is amplified by the strength of the entire global network."
       >
         <Button variant="outline" size="sm" asChild className="h-8">
             <Link href="/social"><Rss className="mr-2 h-4 w-4" /> Social Timeline</Link>

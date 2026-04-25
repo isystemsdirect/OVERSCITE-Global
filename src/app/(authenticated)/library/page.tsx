@@ -106,7 +106,7 @@ export default function LibraryPage() {
       <PageHeader 
         title="Standards and Code Vault" 
         status={TRUTH_STATES[0]}
-        description="The Standards & Code Vault is the authoritative repository for all regulatory artifacts, building codes, and OVERSCITE governing standards. It provides inspectors with instant access to the documentation required to ensure every finding adheres to jurisdictional compliance. By maintaining an immutable record of standard versions, the vault ensures that inspections are always grounded in current law. This module is the foundation of technical accuracy and forensic truth in our global operations."
+        description="The Standards & Code Vault is the authoritative repository for all regulatory artifacts, building codes, and SCINGULAR governing standards. It provides inspectors with instant access to the documentation required to ensure every finding adheres to jurisdictional compliance. By maintaining an immutable record of standard versions, the vault ensures that inspections are always grounded in current law. This module is the foundation of technical accuracy and forensic truth in our global operations."
         actions={
           <div className="flex items-center gap-2">
             <DropdownMenu>

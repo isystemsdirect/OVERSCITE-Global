@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Contractor Division — Rule Resolution Service
+ * SCINGULAR Contractor Division — Rule Resolution Service
  *
  * Stateless logic for mapping Party + Jurisdiction + Scope to Requirements.
  *

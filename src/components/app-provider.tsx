@@ -43,10 +43,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }
 
     if (loading) {
-        console.log("[BOOT] Displaying OVERSCITE initialization splash...");
+        console.log("[BOOT] Displaying SCINGULAR initialization splash...");
         return <div className="h-screen w-screen flex flex-col items-center justify-center bg-zinc-950 text-foreground">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/60">Initializing OVERSCITE™</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/60">Initializing SCINGULAR™</p>
         </div>;
     }
     

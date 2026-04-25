@@ -130,7 +130,7 @@ export const OversightChain: React.FC = () => {
       <div className="mt-12 p-4 bg-white/[0.03] border border-white/10 rounded-lg flex items-start gap-3 backdrop-blur-md">
         <AlertCircle className="w-4 h-4 text-amber-500/80 mt-0.5" />
         <div className="text-[11px] text-white/40 leading-relaxed">
-          <span className="font-bold text-white/80">OVERSCITE Lineage Note:</span> Each node represents an independent verification locus. 
+          <span className="font-bold text-white/80">SCINGULAR Lineage Note:</span> Each node represents an independent verification locus. 
           Compliance status is not inherited from upstream Prime contractors; all participants must maintain their own 
           governed verification evidence. No aggregate compliance scoring is permitted.
         </div>

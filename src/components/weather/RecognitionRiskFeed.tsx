@@ -38,7 +38,7 @@ export function RecognitionRiskFeed() {
             type: 'hazard',
             summary: 'Roof surface degradation: Severe ponding and material blistering detected on northeast corner.',
             severity: 'critical',
-            confidenceBand: 'verified_by_overscite',
+            confidenceBand: 'verified_by_SCINGULAR',
             domainClass: 'safety',
             advisory: true,
             generatedAt: new Date().toISOString(),

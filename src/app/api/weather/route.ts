@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
     const mockData = generateMockWeatherData(lat, lon);
     const mockMeta: SourceMetadata = buildSourceMetadata({
       provider: 'mock',
-      datasetOrProduct: 'OVERSCITE Mock Generator',
+      datasetOrProduct: 'SCINGULAR Mock Generator',
       rawBody: JSON.stringify(mockData),
       cacheState: 'mock',
       displayMode: 'mock',

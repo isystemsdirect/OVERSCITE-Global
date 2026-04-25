@@ -53,7 +53,7 @@ export default function ClientsPage() {
       <PageHeader 
         title="Client Jurisdictions" 
         status="live"
-        description="The Client Jurisdictions module manages the authoritative relationships between OVERSCITE Global and the various organizational entities it serves. It provides a centralized repository for client profiles, contract history, and specialized jurisdictional requirements. By maintaining clear records of all past interactions and project outcomes, it ensures long-term accountability and trust. This module is essential for tailoring inspection workflows to meet the unique regulatory and operational needs of each client."
+        description="The Client Jurisdictions module manages the authoritative relationships between SCINGULAR Global and the various organizational entities it serves. It provides a centralized repository for client profiles, contract history, and specialized jurisdictional requirements. By maintaining clear records of all past interactions and project outcomes, it ensures long-term accountability and trust. This module is essential for tailoring inspection workflows to meet the unique regulatory and operational needs of each client."
       >
         <div className="flex items-center gap-2">
           <Button size="sm" variant="outline" className="h-8 gap-1">

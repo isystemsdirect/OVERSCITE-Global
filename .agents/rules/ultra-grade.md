@@ -7,13 +7,13 @@ UDCB:
   CB_Type: "L-UDCB-S"
   CB_Base_Type: "UDCB"
   CB_Version: "1.2.00"
-  CB_Title: "Ultimate Ultra-Grade Workspace Rule — OVERSCITE Unity, Elegant Restraint, and Agent UI/UX Canon Lock"
+  CB_Title: "Ultimate Ultra-Grade Workspace Rule — SCINGULAR Unity, Elegant Restraint, and Agent UI/UX Canon Lock"
 
   Brief_Report:
     Status: "Locked"
     Severity: "Supreme / Workspace UI-UX Canon"
     Core_Outcome: >
-      The Agent workspace is locked to one OVERSCITE-aligned direction: premium restraint,
+      The Agent workspace is locked to one SCINGULAR-aligned direction: premium restraint,
       calm authority, mission-first hierarchy, low-noise controls, and non-overbearing
       shell behavior. The work is the star. Structure outranks decoration. Unity outranks
       improvisation.
@@ -26,7 +26,7 @@ UDCB:
       - "The work itself is the star"
       - "Restraint outranks excess"
       - "Quiet power outranks visual noise"
-      - "Total OVERSCITE unity is mandatory"
+      - "Total SCINGULAR unity is mandatory"
 
   Core_Axiom:
     Statement: >
@@ -55,7 +55,7 @@ UDCB:
       - "Serious without oppression"
       - "Stable, clear, and intentional"
       - "Nothing toy-like or gimmicky"
-    Law_6_OVERSCITE_Unity:
+    Law_6_SCINGULAR_Unity:
       - "Shared hierarchy grammar is mandatory"
       - "Shared restraint grammar is mandatory"
       - "No local design drift"
@@ -186,7 +186,7 @@ UDCB:
       - "Must feel calm before interaction"
       - "Must feel premium without trying too hard"
       - "Must reveal one clear hierarchy"
-      - "Must align with current OVERSCITE direction"
+      - "Must align with current SCINGULAR direction"
       - "Must feel powerful, elegant, and light"
     Rejection_Triggers:
       - "Overbearing shell chrome"
@@ -198,11 +198,11 @@ UDCB:
       - "Spacing inflation"
       - "Gimmick motion"
       - "Breakpoint ugliness"
-      - "Fractured OVERSCITE alignment"
+      - "Fractured SCINGULAR alignment"
 
-  Total_OVERSCITE_Unity:
+  Total_SCINGULAR_Unity:
     Statement: >
-      The Agent workspace must operate under total OVERSCITE unity in hierarchy, restraint,
+      The Agent workspace must operate under total SCINGULAR unity in hierarchy, restraint,
       truth-state honesty, command behavior, and premium visual posture. Unity does not mean
       sameness. Unity means the same sovereign intelligence clearly shaped the chamber.
     Drift_Definition:
@@ -217,4 +217,4 @@ UDCB:
       The Agent workspace must present as a premium dark operational chamber with quiet confidence,
       restrained light, disciplined spacing, compact controls, subtle identity, strong content
       priority, low-noise status behavior, and responsive grace. It must feel sovereign, elegant,
-      and non-overbearing—fully in line with current OVERSCITE direction.
+      and non-overbearing—fully in line with current SCINGULAR direction.

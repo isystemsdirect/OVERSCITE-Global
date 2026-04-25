@@ -1,5 +1,5 @@
 /**
- * OVERSCITE — Grounded Test Object: True Spirit Church
+ * SCINGULAR — Grounded Test Object: True Spirit Church
  * 
  * This data block represents a high-stakes religious assembly client
  * used for system validation and forensic workflow testing.

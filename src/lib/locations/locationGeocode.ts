@@ -13,7 +13,7 @@ export class LocationGeocode {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 800));
 
-    // Mock logic: Consistent coordinates for OVERSCITE-Global HQ if address contains it
+    // Mock logic: Consistent coordinates for SCINGULAR-Global HQ if address contains it
     if (address.toLowerCase().includes('global')) {
       return { lat: 34.0522, lng: -118.2437 }; // LA example
     }

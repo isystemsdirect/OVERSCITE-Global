@@ -6,9 +6,9 @@
 - **HEAD**: Pre-unification calibration
 
 ## UI Screenshots
-- `dashboard_pre.png`: Captures the Initializing OVERSCITE state (Static 404 observed).
-- `workstation_pre.png`: Captures the Initializing OVERSCITE state.
-- `library_pre.png`: Captures the Initializing OVERSCITE state.
+- `dashboard_pre.png`: Captures the Initializing SCINGULAR state (Static 404 observed).
+- `workstation_pre.png`: Captures the Initializing SCINGULAR state.
+- `library_pre.png`: Captures the Initializing SCINGULAR state.
 
 ## Truth-State Vocabulary Drift (Observed)
 | Concept | Current (Drift) | Canonical (Required) |

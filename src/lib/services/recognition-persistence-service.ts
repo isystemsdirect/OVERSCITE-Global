@@ -16,7 +16,7 @@
  * - accepted_unanalyzed is the ONLY valid initial state for any new media asset
  * - No write path may silently transition accepted_unanalyzed → analysis_in_progress
  * - Analysis must be triggered only by explicit analysis request with requestedBy + requestedAt
- * - verified_by_overscite may not be written without a verified precondition check
+ * - verified_by_SCINGULAR may not be written without a verified precondition check
  * - Every state transition creates an immutable audit entry with actor, timestamp, prior and new state
  * - BANE validation is called before any approval-sensitive transition
  *
@@ -421,7 +421,7 @@ export async function markReviewRequired(params: {
  * Called by the analysis orchestration layer after engine output is received.
  *
  * HARD RULE: Packet must include all required identity fields.
- * HARD RULE: verificationState must NOT be 'verified_by_overscite' on initial write.
+ * HARD RULE: verificationState must NOT be 'verified_by_SCINGULAR' on initial write.
  */
 export async function persistRecognitionPacket(
   packet: InspectionRecognitionPacket
@@ -429,10 +429,10 @@ export async function persistRecognitionPacket(
   if (!db) return { success: false, error: 'Database not initialized' };
 
   // Guard: initial packet must not arrive in verified state
-  if (packet.verificationState === 'verified_by_overscite') {
+  if (packet.verificationState === 'verified_by_SCINGULAR') {
     return {
       success: false,
-      error: 'POLICY_VIOLATION: Packet may not be persisted with verified_by_overscite as initial state',
+      error: 'POLICY_VIOLATION: Packet may not be persisted with verified_by_SCINGULAR as initial state',
     };
   }
 
@@ -539,9 +539,9 @@ export async function recordVerificationDecision(params: {
       inspectionId: params.inspectionId,
       actorId: params.verifiedBy,
       actorType: 'human',
-      action: 'verified_by_overscite',
+      action: 'verified_by_SCINGULAR',
       fromState: 'verification_pending',
-      toState: 'verified_by_overscite',
+      toState: 'verified_by_SCINGULAR',
       banePolicyRef: params.banePolicyRef,
     });
 
@@ -550,7 +550,7 @@ export async function recordVerificationDecision(params: {
     }
 
     await updateDoc(stateRef, {
-      mediaState: 'verified_by_overscite' satisfies MediaAnalysisState,
+      mediaState: 'verified_by_SCINGULAR' satisfies MediaAnalysisState,
       verifiedBy: params.verifiedBy,
       verifiedAt: new Date().toISOString(),
       updatedAt: serverTimestamp(),

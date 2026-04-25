@@ -53,7 +53,7 @@ const AUDIT_ACTION_LABELS: Record<string, string> = {
   analysis_completed: "Analysis Completed",
   review_required_flagged: "Review Required",
   verification_requested: "Verification Requested",
-  verified_by_overscite: "Verified by OVERSCITE",
+  verified_by_SCINGULAR: "Verified by SCINGULAR",
   recognition_packet_persisted: "Packet Persisted",
   reanalysis_requested: "Reanalysis Requested",
 };

@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Contractor Division — Mode Logic
+ * SCINGULAR Contractor Division — Mode Logic
  * 
  * Stateless computation of division operating mode.
  * Enforces strict Phase 2 (Jurisdiction/Rule) gating.

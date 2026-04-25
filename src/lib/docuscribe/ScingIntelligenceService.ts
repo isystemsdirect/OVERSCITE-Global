@@ -137,7 +137,7 @@ export async function executeIntelligenceAction(
   return {
     original: text,
     proposed,
-    explanation: `Applied ${action.replace(/_/g, ' ')} transformation based on OVERSCITE linguistic canon.`,
+    explanation: `Applied ${action.replace(/_/g, ' ')} transformation based on SCINGULAR linguistic canon.`,
     confidence: 0.85 + Math.random() * 0.1
   };
 }

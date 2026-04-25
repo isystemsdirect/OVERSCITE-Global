@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Authentication Management Configuration
+ * SCINGULAR Global — Authentication Management Configuration
  * 
  * Defines the operational mode for the identity layer.
  * - GENERIC: Internal test mode using simulated DevUser identities via localStorage.

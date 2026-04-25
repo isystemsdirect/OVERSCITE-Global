@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Canonical Marketplace Type System
+ * SCINGULAR Global — Canonical Marketplace Type System
  * UTCB-S V1.0 — Ultra-Grade Marketplace Stack
  *
  * Governance: BANE-governed, human-sovereign.

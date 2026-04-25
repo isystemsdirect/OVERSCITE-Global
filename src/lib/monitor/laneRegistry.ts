@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — LARI-Monitor Lane Registry
+ * SCINGULAR Global — LARI-Monitor Lane Registry
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Defines the 12 canonical LARI-Monitor lanes. Each lane has its own

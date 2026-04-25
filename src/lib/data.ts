@@ -10,4 +10,4 @@
 
 export * from './legacy/mock-data-legacy';
 
-console.warn('[OVERSCITE] DEPRECATED: Importing from @/lib/data. Redirecting to legacy mock store.');
+console.warn('[SCINGULAR] DEPRECATED: Importing from @/lib/data. Redirecting to legacy mock store.');

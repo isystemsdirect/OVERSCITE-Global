@@ -1,5 +1,5 @@
 export const CANON = {
-  PLATFORM_NAME: "OVERSCITE",
+  PLATFORM_NAME: "SCINGULAR",
   PLATFORM_SUFFIX: "GLOBAL",
 
   INTELLIGENCE_TYPE: "Augmented Intelligence",

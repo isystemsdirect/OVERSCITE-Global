@@ -367,7 +367,7 @@ export function generateDependencyGraphSGGR(
     axisDefinitions: [],
     nodeEdgeModel: { nodes, edges },
     renderingRules: {
-      colorScheme: 'overscite-dark',
+      colorScheme: 'SCINGULAR-dark',
       labelFormat: 'title-status',
       scaleType: 'categorical',
       legendPosition: 'bottom',

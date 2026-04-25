@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Finance Monitor Board (MON_FIN)
+ * SCINGULAR Global — Finance Monitor Board (MON_FIN)
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Surfaces MON_FIN lane signals: payment warnings, refunds, payout holds,

@@ -202,7 +202,7 @@ export default function LariVisionPage() {
                      <div className="p-8 border-2 border-dashed rounded-lg flex flex-col items-center justify-center text-center">
                         <AlertTriangle className="h-10 w-10 text-destructive mb-4" />
                         <h3 className="font-semibold">Camera Access Required</h3>
-                        <p className="text-sm text-muted-foreground mt-2 mb-4">To use the live capture feature, OVERSCITE needs permission to access your camera.</p>
+                        <p className="text-sm text-muted-foreground mt-2 mb-4">To use the live capture feature, SCINGULAR needs permission to access your camera.</p>
                         <Button onClick={() => getCameraPermission(true)}>
                            <Wifi className="mr-2 h-4 w-4" /> Grant Permission
                         </Button>

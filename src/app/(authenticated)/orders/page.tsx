@@ -2,7 +2,7 @@
 
 /**
  * Orders — Shared commerce order record surface
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Spans both planes: 'field_market' orders (labor transactions) and 'marketplace' orders (capability purchases).
  * The order_plane field distinguishes origin — status vocabulary must not be conflated.

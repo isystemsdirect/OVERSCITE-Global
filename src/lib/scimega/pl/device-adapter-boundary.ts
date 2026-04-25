@@ -15,7 +15,7 @@ export class DeviceAdapterBoundary {
   static getProfile(profileId: string): SCIMEGAPhysicalLayerProfile {
     return {
       profileId: profileId,
-      fcModel: 'OVERSCITE-X1-FC',
+      fcModel: 'SCINGULAR-X1-FC',
       companionModel: 'SCIMEGA-NODE-V1',
       adapterStatus: 'simulated',
       channels: [

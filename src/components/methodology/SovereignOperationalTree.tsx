@@ -1,5 +1,5 @@
 /**
- * @fileOverview Sovereign Operational Tree UI — OVERSCITE™ Methodology Stack
+ * @fileOverview Sovereign Operational Tree UI — SCINGULAR™ Methodology Stack
  * @domain UIX / Methodology / Workflow
  * @canonical true
  * @status Phase 1 Implementation

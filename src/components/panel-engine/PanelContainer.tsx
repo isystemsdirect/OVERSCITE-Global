@@ -7,7 +7,7 @@
  * @purpose
  * A themed container for individual panels within the PanelEngine. It provides
  * a consistent header, background, and 'glass' effect, ensuring that all
- * panels adhere to the OVERSCITE™ visual language.
+ * panels adhere to the SCINGULAR™ visual language.
  */
 
 import React from 'react';

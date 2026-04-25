@@ -1,5 +1,5 @@
 /**
- * @fileOverview Training Registry — OVERSCITE™ Methodology Stack
+ * @fileOverview Training Registry — SCINGULAR™ Methodology Stack
  * @domain Training / Methodology
  * @canonical true
  * 

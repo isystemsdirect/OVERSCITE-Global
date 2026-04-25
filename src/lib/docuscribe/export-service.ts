@@ -64,7 +64,7 @@ export function downloadBlob(blob: Blob, filename: string): void {
 
 /**
  * Generates an HTML document Blob from a DocuSCRIBE document.
- * Injects basic print styles, OVERSCITE branding, and Trust Stamp data.
+ * Injects basic print styles, SCINGULAR branding, and Trust Stamp data.
  */
 export function exportAsHTML(doc: DocuScribeDocument): Blob {
   const isFormal = doc.status === 'approved' || doc.is_verified;
@@ -202,7 +202,7 @@ export function exportAsHTML(doc: DocuScribeDocument): Blob {
 <body>
 
   <div class="doc-meta-cover">
-    <div class="brand">OVERSCITE™<br><span style="font-weight:400; font-size: 14px; color:#9ca3af; letter-spacing:0.2em;">DocuSCRIBE DIVISION</span></div>
+    <div class="brand">SCINGULAR™<br><span style="font-weight:400; font-size: 14px; color:#9ca3af; letter-spacing:0.2em;">DocuSCRIBE DIVISION</span></div>
     <div class="title">${doc.title}</div>
     <div class="meta-grid">
       <div class="label">Document ID</div><div style="font-family:monospace;">${doc.document_id}</div>

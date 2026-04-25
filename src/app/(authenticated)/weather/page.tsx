@@ -2,7 +2,7 @@
 
 import React from 'react';
 import WeatherCommandCenter from '@/components/weather/weather-command-center';
-import LocationsOverSCITE from '@/components/locations/LocationsOverSCITE';
+import LocationsSCINGULAR from '@/components/locations/LocationsSCINGULAR';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Cloud, MapPin } from 'lucide-react';
 
@@ -33,7 +33,7 @@ export default function WeatherPage() {
               className="flex items-center gap-2 py-2 px-4 data-[state=active]:bg-background/80 data-[state=active]:text-primary text-muted-foreground font-medium transition-all rounded-md"
             >
               <MapPin className="w-4 h-4" />
-              Locations OverSCITE
+              Locations SCINGULAR
             </TabsTrigger>
           </TabsList>
           
@@ -45,7 +45,7 @@ export default function WeatherPage() {
           </TabsContent>
           
           <TabsContent value="locations" className="w-full flex-grow pt-4 m-0 data-[state=active]:flex data-[state=active]:flex-col h-full border-none focus-visible:outline-none focus-visible:ring-0 min-h-[800px]">
-             <LocationsOverSCITE />
+             <LocationsSCINGULAR />
           </TabsContent>
         </Tabs>
       </div>

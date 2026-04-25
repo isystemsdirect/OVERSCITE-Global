@@ -2,7 +2,7 @@
 
 /**
  * Marketplace — Plane 2: Capability/Entitlement Commerce
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Implementation Status:
  *  - Capability Catalog UI: LIVE (display layer)
@@ -149,9 +149,9 @@ const SEED_PRODUCTS: CapabilityProduct[] = [
     product_id: 'prod-standalone-001',
     publisher_org_id: 'org-ovs-enterprise',
     product_type: 'standalone_deployment_tier',
-    name: 'OVERSCITE Standalone Deployment Authorization',
+    name: 'SCINGULAR Standalone Deployment Authorization',
     short_description: 'Governed enterprise platform deployment authorization. Commercial review required.',
-    full_description: 'Authorizes a qualified enterprise organization to operate a governed standalone deployment of OVERSCITE Global capabilities within their own infrastructure envelope. Subject to formal commercial review, qualification assessment, and contract execution.',
+    full_description: 'Authorizes a qualified enterprise organization to operate a governed standalone deployment of SCINGULAR Global capabilities within their own infrastructure envelope. Subject to formal commercial review, qualification assessment, and contract execution.',
     pricing_model: 'approval_required',
     price_currency: 'USD',
     compatibility: { requires_plan_tier: ['enterprise'], requires_org_role: ['enterprise_sales_admin'] },
@@ -414,7 +414,7 @@ export default function MarketplacePage() {
         <PageHeader
           title="Marketplace"
           status="partial"
-          description="The OVERSCITE Marketplace is the capability and entitlement commerce layer for the SCINGULAR™ ecosystem. This is where LARI Keys, premium analytical modules, compliance packs, and governed platform access artifacts are catalogued and licensed. All products are version-controlled, eligibility-gated, and governed by BANE integrity enforcement. Entitlement issuance is server-authoritative — client-side optimistic access state is not permitted."
+          description="The SCINGULAR Marketplace is the capability and entitlement commerce layer for the SCINGULAR™ ecosystem. This is where LARI Keys, premium analytical modules, compliance packs, and governed platform access artifacts are catalogued and licensed. All products are version-controlled, eligibility-gated, and governed by BANE integrity enforcement. Entitlement issuance is server-authoritative — client-side optimistic access state is not permitted."
           actions={
             <div className="flex items-center gap-1.5 text-[10px] font-mono text-amber-400/80 border border-amber-500/20 bg-amber-500/5 rounded px-2 py-1">
               <AlertTriangle className="h-3 w-3" /> Purchase flow: Cloud Function SCAFFOLD
@@ -523,7 +523,7 @@ export default function MarketplacePage() {
                     <CardTitle className="text-base">Standalone Deployment Authorization</CardTitle>
                   </div>
                   <CardDescription className="text-xs leading-relaxed">
-                    Enterprise organizations may request authorization to operate governed standalone OVERSCITE deployments.
+                    Enterprise organizations may request authorization to operate governed standalone SCINGULAR deployments.
                     This process involves qualification review, commercial review, and contract execution.
                     It is not a self-service purchase flow.
                   </CardDescription>

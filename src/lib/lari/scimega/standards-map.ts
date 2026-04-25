@@ -99,7 +99,7 @@ export const SCIMEGA_STANDARDS_MAP: Record<HardwareCategory, HardwareTarget[]> =
       category: 'COMPANION_COMPUTER',
       protocols: ['Serial', 'WebSocket'],
       supported: true,
-      notes: 'Routes FC serial to OVERSCITE.'
+      notes: 'Routes FC serial to SCINGULAR.'
     },
     {
       id: 'CC_TELEPORT',

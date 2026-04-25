@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Monitor Lib Barrel
+ * SCINGULAR Global — Monitor Lib Barrel
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  */
 

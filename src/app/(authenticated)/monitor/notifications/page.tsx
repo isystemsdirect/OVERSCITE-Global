@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Notifications Reliability Board (MON_NOTIFY)
+ * SCINGULAR Global — Notifications Reliability Board (MON_NOTIFY)
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * MON_NOTIFY lane: notification queue health, delivery failures,

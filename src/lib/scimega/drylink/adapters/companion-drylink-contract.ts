@@ -41,7 +41,7 @@ export class CompanionDryLinkContract {
    */
   static getDiagnosticMetadata(): string[] {
     return [
-      'COMPANION_CONTRACT: LOADED (OVERSCITE Linux Profile)',
+      'COMPANION_CONTRACT: LOADED (SCINGULAR Linux Profile)',
       'IO_LAYER: STUBBED (No net/http/websocket imports)',
       'AUTH_MODE: ARC-IDENTITY-GATED',
       'NOTICE: This contract defines the TelePort bridge interface only.'

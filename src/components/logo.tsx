@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from "@/lib/utils";
-import LogoSvg from '../../public/logo.svg';
+import LogoSvg from '../../public/Pb_SCINGULAR_Logo_White.svg';
 import styles from './logo.module.css';
 
 export default function Logo({ 
@@ -22,32 +22,31 @@ export default function Logo({
   return (
     <div className={cn("flex flex-col items-center justify-center select-none group w-full", className)}>
       <div 
-        className={cn("relative traveling-glow-container flex items-center justify-center")}
+        className={cn("relative flex items-center justify-center")}
         style={{ width, height }}
       >
         {typeof LogoSvg === 'function' ? (
           <LogoSvg 
             width={width}
             height={height} 
-            className="relative z-10 w-full h-full object-contain text-[#FFC107] fill-current"
-            style={{ color: '#FFC107' }}
+            className="relative z-10 w-full h-full object-contain text-foreground fill-current"
           />
         ) : (
           <img 
             src={(LogoSvg as any)?.src || LogoSvg} 
             width={width}
             height={height}
-            alt="Logo"
-            className="relative z-10 w-full h-full object-contain"
+            alt="SCINGULAR Logo"
+            className="relative z-10 w-full h-full object-contain brightness-200"
           />
         )}
       </div>
       {!isCollapsed && (
         <span className={cn(
-            "tracking-[0.5em] font-medium uppercase text-[#FFC107] mt-2 text-center",
-            isLoginPage ? "text-xl mt-4" : "text-xs"
+            "tracking-[0.5em] font-light uppercase text-muted-foreground mt-2 text-center",
+            isLoginPage ? "text-xl mt-4" : "text-[10px]"
         )}>
-          G L O B A L
+          S O V E R E I G N
         </span>
       )}
     </div>

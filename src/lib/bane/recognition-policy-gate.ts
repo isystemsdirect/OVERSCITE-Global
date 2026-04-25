@@ -7,14 +7,14 @@
  * Provides the BANE policy evaluation surface specifically for recognition
  * stack verification transitions. This gate enforces:
  *
- *   - Human authority requirement for verification_pending → verified_by_overscite
+ *   - Human authority requirement for verification_pending → verified_by_SCINGULAR
  *   - Role-based access control (INSPECTOR, ADMIN, director only)
  *   - State precondition validation
  *   - Audit reference generation for each policy decision
  *   - Fail-closed default — unrecognized transitions are denied
  *
  * HARD RULES:
- * - verified_by_overscite may NEVER be reached without a human-authority BANE decision
+ * - verified_by_SCINGULAR may NEVER be reached without a human-authority BANE decision
  * - Engine actors cannot trigger verification transitions
  * - Audit reference must be generated for EVERY policy evaluation, including denials
  * - Device posture must be HEALTHY or secure for verification transitions
@@ -238,7 +238,7 @@ export function evaluateRecognitionPolicy(
 
     case RECOGNITION_POLICY_ACTIONS.REQUEST_REANALYSIS: {
       // Re-analysis requires the prior analysis to be complete or review_required
-      const validStates = ['analysis_complete', 'review_required', 'verified_by_overscite'];
+      const validStates = ['analysis_complete', 'review_required', 'verified_by_SCINGULAR'];
       if (attributes?.currentMediaState && !validStates.includes(attributes.currentMediaState)) {
         return decide(
           'DENY',

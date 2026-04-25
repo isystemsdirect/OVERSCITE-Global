@@ -22,7 +22,7 @@ export class CompanionAdapter {
       service_intent: {
         teleport_bridge: {
           enabled: true,
-          endpoint: "wss://teleport.overscite.local",
+          endpoint: "wss://teleport.SCINGULAR.local",
           auth: "token_required"
         },
         telemetry_bridge: {

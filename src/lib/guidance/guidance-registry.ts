@@ -11,14 +11,14 @@ export interface GuidanceEntry {
 export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
   'scing-panel': {
     id: 'scing-panel',
-    tooltip: 'Your conversational interface to OVERSCITE. Ask questions, issue commands, review responses.',
+    tooltip: 'Your conversational interface to SCINGULAR. Ask questions, issue commands, review responses.',
     splashCard: {
       whatItIs: 'The live conversational surface for interacting with the SCINGULAR ecosystem.',
       whatItDoes: 'Interprets your intent, provides context-aware assistance, answers operational questions, and routes commands to LARI engines.',
       whatItDoesNotDo: 'It does not make decisions on your behalf, self-act, or execute actions autonomously. The user retains control.',
       whyItMatters: 'It bridges the gap between what you need to achieve and the complex systems that execute the work, keeping you in full control.'
     },
-    scingPrompt: 'Explain the Scing Panel in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain the Scing Panel in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'overhud': {
     id: 'overhud',
@@ -29,7 +29,7 @@ export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
       whatItDoesNotDo: 'It does not accept user commands, interpret conversational intent, self-act, or execute workflows.',
       whyItMatters: 'It provides immediate peripheral awareness of system integrity and audit activity without interrupting your primary workflow.'
     },
-    scingPrompt: 'Explain the OverHUD in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain the OverHUD in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'environment-safety': {
     id: 'environment-safety',
@@ -40,7 +40,7 @@ export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
       whatItDoesNotDo: 'It does not automatically cancel inspections, self-act, reroute vehicles, or lock out your ability to perform an inspection.',
       whyItMatters: 'It arms you with localized, defensible environmental data so you can make informed decisions about field deployment safety.'
     },
-    scingPrompt: 'Explain the Environment & Safety module in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain the Environment & Safety module in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'weather-command': {
     id: 'weather-command',
@@ -51,18 +51,18 @@ export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
       whatItDoesNotDo: 'It does not override BANE enforcement policies or change the truth-state of existing data records. Data is informational unless approved.',
       whyItMatters: 'It transitions weather from a standalone app into a fully integrated dimension of your operational intelligence.'
     },
-    scingPrompt: 'Explain Weather Command in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain Weather Command in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
-  'locations-overscite': {
-    id: 'locations-overscite',
+  'locations-SCINGULAR': {
+    id: 'locations-SCINGULAR',
     tooltip: 'Geospatial intelligence surface with seven toggleable operational map layers.',
     splashCard: {
-      whatItIs: 'A map-based workspace integrating physical coordinates with OVERSCITE relational data.',
+      whatItIs: 'A map-based workspace integrating physical coordinates with SCINGULAR relational data.',
       whatItDoes: 'Visualizes the near real-time position of clients, inspections, devices, team members, weather hazards, and operational boundaries.',
       whatItDoesNotDo: 'It does not continuously track personnel without explicit device permission, nor does it automatically geofence inspection completions.',
       whyItMatters: 'It provides crucial spatial context, allowing managers and operators to see the physical proximity of their live operations and potential risks.'
     },
-    scingPrompt: 'Explain Locations OverSCITE in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain Locations SCINGULAR in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'inspections': {
     id: 'inspections',
@@ -73,7 +73,7 @@ export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
       whatItDoesNotDo: 'It does not generate findings autonomously or allow submission of non-auditable records without human signature. Data is informational unless approved.',
       whyItMatters: 'It ensures maximum defensibility and compliance through BANE-governed progression and immutability controls.'
     },
-    scingPrompt: 'Explain the Inspections Module in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain the Inspections Module in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'action-approval': {
     id: 'action-approval',
@@ -84,7 +84,7 @@ export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
       whatItDoesNotDo: 'It does not allow the system to self-authorize, self-act, automatically approve findings, or skip the human review phase.',
       whyItMatters: 'It legally and operationally anchors accountability to the licensed professional, not the assisting algorithms.'
     },
-    scingPrompt: 'Explain Action Approvals in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain Action Approvals in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'truth-states': {
     id: 'truth-states',
@@ -95,18 +95,18 @@ export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
       whatItDoesNotDo: 'It does not attempt to disguise unfinished features or present AI suggestions as absolute facts.',
       whyItMatters: 'It enforces complete honesty about system capabilities, ensuring you never rely on placeholder data for consequential decisions.'
     },
-    scingPrompt: 'Explain Truth States in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain Truth States in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'contractor-division': {
     id: 'contractor-division',
     tooltip: 'Manage compliance, licensing, and hierarchical relationships for third-party operations.',
     splashCard: {
-      whatItIs: 'The governance module for bringing third-party vendors into the OVERSCITE audit perimeter.',
+      whatItIs: 'The governance module for bringing third-party vendors into the SCINGULAR audit perimeter.',
       whatItDoes: 'Tracks credentials, identifies prime/sub relationships, enforces compliance requirements, and validates insurance records.',
       whatItDoesNotDo: 'It does not allow subordinate compliance inheritance—each contractor node must be independently verified.',
       whyItMatters: 'It protects the operation from cascading liability by ensuring strict adherence to vendor qualification policies.'
     },
-    scingPrompt: 'Explain the Contractor Division in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain the Contractor Division in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   },
   'smart-scheduler': {
     id: 'smart-scheduler',
@@ -117,6 +117,6 @@ export const GUIDANCE_REGISTRY: Record<string, GuidanceEntry> = {
       whatItDoesNotDo: 'It does not autonomously book, cancel, self-act, or dispatch personnel without an operator explicitly confirming the action.',
       whyItMatters: 'It drastically reduces logistical friction while ensuring human operators retain total control over the operational tempo.'
     },
-    scingPrompt: 'Explain the Smart Scheduler in OVERSCITE:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
+    scingPrompt: 'Explain the Smart Scheduler in SCINGULAR:\n- what it is\n- what it does\n- what it does not do\n- why it matters'
   }
 };

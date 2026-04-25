@@ -214,7 +214,7 @@ export function generateSGGRFromGraphExecution(
     axisDefinitions: [],
     nodeEdgeModel: { nodes, edges },
     renderingRules: {
-      colorScheme: 'overscite-dark',
+      colorScheme: 'SCINGULAR-dark',
       labelFormat: 'title-state',
       scaleType: 'categorical',
       legendPosition: 'bottom',
@@ -459,7 +459,7 @@ export function generateDependencyMapSGGRFromContext(
     axisDefinitions: [],
     nodeEdgeModel: { nodes, edges },
     renderingRules: {
-      colorScheme: 'overscite-dark',
+      colorScheme: 'SCINGULAR-dark',
       labelFormat: 'title-status',
       scaleType: 'categorical',
       legendPosition: 'bottom',

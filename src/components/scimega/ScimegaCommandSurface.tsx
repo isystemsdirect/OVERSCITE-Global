@@ -29,6 +29,7 @@ interface ScimegaCommandSurfaceProps {
     interpretation: string;
     explanation?: string;
   };
+  isWorkstationLocked?: boolean;
   authorityFlowEvents: SCIMEGAAuthorityFlowEvent[];
   authorityDetails: {
     scingStatus: string;
@@ -51,6 +52,7 @@ export function ScimegaCommandSurface({
   authority,
   dominantAuthority,
   scingAdvisory,
+  isWorkstationLocked,
   authorityFlowEvents,
   authorityDetails,
   events,
@@ -87,6 +89,7 @@ export function ScimegaCommandSurface({
               <ScimegaScingPresencePanel 
                 advisory={scingAdvisory}
                 systemStatus={systemStatus}
+                isWorkstationLocked={isWorkstationLocked}
               />
               <ScimegaAuthorityFlowTrace 
                 events={authorityFlowEvents}

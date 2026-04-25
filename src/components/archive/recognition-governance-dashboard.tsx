@@ -39,7 +39,7 @@ export function RecognitionGovernanceDashboard() {
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-white mb-2">Recognition Governance</h1>
         <p className="text-muted-foreground max-w-3xl">
-          ArcHive™ Control Plane for the OVERSCITE recognition stack. Monitor taxonomy drift, propose routing overrides, and manage confidence thresholds. All changes are governed by BANE enforcement policy.
+          ArcHive™ Control Plane for the SCINGULAR recognition stack. Monitor taxonomy drift, propose routing overrides, and manage confidence thresholds. All changes are governed by BANE enforcement policy.
         </p>
       </div>
 

@@ -2,7 +2,7 @@
 
 /**
  * Keys & Entitlements — LARI Key and Entitlement Record surface
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Displays LARI Key inventory and entitlement records for the user/org context.
  * Activation and revocation are server-authoritative via Cloud Functions.

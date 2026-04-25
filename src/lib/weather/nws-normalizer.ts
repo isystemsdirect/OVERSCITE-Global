@@ -3,7 +3,7 @@
  * @authority SCINGULAR Prime
  * @status CANONICAL
  *
- * NWS API response normalization into OVERSCITE canonical contracts.
+ * NWS API response normalization into SCINGULAR canonical contracts.
  * Transforms NWS JSON-LD / GeoJSON responses into:
  * - UnifiedForecastModel (UI contract)
  * - WeatherSignal[] (SCING operational contract)

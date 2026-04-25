@@ -1,6 +1,6 @@
 /**
  * Market Audit Service — client-side audit event creation helper.
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Critical mutations write audit events via Cloud Functions (Admin SDK, append-only).
  * This module provides typed helpers for read-side display of audit records.

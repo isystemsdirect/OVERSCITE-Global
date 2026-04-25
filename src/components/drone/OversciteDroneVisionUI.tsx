@@ -46,7 +46,7 @@ import { OperatorRoleSwitcher } from "./OperatorRoleSwitcher";
 import { OverflightTelePortModule } from "./OverflightTelePortModule";
 
 
-export default function OversciteDroneVisionUI() {
+export default function SCINGULARDroneVisionUI() {
   const { 
     isArmed, flightMode, isConnected, 
     faultSeverity, setFaultSeverity,
@@ -424,11 +424,11 @@ export default function OversciteDroneVisionUI() {
                      <button 
                          onClick={() => {
                              const report = MissionLogger.generateMissionReport(runtimeState, currentIdentity);
-                             MissionLogger.exportToOverscite(report);
+                             MissionLogger.exportToSCINGULAR(report);
                          }}
                          className="w-full text-[7px] font-black py-1 border rounded uppercase transition-all bg-blue-500/10 border-blue-500/30 text-blue-400 hover:bg-blue-500/20"
                      >
-                         EXPORT OVERSCITE MISSION LOG
+                         EXPORT SCINGULAR MISSION LOG
                      </button>
                  </div>
               </div>

@@ -103,7 +103,7 @@ const HELP_PATTERNS: ResponsePattern = {
   ],
   responses: [
     "I can help with inspections, scheduling, reports, drone operations, contractor management, and more. I can also just chat if you need to think something through. What interests you?",
-    "I'm your operational assistant for OVERSCITE. I handle inspection workflows, LARI vision, marketplace, scheduling — or we can just talk through a problem together. Where do you want to start?",
+    "I'm your operational assistant for SCINGULAR. I handle inspection workflows, LARI vision, marketplace, scheduling — or we can just talk through a problem together. Where do you want to start?",
   ],
   followUps: [
     "Check my latest inspections",

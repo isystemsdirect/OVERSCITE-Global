@@ -1,7 +1,7 @@
 /**
- * @classification OVERSCITE_INTEGRATION
+ * @classification SCINGULAR_INTEGRATION
  * @engine MISSION_LOGGER
- * @purpose Extracts the BANE ledger and active session metrics to produce exportable, compliance-ready mission reports for the OVERSCITE platform.
+ * @purpose Extracts the BANE ledger and active session metrics to produce exportable, compliance-ready mission reports for the SCINGULAR platform.
  */
 
 import { BaneLedger } from '../core/BaneLedger';
@@ -46,17 +46,17 @@ export class MissionLogger {
     };
   }
 
-  public static exportToOverscite(report: MissionReport) {
+  public static exportToSCINGULAR(report: MissionReport) {
     if (typeof window === 'undefined') return;
     
-    // Simulate API push to OVERSCITE Global
-    console.log('[OVERSCITE INTEGRATION] Exporting Mission Report to canonical backend:', report);
+    // Simulate API push to SCINGULAR Global
+    console.log('[SCINGULAR INTEGRATION] Exporting Mission Report to canonical backend:', report);
     
     // Fallback: Download as a JSON file for the operator
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(report, null, 2));
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href",     dataStr);
-    downloadAnchorNode.setAttribute("download", `OVERSCITE_MISSION_${report.missionId}.json`);
+    downloadAnchorNode.setAttribute("download", `SCINGULAR_MISSION_${report.missionId}.json`);
     document.body.appendChild(downloadAnchorNode);
     downloadAnchorNode.click();
     downloadAnchorNode.remove();

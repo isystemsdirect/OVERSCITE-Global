@@ -78,7 +78,7 @@ export function ExportDialog({ open, onOpenChange, document }: ExportDialogProps
             <FormatOption
               format="html"
               title="HTML Document"
-              description="Print-ready structure. Includes OVERSCITE branding and valid Trust Stamps."
+              description="Print-ready structure. Includes SCINGULAR branding and valid Trust Stamps."
               icon={<Code className="w-5 h-5" />}
               selected={selectedFormat === 'html'}
               allowed={htmlCap.allowed}

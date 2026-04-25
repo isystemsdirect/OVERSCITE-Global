@@ -3,7 +3,7 @@ import { create } from 'zustand';
 import { OverhudExplorerState, ExplorerNode } from '../overhud/types';
 import { mockRepos, mockFileTree, processTreeForStore } from '../overhud/mock-data';
 
-const { tree, childrenMap, rootNodeIds } = processTreeForStore(mockFileTree, 'repo-overscite');
+const { tree, childrenMap, rootNodeIds } = processTreeForStore(mockFileTree, 'repo-SCINGULAR');
 
 export const useOverhudStore = create<OverhudExplorerState>((set) => ({
   // State
@@ -11,7 +11,7 @@ export const useOverhudStore = create<OverhudExplorerState>((set) => ({
   activeRepoId: mockRepos.find(r => r.isActive)?.id,
   tree,
   childrenMap,
-  rootNodeIds: { 'repo-overscite': rootNodeIds },
+  rootNodeIds: { 'repo-SCINGULAR': rootNodeIds },
   expandedNodePaths: ['/src', '/src/app'],
   selectedNodeId: undefined,
   searchQuery: '',

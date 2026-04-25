@@ -86,7 +86,7 @@ export default function MessagingPage() {
       <PageHeader 
         title="Operational Messaging" 
         status="live"
-        description="The Strategic Messaging module facilitates high-fidelity, real-time communication between OVERSCITE command and all active field units. It provides a governed environment for exchanging tactical updates, mission-critical documentation, and forensic findings. By integrating Scing™ intelligence layers, the platform can automatically categorize conversations and flag urgent operational alerts. This unified communication surface is the lifeline of our global operations, ensuring that every professional interaction is archived and audit-ready."
+        description="The Strategic Messaging module facilitates high-fidelity, real-time communication between SCINGULAR command and all active field units. It provides a governed environment for exchanging tactical updates, mission-critical documentation, and forensic findings. By integrating Scing™ intelligence layers, the platform can automatically categorize conversations and flag urgent operational alerts. This unified communication surface is the lifeline of our global operations, ensuring that every professional interaction is archived and audit-ready."
       />
       <div className="grid flex-1 grid-cols-[350px_1fr] gap-4 min-h-0 overflow-hidden mt-4 px-4 lg:px-6">
         {/* Threads List Sidebar */}

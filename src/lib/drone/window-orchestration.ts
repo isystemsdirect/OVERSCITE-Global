@@ -65,7 +65,7 @@ export class WindowLifecycleManager {
     }
 
     const windowFeatures = `width=${width},height=${height},${features}`;
-    const newWindow = window.open(path, `overscite_${id}`, windowFeatures);
+    const newWindow = window.open(path, `SCINGULAR_${id}`, windowFeatures);
     
     if (newWindow) {
       this.activeWindows.set(id, newWindow);

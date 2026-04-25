@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * OVERSCITE Global — Inspections Monitor Board (MON_INSPECT)
+ * SCINGULAR Global — Inspections Monitor Board (MON_INSPECT)
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * MON_INSPECT lane: inspection lifecycle, report sealing, export events,

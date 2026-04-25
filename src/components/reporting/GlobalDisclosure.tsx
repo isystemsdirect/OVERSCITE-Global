@@ -20,12 +20,12 @@ export default function GlobalDisclosure({ className, isUnverified = false }: Gl
       <div className="flex items-center gap-2">
         <Shield className="w-4 h-4 text-primary" />
         <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-primary">
-          OVERSCITE REPORTING DOCTRINE
+          SCINGULAR REPORTING DOCTRINE
         </span>
       </div>
       
       <p className="text-[11px] leading-relaxed text-muted-foreground font-medium">
-        OVERSCITE provides observational intelligence and structured reporting support. 
+        SCINGULAR provides observational intelligence and structured reporting support. 
         It does not determine correctness, compliance, or scientific authority. 
         <span className="text-foreground"> Final determination is reserved for human evaluation. </span>
         Qualified professional review remains required where applicable.

@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Delivery State Grammar
+ * SCINGULAR Global — Delivery State Grammar
  * UTCB-S V1.0.00 — Unified Notifications & LARI-Monitor Architecture
  *
  * Canonical truth-state vocabulary for notification delivery.

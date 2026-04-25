@@ -11,7 +11,7 @@ export class ArchiveCrypto {
    */
   static async generateSHA256(content: string): Promise<string> {
     if (typeof crypto === 'undefined' || !crypto.subtle) {
-      // Fallback for non-browser/legacy environments if needed, but in OVERSCITE UI we expect Web Crypto API
+      // Fallback for non-browser/legacy environments if needed, but in SCINGULAR UI we expect Web Crypto API
       throw new Error('Web Crypto API is required for ArcHive cryptographic integrity.');
     }
 

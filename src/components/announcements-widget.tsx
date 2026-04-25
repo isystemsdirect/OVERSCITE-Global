@@ -14,7 +14,7 @@ export function AnnouncementsWidget() {
                     <Megaphone className="h-5 w-5 text-primary" />
                     Announcements
                 </CardTitle>
-                <CardDescription>Latest news from OVERSCITE HQ.</CardDescription>
+                <CardDescription>Latest news from SCINGULAR HQ.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
                 {mockAnnouncements.map(announcement => (

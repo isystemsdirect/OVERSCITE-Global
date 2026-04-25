@@ -26,7 +26,7 @@ const SEED_CAPABILITIES: Capability[] = [
     category: 'BANE_GOVERNANCE',
     status: 'blocked',
     lari_key_required: true,
-    provider: 'OVERSCITE Global Governance',
+    provider: 'SCINGULAR Global Governance',
   },
   {
     id: 'cap-ext-pdf',
@@ -35,7 +35,7 @@ const SEED_CAPABILITIES: Capability[] = [
     category: 'SYSTEM_EXTENSION',
     status: 'live',
     lari_key_required: false,
-    provider: 'OVERSCITE Core',
+    provider: 'SCINGULAR Core',
   }
 ];
 

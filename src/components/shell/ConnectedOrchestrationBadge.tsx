@@ -6,7 +6,7 @@
  * ConnectedOrchestrationBadge
  * Communicates the upstream Prime intelligence connection.
  * Whitelists approved phrase families per the Shell Contract.
- * OVERSCITE remains visibly downstream of SCINGULAR Prime — not the root.
+ * SCINGULAR remains visibly downstream of SCINGULAR Prime — not the root.
  */
 
 import React from 'react';

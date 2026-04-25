@@ -15,7 +15,7 @@
  *
  * HARD RULES:
  * - accepted_unanalyzed must appear — never hidden
- * - No client-side direct verified_by_overscite assignment
+ * - No client-side direct verified_by_SCINGULAR assignment
  * - No verification action for accepted_unanalyzed or analysis_in_progress
  * - review_required is NEVER hidden by domain filtering
  * - Engine actors may never surface as authorized verification actors
@@ -134,7 +134,7 @@ export interface EvidenceEntry {
 
 function AnalysisStateIcon({ state }: { state: MediaAnalysisState }) {
   switch (state) {
-    case "verified_by_overscite":   return <CheckCircle2 className="h-4 w-4 text-emerald-400" />;
+    case "verified_by_SCINGULAR":   return <CheckCircle2 className="h-4 w-4 text-emerald-400" />;
     case "analysis_complete":       return <CheckCircle2 className="h-4 w-4 text-emerald-600" />;
     case "analysis_in_progress":    return <Loader2 className="h-4 w-4 text-amber-400 animate-spin" />;
     case "accepted_analysis_requested": return <Clock className="h-4 w-4 text-blue-400" />;
@@ -457,10 +457,10 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
         )}
 
         {/* Verified state */}
-        {entry.mediaState === "verified_by_overscite" && (
+        {entry.mediaState === "verified_by_SCINGULAR" && (
           <div className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-950/15 rounded-lg px-2.5 py-2 border border-emerald-800/20">
             <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
-            <span className="font-bold">Verified by OVERSCITE</span>
+            <span className="font-bold">Verified by SCINGULAR</span>
           </div>
         )}
 
@@ -472,8 +472,8 @@ const ContextualIntelligenceRegion = React.memo(function ContextualIntelligenceR
           </Button>
         )}
 
-        {/* Reanalysis — analysis_complete, review_required, or verified_by_overscite */}
-        {(entry.mediaState === "analysis_complete" || entry.mediaState === "review_required" || entry.mediaState === "verified_by_overscite") && (
+        {/* Reanalysis — analysis_complete, review_required, or verified_by_SCINGULAR */}
+        {(entry.mediaState === "analysis_complete" || entry.mediaState === "review_required" || entry.mediaState === "verified_by_SCINGULAR") && (
           <Button size="sm" variant="ghost" className="w-full gap-2 h-7 text-[10px] font-bold text-muted-foreground hover:text-foreground" id={`request-reanalysis-${entry.id}`}
             onClick={() => onRequestReanalysis(entry.id)} disabled={reanalysisLoading}>
             {reanalysisLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <RotateCcw className="h-3 w-3" />}

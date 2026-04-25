@@ -43,7 +43,7 @@ export async function getMessagesForThread(threadId: string): Promise<Message[]>
       id: 'msg-1',
       thread_id: threadId,
       sender_id: 'system',
-      sender_name: 'OVERSCITE System',
+      sender_name: 'SCINGULAR System',
       content: `Initial thread generated for reference ${threadId}. Communication is bounded to operational context.`,
       sent_at: new Date('2023-11-18T08:00:00').toISOString(),
     }

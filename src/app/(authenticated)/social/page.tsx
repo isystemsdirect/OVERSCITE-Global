@@ -132,7 +132,7 @@ export default function SocialTimelinePage() {
       <PageHeader 
         title="Professional Social Feed" 
         status="candidate"
-        description="The Professional Social Feed serves as the primary communication and knowledge-sharing hub for verified inspectors and OVERSCITE personnel. It facilitates the exchange of field intelligence, best practices, and jurisdictional updates within a governed professional environment. Scing™ actively participates in this feed to provide system-level insights and mediate technical discussions. By fostering a collaborative ecosystem, this module strengthens the expertise of the field force and ensures the continuous evolution of OVERSCITE practices."
+        description="The Professional Social Feed serves as the primary communication and knowledge-sharing hub for verified inspectors and SCINGULAR personnel. It facilitates the exchange of field intelligence, best practices, and jurisdictional updates within a governed professional environment. Scing™ actively participates in this feed to provide system-level insights and mediate technical discussions. By fostering a collaborative ecosystem, this module strengthens the expertise of the field force and ensures the continuous evolution of SCINGULAR practices."
       />
 
         {/* Truthfulness Banner */}

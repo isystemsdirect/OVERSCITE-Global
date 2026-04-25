@@ -3,7 +3,7 @@ import { RecognitionGovernanceDashboard } from '@/components/archive/recognition
 
 export const metadata: Metadata = {
   title: 'Recognition Governance | ArcHive™',
-  description: 'Manage taxonomy, thresholds, and routing policies for the OVERSCITE recognition stack.',
+  description: 'Manage taxonomy, thresholds, and routing policies for the SCINGULAR recognition stack.',
 };
 
 export default function RecognitionGovernancePage() {

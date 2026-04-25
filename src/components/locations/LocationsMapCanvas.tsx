@@ -22,7 +22,7 @@ export default function LocationsMapCanvas({ mapId }: LocationsMapCanvasProps) {
         const googleApi = await loadGoogleMaps();
         
         // Use a generic map ID if none provided, but note that advanced markers require a valid Map ID from Google Cloud Console
-        const finalMapId = mapId || 'OVERSCITE_GLOBAL_DEFAULT';
+        const finalMapId = mapId || 'SCINGULAR_GLOBAL_DEFAULT';
 
         activeMap = new googleApi.maps.Map(mapRef.current, {
           center: { lat: 39.8283, lng: -98.5795 }, // US Center

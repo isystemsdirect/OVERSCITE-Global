@@ -1,5 +1,5 @@
 /**
- * OVERSCITE Global — Predefined Development Users
+ * SCINGULAR Global — Predefined Development Users
  * 
  * Simulated identities for internal testing across all core roles.
  */

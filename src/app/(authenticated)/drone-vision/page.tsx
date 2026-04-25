@@ -1,4 +1,4 @@
-import OversciteDroneVisionUI from "@/components/drone/OversciteDroneVisionUI";
+import SCINGULARDroneVisionUI from "@/components/drone/SCINGULARDroneVisionUI";
 import { LiveFlightProvider } from "@/context/LiveFlightContext";
 import { ScingularRuntimeProvider } from "@/context/ScingularRuntimeContext";
 import { LiveFlightSovereignShell } from "@/components/drone/LiveFlightSovereignShell";
@@ -11,7 +11,7 @@ export default function DroneVisionPage() {
       <ScingularRuntimeProvider>
         <LiveFlightProvider>
           <LiveFlightSovereignShell>
-            <OversciteDroneVisionUI />
+            <SCINGULARDroneVisionUI />
           </LiveFlightSovereignShell>
         </LiveFlightProvider>
       </ScingularRuntimeProvider>

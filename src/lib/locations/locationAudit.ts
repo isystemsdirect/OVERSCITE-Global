@@ -17,7 +17,7 @@ export class LocationAudit {
       coordinates: { lat: 0, lng: 0 }, // If relevant, capture accessor's location or entity's accessed location
       timestamp: new Date().toISOString(),
       actor: accessorId,
-      source: 'LocationsOverSCITE_UI',
+      source: 'LocationsSCINGULAR_UI',
       notes: `User ${accessorId} performed ${action} on entity ${entityId}`,
     };
 

@@ -81,7 +81,7 @@ export interface RecognitionRoutingPolicy extends GovernanceArtifactBase {
 export interface VerificationPolicyProfile extends GovernanceArtifactBase {
   verificationRequiredClasses: string[]; // Defect tags always needing human
   verificationRequiredDomains: InspectionDomainClass[];
-  autoVerifyAllowed: boolean; // Must always be false in OVERSCITE, enforcing BANE, but configurable per enterprise config if applicable
+  autoVerifyAllowed: boolean; // Must always be false in SCINGULAR, enforcing BANE, but configurable per enterprise config if applicable
 }
 
 // ---------------------------------------------------------------------------

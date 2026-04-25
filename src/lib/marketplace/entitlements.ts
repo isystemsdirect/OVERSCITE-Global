@@ -1,6 +1,6 @@
 /**
  * Entitlements Service — client-side read layer.
- * UTCB-S V1.0 — OVERSCITE Global Marketplace Stack
+ * UTCB-S V1.0 — SCINGULAR Global Marketplace Stack
  *
  * Reads entitlement records.
  * Activation, suspension, and revocation: Cloud Functions only (Admin SDK).

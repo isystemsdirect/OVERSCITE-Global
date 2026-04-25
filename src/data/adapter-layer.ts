@@ -7,7 +7,7 @@
  * @purpose
  * Normalizes heterogeneous data from external sources into the canonical
  * format defined by data-contracts.ts. Acts as the entry point for all
- * external data entering the OVERSCITE system.
+ * external data entering the SCINGULAR system.
  */
 
 import {

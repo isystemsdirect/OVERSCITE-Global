@@ -19,7 +19,7 @@
 - **Terminology Corrections**:
     - **SCIMEGA™ PL**: Corrected from "Policy Layer" and "Physical Layer" to **Physical Laboratory** in all drone-vision and orchestration contexts.
     - **SCIMEGA™ DOS**: Corrected from "Disk Operating System" to **Drone Operating System**.
-    - **ArcHive DL / ArcHive PL**: Corrected to **Digital Layer** and **Physical Laboratory** expressions.
+    - **ArcHive DL / ArcHive PL**: Corrected to **Digital Laboratory** and **Physical Laboratory** expressions.
     - **Dry-Link**: Explicitly separated from "DL" usage; defined as activation-aware metadata-only sync boundary.
     - **LARI-ArcHive™**: Corrected misclassification; formally defined as a super-advanced LARI engine (downstream of Scing), not a fourth intelligence.
 - **Missing Documentation Added**:
@@ -47,3 +47,10 @@
 - **Documentation Gaps Closed**: Created 15+ missing architectural, specification, and testing documents to bring repo truth into alignment with code reality.
 - **Verification**: Global repo scan confirms zero remaining stale PL/DL/DOS definitions in SCIMEGA™ context.
 - **Runtime**: 0 change to runtime logic; behavior preserved. No live hardware activation.
+
+### Document Authentication & .sg* File-Family Verification (2026-04-24)
+- **Status**: Verified specification presence and implementation status for critical beta-readiness systems.
+- **Findings**:
+    - **Document Authentication**: **SPEC_DEFINED / PARTIAL**. Full specifications created for AuthID, seals, QR, and tamper-evidence. Implementation logic for truth-sealing exists, but public verification gateways and QR generators are missing.
+    - **.sg* File Family**: **SPEC_DEFINED / PARTIAL**. Core formats (.sgtx, .sgarch) implemented. Broader ecosystem formats (.sgr, .sgi, .sge, .sgx) are formally defined with technical requirements (parsers/MIME) but handlers are not yet implemented.
+- **Beta Readiness**: Document Authentication remains a hard block for Phase 2 Beta readiness.

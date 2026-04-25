@@ -50,11 +50,14 @@
 - Mock authority flow events require replacement with real `ControlArbitrationEngine` emitter.
 - ArcHive™ manifests currently use `localStorage` for persistence.
 - ARC signatures use hash binding rather than full KMS-backed signing.
-- Domain panels (Replay, Telemetry) require further UI polish.
+- **Document Authentication**: Public verification gateway and QR generation are missing. [BETA_BLOCKER]
+- **.sg* File Family**: Ecosystem formats (.sgr, .sgi, .sge, .sgx) are spec-defined but lack handlers. [PARTIAL_BLOCKER]
 
 ## Next Recommended Actions
 1. Integrate real event emitter for authority flow.
 2. Implement automated state transition tests for BANE/TEON.
 3. Establish persistent backend vault for ArcHive™ manifests.
 4. Upgrade ARC to full cryptographic keypair signing.
+5. **Implement Unified SGR Handler**: Wrap multi-artifact reports in the `.sgr` container.
+6. **Deploy Verification Gateway**: Enable AuthID lookup for report authentication.
 

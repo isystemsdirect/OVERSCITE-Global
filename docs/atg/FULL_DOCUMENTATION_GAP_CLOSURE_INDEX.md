@@ -75,3 +75,9 @@ A forensic audit of the OVERSCITE™ / SCINGULAR™ repository identified a syst
 ## Boundary & State Audits
 - [SCIMEGA™ Boundary Audit v0.1.2](../scimega/SCIMEGA_BOUNDARY_AUDIT_0.1.2.md)
 - [SCIMEGA™ Dev State v0.1.2](../scimega/SCIMEGA_DEV_STATE_0.1.2.md)
+- [**Doc Auth & .sg* Implementation Status**](../truth/DOC_AUTH_AND_SG_FILE_IMPLEMENTATION_STATUS.md) — *Verifies spec presence and implementation gaps for beta readiness.*
+
+## Verification Results
+- **Document Authentication**: **SPEC_DEFINED / PARTIAL**. Specifications expanded to cover AuthID, seals, and QR. Implementation logic exists for truth-sealing but lacks public verification.
+- **.sg* File Family**: **SPEC_DEFINED / PARTIAL**. Core formats (.sgtx, .sgarch) implemented. Advanced formats (.sgr, .sgi, .sge, .sgx) are defined but handlers are missing.
+- **Audit Claim Verification**: The Perplexity/Puble report claim regarding "full implementation" of these systems is **PARTIALLY STALE**. While specifications are robust and foundational code exists, critical handlers and public endpoints remain as beta-readiness hard blocks.

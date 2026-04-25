@@ -14,9 +14,10 @@ In all SCIMEGA™ hardware-embodiment contexts, **PL means Physical Laboratory**
 - A hardware-embodied artifact (e.g., printed seal, embedded chip, physical manifest).
 - Not an authority source; it is an expression of the ArcHive™ engine's governance.
 
-## ArcHive DL — Digital Layer Expression
-**ArcHive DL** refers to the digital expression of an ArcHive™ witness record:
-- A software artifact (e.g., JSON manifest, cryptographic hash, digital seal).
+## ArcHive DL — Digital Laboratory Expression
+**ArcHive DL** refers to the digital laboratory expression of an ArcHive™ witness record within the Digital Laboratory context:
+- A software-embodied manifest (e.g., JSON manifest, cryptographic hash, digital seal).
+- The governed digital laboratory environment where software-side systems, simulations, manifests, validation flows, and lifecycle packages are created, tested, prepared, and governed.
 - Distinct from "Dry-Link" and from generic "Data Link" usage.
 
 ## Dry-Link — Metadata-Only Synchronization

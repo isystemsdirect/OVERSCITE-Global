@@ -11,9 +11,10 @@
 - **TEON (Temporal Execution & Orchestration Node)**: The kinetic constraint layer that manages physical arbitration and timing safety.
 - **ARC (Authority, Responsibility, & Certification)**: The identity layer that binds actions to accountable humans.
 - **PL (Physical Laboratory)**: The governed physical laboratory environment where hardware embodiment and device modeling are represented.
-- **DL (Digital Layer / Dry-Link)**: The communication boundary for telemetry and metadata synchronization.
+- **DL (Digital Laboratory)**: The governed digital laboratory environment where software-side systems, simulations, and lifecycle packages are prepared and governed.
+- **Dry-Link**: The activation-aware metadata-only synchronization boundary.
 
 ## Continuity Concepts
-- **ArcHive DL/PL**: These are expressions of the ArcHive™ engine's governance (Digital Layer / Physical Laboratory), not separate authority sources.
+- **ArcHive DL/PL**: These are expressions of the ArcHive™ engine's governance (**Digital Laboratory** / **Physical Laboratory**), not separate authority sources.
 - **Reality Bridge**: The controlled interface between the virtual command surface and real-world physical hardware (currently locked in v0.1.2).
 - **Dry-Link Contracts**: Enforced metadata-only communication patterns that prevent accidental command execution.

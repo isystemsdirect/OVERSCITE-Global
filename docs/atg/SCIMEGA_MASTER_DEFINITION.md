@@ -17,11 +17,12 @@ SCIMEGA™ operates under the **BFI (Bona Fide Intelligence)** framework:
 
 ## Communication Boundaries
 - **PL (Physical Laboratory)**: The governed physical laboratory environment where hardware embodiment and device modeling are represented. In v0.1.2, PL has no execution capability. See [PL/DL Terminology Clarification](../glossary/PL_DL_TERMINOLOGY_CLARIFICATION.md).
+- **DL (Digital Laboratory)**: The governed digital laboratory environment where software-side systems, simulations, and lifecycle packages are represented.
 - **Dry-Link**: Activation-aware, metadata-only synchronization boundary. No commands flow outward.
 - **Reality Bridge**: The controlled interface for physical hardware interaction (currently physically and logically locked).
 
 ## Autonomy Chain
-**IU Authorization** → **Scing BFI Interface** → **LARI-ArcHive™ Translation** → **SCIMEGA™ DOS** → **BANE Gate** → **TEON Envelope** → **PL (Physical Laboratory)**
+**IU Authorization** → **Scing BFI Interface** → **LARI-ArcHive™ Translation** → **SCIMEGA™ DOS** → **BANE Gate** → **TEON Envelope** → **DL (Digital Laboratory)** → **PL (Physical Laboratory)**
 
 ## Control Model
 SCIMEGA™ utilizes a **Dual-Control Model**:

@@ -20,6 +20,7 @@
 ## Execution & Boundaries
 - **SCIMEGA™**: SCIMEGA™ is a hybrid operating system and hardware execution platform enabling governed autonomy and inspection operations.
 - **PL Boundary (Physical Laboratory)**: The governed physical laboratory environment where hardware embodiment and device modeling are represented.
+- **DL Boundary (Digital Laboratory)**: The governed digital laboratory environment where software-side systems, simulations, manifests, validation flows, and lifecycle packages are represented.
 - **Dry-Link**: An activation-aware metadata-only synchronization boundary. Telemetry flows inward; no commands flow outward.
 - **Reality Bridge**: A controlled boundary governing any future transition to real-world execution.
 

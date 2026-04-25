@@ -14,7 +14,7 @@ LARI-ArcHive™ is a specialized, super-advanced LARI (Layered Adaptive Resource
 - **Continuity Governance**: Ensuring that data remains consistent as it moves between virtual and physical laboratory (PL) boundaries.
 
 ### Engine Expressions
-- **ArcHive DL (Digital Layer)**: The software-embodied manifest and cryptographic hash.
+- **ArcHive DL (Digital Laboratory)**: The software-embodied manifest and cryptographic hash within the Digital Laboratory context.
 - **ArcHive PL (Physical Laboratory)**: The hardware-embodied representation (e.g., printed manifest, embedded seal) within the laboratory context.
 
 ## Implementation Status
@@ -28,4 +28,4 @@ LARI-ArcHive™ is a specialized, super-advanced LARI (Layered Adaptive Resource
 
 ## Next Required Work
 - **OVERSCITE Sync**: Implement automated manifest synchronization between local SCIMEGA™ nodes and global OVERSCITE™ workspace storage.
-- **DL/PL Binding Verification**: Enhance the protocol for verifying that a digital manifest matches its physical laboratory counterpart.
+- **DL/PL Binding Verification**: Enhance the protocol for verifying that a digital laboratory manifest matches its physical laboratory counterpart.

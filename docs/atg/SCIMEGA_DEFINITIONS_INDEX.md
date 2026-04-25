@@ -25,4 +25,4 @@
 ## Intelligence Engines
 - **ArcHive™**: The governance-anchored witness and archival engine.
 - **LARI-ArcHive™**: A super-advanced LARI (Layered Adaptive Resource Intelligence) engine responsible for mission packaging and witness-record generation.
-- **ArcHive DL / ArcHive PL**: Expressions of the ArcHive™ engine's governance (Digital Layer / Physical Laboratory), not independent authority sources.
+- **ArcHive DL / ArcHive PL**: Expressions of the ArcHive™ engine's governance (**Digital Laboratory** / **Physical Laboratory**), not independent authority sources.

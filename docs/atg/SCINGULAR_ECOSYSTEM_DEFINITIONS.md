@@ -20,5 +20,6 @@
 - **TEON (Temporal Execution & Orchestration Node)**: The kinetic and temporal safety constraint layer.
 - **ARC (Authority, Responsibility, & Certification)**: The human-anchored identity and authorization layer.
 - **PL (Physical Laboratory)**: The governed physical laboratory environment where hardware embodiment and device modeling are represented.
+- **DL (Digital Laboratory)**: The governed digital laboratory environment where software-side systems, simulations, and lifecycle packages are represented.
 - **Dry-Link**: An activation-aware metadata-only communication boundary.
 - **Reality Bridge**: The controlled interface for physical hardware interaction (currently non-executing).

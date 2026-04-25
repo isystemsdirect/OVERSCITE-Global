@@ -37,5 +37,12 @@
     - [Truth-State Registry](../truth/TRUTH_STATE_REGISTRY.md)
     - [BANE/TEON Autonomy Test Matrix](../testing/BANE_TEON_AUTONOMY_TEST_MATRIX.md)
     - [SRT Universal Capture Doctrine](../architecture/SRT_UNIVERSAL_CAPTURE_DOCTRINE.md)
-
-
+### Strict Canon Repair & Ecosystem Closure (2026-04-24)
+- **Status**: Executed strict corrective repair pass for terminology and documentation gaps.
+- **Terminology Corrections**:
+    - **SCIMEGA™ PL**: Absolute resolution to **Physical Laboratory**. All stale "Physical Layer" and "Policy Layer" definitions purged.
+    - **SCIMEGA™ DOS**: Absolute resolution to **Drone Operating System**. "Disk Operating System" definition purged.
+    - **ArcHive DL / PL**: Formally defined as Digital Layer and Physical Laboratory expressions.
+- **Documentation Gaps Closed**: Created 15+ missing architectural, specification, and testing documents to bring repo truth into alignment with code reality.
+- **Verification**: Global repo scan confirms zero remaining stale PL/DOS definitions in SCIMEGA™ context.
+- **Runtime**: 0 change to runtime logic; behavior preserved. No live hardware activation.

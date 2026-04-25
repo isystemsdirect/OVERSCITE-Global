@@ -1,31 +1,30 @@
 # SCINGULAR™ Device Integration Guide
 
-## SCIMEGA™ Physical Laboratory (PL)
-The Physical Laboratory is the governed physical laboratory environment where hardware embodiment and device modeling are represented. In v0.1.2, PL has no execution capability.
+## Purpose
+Provides the architectural and protocol requirements for integrating physical hardware devices (drones, sensors, controllers) into the SCINGULAR™ ecosystem.
 
-## Dry-Link Contracts
-Dry-Link contracts define the metadata-only synchronization boundary between SCIMEGA™ and physical hardware:
-- Telemetry flows inward (read-only intake).
-- No commands flow outward.
-- The system is activation-aware but does not establish a live connection.
+## Current Truth-State
+Hardware integration is currently restricted to **Dry-Link** (metadata-only) and **Simulation** modes. There is no active command pathway to physical devices.
 
-## Telemetry vs. C2 Distinction
-- **Telemetry**: One-way data flow from hardware to software. Read-only. Always permitted in Dry-Link mode.
-- **C2 (Command & Control)**: Two-way command flow enabling hardware mutation. Prohibited until future authorized phase.
+## Canon Position
+### SCIMEGA™ Physical Laboratory (PL)
+The Physical Laboratory is the governed physical laboratory environment where hardware embodiment and device modeling are represented.
 
-## Reality Bridge
-The Reality Bridge is the controlled boundary governing any future transition from Dry-Link to real-world execution. It requires:
-- Director authorization.
-- BANE phase gate approval.
-- ARC identity binding to a certified operator.
-- TEON envelope validation against real-world conditions.
+### Integration Requirements
+1. **Adaptive Profile**: Every device must have a SCIMEGA™ PL profile defining its capabilities and communication channels.
+2. **Safety-Signal Priority**: All devices must support the Pilot Interrupt Protocol (PIP) and TEON safety overrides.
+3. **Identity Binding**: Every device session must be bound to an ARC-certified operator.
+4. **Dry-Link Compliance**: Devices must operate in a metadata-only mode until the Reality Bridge is explicitly unlocked.
 
-## BANE/TEON Gating
-All device interactions are gated by BANE (governance integrity) and TEON (kinetic safety). No device command can bypass these gates.
+## Implementation Status
+- **PL Boundary Modeling**: Implemented in `src/lib/scimega/pl/`.
+- **TelePort Nodes**: WebSocket bridge for inbound telemetry is active.
+- **Protocol Stubs**: MAVLink and MSP message structures are modeled for simulation.
 
-## Pilot Interrupt & Anchor Hold
-- **Pilot Interrupt Protocol (PIP)**: Provides unconditional override from any autonomous mode.
-- **Anchor Hold**: The stabilization state that PIP transitions to, maintaining a safe fixed position.
+## Known Limitations
+- **No Command Outbound**: All `sendCommand` paths are logically and physically locked.
+- **Limited Sensor Profiles**: Only a subset of DJI and ArduPilot sensors are currently modeled.
 
-## No Live Connection Unless Future Authorized Phase
-The current system posture prohibits live hardware connections. This restriction is enforced at the code, governance, and architectural levels. Activation requires explicit Director authorization and a formal BANE phase gate.
+## Next Required Work
+- **Hardware Profile Registry**: Create a centralized repository of validated device profiles for the XSCITE™ builder.
+- **Protocol Verification**: Implement automated bit-level verification for simulated MAVLink messages.

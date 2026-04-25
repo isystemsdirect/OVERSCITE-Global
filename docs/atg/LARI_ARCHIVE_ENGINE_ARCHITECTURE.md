@@ -1,34 +1,31 @@
 # LARI-ArcHive™ Engine Architecture
 
-## Classification
-LARI-ArcHive™ is a **super-advanced LARI engine**. It is not a fourth intelligence. The three intelligence branches remain:
-1. **ScingIntelligence** — IU-facing guidance and interface presence.
-2. **LARIIntelligence** — Layered Adaptive Resource Intelligence, including LARI-ArcHive™.
-3. **BANEIntelligence** — Governance enforcement and truth-state integrity.
+## Purpose
+This document defines the architecture, classification, and role of the LARI-ArcHive™ engine within the SCINGULAR™ ecosystem.
 
-## ArcHive™ Label Continuity
-The "ArcHive™" name is a governance-anchored witness brand. LARI-ArcHive™ inherits and extends this brand as a LARI engine specialization. The ArcHive™ label applies to:
-- **ArcHive DL (Digital Layer)**: Software-based witness records, manifests, and cryptographic seals.
-- **ArcHive PL (Physical Laboratory)**: Hardware-embodied witness artifacts where physical expression is intended within the Physical Laboratory context.
+## Current Truth-State
+LARI-ArcHive™ is a specialized, super-advanced LARI (Layered Adaptive Resource Intelligence) engine. It is not an independent intelligence branch but an extension of the LARI reasoning layer focused on mission lifecycle, archival integrity, and cross-system continuity.
 
-## Core Responsibilities
-1. **System Translation**: Converts Scing-governed intent into executable system operations.
-2. **Lifecycle Governance**: Manages software creation, maintenance, and version lineage.
-3. **Manifest Packaging**: Encapsulates mission parameters, telemetry, and authority signatures into immutable witness records.
-4. **Operational Continuity**: Provides replay, audit, and forensic reconstruction capabilities.
-5. **Hardware End-Product Lifecycle**: Governs the lifecycle of physical drone configurations from build through retirement.
+## Canon Position
+**LARI-ArcHive™** is downstream of **Scing** and responsible for:
+- **System Translation**: Mapping human intent (via Scing) to system-specific configurations (SCIMEGA™, DocuSCRIBE™).
+- **Manifest Packaging**: Generating the cryptographic `manifest.sgarch` files for mission replay and audit.
+- **Witness-Record Generation**: Creating immutable logs of every high-impact decision and state transition.
+- **Continuity Governance**: Ensuring that data remains consistent as it moves between virtual and physical laboratory (PL) boundaries.
 
-## MCP Universal Translation Layer
-LARI-ArcHive™ provides an MCP (Model Context Protocol) translation layer for mediating between:
-- **Exterior LLMs**: External language models that may provide analytical capabilities.
-- **External SDKs**: Third-party software development kits for specialized hardware or services.
+### Engine Expressions
+- **ArcHive DL (Digital Layer)**: The software-embodied manifest and cryptographic hash.
+- **ArcHive PL (Physical Laboratory)**: The hardware-embodied representation (e.g., printed manifest, embedded seal) within the laboratory context.
 
-### Enforcement Rules
-- All exterior LLM and SDK interactions are **Scing-bound**: they must pass through Scing context before reaching LARI-ArcHive™.
-- **No direct external bypass**: An external LLM or SDK cannot access LARI-ArcHive™ without Scing mediation.
-- BANE monitors all MCP translation events for governance compliance.
+## Implementation Status
+- **Manifest Packaging (v1.0)**: Implemented and active for SCIMEGA™ drone missions.
+- **Cryptographic Binding**: SHA-256 hashing and ARC identity link active.
+- **PL Representation**: Modeled as a metadata field; no physical embodiment capability active.
 
-## Relationship to Scing
-- Scing provides the IU context that LARI-ArcHive™ requires for system translation.
-- LARI-ArcHive™ cannot initiate actions without Scing context.
-- Scing remains upstream in the authority chain.
+## Known Limitations
+- **No Live Retrieval**: The engine cannot currently query external physical archives; it relies on local manifest caches.
+- **Read-Only Replay**: Replay mode is strictly observational.
+
+## Next Required Work
+- **OVERSCITE Sync**: Implement automated manifest synchronization between local SCIMEGA™ nodes and global OVERSCITE™ workspace storage.
+- **DL/PL Binding Verification**: Enhance the protocol for verifying that a digital manifest matches its physical laboratory counterpart.

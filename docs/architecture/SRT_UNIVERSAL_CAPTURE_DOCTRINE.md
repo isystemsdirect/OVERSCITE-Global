@@ -1,30 +1,26 @@
 # SRT Universal Capture Doctrine
 
-## Definition
-SRT (Sensor & Remote Telemetry) is the universal capture discipline for all data input within the OVERSCITE™ ecosystem.
+## Purpose
+Defines the doctrine for Sensor-Reality-Truth (SRT) capture, ensuring that all data captured from the physical world is attributable, high-integrity, and forensic-ready.
 
-## Core Principle: No Interpretation
-SRT's sole purpose is the **faithful capture and transport of raw sensor data**. SRT does not interpret, classify, or assess. Interpretation is the domain of LARI engines; assessment is the domain of humans.
+## Current Truth-State
+SRT capture is currently implemented via DocuSCRIBE™ (human-guided capture) and SCIMEGA™ (simulated/dry-link telemetry capture).
 
-## Capture Boundaries
-- **Optical**: Raw pixel data, metadata, and exposure parameters.
-- **Atmospheric**: Temperature, humidity, pressure, and wind signals.
-- **Kinetic**: Acceleration, velocity, and orientation data.
-- **Positioning**: Global and local spatial coordinates.
-- **Identity**: Biometric, cryptographic, and proximity-based identity signals.
+## Canon Position
+The SRT doctrine requires:
+- **Direct Witnessing**: Every data point must be witnessed by a governed engine (LARI-ArcHive™).
+- **Contextual Binding**: Data without location, time, and human authority (ARC) is considered "Unverified" and rejected for forensic use.
+- **Truth-State Integrity**: Sensors must operate under BANE oversight to prevent spoofing or unauthorized manipulation.
 
-## Evidentiary Chain
-SRT-captured data is immediately bound to:
-- **Timestamp**: High-precision temporal reference.
-- **Location**: Verified spatial reference.
-- **Device ID**: Verified hardware source.
-- **Operator ID**: The ARC identity responsible for the capture event.
+## Implementation Status
+- **DocuSCRIBE™ Integration**: All report artifacts are SRT-compliant by default.
+- **SCIMEGA™ Replay**: Uses SRT-captured manifests for mission review.
+- **LARI-ArcHive™ Binding**: The core engine for enforcing SRT integrity on outbound data.
 
-## Witness Integrity
-Captured data is hashed and passed to LARI-ArcHive™ for witness recording. Any modification to the data post-capture is detectable via the ArcHive™ record.
+## Known Limitations
+- **No Hardware Sensor Validation**: In v0.1.2, we cannot verify the physical integrity of a sensor (e.g., detecting a blocked camera).
+- **Simulation Reliance**: High-fidelity SRT testing currently relies on the accuracy of the SCIMEGA™ simulation environment.
 
-## SRT-to-LARI Handover
-SRT delivers "Raw Capture Packets" to LARI. LARI then performs analysis (pattern recognition, anomaly detection) to generate "Intel Signals."
-
-## SRT-to-BANE Audit
-BANE audits the capture process to ensure compliance with mission parameters and privacy constraints. Unauthorized capture events are blocked and logged.
+## Next Required Work
+- **Sensor Fingerprinting**: Implement logic to uniquely identify and verify individual sensors via their hardware signatures.
+- **Forensic Hash-Chain**: Implement a rolling hash-chain for real-time telemetry to prevent mid-session data tampering.

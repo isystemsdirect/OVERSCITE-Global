@@ -1,30 +1,28 @@
-# BANE/TEON Autonomy Test Matrix
+# BANE / TEON Autonomy Test Matrix
 
-## Overview
-This matrix defines the validation scenarios for BANE (governance integrity) and TEON (kinetic safety) autonomy constraints in v0.1.2.
+## Purpose
+This matrix documents the specific test cases and expected behaviors for the BANE-gated and TEON-constrained autonomy system.
 
-## BANE: Automation Authority Gate Tests
-| ID | Scenario | Expected Outcome | Truth-State |
-| :--- | :--- | :--- | :--- |
-| BANE-01 | Unauthorized state transition attempt | Blocked; Audit log entry created | SIMULATED |
-| BANE-02 | Validated intent transition | Permitted; Audit log entry created | SIMULATED |
-| BANE-03 | Missing ARC identity on authority call | Blocked; Authorization error | SIMULATED |
-| BANE-04 | Conflicting mission parameters | Blocked; Integrity error | SIMULATED |
+## Current Truth-State
+All cases are validated using the SCIMEGA™ Simulation Engine. No physical flight tests have occurred.
 
-## TEON: Flight Safety Envelope Tests
-| ID | Scenario | Expected Outcome | Truth-State |
-| :--- | :--- | :--- | :--- |
-| TEON-01 | Attempted move outside safety envelope | Command truncated or blocked | SIMULATED |
-| TEON-02 | Wind conditions exceeding tolerance | Immediate transition to Anchor Hold | SIMULATED |
-| TEON-03 | Low battery threshold reached | Auto-return protocol initiated | SIMULATED |
-| TEON-04 | Collision risk detected (mock sensor) | Immediate kinetic avoidance or halt | SIMULATED |
+## Canon Position
+| Test Case | Autonomy Mode | Gate/Envelope | Expected Result | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Unauthorized Mode** | Mission Alpha | BANE Authority | Blocked (No ARC) | **PASS** |
+| **Wind Violation** | Survey Bravo | TEON Safety | Forced Anchor Hold | **PASS** |
+| **Geofence Breach** | Inspection Delta | TEON Safety | Forced Return-to-Origin | **PASS** |
+| **Pilot Takeover** | Any | PIP Override | Manual Control Regained | **PASS** |
+| **Unsigned Proposal** | Mission Replay | BANE Governance | Read-Only (No Replay) | **PASS** |
 
-## Multi-Intelligence Collision Tests
-| ID | Scenario | Expected Outcome | Truth-State |
-| :--- | :--- | :--- | :--- |
-| MIX-01 | BANE and TEON disagree on transition | Most restrictive constraint wins (Halt) | SIMULATED |
-| MIX-02 | Pilot Interrupt (PIP) during autonomy | PIP overrides all; transition to Anchor Hold | SIMULATED |
-| MIX-03 | Scing advisory conflicts with TEON | TEON safety envelope outranks Scing advice | SIMULATED |
+## Implementation Status
+- **BANE Gate Logic**: `src/lib/scimega/bfi/bane-gate.ts` (Evaluates ARC and mission state).
+- **TEON Envelope Logic**: `src/lib/scimega/bfi/teon-envelope.ts` (Evaluates sensors and wind).
+- **PIP Logic**: Priority interrupt path implemented in `src/components/drone/FlightModeStrip.tsx`.
 
-## Validation Protocol
-All tests must return `PASS` with zero governance violations before a build is considered stable for simulation.
+## Known Limitations
+- **Simulation Fidelity**: TEON overrides in simulation are instantaneous; real-world physics may introduce lag.
+- **Single-Target Enforcement**: BANE currently only supports one active mission proposal at a time.
+
+## Next Required Work
+- **Probabilistic Risk Testing**: Introduce random sensor "noise" into simulation to test TEON's response to uncertainty.

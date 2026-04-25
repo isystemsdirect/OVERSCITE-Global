@@ -1,25 +1,26 @@
 # ArcHive™ Vault Specification
 
-## Current State: localStorage (Development-Only)
-ArcHive™ manifests are currently stored in the browser's localStorage. This is acceptable for development and simulation but **not suitable for production**.
+## Purpose
+Defines the structure and security requirements for the ArcHive™ Vault, the long-term, high-integrity storage repository for `.sgarch` and `.sgdoc` artifacts.
 
-## Backend Immutable Vault Target
-Production deployment requires a persistent, immutable backend vault with the following properties:
+## Current Truth-State
+Archiving is currently implemented as local file persistence and OVERSCITE™ workspace storage. The concept of an immutable "Vault" is in the architectural modeling phase.
 
-### WORM Behavior (Write Once, Read Many)
-Once a manifest is sealed, it cannot be modified or deleted. New versions create new records.
+## Canon Position
+The ArcHive™ Vault must satisfy the following:
+1. **Immutability**: Once an artifact is vaulted, it cannot be modified or deleted without a multi-party BANE authorization.
+2. **Attributability**: All access and retrieval attempts must be ARC-authorized and logged.
+3. **Integrity-Aware**: The vault must continuously verify the cryptographic hashes of its contents to detect data degradation (bit-rot).
 
-### Immutable Manifest Storage
-Sealed manifests are stored with cryptographic integrity proofs. Any tampering is detectable.
+## Implementation Status
+- **Local Persistence**: Mission manifests are saved to local indexedDB for replay.
+- **OVERSCITE™ Sync**: Basic upload of mission results to the organizational workspace.
+- **WORM-like logic**: The system prevents overwriting existing mission IDs.
 
-### Version Promotion
-Manifests progress through lifecycle states: Open → Sealed → Archived. Promotion is one-directional.
+## Known Limitations
+- **No Physical WORM**: Underlying storage is standard cloud/disk storage, not true Write-Once-Read-Many hardware.
+- **Manual Cleanup**: Expired or non-essential records still require manual deletion policies.
 
-### Retention
-Retention policies define how long manifests must be preserved. Governance-sensitive manifests may have indefinite retention.
-
-### Export
-Manifests can be exported in .sgr or standard formats for external verification, legal proceedings, or regulatory compliance.
-
-### Audit Chain Binding
-Every vault operation (store, promote, export) is logged in the BANE audit trail with ARC identity attribution.
+## Next Required Work
+- **Vault Verification Service**: Implement a background service that crawls the archive vault and verifies every manifest hash against its recorded signature.
+- **Retention Policies**: Define and implement automated data retention and pruning rules.

@@ -1,24 +1,26 @@
 # LARI-IPN / SCIMEGA™ Dry-Link Alignment
 
-## LARI-IPN vs. Dry-Link
-- **LARI-IPN (Inter-Process Network)**: The internal communication fabric for LARI engine coordination.
-- **Dry-Link**: The external metadata-only boundary between SCIMEGA™ and physical hardware.
+## Purpose
+Defines the alignment between the LARI-IPN (Intelligence Processing Node) and the SCIMEGA™ Dry-Link interface to ensure consistent metadata synchronization.
 
-These are distinct layers. LARI-IPN operates internally; Dry-Link operates at the hardware boundary.
+## Current Truth-State
+LARI-IPN provides the reasoning and configuration intent; Dry-Link provides the metadata-only synchronization boundary. The alignment ensures that LARI's "intent" matches the hardware's "readiness."
 
-## Telemetry-Only Allowed States
-In the current posture, only telemetry intake is permitted:
-- Telemetry flows from hardware → Dry-Link → SCIMEGA™ → OVERSCITE™.
-- No reverse flow (commands) is permitted.
+## Canon Position
+Alignment requires:
+1. **Activation Awareness**: LARI-IPN must be aware of the hardware node's presence via the Dry-Link contract.
+2. **Metadata-Only Sync**: No command intent from LARI-IPN may be transmitted to Dry-Link until the Reality Bridge is unlocked.
+3. **Telemetry-Informed Reasoning**: LARI-IPN reasoning should be informed by inbound Dry-Link telemetry (e.g., battery state, GPS lock) even if execution is blocked.
 
-## No Autonomous Routing
-LARI-IPN does not autonomously route commands to physical hardware. All routing decisions require Scing context and BANE approval.
+## Implementation Status
+- **LARI-IPN Reasoning**: Specialized logic in `src/lib/lari/scimega/lari-scimega.ts`.
+- **Dry-Link Bridge**: WebSocket-based telemetry intake active.
+- **BANE Evaluation**: The `BaneDryLinkActivationGate` evaluates whether LARI intent aligns with the Dry-Link profile.
 
-## No C2 Until Future BANE Phase
-Command-and-Control (C2) capability is gated behind a future BANE phase authorization. This is not a software limitation — it is a governance decision.
+## Known Limitations
+- **Unidirectional Feedback**: LARI reasoning is not yet fully dynamically updated by real-time Dry-Link telemetry changes.
+- **Manual Sync**: Some contract updates still require manual re-triggering.
 
-## ARC-Bound Transport
-All transport events (even telemetry intake) are attributed to an ARC identity. Anonymous telemetry is rejected.
-
-## BANE Audit Linkage
-All LARI-IPN events that touch the Dry-Link boundary are audited by BANE and recorded in ArcHive™.
+## Next Required Work
+- **Dynamic Reasoning Loop**: Implement a feedback loop where Dry-Link telemetry updates the LARI-IPN reasoning notes in real-time.
+- **Contract Versioning**: Implement version-aware Dry-Link contracts to ensure compatibility between hardware and LARI engines.

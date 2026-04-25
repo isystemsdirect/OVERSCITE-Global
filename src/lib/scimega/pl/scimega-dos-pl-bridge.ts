@@ -1,7 +1,7 @@
 /**
  * @classification SCIMEGA_DOS_PL_BRIDGE
  * @authority SCIMEGA™ PL Boundary Unit
- * @purpose Bridges the SCIMEGA™ DOS intelligence layers with the Physical Layer boundary models.
+ * @purpose Bridges the SCIMEGA™ DOS intelligence layers with the Physical Laboratory boundary models.
  * @warning No hardware execution logic. Modeling only.
  */
 
@@ -29,7 +29,7 @@ export interface PLReadinessSummary {
 
 export class ScimegaDosPlBridge {
   /**
-   * Generates a comprehensive summary of the physical layer readiness.
+   * Generates a comprehensive summary of the physical laboratory readiness.
    */
   static getReadinessSummary(profileId: string = 'DEFAULT_PROFILE'): PLReadinessSummary {
     const profile = DeviceAdapterBoundary.getProfile(profileId);

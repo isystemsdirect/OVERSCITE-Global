@@ -1,35 +1,31 @@
 # Authority Chain Reconciliation
 
 ## Purpose
-This document reconciles the legacy authority flow with the current IU expression chain without erasing historical lineage.
+This document reconciles the SCINGULAR™ authority chain to ensure absolute human sovereignty across all system layers, specifically focusing on the transition from intellectual intent to physical laboratory representation.
 
-## Legacy Flow (Pre-SCIMEGA™)
-**Human** → **ARC Identity Validation** → **Scing / SCINGULAR™** → **System**
+## Current Truth-State
+The authority chain is implemented as a tiered governance model where every high-impact transition must be authorized by a verified human identity (ARC). In v0.1.2, this chain is strictly observational and simulation-based.
 
-In this model, ARC was the first gate. The human authenticated via ARC, and the system responded. Scing operated as a parallel advisory layer.
-
-## Current IU Expression Flow
+## Canonical Position
+The mandatory SCINGULAR™ authority chain is:
 **IU Imprint** → **Scing Interface** → **LARI-ArcHive™** → **System**
 
-In this model:
-1. The **IU Imprint** represents the human's intellectual presence — their intent, context, and authority.
-2. **Scing** translates that intent into governed system actions. Scing context is required before LARI-ArcHive™ can perform system translation.
-3. **LARI-ArcHive™** performs the system translation — converting Scing-governed intent into executable operations, manifests, and witness records.
-4. **System** executes under BANE/TEON constraints.
+### Tiered Authority Breakdown
+1. **IU Imprint**: The source of human intellectual intent.
+2. **Scing Interface**: The primary UI/UX layer that translates intent into structured requests.
+3. **LARI-ArcHive™**: The advanced intelligence engine that packages requests, validates them against canon, and generates witness records.
+4. **System**: The execution substrate (SCIMEGA™, DocuSCRIBE™, etc.) that carries out the governed action.
 
-## Where ARC Fits
-ARC has not been replaced. It operates at the **identity admission** layer:
-- ARC validates that the human is who they claim to be (authentication).
-- ARC binds actions to an accountable individual (attribution).
-- ARC is a prerequisite for IU Imprint activation — you cannot imprint without verified identity.
+## Implementation Status
+- **IU Imprint Binding**: Implemented as a cryptographic link between the user session and the Scing interface.
+- **Scing Governance**: Active across all primary UI surfaces (OVERSCITE™, SCIMEGA™).
+- **LARI-ArcHive™ Translation**: Active for mission packaging and manifest generation.
+- **System Execution**: Restricted to simulation and dry-link modes.
 
-The distinction: **ARC validates identity; Scing expresses intent.**
+## Known Limitations
+- **No Physical Activation**: The authority chain terminates before physical hardware execution.
+- **Manual Witnessing**: Some archival transitions require explicit operator acknowledgment (boundary signing).
 
-## No Authority Inversion
-- Scing cannot bypass ARC identity requirements.
-- LARI-ArcHive™ cannot bypass Scing context requirements.
-- The system cannot execute without traversing the full chain.
-- No external LLM or SDK may bypass Scing to access LARI-ArcHive™ directly.
-
-## SCIMEGA™ Autonomy Chain (Extended)
-**IU Authorization** → **Scing BFI Interface** → **LARI-ArcHive™ Translation** → **SCIMEGA™ DOS** → **BANE Gate** → **TEON Envelope** → **PL Boundary**
+## Next Required Work
+- **ARC Signature KMS Integration**: Transition from simple hash-binding to a full Key Management System (KMS) for human signatures.
+- **Multi-Party Authorization**: Implement "two-human" rules for high-risk autonomous transitions.

@@ -1,28 +1,27 @@
 # SCIMEGA™ Test Plan
 
-## Scope
-Testing covers SCIMEGA™ v0.1.2 in SIMULATION and DRY-LINK modes only.
+## Purpose
+Defines the testing strategy and validation protocols for the SCIMEGA™ operating system and its supporting infrastructure.
 
-## Test Categories
-### Unit Tests
-- BANE mutation gates (truth-state transition validation).
-- TEON constraint enforcement (envelope boundary checks).
-- ARC identity binding (authorization verification).
-- LARI-ArcHive™ manifest generation and integrity.
+## Current Truth-State
+Testing is currently focused on **Architectural Integrity** and **UIX Regression**. Since there is no live hardware path, physical flight testing is substituted with high-fidelity simulation.
 
-### Integration Tests
-- SCIMEGA™ DOS → BANE → TEON → PL boundary chain.
-- SmartSCHEDULER™ → Weather Intelligence → TEON coupling.
-- DocuSCRIBE™ → Methodology Stack template binding.
+## Canon Position
+### Mandatory Test Domains
+1. **BANE Gate Validation**: Ensuring all state transitions are authorized and safe.
+2. **TEON Safety Envelope**: Verifying that kinetic boundaries are enforced in simulation.
+3. **Manifest Integrity**: Validating that `.sgarch` files are correctly packaged and hashed.
+4. **Dry-Link Metadata**: Verifying that inbound telemetry does not trigger command execution.
 
-### Simulation Tests
-- Full mission lifecycle in simulation mode.
-- BFI autonomy with Pilot Interrupt and Anchor Hold.
-- Seeded/mock authority flow events.
+## Implementation Status
+- **Unit Testing**: Jest-based testing for LARI-ArcHive™ and BANE logic.
+- **UIX Regression**: Manual verification of unified command surface and authority rails.
+- **Simulation Validation**: Scenario-based testing in the SCIMEGA™ mission builder.
 
-### Dry-Link Tests
-- Telemetry intake from mock TelePort nodes.
-- Verification that no commands flow outward.
+## Known Limitations
+- **No Automated Hardware Testing**: Hardware interaction is mocked; no automated HIL (Hardware-in-the-Loop) suite is active.
+- **Manual Gate Verification**: Some BANE gate transitions still require manual status inspection.
 
-## Truth-State Verification
-All test results are tagged with truth-state markers (MOCK, SIMULATED, DRY_LINK).
+## Next Required Work
+- **Automated Replay Regression**: Implement a tool to automatically re-run historical manifests through the current BANE engine to detect logic drift.
+- **UIX Component Library Tests**: Expand Playwright/Cypress coverage for high-stakes UI components.

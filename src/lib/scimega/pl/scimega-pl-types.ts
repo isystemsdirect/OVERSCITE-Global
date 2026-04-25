@@ -1,7 +1,7 @@
 /**
  * @classification SCIMEGA_PL_TYPES
  * @authority SCIMEGA™ PL Boundary Unit
- * @purpose Defines the core types for the SCIMEGA™ Physical Layer (PL) boundary.
+ * @purpose Defines the core types for the SCIMEGA™ Physical Laboratory (PL) boundary.
  * @warning Simulation only. No hardware execution allowed.
  */
 

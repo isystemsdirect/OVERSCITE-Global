@@ -1,38 +1,28 @@
 # .sg* File Family Specification
 
-## Overview
-The .sg* file family is the native file ecosystem for the SCINGULAR™ platform. Each file type serves a specific governance, intelligence, or operational purpose.
+## Purpose
+Defines the directory structure, schema, and purpose of the specialized SCINGULAR™ (.sg*) file family used for data persistence, archival, and intelligence exchange.
 
-## File Types
-### .sgcb — Native Control Block
-The native serialization format for Control Blocks (CBs). Replaces external YAML CBs for internal system use.
-- Binary-efficient, schema-validated, and version-tracked.
-- See [SGCB Protocol Spec](SGCB_PROTOCOL_SPEC.md).
+## Current Truth-State
+The ecosystem utilizes several proprietary file extensions to distinguish governed artifacts from generic data. These files are typically JSON-based with cryptographic headers.
 
-### .sgr — Reports
-DocuSCRIBE™ native report format. Contains document content, authentication data, witness markings, and ArcHive™ seal references.
+## Canon Position
+### Supported Extensions
+- **.sgdoc**: DocuSCRIBE™ Witness Report (Inspection data + Audit trail).
+- **.sgarch**: ArcHive™ Mission Manifest (Drone flight logs + Witness records).
+- **.sgcb**: SCINGULAR™ Command Block (BANE-gated instruction sets).
+- **.sgmeth**: Inspection Methodology Pack (Rules + Blocker profiles).
+- **.sgconf**: Governed System Configuration (Signed system state).
 
-### .sgi — Identity Capsules
-ARC identity capsules containing verified human identity, certification status, and authorization scope. Encrypted at rest.
+## Implementation Status
+- **.sgdoc / .sgarch**: Primary data structures defined and used in export boundaries.
+- **.sgmeth**: Registry system active; file-based distribution in development.
+- **.sgcb**: Modeled for terminal simulation; no live execution path.
 
-### .sge — Encrypted Envelopes
-General-purpose encrypted containers for sensitive data transport. Uses SCINGULAR™ key management.
+## Known Limitations
+- **Binary Compatibility**: Files are currently plain-text JSON; no optimized binary representation exists.
+- **Cross-Platform Parsers**: Parsers are currently restricted to the ScingOS/web environment.
 
-### .sgx — Knowledge Graphs
-Structured knowledge representations used by LARI engines for domain intelligence, methodology graphs, and relationship mapping.
-
-## MIME Mapping
-| Extension | MIME Type | Handler |
-| :--- | :--- | :--- |
-| .sgcb | application/vnd.scingular.cb | SGCB Protocol Engine |
-| .sgr | application/vnd.scingular.report | DocuSCRIBE™ |
-| .sgi | application/vnd.scingular.identity | ARC Identity Service |
-| .sge | application/vnd.scingular.envelope | Encryption Service |
-| .sgx | application/vnd.scingular.knowledge | LARI Knowledge Engine |
-
-## Import/Export Validation
-All .sg* files undergo schema validation on import and integrity verification on export. Invalid files are rejected with diagnostic output.
-
-## Native vs. External Trust States
-- **Native (.sg*)**: Fully trusted within the SCINGULAR™ ecosystem. Integrity verified by LARI-ArcHive™.
-- **External (YAML, JSON, etc.)**: Treated as untrusted until validated and converted to native format.
+## Next Required Work
+- **Schema Validation**: Implement JSON Schema validation for all .sg* types to prevent drift.
+- **Binary Envelope**: Transition to a more efficient binary-wrapped JSON for large `.sgarch` files.

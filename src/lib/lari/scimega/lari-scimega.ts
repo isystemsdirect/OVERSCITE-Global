@@ -379,7 +379,7 @@ export class LariScimegaEngine {
   }
 
   /**
-   * Generates advisory notes regarding Physical Layer (PL) boundary readiness.
+   * Generates advisory notes regarding Physical Laboratory (PL) boundary readiness.
    * PHASE 11 / 11.1: Controlled Hardware Boundary Interface and Tightening.
    */
   static generatePlReadinessNotes(
@@ -409,7 +409,7 @@ export class LariScimegaEngine {
     }
 
     if (isPlReady) {
-      notes.push('PL READINESS: Physical Layer boundary modeled and validated for simulation.');
+      notes.push('PL READINESS: Physical Laboratory boundary modeled and validated for simulation.');
     } else {
       notes.push('PL READINESS: BLOCKED. Boundary violations detected.');
     }

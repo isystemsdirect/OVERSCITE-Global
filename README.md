@@ -13,6 +13,7 @@ The ecosystem is currently in a **SIMULATION / DRY-LINK** state.
 - **NO EXECUTION**: Real-world hardware command pathways are locked.
 - **NO C2**: Command-and-control uplink is inactive.
 - **Evidentiary Readiness**: Full LARI-ArcHive™ witness recording is active.
+- **Canon Integrity**: **STRICT CANON REPAIR COMPLETE**. PL=Physical Laboratory, DOS=Drone Operating System.
 
 ## Full Ecosystem Documentation
 For detailed system definitions, relationship maps, and development history, refer to the **ATG Weekly Continuity Layer**:

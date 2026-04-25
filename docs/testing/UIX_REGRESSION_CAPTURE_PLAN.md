@@ -1,28 +1,27 @@
 # UIX Regression Capture Plan
 
-## Objective
-Establish a visual and functional regression baseline for the unified SCIMEGA™ / OVERSCITE™ command surface.
+## Purpose
+Defines the strategy for capturing and validating the UIX of the SCIMEGA™ Unified Command Surface to prevent regression in authority visibility or operational safety.
 
-## Core Surfaces
-1. **Pilot Intelligence Surface**: Primary mission control and telemetry visualization.
-2. **XSCITE™ Drone Builder**: Configuration and capability validation panels.
-3. **OverHUD / OverFLIGHT**: Truth-state, status, and distributed flight rails.
-4. **DocuSCRIBE™ Document Panel**: Main editing surface and supporting rails.
+## Current Truth-State
+UIX is currently validated through manual operational walkthroughs and visual inspection of the authority/safety timeline.
 
-## Capture Requirements
-- **Resolution**: 1920x1080 (HD) and 3840x2160 (4K).
-- **Themes**: Dark Mode (Primary).
-- **States**: Idle, Active Mission, Alert/Constraint, Pilot Interrupt, Document Editing.
-- **Responsive Breakpoints**: Desktop (Wide), Desktop (Standard), Tablet (Portrait).
+## Canon Position
+The UIX must satisfy the following "Sovereignty Requirements":
+1. **Absolute Authority Visibility**: The active control authority (ARC, BANE, TEON) must always be visible.
+2. **Safety Critical Alerts**: TEON violations must preempt all other UI states.
+3. **Pilot Interrupt Accessibility**: The PIP (Pilot Interrupt Protocol) button must be physically accessible on the primary rail at all times.
+4. **No-Execution Disclaimer**: The simulation boundary must be persistently signaled.
 
-## Verification Checks
-- **Hierarchy Integrity**: Does the primary work region dominate?
-- **Restraint Grammar**: Is there unnecessary visual noise or glowing?
-- **Yielding Behavior**: Do side rails and OverHUD collapse properly before the work area?
-- **Typography Alignment**: Are font sizes and weights consistent with OVERSCITE™ canon?
-- **Status Truthfulness**: Does the UI accurately reflect the underlying truth-state (SIM/DRY-LINK)?
+## Implementation Status
+- **Unified Command Surface**: Consolidates all controls into a single view.
+- **Authority Timeline**: Real-time display of governance state transitions.
+- **Visual Cues**: Color-coded severity states for the command rail (Gray: Simulation, Red: TEON, Amber: BANE).
 
-## Tooling
-- Automated screenshot capture via Playwright/Puppeteer.
-- Manual verification for kinetic transitions and animations.
-- ArcHive™ witness records for UI state snapshots.
+## Known Limitations
+- **Responsive Scaling**: Some rails may experience crowding on low-resolution displays.
+- **Dark Mode Only**: The UIX is currently optimized for a high-fidelity dark operational environment.
+
+## Next Required Work
+- **Visual Diff Testing**: Implement automated visual regression testing for the command surface.
+- **Accessibility Audit**: Verify that all authority signals are distinguishable for users with color vision deficiencies.
